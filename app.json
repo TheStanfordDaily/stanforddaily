@@ -25,6 +25,9 @@
     ],
     "ios": {
       "supportsTablet": true
+    },
+    "web": {
+      "use": "nextjs"
     }
   }
 }
