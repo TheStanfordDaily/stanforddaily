@@ -1,7 +1,6 @@
 module.exports = function(api) {
   api.cache(true);
   return {
-    presets: ["babel-preset-expo"],
-    plugins: [["styled-components", { ssr: true }]]
+    presets: ['babel-preset-expo'],
   };
 };

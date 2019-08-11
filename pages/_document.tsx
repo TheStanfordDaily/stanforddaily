@@ -1,14 +1,7 @@
 // https://github.com/zeit/next.js/blob/00b56c6ede6fce26c300d3864f70ce1ecbe5fb1d/examples/with-react-native-web/pages/_document.js
-// https://github.com/zeit/next.js/blob/00b56c6ede6fce26c300d3864f70ce1ecbe5fb1d/examples/with-typescript-styled-components/pages/_document.tsx
-import Document, {
-  Head,
-  Main,
-  NextScript,
-  DocumentContext
-} from "next/document";
+import Document, { Head, Main, NextScript } from "next/document";
 import React from "react";
 import { AppRegistry } from "react-native-web";
-import { ServerStyleSheet } from "styled-components";
 
 // Force Next-generated DOM elements to fill their parent's height
 const normalizeNextElements = `
@@ -20,38 +13,15 @@ const normalizeNextElements = `
 `;
 
 export default class MyDocument extends Document {
-  static async getInitialProps(ctx: DocumentContext) {
-    const styledComponentsSheet = new ServerStyleSheet();
-    const originalRenderPage = ctx.renderPage;
-
+  static async getInitialProps({ renderPage }) {
     AppRegistry.registerComponent("Main", () => Main);
     const { getStyleElement } = AppRegistry.getApplication("Main");
-
-    // TODO: THIS IS NOT WORKING FOR `styled.View` etc.
-    try {
-      ctx.renderPage = () =>
-        originalRenderPage({
-          enhanceApp: App => props =>
-            styledComponentsSheet.collectStyles(<App {...props} />)
-        });
-
-      const initialProps = await Document.getInitialProps(ctx);
-      return {
-        ...initialProps,
-        styles: (
-          <>
-            <style
-              dangerouslySetInnerHTML={{ __html: normalizeNextElements }}
-            />
-            {initialProps.styles}
-            {getStyleElement()}
-            {styledComponentsSheet.getStyleElement()}
-          </>
-        )
-      };
-    } finally {
-      styledComponentsSheet.seal();
-    }
+    const page = renderPage();
+    const styles = [
+      <style dangerouslySetInnerHTML={{ __html: normalizeNextElements }} />,
+      getStyleElement()
+    ];
+    return { ...page, styles: React.Children.toArray(styles) };
   }
 
   render() {
