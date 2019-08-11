@@ -8,8 +8,12 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@emotion/core": "^10.0.15",
+    "@emotion/native": "^10.0.14",
+    "babel-plugin-emotion": "^10.0.15",
     "expo": "^34.0.1",
     "next": "^9.0.3",
+    "next-transpile-modules": "^2.3.1",
     "react": "16.8.3",
     "react-dom": "^16.8.6",
     "react-native": "https://github.com/expo/react-native/archive/sdk-34.0.0.tar.gz",
