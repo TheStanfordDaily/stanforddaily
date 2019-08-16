@@ -5,10 +5,10 @@ import { getWPAPI } from "../helpers/wpapi";
 
 const wp = getWPAPI();
 
-const Title = styled.Text`
-  font-size: 50px;
-  color: blue;
-`;
+const Title = styled.Text({
+  fontSize: 50,
+  color: "blue"
+});
 
 export default class App extends React.Component {
   async componentDidMount() {
@@ -26,19 +26,27 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <Title>My page</Title>
+      <View style={containerStyle}>
+        <Title
+          style={css({
+            borderColor: "blue",
+            borderStyle: "solid",
+            borderWidth: 5,
+            color: "red"
+          })}
+          href="#"
+        >
+          My page
+        </Title>
         <Text> up App.tsx to sta123rt working on your app!</Text>
       </View>
     );
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center"
-  }
+const containerStyle = css({
+  flex: 1,
+  backgroundColor: "#fff",
+  alignItems: "center",
+  justifyContent: "center"
 });
