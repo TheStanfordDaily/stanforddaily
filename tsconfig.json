@@ -16,7 +16,8 @@
     "forceConsistentCasingInFileNames": true,
     "esModuleInterop": true,
     "module": "esnext",
-    "isolatedModules": true
+    "isolatedModules": true,
+    "noImplicitAny": true
   },
   "exclude": [
     "node_modules"
