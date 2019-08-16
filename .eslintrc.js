@@ -32,5 +32,9 @@ module.exports = {
   rules: {
     "prettier/prettier": "error",
     "emotion/syntax-preference": ["error", "object"],
+    "@typescript-eslint/explicit-function-return-type": [
+      "error",
+      { allowExpressions: true, allowTypedFunctionExpressions: true },
+    ],
   },
 };
