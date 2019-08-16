@@ -36,5 +36,6 @@ module.exports = {
       "error",
       { allowExpressions: true, allowTypedFunctionExpressions: true },
     ],
+    "@typescript-eslint/no-explicit-any": "error",
   },
 };
