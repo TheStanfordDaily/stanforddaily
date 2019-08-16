@@ -4,6 +4,8 @@ module.exports = {
     node: true,
   },
   extends: [
+    "airbnb",
+    "plugin:import/typescript",
     "plugin:@typescript-eslint/recommended",
     "plugin:react/recommended",
     "plugin:prettier/recommended",
@@ -37,5 +39,8 @@ module.exports = {
       { allowExpressions: true, allowTypedFunctionExpressions: true },
     ],
     "@typescript-eslint/no-explicit-any": "error",
+    "react/jsx-filename-extension": ["error", { extensions: [".jsx", ".tsx"] }],
+    // `console`s will be removed by `babel-plugin-transform-remove-console` in production.
+    "no-console": "off",
   },
 };
