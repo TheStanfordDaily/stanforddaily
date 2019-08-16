@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { Text, View } from "react-native";
 import styled, { css } from "@emotion/native";
 import { getWPAPI } from "../helpers/wpapi";
 
@@ -7,15 +7,22 @@ const wp = getWPAPI();
 
 const Title = styled.Text({
   fontSize: 50,
-  color: "blue"
+  color: "blue",
+});
+
+const containerStyle = css({
+  flex: 1,
+  backgroundColor: "#fff",
+  alignItems: "center",
+  justifyContent: "center",
 });
 
 export default class App extends React.Component {
-  async componentDidMount() {
-    let apiMethod = wp.posts();
+  async componentDidMount(): Promise<void> {
+    const apiMethod = wp.posts();
     const post = await apiMethod
       .slug(
-        "elite-college-counseling-a-legal-prohibitively-expensive-pay-to-win-game-in-admissions"
+        "elite-college-counseling-a-legal-prohibitively-expensive-pay-to-win-game-in-admissions",
       )
       .embed()
       .then(data => {
@@ -24,7 +31,7 @@ export default class App extends React.Component {
     console.log(post.title);
   }
 
-  render() {
+  render(): React.ReactNode {
     return (
       <View style={containerStyle}>
         <Title
@@ -32,7 +39,7 @@ export default class App extends React.Component {
             borderColor: "blue",
             borderStyle: "solid",
             borderWidth: 5,
-            color: "red"
+            color: "red",
           })}
           href="#"
         >
@@ -43,10 +50,3 @@ export default class App extends React.Component {
     );
   }
 }
-
-const containerStyle = css({
-  flex: 1,
-  backgroundColor: "#fff",
-  alignItems: "center",
-  justifyContent: "center"
-});
