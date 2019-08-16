@@ -11,7 +11,7 @@ module.exports = {
     "prettier/babel",
     "prettier/react",
   ],
-  plugins: ["@typescript-eslint", "babel", "prettier", "react"],
+  plugins: ["@typescript-eslint", "babel", "prettier", "react", "emotion"],
   globals: {
     Atomics: "readonly",
     SharedArrayBuffer: "readonly",
@@ -31,5 +31,6 @@ module.exports = {
   },
   rules: {
     "prettier/prettier": "error",
+    "emotion/syntax-preference": ["error", "object"],
   },
 };
