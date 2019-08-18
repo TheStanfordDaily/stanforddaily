@@ -1,5 +1,6 @@
 import React from "react";
-import { Text, View } from "react-native";
+import { Text, View, Platform } from "react-native";
+import { WebView } from "react-native-webview";
 import styled, { css } from "@emotion/native";
 import { getPostBySlugAsync } from "../../../../helpers/wpapi";
 import Wrapper from "../../../../components/Wrapper";
@@ -30,16 +31,20 @@ export default class Post extends React.Component<PostProps, PostState> {
     if (!post) {
       return <Text>Loading...</Text>;
     }
+    if (Platform.OS === "web") {
+      return (
+        // eslint-disable-next-line react/no-danger
+        <div dangerouslySetInnerHTML={{ __html: post.content.rendered }} />
+      );
+    }
+
+    // TODO: Make source the actual webpage (i.e., directly loading the above page)
     return (
-      <View style={containerStyle}>
-        <Text>
-          {
-            post.title
-              .rendered /* TODO: this is rendered, we have to decode e.g. Q&#038;A: Incoming Stanford */
-          }
-        </Text>
-        <Text>{post.content.rendered /* TODO: render it */}</Text>
-      </View>
+      <WebView
+        source={{ html: post.content.rendered }}
+        originWhitelist={["*"]}
+        style={{ marginTop: 20 }}
+      />
     );
   }
 }
