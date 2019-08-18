@@ -26,10 +26,19 @@ export default class Post extends React.Component<PostProps, PostState> {
   }
 
   render(): React.ReactNode {
+    const { post } = this.props;
+    if (!post) {
+      return <Text>Loading...</Text>;
+    }
     return (
       <View style={containerStyle}>
-        <Text>My page {JSON.stringify(this.props)}</Text>
-        <Text> up App.tsx to sta123rt working on your app!</Text>
+        <Text>
+          {
+            post.title
+              .rendered /* TODO: this is rendered, we have to decode e.g. Q&#038;A: Incoming Stanford */
+          }
+        </Text>
+        <Text>{post.content.rendered /* TODO: render it */}</Text>
       </View>
     );
   }
