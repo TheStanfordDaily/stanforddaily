@@ -17,6 +17,6 @@ export async function getPostBySlugAsync(slug: string): Promise<any> {
   return post;
 }
 
-export async function getPostsAsync(): Promise<any> {
+export async function getPostsAsync(): Promise<any[]> {
   return wp.posts().embed();
 }
