@@ -5,6 +5,7 @@
 This is the Stanford Daily website & mobile app. Visit the site at https://www.stanforddaily.com/ (not live yet) and download the app at https://app.stanforddaily.com/. Contributions welcome!
 
 ## Setup
+
 ```bash
 # Installation
 npm install -g expo-cli
@@ -19,6 +20,7 @@ yarn web
 ```
 
 ## Release
+
 For the production channel:
 
 ```bash
