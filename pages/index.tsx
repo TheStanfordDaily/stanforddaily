@@ -15,6 +15,7 @@ const containerStyle = css({
   backgroundColor: "#fff",
   alignItems: "center",
   justifyContent: "center",
+  flexDirection: "column",
 });
 
 interface IndexProps {
@@ -36,16 +37,14 @@ export default class Index extends React.Component<IndexProps, IndexState> {
     }
     const fposts = posts.map(post => {
       return (
-        <ul key={post.slug}>
-          <li>
-            <Link href="/[year]/[month]/[day]/[slug]" as={getPostPath(post)}>
-              <a>{post.title.rendered}</a>
-            </Link>
-          </li>
-        </ul>
+        <View key={post.slug}>
+          <Link href="/[year]/[month]/[day]/[slug]" as={getPostPath(post)}>
+            <a>{post.title.rendered}</a>
+          </Link>
+        </View>
       );
     });
-    return fposts;
+    return <View style={containerStyle}>{fposts}</View>;
   }
 }
 
