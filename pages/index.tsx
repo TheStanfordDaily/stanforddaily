@@ -40,7 +40,7 @@ export default class Index extends React.Component<IndexProps, IndexState> {
       return (
         <View key={post.slug}>
           {Platform.OS === "web" ? (
-            <Link href="/[year]/[month]/[day]/[slug]" as={getPostPath(post)}>
+            <Link href="/[year]/[month]/[day]/[slug]/" as={getPostPath(post)}>
               <a>{post.title.rendered}</a>
             </Link>
           ) : (
