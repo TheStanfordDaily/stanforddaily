@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, View } from "react-native";
+import { Text, View, Platform } from "react-native";
 import styled, { css } from "@emotion/native";
 import Link from "next/link";
 import { getPostsAsync, getPostPath } from "../helpers/wpapi";
@@ -20,6 +20,7 @@ const containerStyle = css({
 
 interface IndexProps {
   posts?: any[];
+  navigation?: any;
 }
 
 interface IndexState {}
@@ -38,9 +39,19 @@ export default class Index extends React.Component<IndexProps, IndexState> {
     const fposts = posts.map(post => {
       return (
         <View key={post.slug}>
-          <Link href="/[year]/[month]/[day]/[slug]" as={getPostPath(post)}>
-            <a>{post.title.rendered}</a>
-          </Link>
+          {Platform.OS === "web" ? (
+            <Link href="/[year]/[month]/[day]/[slug]" as={getPostPath(post)}>
+              <a>{post.title.rendered}</a>
+            </Link>
+          ) : (
+            <Text
+              onPress={() => {
+                this.props.navigation.push("post", { slug: post.slug });
+              }}
+            >
+              {post.title.rendered}
+            </Text>
+          )}
         </View>
       );
     });
