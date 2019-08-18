@@ -1,7 +1,8 @@
 import React from "react";
 import { Text, View } from "react-native";
 import styled, { css } from "@emotion/native";
-import { getPostsAsync } from "../helpers/wpapi";
+import Link from "next/link";
+import { getPostsAsync, getPostPath } from "../helpers/wpapi";
 import Wrapper from "../components/Wrapper";
 
 const Title = styled.Text({
@@ -33,22 +34,18 @@ export default class Index extends React.Component<IndexProps, IndexState> {
     if (!posts) {
       return <Text>Loading...</Text>;
     }
-    return (
-      <View style={containerStyle}>
-        <Title
-          style={css({
-            borderColor: "blue",
-            borderStyle: "solid",
-            borderWidth: 5,
-            color: "red",
-          })}
-          href="#"
-        >
-          My page
-        </Title>
-        <Text>{JSON.stringify(posts)}</Text>
-      </View>
-    );
+    const fposts = posts.map(post => {
+      return (
+        <ul key={post.slug}>
+          <li>
+            <Link href="/[year]/[month]/[day]/[slug]" as={getPostPath(post)}>
+              <a>{post.title.rendered}</a>
+            </Link>
+          </li>
+        </ul>
+      );
+    });
+    return fposts;
   }
 }
 

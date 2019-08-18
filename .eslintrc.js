@@ -49,6 +49,7 @@ module.exports = {
     ],
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/no-empty-interface": "warn",
+    "jsx-a11y/anchor-is-valid": "off",
     // `console`s will be removed by `babel-plugin-transform-remove-console` in production.
     "no-console": "off",
   },

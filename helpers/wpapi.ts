@@ -1,4 +1,5 @@
 import WPAPI from "wpapi";
+import moment from "moment";
 
 export function getWPAPI(): WPAPI {
   return new WPAPI({ endpoint: "https://www.stanforddaily.com/wp-json" });
@@ -19,4 +20,14 @@ export async function getPostBySlugAsync(slug: string): Promise<any> {
 
 export async function getPostsAsync(): Promise<any[]> {
   return wp.posts().embed();
+}
+
+export function getPostLocalDate(post: any): moment.Moment {
+  const date = moment.utc(post.date_gmt);
+  return date;
+}
+
+export function getPostPath(post: any): string {
+  const serverDate = moment(post.date).format("YYYY/MM/DD");
+  return `/${serverDate}/${post.slug}`;
 }
