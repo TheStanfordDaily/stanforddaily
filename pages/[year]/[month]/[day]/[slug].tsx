@@ -39,13 +39,13 @@ export function PostWrapper(props): any {
   return (
     <Wrapper
       class={Post}
+      props={props}
       getInitialProps={{
         query: {
           slug:
             "elite-college-counseling-a-legal-prohibitively-expensive-pay-to-win-game-in-admissions",
         },
       }}
-      {...props}
     />
   );
 }

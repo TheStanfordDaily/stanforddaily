@@ -5,6 +5,7 @@ import React from "react";
 interface WrapperProps {
   class: any;
   getInitialProps?: any;
+  props?: any;
 }
 
 interface WrapperState {
@@ -22,7 +23,7 @@ export default class Wrapper extends React.Component<
 
   async componentDidMount(): Promise<void> {
     const { class: WrappedClass, getInitialProps: param } = this.props;
-    if (WrappedClass.getInitialProps) {
+    if (typeof WrappedClass.getInitialProps === "function") {
       this.setState({
         initProp: await WrappedClass.getInitialProps(param),
       });
@@ -30,8 +31,8 @@ export default class Wrapper extends React.Component<
   }
 
   render(): React.ReactNode {
-    const { class: WrappedClass } = this.props;
+    const { class: WrappedClass, props: parentProps } = this.props;
     const { initProp } = this.state;
-    return <WrappedClass {...this.props} {...initProp} />;
+    return <WrappedClass {...parentProps} {...initProp} />;
   }
 }
