@@ -1,9 +1,8 @@
 import React from "react";
 import { Text, View } from "react-native";
 import styled, { css } from "@emotion/native";
-import { getWPAPI } from "../helpers/wpapi";
-
-const wp = getWPAPI();
+import { getPostsAsync } from "../helpers/wpapi";
+import Wrapper from "../components/Wrapper";
 
 const Title = styled.Text({
   fontSize: 50,
@@ -17,21 +16,23 @@ const containerStyle = css({
   justifyContent: "center",
 });
 
-export default class App extends React.Component {
-  async componentDidMount(): Promise<void> {
-    const apiMethod = wp.posts();
-    const post = await apiMethod
-      .slug(
-        "elite-college-counseling-a-legal-prohibitively-expensive-pay-to-win-game-in-admissions",
-      )
-      .embed()
-      .then(data => {
-        return data[0];
-      });
-    console.log(post.title);
+interface IndexProps {
+  posts?: any[];
+}
+
+interface IndexState {}
+
+export default class Index extends React.Component<IndexProps, IndexState> {
+  static async getInitialProps(): Promise<any> {
+    const posts = await getPostsAsync();
+    return { posts };
   }
 
   render(): React.ReactNode {
+    const { posts } = this.props;
+    if (!posts) {
+      return <Text>Loading...</Text>;
+    }
     return (
       <View style={containerStyle}>
         <Title
@@ -45,8 +46,12 @@ export default class App extends React.Component {
         >
           My page
         </Title>
-        <Text> up App.tsx to sta123rt working on your app!</Text>
+        <Text>{JSON.stringify(posts)}</Text>
       </View>
     );
   }
+}
+
+export function IndexWrapper(props): any {
+  return <Wrapper class={Index} props={props} getInitialProps={{}} />;
 }

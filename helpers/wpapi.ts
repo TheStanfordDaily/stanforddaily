@@ -4,8 +4,8 @@ export function getWPAPI(): WPAPI {
   return new WPAPI({ endpoint: "https://www.stanforddaily.com/wp-json" });
 }
 
+const wp = getWPAPI();
 export async function getPostBySlugAsync(slug: string): Promise<any> {
-  const wp = getWPAPI();
   const apiMethod = wp.posts();
   const post = await apiMethod
     .slug(slug)
@@ -15,4 +15,8 @@ export async function getPostBySlugAsync(slug: string): Promise<any> {
     });
   console.log(post.title);
   return post;
+}
+
+export async function getPostsAsync(): Promise<any> {
+  return wp.posts().embed();
 }
