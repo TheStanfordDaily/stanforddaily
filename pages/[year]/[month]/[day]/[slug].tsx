@@ -2,7 +2,7 @@ import React from "react";
 import { Text, View } from "react-native";
 import styled, { css } from "@emotion/native";
 import { getPostBySlugAsync } from "../../../../helpers/wpapi";
-import Wrapper from "../../../../helpers/Wrapper";
+import Wrapper from "../../../../components/Wrapper";
 
 const containerStyle = css({
   flex: 1,
