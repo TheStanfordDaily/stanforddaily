@@ -8,15 +8,12 @@ This is the Stanford Daily website & mobile app. Visit the site at https://www.s
 
 ```bash
 # Installation
-npm install -g expo-cli
 yarn
 
 # Start
 yarn start
-# or
-yarn ios
-yarn android
-yarn web
+# To find more options
+yarn start --help
 ```
 
 ## Release
@@ -24,17 +21,17 @@ yarn web
 For the production channel:
 
 ```bash
-expo build:ios --release-channel production
-expo build:android --release-channel production
+yarn expo build:ios --release-channel production
+yarn expo build:android --release-channel production
 
-expo publish --release-channel production
+yarn expo publish --release-channel production
 ```
 
 For the development channel,
 
 ```bash
-expo build:ios --release-channel development
-expo build:android --release-channel development
+yarn expo build:ios --release-channel development
+yarn expo build:android --release-channel development
 
-expo publish --release-channel development
+yarn expo publish --release-channel development
 ```

@@ -50,6 +50,7 @@
     "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-react": "^7.14.3",
     "eslint-plugin-react-hooks": "^1.7.0",
+    "expo-cli": "^3.0.10",
     "husky": ">=1",
     "lint-staged": ">=8",
     "prettier": "^1.18.2",
