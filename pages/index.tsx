@@ -1,5 +1,6 @@
+// TODO: use pure React + display: grid!
 import React from "react";
-import { Text, View, Platform, ScrollView } from "react-native";
+import { Text, View, Dimensions, ScrollView, ViewProps } from "react-native";
 import styled, { css } from "@emotion/native";
 import Link from "next/link";
 import { getPostsAsync, getPostPath } from "../helpers/wpapi";
@@ -10,16 +11,32 @@ const MyView = styled.View({
   padding: 0,
 });
 
-const Column: React.ElementType = props => (
-  <View
-    style={css({
-      flexDirection: "column",
-      flexGrow: 1,
-      flexBasis: 0,
-    })}
-    {...props}
-  />
-);
+function isMobile(): boolean {
+  const { width } = Dimensions.get("window");
+  console.warn(width);
+  return width < 600;
+}
+
+const Column: React.ElementType = (props: any) => {
+  const style: any = {
+    flexDirection: "column",
+    flexGrow: 1,
+  };
+  if (!isMobile()) {
+    style.flexBasis = 0;
+  }
+  return <View {...props} style={{ ...style, ...props.style }} />;
+};
+
+const DesktopRow: React.ElementType = (props: any) => {
+  const style: any = {
+    flexDirection: "row",
+  };
+  if (isMobile()) {
+    style.flexDirection = "column";
+  }
+  return <View {...props} style={{ ...style, ...props.style }} />;
+};
 
 interface IndexProps {
   posts?: any[];
@@ -32,6 +49,12 @@ export default class Index extends React.Component<IndexProps, IndexState> {
   static async getInitialProps(): Promise<any> {
     const posts = await getPostsAsync();
     return { posts };
+  }
+
+  componentDidMount(): void {
+    Dimensions.addEventListener("change", () => {
+      this.forceUpdate();
+    });
   }
 
   render(): React.ReactNode {
@@ -67,20 +90,17 @@ export default class Index extends React.Component<IndexProps, IndexState> {
           flexDirection: "column",
         }}
       >
-        <View style={{ flexDirection: "row" }}>
-          <MyView
+        <DesktopRow>
+          <Column
             style={{
               flexGrow: 6,
-              flexBasis: 0,
             }}
           >
-            <View style={{ flexDirection: "row" }}>
-              <MyView
+            <DesktopRow>
+              <Column
                 style={{
                   flexGrow: 3,
-                  flexBasis: 0,
                   backgroundColor: "lightgreen",
-                  flexDirection: "column",
                 }}
               >
                 <MyView
@@ -115,13 +135,11 @@ export default class Index extends React.Component<IndexProps, IndexState> {
                 >
                   <Text>news 4</Text>
                 </MyView>
-              </MyView>
-              <MyView
+              </Column>
+              <Column
                 style={{
                   flexGrow: 7,
-                  flexBasis: 0,
                   backgroundColor: "green",
-                  flexDirection: "column",
                 }}
               >
                 <Text>featured</Text>
@@ -133,63 +151,54 @@ export default class Index extends React.Component<IndexProps, IndexState> {
                 >
                   <Text>featured article 1</Text>
                 </MyView>
-                <MyView
+                <DesktopRow
                   style={{
                     backgroundColor: "blue",
-                    flexDirection: "row",
                   }}
                 >
-                  <MyView
+                  <Column
                     style={{
                       backgroundColor: "#298323",
                       height: 200,
-                      flexBasis: 0,
-                      flexGrow: 1,
                     }}
                   >
                     <Text>featured article 2</Text>
-                  </MyView>
-                  <MyView
+                  </Column>
+                  <Column
                     style={{
                       backgroundColor: "lightgray",
                       height: 200,
-                      flexBasis: 0,
-                      flexGrow: 1,
                     }}
                   >
                     <Text>featured article 3</Text>
-                  </MyView>
-                </MyView>
-              </MyView>
-            </View>
-            <View style={{ flexDirection: "row" }}>
-              <MyView
+                  </Column>
+                </DesktopRow>
+              </Column>
+            </DesktopRow>
+            <DesktopRow>
+              <Column
                 style={{
                   flexGrow: 3,
-                  flexBasis: 0,
                   backgroundColor: "cyan",
                   height: 300,
                 }}
               >
                 <Text>sports1</Text>
-              </MyView>
-              <MyView
+              </Column>
+              <Column
                 style={{
                   flexGrow: 7,
-                  flexBasis: 0,
                   backgroundColor: "orange",
                   height: 300,
                 }}
               >
                 <Text>sports2</Text>
-              </MyView>
-            </View>
-          </MyView>
-          <MyView
+              </Column>
+            </DesktopRow>
+          </Column>
+          <Column
             style={{
               flexGrow: 3,
-              flexBasis: 0,
-              flexDirection: "column",
             }}
           >
             <MyView
@@ -232,8 +241,8 @@ export default class Index extends React.Component<IndexProps, IndexState> {
             >
               <Text>sponsored content</Text>
             </MyView>
-          </MyView>
-        </View>
+          </Column>
+        </DesktopRow>
         <MyView
           style={{
             flexGrow: 1,
@@ -251,10 +260,9 @@ export default class Index extends React.Component<IndexProps, IndexState> {
           }}
         >
           <Text>more from daily</Text>
-          <MyView
+          <DesktopRow
             style={{
               backgroundColor: "lightblue",
-              flexDirection: "row",
             }}
           >
             <Column
@@ -299,13 +307,10 @@ export default class Index extends React.Component<IndexProps, IndexState> {
             </Column>
             <Column>
               <View style={{ height: 75, backgroundColor: "#e83944" }}>
-                <Text>
-                  article
-                  111111wefklnwejkfnjkewnfjkewjknfjkwefnjkwenjkfjknewfnjkewjknfjnkewjknf1
-                </Text>
+                <Text>article 11</Text>
               </View>
             </Column>
-          </MyView>
+          </DesktopRow>
         </MyView>
       </ScrollView>
     );
