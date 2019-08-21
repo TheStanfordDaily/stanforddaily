@@ -1,6 +1,6 @@
 // TODO: use pure React + display: grid!
 import React from "react";
-import { Text, View, Dimensions, ScrollView, ViewProps } from "react-native";
+import { Text, View, Dimensions, ScrollView } from "react-native";
 import styled, { css } from "@emotion/native";
 import Link from "next/link";
 import { getPostsAsync, getPostPath } from "../helpers/wpapi";
@@ -17,26 +17,16 @@ function isMobile(): boolean {
   return width < 600;
 }
 
-const Column: React.ElementType = (props: any) => {
-  const style: any = {
-    flexDirection: "column",
-    flexGrow: 1,
-  };
-  if (!isMobile()) {
-    style.flexBasis = 0;
-  }
-  return <View {...props} style={{ ...style, ...props.style }} />;
-};
+// TODO: FIX SERVER-SIDE-RENDERING DISCREPENCY
+const Column = styled.View({
+  flexDirection: "column",
+  flexGrow: 1,
+  flexBasis: isMobile() ? undefined : 0,
+});
 
-const DesktopRow: React.ElementType = (props: any) => {
-  const style: any = {
-    flexDirection: "row",
-  };
-  if (isMobile()) {
-    style.flexDirection = "column";
-  }
-  return <View {...props} style={{ ...style, ...props.style }} />;
-};
+const DesktopRow = styled.View({
+  flexDirection: isMobile() ? "column" : "row",
+});
 
 interface IndexProps {
   posts?: any[];
@@ -101,6 +91,7 @@ export default class Index extends React.Component<IndexProps, IndexState> {
                 style={{
                   flexGrow: 3,
                   backgroundColor: "lightgreen",
+                  order: isMobile() ? 2 : 1,
                 }}
               >
                 <MyView
@@ -140,6 +131,7 @@ export default class Index extends React.Component<IndexProps, IndexState> {
                 style={{
                   flexGrow: 7,
                   backgroundColor: "green",
+                  order: isMobile() ? 1 : 2,
                 }}
               >
                 <Text>featured</Text>
