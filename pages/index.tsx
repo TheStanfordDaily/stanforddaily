@@ -18,15 +18,26 @@ function isMobile(): boolean {
 }
 
 // TODO: FIX SERVER-SIDE-RENDERING DISCREPENCY
-const Column = styled.View({
-  flexDirection: "column",
-  flexGrow: 1,
-  flexBasis: isMobile() ? undefined : 0,
-});
+const Column: React.ElementType = (props: any) => {
+  const style: any = {
+    flexDirection: "column",
+    flexGrow: 1,
+  };
+  if (!isMobile()) {
+    style.flexBasis = 0;
+  }
+  return <View {...props} style={{ ...style, ...props.style }} />;
+};
 
-const DesktopRow = styled.View({
-  flexDirection: isMobile() ? "column" : "row",
-});
+const DesktopRow: React.ElementType = (props: any) => {
+  const style: any = {
+    flexDirection: "row",
+  };
+  if (isMobile()) {
+    style.flexDirection = "column";
+  }
+  return <View {...props} style={{ ...style, ...props.style }} />;
+};
 
 interface IndexProps {
   posts?: any[];
@@ -89,6 +100,45 @@ export default class Index extends React.Component<IndexProps, IndexState> {
             <DesktopRow>
               <Column
                 style={{
+                  flexGrow: 7,
+                  backgroundColor: "green",
+                  order: isMobile() ? 1 : 2,
+                }}
+              >
+                <Text>featured</Text>
+                <MyView
+                  style={{
+                    backgroundColor: "yellow",
+                    height: 400,
+                  }}
+                >
+                  <Text>featured article 1</Text>
+                </MyView>
+                <DesktopRow
+                  style={{
+                    backgroundColor: "blue",
+                  }}
+                >
+                  <Column
+                    style={{
+                      backgroundColor: "#298323",
+                      height: 200,
+                    }}
+                  >
+                    <Text>featured article 2</Text>
+                  </Column>
+                  <Column
+                    style={{
+                      backgroundColor: "lightgray",
+                      height: 200,
+                    }}
+                  >
+                    <Text>featured article 3</Text>
+                  </Column>
+                </DesktopRow>
+              </Column>
+              <Column
+                style={{
                   flexGrow: 3,
                   backgroundColor: "lightgreen",
                   order: isMobile() ? 2 : 1,
@@ -126,45 +176,6 @@ export default class Index extends React.Component<IndexProps, IndexState> {
                 >
                   <Text>news 4</Text>
                 </MyView>
-              </Column>
-              <Column
-                style={{
-                  flexGrow: 7,
-                  backgroundColor: "green",
-                  order: isMobile() ? 1 : 2,
-                }}
-              >
-                <Text>featured</Text>
-                <MyView
-                  style={{
-                    backgroundColor: "yellow",
-                    height: 400,
-                  }}
-                >
-                  <Text>featured article 1</Text>
-                </MyView>
-                <DesktopRow
-                  style={{
-                    backgroundColor: "blue",
-                  }}
-                >
-                  <Column
-                    style={{
-                      backgroundColor: "#298323",
-                      height: 200,
-                    }}
-                  >
-                    <Text>featured article 2</Text>
-                  </Column>
-                  <Column
-                    style={{
-                      backgroundColor: "lightgray",
-                      height: 200,
-                    }}
-                  >
-                    <Text>featured article 3</Text>
-                  </Column>
-                </DesktopRow>
               </Column>
             </DesktopRow>
             <DesktopRow>
