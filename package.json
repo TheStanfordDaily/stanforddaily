@@ -11,7 +11,8 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "eject": "expo eject"
+    "eject": "expo eject",
+    "build": "expo build:web"
   },
   "dependencies": {
     "@emotion/core": "^10.0.15",
