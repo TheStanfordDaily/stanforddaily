@@ -12,7 +12,7 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
-    "build": "expo build:web"
+    "now-build": "expo build:web"
   },
   "dependencies": {
     "@emotion/core": "^10.0.15",
