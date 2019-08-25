@@ -36,13 +36,7 @@ module.exports = {
     "import/prefer-default-export": "off",
     "react/destructuring-assignment": "off",
     "react/jsx-filename-extension": ["error", { extensions: [".jsx", ".tsx"] }],
-    "react/jsx-props-no-spreading": [
-      "error",
-      {
-        html: "enforce",
-        custom: "ignore",
-      },
-    ],
+    "react/jsx-props-no-spreading": "off",
     "emotion/syntax-preference": ["error", "object"],
     "@typescript-eslint/explicit-function-return-type": [
       "error",
@@ -51,6 +45,8 @@ module.exports = {
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/no-empty-interface": "warn",
     "jsx-a11y/anchor-is-valid": "off",
+    "no-else-return": "off",
+    "no-underscore-dangle": "off",
     // `console`s will be removed by `babel-plugin-transform-remove-console` in production.
     "no-console": "off",
   },
