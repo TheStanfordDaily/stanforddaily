@@ -12,7 +12,8 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
-    "now-build": "expo build:web"
+    "build": "EXPO_DEBUG=true expo build:web",
+    "now-build": "EXPO_DEBUG=true expo build:web"
   },
   "dependencies": {
     "@emotion/babel-preset-css-prop": "^10.0.14",
