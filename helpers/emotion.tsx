@@ -2,6 +2,7 @@ import React from "react";
 import { View, Platform, Dimensions } from "react-native";
 // `import { jsx, css }` is necessary (for web) even if seems to be unused.
 import { jsx, css } from "@emotion/core"; // eslint-disable-line @typescript-eslint/no-unused-vars
+import merge from "lodash.merge";
 
 export type Style = { [key: string]: any };
 export type RStyle = { [minWidth: number]: Style };
@@ -73,11 +74,9 @@ export const RView: React.ElementType = (props: any) => {
   }
 };
 
-/*
 export function mergeRStyle(originalRStyle: RStyle, newRStyle: RStyle): RStyle {
-  // TODO
+  return merge(originalRStyle, newRStyle);
 }
-*/
 
 /*
 export function initRStyle(input: any): { [key: string]: any } {

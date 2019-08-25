@@ -3,53 +3,55 @@ import { Text, View, Dimensions, ScrollView } from "react-native";
 import Link from "next/link";
 import { getPostsAsync, getPostPath } from "../helpers/wpapi";
 import Wrapper from "../components/Wrapper";
-import { RView, BREAKPOINTS } from "../helpers/emotion";
+import { RView, BREAKPOINTS, mergeRStyle } from "../helpers/emotion";
 
 const MyView: React.ElementType = (props: any) => {
   const { rStyle = {}, ...remainingProps } = props;
-  const resultRStyle = {
-    ...rStyle,
-    [BREAKPOINTS.DEFAULT]: {
-      margin: 0,
-      padding: 0,
-      ...rStyle[BREAKPOINTS.DEFAULT],
+  const resultRStyle = mergeRStyle(
+    {
+      [BREAKPOINTS.DEFAULT]: {
+        margin: 0,
+        padding: 0,
+      },
     },
-  };
+    rStyle,
+  );
 
   return <RView {...remainingProps} rStyle={resultRStyle} />;
 };
 
 const Column: React.ElementType = (props: any) => {
   const { rStyle = {}, ...remainingProps } = props;
-  const resultRStyle = {
-    ...rStyle,
-    [BREAKPOINTS.DEFAULT]: {
-      flexDirection: "column",
-      flexGrow: 1,
-      ...rStyle[BREAKPOINTS.DEFAULT],
+  const resultRStyle = mergeRStyle(
+    {
+      [BREAKPOINTS.DEFAULT]: {
+        flexDirection: "column",
+        flexGrow: 1,
+      },
+      [BREAKPOINTS.TABLET]: {
+        flexBasis: 0,
+      },
     },
-    [BREAKPOINTS.TABLET]: {
-      flexBasis: 0,
-      ...rStyle[BREAKPOINTS.TABLET],
-    },
-  };
+    rStyle,
+  );
 
   return <RView {...remainingProps} rStyle={resultRStyle} />;
 };
 
 const DesktopRow: React.ElementType = (props: any) => {
   const { rStyle = {}, ...remainingProps } = props;
-  const resultRStyle = {
-    ...rStyle,
-    [BREAKPOINTS.DEFAULT]: {
-      flexDirection: "column",
-      ...rStyle[BREAKPOINTS.DEFAULT],
+  const resultRStyle = mergeRStyle(
+    {
+      [BREAKPOINTS.DEFAULT]: {
+        flexDirection: "column",
+      },
+      [BREAKPOINTS.TABLET]: {
+        flexDirection: "row",
+      },
     },
-    [BREAKPOINTS.TABLET]: {
-      flexDirection: "row",
-      ...rStyle[BREAKPOINTS.TABLET],
-    },
-  };
+    rStyle,
+  );
+
   return <RView {...remainingProps} rStyle={resultRStyle} />;
 };
 
