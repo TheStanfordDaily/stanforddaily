@@ -3,7 +3,7 @@ import { Text, View, Dimensions, ScrollView } from "react-native";
 import Link from "next/link";
 import { getPostsAsync, getPostPath } from "../helpers/wpapi";
 import Wrapper from "../components/Wrapper";
-import { RView, BREAKPOINTS, mergeRStyle } from "../helpers/emotion";
+import { RView, BREAKPOINTS, mergeRStyle } from "../helpers/responsiveStyle";
 
 const MyView: React.ElementType = (props: any) => {
   const { rStyle = {}, ...remainingProps } = props;
