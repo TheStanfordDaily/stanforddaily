@@ -215,46 +215,38 @@ export default class Index extends React.Component<IndexProps, IndexState> {
                   },
                 }}
               >
-                <RView
-                  rStyle={{
-                    [BREAKPOINTS.DEFAULT]: {
-                      backgroundColor: "#123456",
-                      height: 100,
-                    },
+                <View
+                  style={{
+                    backgroundColor: "#123456",
+                    height: 100,
                   }}
                 >
                   <Text>news 1</Text>
-                </RView>
-                <RView
-                  rStyle={{
-                    [BREAKPOINTS.DEFAULT]: {
-                      backgroundColor: "#A23456",
-                      height: 100,
-                    },
+                </View>
+                <View
+                  style={{
+                    backgroundColor: "#A23456",
+                    height: 100,
                   }}
                 >
                   <Text>news 2</Text>
-                </RView>
-                <RView
-                  rStyle={{
-                    [BREAKPOINTS.DEFAULT]: {
-                      backgroundColor: "#523456",
-                      height: 70,
-                    },
+                </View>
+                <View
+                  style={{
+                    backgroundColor: "#523456",
+                    height: 70,
                   }}
                 >
                   <Text>news 3</Text>
-                </RView>
-                <RView
-                  rStyle={{
-                    [BREAKPOINTS.DEFAULT]: {
-                      backgroundColor: "#D2E456",
-                      height: 70,
-                    },
+                </View>
+                <View
+                  style={{
+                    backgroundColor: "#D2E456",
+                    height: 70,
                   }}
                 >
                   <Text>news 4</Text>
-                </RView>
+                </View>
               </Column>
             </DesktopRow>
             <DesktopRow>
@@ -289,74 +281,62 @@ export default class Index extends React.Component<IndexProps, IndexState> {
               },
             }}
           >
-            <RView
-              rStyle={{
-                [BREAKPOINTS.DEFAULT]: {
-                  flexGrow: 3,
-                  flexBasis: 0,
-                  backgroundColor: "blue",
-                  height: 100,
-                },
+            <View
+              style={{
+                flexGrow: 3,
+                flexBasis: 0,
+                backgroundColor: "blue",
+                height: 100,
               }}
             >
               <Text>opinion</Text>
-            </RView>
-            <RView
-              rStyle={{
-                [BREAKPOINTS.DEFAULT]: {
-                  flexGrow: 3,
-                  flexBasis: 0,
-                  backgroundColor: "cyan",
-                  height: 100,
-                },
+            </View>
+            <View
+              style={{
+                flexGrow: 3,
+                flexBasis: 0,
+                backgroundColor: "cyan",
+                height: 100,
               }}
             >
               <Text>grind</Text>
-            </RView>
-            <RView
-              rStyle={{
-                [BREAKPOINTS.DEFAULT]: {
-                  flexGrow: 3,
-                  flexBasis: 0,
-                  backgroundColor: "lightred",
-                  height: 100,
-                },
+            </View>
+            <View
+              style={{
+                flexGrow: 3,
+                flexBasis: 0,
+                backgroundColor: "lightred",
+                height: 100,
               }}
             >
               <Text>arts and life</Text>
-            </RView>
-            <RView
-              rStyle={{
-                [BREAKPOINTS.DEFAULT]: {
-                  flexGrow: 3,
-                  flexBasis: 0,
-                  backgroundColor: "gray",
-                  height: 100,
-                },
+            </View>
+            <View
+              style={{
+                flexGrow: 3,
+                flexBasis: 0,
+                backgroundColor: "gray",
+                height: 100,
               }}
             >
               <Text>sponsored content</Text>
-            </RView>
+            </View>
           </Column>
         </DesktopRow>
-        <RView
-          rStyle={{
-            [BREAKPOINTS.DEFAULT]: {
-              flexGrow: 1,
-              backgroundColor: "yellow",
-              height: 400,
-            },
+        <View
+          style={{
+            flexGrow: 1,
+            backgroundColor: "yellow",
+            height: 400,
           }}
         >
           <Text>multimedia</Text>
-        </RView>
-        <RView
-          rStyle={{
-            [BREAKPOINTS.DEFAULT]: {
-              flexGrow: 1,
-              backgroundColor: "green",
-              flexDirection: "column",
-            },
+        </View>
+        <View
+          style={{
+            flexGrow: 1,
+            backgroundColor: "green",
+            flexDirection: "column",
           }}
         >
           <Text>more from daily</Text>
@@ -415,7 +395,7 @@ export default class Index extends React.Component<IndexProps, IndexState> {
               </View>
             </Column>
           </DesktopRow>
-        </RView>
+        </View>
       </ScrollView>
     );
   }
