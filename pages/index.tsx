@@ -152,80 +152,100 @@ const Author: React.ElementType = ({ children, ...props }: any) => {
   }
 };
 
-const FeaturedSection: React.ElementType = (props: any) => {
-  const HeadlineArticle: React.ElementType = (hProps: any) => {
-    return (
-      <Article
-        style={{
-          backgroundColor: "yellow",
-        }}
-      >
-        <LinkToArticle>
-          <Image
-            style={{
-              width: "100%",
-              height: 200,
-            }}
-            source={{
-              uri:
-                "https://www.stanforddaily.com/wp-content/uploads/2019/08/44010386874_30ea221b19_o.jpg",
-            }}
-            resizeMode="cover"
-          />
-        </LinkToArticle>
-        <ArticleHeader>
-          <ArticleTitle>
-            <LinkToArticle>
-              Stanford legend Andrew Luck retires from NFL after six seasons
-            </LinkToArticle>
-          </ArticleTitle>
-          <ArticleSubtitle>
-            After push by student activists, Second Harvest of Silicon Valley,
-            Graduate Student Council and R&DE partner for three deliveries
-          </ArticleSubtitle>
-        </ArticleHeader>
-        <Text>
-          Bring grocery bags, transportation (like a wagon, stroller, or a car)
-          and your Stanford ID card, the RSVP form asks. The Monday event is a
-          pilot of a campus food pantry, where students who self-identify as
-          food insecure will receive up to 150 lbs of food per household.{" "}
-        </Text>
-        <Author>John Doe</Author>
-      </Article>
-    );
-  };
-  const SmallArticle: React.ElementType = (sProps: any) => {
-    return (
-      <Article
-        style={{
-          backgroundColor: "#ABCDEF",
-        }}
-      >
-        <LinkToArticle>
-          <Image
-            style={{
-              width: "100%",
-              height: 100,
-            }}
-            source={{
-              uri:
-                "https://www.stanforddaily.com/wp-content/uploads/2019/08/44010386874_30ea221b19_o.jpg",
-            }}
-            resizeMode="cover"
-          />
-        </LinkToArticle>
-        <ArticleHeader>
-          <ArticleTitle>
-            <LinkToArticle>
-              Stanford legend Andrew Luck retires from NFL after six seasons
-            </LinkToArticle>
-          </ArticleTitle>
-        </ArticleHeader>
-        <Author>John Doe</Author>
-      </Article>
-    );
-  };
+const HeadlineArticle: React.ElementType = (props: any) => {
+  return (
+    <Article
+      style={{
+        backgroundColor: "yellow",
+      }}
+    >
+      <LinkToArticle>
+        <Image
+          style={{
+            width: "100%",
+            height: 200,
+          }}
+          source={{
+            uri:
+              "https://www.stanforddaily.com/wp-content/uploads/2019/08/44010386874_30ea221b19_o.jpg",
+          }}
+          resizeMode="cover"
+        />
+      </LinkToArticle>
+      <ArticleHeader>
+        <ArticleTitle>
+          <LinkToArticle>
+            Stanford legend Andrew Luck retires from NFL after six seasons
+          </LinkToArticle>
+        </ArticleTitle>
+        <ArticleSubtitle>
+          After push by student activists, Second Harvest of Silicon Valley,
+          Graduate Student Council and R&DE partner for three deliveries
+        </ArticleSubtitle>
+      </ArticleHeader>
+      <Text>
+        Bring grocery bags, transportation (like a wagon, stroller, or a car)
+        and your Stanford ID card, the RSVP form asks. The Monday event is a
+        pilot of a campus food pantry, where students who self-identify as food
+        insecure will receive up to 150 lbs of food per household.{" "}
+      </Text>
+      <Author>John Doe</Author>
+    </Article>
+  );
+};
 
+const ThumbnailArticle: React.ElementType = (props: any) => {
+  return (
+    <Article
+      style={{
+        backgroundColor: "#ABCDEF",
+      }}
+    >
+      <LinkToArticle>
+        <Image
+          style={{
+            width: "100%",
+            height: 100,
+          }}
+          source={{
+            uri:
+              "https://www.stanforddaily.com/wp-content/uploads/2019/08/44010386874_30ea221b19_o.jpg",
+          }}
+          resizeMode="cover"
+        />
+      </LinkToArticle>
+      <ArticleHeader>
+        <ArticleTitle>
+          <LinkToArticle>
+            Stanford legend Andrew Luck retires from NFL after six seasons
+          </LinkToArticle>
+        </ArticleTitle>
+      </ArticleHeader>
+      <Author>John Doe</Author>
+    </Article>
+  );
+};
+
+const TextOnlyArticle: React.ElementType = (props: any) => {
+  return (
+    <Article
+      style={{
+        backgroundColor: "#FEDCBA",
+      }}
+    >
+      <ArticleHeader>
+        <ArticleTitle>
+          <LinkToArticle>
+            Stanford legend Andrew Luck retires from NFL after six seasons
+          </LinkToArticle>
+        </ArticleTitle>
+      </ArticleHeader>
+      <Author>John Doe</Author>
+    </Article>
+  );
+};
+
+const FeaturedSection: React.ElementType = (props: any) => {
   return (
     <Column
       rStyle={{
@@ -256,7 +276,7 @@ const FeaturedSection: React.ElementType = (props: any) => {
               },
             }}
           >
-            <SmallArticle />
+            <ThumbnailArticle />
           </Column>
           <Column
             rStyle={{
@@ -265,7 +285,7 @@ const FeaturedSection: React.ElementType = (props: any) => {
               },
             }}
           >
-            <SmallArticle />
+            <ThumbnailArticle />
           </Column>
         </DesktopRow>
       </Section>
@@ -288,37 +308,34 @@ const NewsSection: React.ElementType = (props: any) => {
       }}
     >
       <Section>
+        <SectionTitle>News</SectionTitle>
         <View
           style={{
             backgroundColor: "#123456",
-            height: 100,
           }}
         >
-          <Text>news 1</Text>
+          <ThumbnailArticle />
         </View>
         <View
           style={{
             backgroundColor: "#A23456",
-            height: 100,
           }}
         >
-          <Text>news 2</Text>
+          <ThumbnailArticle />
         </View>
         <View
           style={{
             backgroundColor: "#523456",
-            height: 70,
           }}
         >
-          <Text>news 3</Text>
+          <TextOnlyArticle />
         </View>
         <View
           style={{
             backgroundColor: "#D2E456",
-            height: 70,
           }}
         >
-          <Text>news 4</Text>
+          <TextOnlyArticle />
         </View>
       </Section>
     </Column>
