@@ -259,7 +259,8 @@ const TextOnlyArticle: React.ElementType = (props: any) => {
   );
 };
 
-const FeaturedSection: React.ElementType = (props: any) => {
+const MainSection: React.ElementType = (props: any) => {
+  const { sectionTitle } = props;
   return (
     <Column
       rStyle={{
@@ -274,7 +275,7 @@ const FeaturedSection: React.ElementType = (props: any) => {
       }}
     >
       <Section>
-        <SectionTitle>Featured</SectionTitle>
+        {sectionTitle && <SectionTitle>{sectionTitle}</SectionTitle>}
         <HeadlineArticle />
         <DesktopRow
           rStyle={{
@@ -307,7 +308,8 @@ const FeaturedSection: React.ElementType = (props: any) => {
   );
 };
 
-const NewsSection: React.ElementType = (props: any) => {
+const LeftSection: React.ElementType = (props: any) => {
+  const { sectionTitle } = props;
   return (
     <Column
       rStyle={{
@@ -322,7 +324,7 @@ const NewsSection: React.ElementType = (props: any) => {
       }}
     >
       <Section>
-        <SectionTitle>News</SectionTitle>
+        {sectionTitle && <SectionTitle>{sectionTitle}</SectionTitle>}
         <View
           style={{
             backgroundColor: "#123456",
@@ -357,35 +359,32 @@ const NewsSection: React.ElementType = (props: any) => {
 };
 
 const SportsSection: React.ElementType = (props: any) => {
+  const { mainBeforeSide } = props;
+
+  const LeftSportSection: React.ElementType = (lsProps: any) => {
+    return <LeftSection sectionTitle={null} {...lsProps} />;
+  };
+  const MainSportSection: React.ElementType = (msProps: any) => {
+    return <MainSection sectionTitle={null} {...msProps} />;
+  };
+
   return (
     <SectionWithoutStyle>
+      <SectionStyle>
+        <SectionTitle>Sports</SectionTitle>
+      </SectionStyle>
       <DesktopRow>
-        <Column
-          rStyle={{
-            [BREAKPOINTS.DEFAULT]: {
-              flexGrow: 3,
-              backgroundColor: "cyan",
-              height: 300,
-            },
-          }}
-        >
-          <SectionStyle>
-            <Text>sports1</Text>
-          </SectionStyle>
-        </Column>
-        <Column
-          rStyle={{
-            [BREAKPOINTS.DEFAULT]: {
-              flexGrow: 7,
-              backgroundColor: "orange",
-              height: 300,
-            },
-          }}
-        >
-          <SectionStyle>
-            <Text>sports2</Text>
-          </SectionStyle>
-        </Column>
+        {mainBeforeSide ? (
+          <>
+            <MainSportSection />
+            <LeftSportSection />
+          </>
+        ) : (
+          <>
+            <LeftSportSection />
+            <MainSportSection />
+          </>
+        )}
       </DesktopRow>
     </SectionWithoutStyle>
   );
@@ -661,6 +660,13 @@ export default class Index extends React.Component<IndexProps, IndexState> {
       }
     }
 
+    const FeaturedSection: React.ElementType = (fsProps: any) => {
+      return <MainSection sectionTitle="Featured" {...fsProps} />;
+    };
+    const NewsSection: React.ElementType = (nsProps: any) => {
+      return <LeftSection sectionTitle="News" {...nsProps} />;
+    };
+
     return (
       <ScrollView
         contentContainerStyle={{
@@ -688,7 +694,7 @@ export default class Index extends React.Component<IndexProps, IndexState> {
                 </>
               )}
             </DesktopRow>
-            <SportsSection />
+            <SportsSection mainBeforeSide={featuredBeforeNews} />
           </Column>
           <Column
             rStyle={{
