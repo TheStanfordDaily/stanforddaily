@@ -259,6 +259,23 @@ const TextOnlyArticle: React.ElementType = (props: any) => {
   );
 };
 
+const ListStyleArticle: React.ElementType = (props: any) => {
+  return (
+    <Article
+      style={{
+        backgroundColor: "#935502",
+      }}
+    >
+      <Author>John Doe</Author>
+      <ArticleHeader>
+        <ArticleTitleWithLink>
+          Stanford legend Andrew Luck retires from NFL after six seasons
+        </ArticleTitleWithLink>
+      </ArticleHeader>
+    </Article>
+  );
+};
+
 const MainSection: React.ElementType = (props: any) => {
   const { sectionTitle, SectionTag = Section } = props;
   return (
@@ -358,6 +375,19 @@ const LeftSection: React.ElementType = (props: any) => {
   );
 };
 
+const RightListedSection: React.ElementType = (props: any) => {
+  const { sectionTitle, SectionTag = Section, ...remainingProps } = props;
+  return (
+    <SectionTag {...remainingProps}>
+      {sectionTitle && <SectionTitle>{sectionTitle}</SectionTitle>}
+      <ListStyleArticle />
+      <ListStyleArticle />
+      <ListStyleArticle />
+      <ListStyleArticle />
+    </SectionTag>
+  );
+};
+
 const SportsSection: React.ElementType = (props: any) => {
   const { mainBeforeSide } = props;
 
@@ -408,31 +438,23 @@ const SportsSection: React.ElementType = (props: any) => {
 
 const OpinionSection: React.ElementType = (props: any) => {
   return (
-    <Section
+    <RightListedSection
+      sectionTitle="Opinion"
       style={{
-        flexGrow: 3,
-        flexBasis: 0,
         backgroundColor: "blue",
-        height: 100,
       }}
-    >
-      <Text>opinion</Text>
-    </Section>
+    />
   );
 };
 
 const GrindSection: React.ElementType = (props: any) => {
   return (
-    <Section
+    <RightListedSection
+      sectionTitle="The Grind"
       style={{
-        flexGrow: 3,
-        flexBasis: 0,
         backgroundColor: "cyan",
-        height: 100,
       }}
-    >
-      <Text>The Grind</Text>
-    </Section>
+    />
   );
 };
 
@@ -440,13 +462,11 @@ const ArtsAndLifeSection: React.ElementType = (props: any) => {
   return (
     <Section
       style={{
-        flexGrow: 3,
-        flexBasis: 0,
         backgroundColor: "lightred",
         height: 100,
       }}
     >
-      <Text>arts and life</Text>
+      <SectionTitle>arts and life</SectionTitle>
     </Section>
   );
 };
@@ -455,13 +475,11 @@ const SponsoredSection: React.ElementType = (props: any) => {
   return (
     <Section
       style={{
-        flexGrow: 3,
-        flexBasis: 0,
         backgroundColor: "gray",
-        height: 100,
+        height: 300,
       }}
     >
-      <Text>sponsored content</Text>
+      <SectionTitle>sponsored content</SectionTitle>
     </Section>
   );
 };
