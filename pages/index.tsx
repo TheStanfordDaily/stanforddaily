@@ -11,7 +11,12 @@ import styled from "@emotion/native";
 import Link from "next/link";
 import { getPostsAsync, getPostPath } from "../helpers/wpapi";
 import Wrapper from "../components/Wrapper";
-import { RView, BREAKPOINTS, mergeRStyle } from "../helpers/responsiveStyle";
+import {
+  RView,
+  BREAKPOINTS,
+  mergeRStyle,
+  isWidthGreaterThan,
+} from "../helpers/responsiveStyle";
 
 // TODO: layout got reset to mobile one when returning from other app on iPad
 
@@ -616,6 +621,15 @@ export default class Index extends React.Component<IndexProps, IndexState> {
     });
     return <View style={containerStyle}>{fposts}</View>;
     */
+
+    let featuredBeforeNews = true;
+    // Note that on web it is handled by the CSS `order` property and media query.
+    if (Platform.OS !== "web") {
+      if (isWidthGreaterThan(BREAKPOINTS.TABLET)) {
+        featuredBeforeNews = false;
+      }
+    }
+
     return (
       <ScrollView
         contentContainerStyle={{
@@ -631,9 +645,17 @@ export default class Index extends React.Component<IndexProps, IndexState> {
             }}
           >
             <DesktopRow>
-              {/* TODO: on iPad FeaturedSection should not be displayed before NewsSection */}
-              <FeaturedSection />
-              <NewsSection />
+              {featuredBeforeNews ? (
+                <>
+                  <FeaturedSection />
+                  <NewsSection />
+                </>
+              ) : (
+                <>
+                  <NewsSection />
+                  <FeaturedSection />
+                </>
+              )}
             </DesktopRow>
             <SportsSection />
           </Column>

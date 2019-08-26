@@ -13,7 +13,7 @@ export const BREAKPOINTS = {
   DESKTOP: 1100,
 };
 
-function _isWidthGreaterThan(breakpoint: number): boolean {
+export function isWidthGreaterThan(breakpoint: number): boolean {
   const { width } = Dimensions.get("window");
   console.warn(width);
   return width > breakpoint;
@@ -41,7 +41,7 @@ function _getStyleBasedOnCurrentWidth(rStyle: RStyle): Style {
 
   let style = defaultRStyle;
   Object.entries(remainingRStyles).forEach(([minWidth, value]) => {
-    if (_isWidthGreaterThan(Number(minWidth))) {
+    if (isWidthGreaterThan(Number(minWidth))) {
       style = { ...style, ...value };
     }
   });
