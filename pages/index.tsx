@@ -1,24 +1,10 @@
 import React from "react";
-import { Text, View, Dimensions, ScrollView } from "react-native";
+import { Text, View, Image, ScrollView, Platform } from "react-native";
+import styled from "@emotion/native";
 import Link from "next/link";
 import { getPostsAsync, getPostPath } from "../helpers/wpapi";
 import Wrapper from "../components/Wrapper";
 import { RView, BREAKPOINTS, mergeRStyle } from "../helpers/responsiveStyle";
-
-const MyView: React.ElementType = (props: any) => {
-  const { rStyle = {}, ...remainingProps } = props;
-  const resultRStyle = mergeRStyle(
-    {
-      [BREAKPOINTS.DEFAULT]: {
-        margin: 0,
-        padding: 0,
-      },
-    },
-    rStyle,
-  );
-
-  return <RView {...remainingProps} rStyle={resultRStyle} />;
-};
 
 const Column: React.ElementType = (props: any) => {
   const { rStyle = {}, ...remainingProps } = props;
@@ -54,6 +40,29 @@ const DesktopRow: React.ElementType = (props: any) => {
 
   return <RView {...remainingProps} rStyle={resultRStyle} />;
 };
+
+const SectionTitleStyle = styled.Text({
+  backgroundColor: "#333",
+  fontSize: 25,
+  margin: 0,
+  marginBottom: 15,
+});
+const SectionTitle =
+  Platform.OS === "web"
+    ? SectionTitleStyle.withComponent("h1")
+    : SectionTitleStyle;
+
+const ArticleTitleStyle = styled.Text({
+  backgroundColor: "#666",
+  fontSize: 20,
+  margin: 0,
+  marginTop: 10,
+  marginBottom: 15,
+});
+const ArticleTitle =
+  Platform.OS === "web"
+    ? ArticleTitleStyle.withComponent("h2")
+    : ArticleTitleStyle;
 
 interface IndexProps {
   posts?: any[];
@@ -138,6 +147,7 @@ export default class Index extends React.Component<IndexProps, IndexState> {
                   [BREAKPOINTS.DEFAULT]: {
                     flexGrow: 7,
                     backgroundColor: "green",
+                    padding: 15,
                     order: 1,
                   },
                   [BREAKPOINTS.TABLET]: {
@@ -145,17 +155,25 @@ export default class Index extends React.Component<IndexProps, IndexState> {
                   },
                 }}
               >
-                <Text>featured</Text>
-                <MyView
-                  rStyle={{
-                    [BREAKPOINTS.DEFAULT]: {
-                      backgroundColor: "yellow",
-                      height: 400,
-                    },
+                <SectionTitle>Featured</SectionTitle>
+                <View
+                  style={{
+                    backgroundColor: "yellow",
                   }}
                 >
-                  <Text>featured article 1</Text>
-                </MyView>
+                  <Image
+                    style={{ width: "100%", height: 200 }}
+                    source={{
+                      uri:
+                        "https://www.stanforddaily.com/wp-content/uploads/2019/08/44010386874_30ea221b19_o.jpg",
+                    }}
+                    resizeMode="cover"
+                  />
+                  <ArticleTitle>
+                    Stanford legend Andrew Luck retires from NFL after six
+                    seasons
+                  </ArticleTitle>
+                </View>
                 <DesktopRow
                   rStyle={{
                     [BREAKPOINTS.DEFAULT]: {
@@ -197,7 +215,7 @@ export default class Index extends React.Component<IndexProps, IndexState> {
                   },
                 }}
               >
-                <MyView
+                <RView
                   rStyle={{
                     [BREAKPOINTS.DEFAULT]: {
                       backgroundColor: "#123456",
@@ -206,8 +224,8 @@ export default class Index extends React.Component<IndexProps, IndexState> {
                   }}
                 >
                   <Text>news 1</Text>
-                </MyView>
-                <MyView
+                </RView>
+                <RView
                   rStyle={{
                     [BREAKPOINTS.DEFAULT]: {
                       backgroundColor: "#A23456",
@@ -216,8 +234,8 @@ export default class Index extends React.Component<IndexProps, IndexState> {
                   }}
                 >
                   <Text>news 2</Text>
-                </MyView>
-                <MyView
+                </RView>
+                <RView
                   rStyle={{
                     [BREAKPOINTS.DEFAULT]: {
                       backgroundColor: "#523456",
@@ -226,8 +244,8 @@ export default class Index extends React.Component<IndexProps, IndexState> {
                   }}
                 >
                   <Text>news 3</Text>
-                </MyView>
-                <MyView
+                </RView>
+                <RView
                   rStyle={{
                     [BREAKPOINTS.DEFAULT]: {
                       backgroundColor: "#D2E456",
@@ -236,7 +254,7 @@ export default class Index extends React.Component<IndexProps, IndexState> {
                   }}
                 >
                   <Text>news 4</Text>
-                </MyView>
+                </RView>
               </Column>
             </DesktopRow>
             <DesktopRow>
@@ -271,7 +289,7 @@ export default class Index extends React.Component<IndexProps, IndexState> {
               },
             }}
           >
-            <MyView
+            <RView
               rStyle={{
                 [BREAKPOINTS.DEFAULT]: {
                   flexGrow: 3,
@@ -282,8 +300,8 @@ export default class Index extends React.Component<IndexProps, IndexState> {
               }}
             >
               <Text>opinion</Text>
-            </MyView>
-            <MyView
+            </RView>
+            <RView
               rStyle={{
                 [BREAKPOINTS.DEFAULT]: {
                   flexGrow: 3,
@@ -294,8 +312,8 @@ export default class Index extends React.Component<IndexProps, IndexState> {
               }}
             >
               <Text>grind</Text>
-            </MyView>
-            <MyView
+            </RView>
+            <RView
               rStyle={{
                 [BREAKPOINTS.DEFAULT]: {
                   flexGrow: 3,
@@ -306,8 +324,8 @@ export default class Index extends React.Component<IndexProps, IndexState> {
               }}
             >
               <Text>arts and life</Text>
-            </MyView>
-            <MyView
+            </RView>
+            <RView
               rStyle={{
                 [BREAKPOINTS.DEFAULT]: {
                   flexGrow: 3,
@@ -318,10 +336,10 @@ export default class Index extends React.Component<IndexProps, IndexState> {
               }}
             >
               <Text>sponsored content</Text>
-            </MyView>
+            </RView>
           </Column>
         </DesktopRow>
-        <MyView
+        <RView
           rStyle={{
             [BREAKPOINTS.DEFAULT]: {
               flexGrow: 1,
@@ -331,8 +349,8 @@ export default class Index extends React.Component<IndexProps, IndexState> {
           }}
         >
           <Text>multimedia</Text>
-        </MyView>
-        <MyView
+        </RView>
+        <RView
           rStyle={{
             [BREAKPOINTS.DEFAULT]: {
               flexGrow: 1,
@@ -397,7 +415,7 @@ export default class Index extends React.Component<IndexProps, IndexState> {
               </View>
             </Column>
           </DesktopRow>
-        </MyView>
+        </RView>
       </ScrollView>
     );
   }
