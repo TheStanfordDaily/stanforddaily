@@ -260,7 +260,7 @@ const TextOnlyArticle: React.ElementType = (props: any) => {
 };
 
 const MainSection: React.ElementType = (props: any) => {
-  const { sectionTitle } = props;
+  const { sectionTitle, SectionTag = Section } = props;
   return (
     <Column
       rStyle={{
@@ -274,7 +274,7 @@ const MainSection: React.ElementType = (props: any) => {
         },
       }}
     >
-      <Section>
+      <SectionTag>
         {sectionTitle && <SectionTitle>{sectionTitle}</SectionTitle>}
         <HeadlineArticle />
         <DesktopRow
@@ -303,13 +303,13 @@ const MainSection: React.ElementType = (props: any) => {
             <ThumbnailArticle />
           </Column>
         </DesktopRow>
-      </Section>
+      </SectionTag>
     </Column>
   );
 };
 
 const LeftSection: React.ElementType = (props: any) => {
-  const { sectionTitle } = props;
+  const { sectionTitle, SectionTag = Section } = props;
   return (
     <Column
       rStyle={{
@@ -323,7 +323,7 @@ const LeftSection: React.ElementType = (props: any) => {
         },
       }}
     >
-      <Section>
+      <SectionTag>
         {sectionTitle && <SectionTitle>{sectionTitle}</SectionTitle>}
         <View
           style={{
@@ -353,7 +353,7 @@ const LeftSection: React.ElementType = (props: any) => {
         >
           <TextOnlyArticle />
         </View>
-      </Section>
+      </SectionTag>
     </Column>
   );
 };
@@ -361,16 +361,32 @@ const LeftSection: React.ElementType = (props: any) => {
 const SportsSection: React.ElementType = (props: any) => {
   const { mainBeforeSide } = props;
 
+  const SectionStyleWithoutPaddingTop = styled(SectionStyle)({
+    paddingTop: 0,
+  });
+
   const LeftSportSection: React.ElementType = (lsProps: any) => {
-    return <LeftSection sectionTitle={null} {...lsProps} />;
+    return (
+      <LeftSection
+        sectionTitle={null}
+        SectionTag={SectionStyleWithoutPaddingTop}
+        {...lsProps}
+      />
+    );
   };
   const MainSportSection: React.ElementType = (msProps: any) => {
-    return <MainSection sectionTitle={null} {...msProps} />;
+    return (
+      <MainSection
+        sectionTitle={null}
+        SectionTag={SectionStyleWithoutPaddingTop}
+        {...msProps}
+      />
+    );
   };
 
   return (
     <SectionWithoutStyle>
-      <SectionStyle>
+      <SectionStyle style={{ paddingBottom: 0 }}>
         <SectionTitle>Sports</SectionTitle>
       </SectionStyle>
       <DesktopRow>
