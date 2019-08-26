@@ -1,10 +1,19 @@
 import React from "react";
-import { Text, View, Image, ScrollView, Platform } from "react-native";
+import {
+  Text,
+  View,
+  Image,
+  TouchableOpacity,
+  ScrollView,
+  Platform,
+} from "react-native";
 import styled from "@emotion/native";
 import Link from "next/link";
 import { getPostsAsync, getPostPath } from "../helpers/wpapi";
 import Wrapper from "../components/Wrapper";
 import { RView, BREAKPOINTS, mergeRStyle } from "../helpers/responsiveStyle";
+
+// TODO: layout got reset to mobile one when returning from other app on iPad
 
 const Column: React.ElementType = (props: any) => {
   const { rStyle = {}, ...remainingProps } = props;
@@ -60,18 +69,77 @@ const SectionTitle =
     ? SectionTitleStyle.withComponent("h1")
     : SectionTitleStyle;
 
-// TODO: use `<article>` tag for articles
+const Article: React.ElementType = (props: any) => {
+  if (Platform.OS === "web") {
+    const ArticleTag = styled.View().withComponent("article");
+    return <ArticleTag {...props} />;
+  } else {
+    return (
+      <TouchableOpacity
+        onPress={() => {
+          this.alert("Go to article!");
+        }}
+        {...props}
+      />
+    );
+  }
+};
+
+const ArticleHeader =
+  Platform.OS === "web" ? styled.View().withComponent("header") : View;
+
 const ArticleTitleStyle = styled.Text({
   backgroundColor: "#666",
   fontSize: 20,
   margin: 0,
   marginTop: 10,
-  marginBottom: 15,
+  marginBottom: 10,
 });
 const ArticleTitle =
   Platform.OS === "web"
     ? ArticleTitleStyle.withComponent("h2")
     : ArticleTitleStyle;
+const LinkToArticle: React.ElementType = ({ children, ...props }: any) => {
+  if (Platform.OS === "web") {
+    return (
+      <Link href="/[year]/[month]/[day]/[slug]/" as="/2019/01/01/test">
+        <a title="ARTICLE TITLE HERE" {...props}>
+          {children}
+        </a>
+      </Link>
+    );
+  } else {
+    return children;
+  }
+};
+
+const ArticleSubtitleStyle = styled.Text({
+  backgroundColor: "#999",
+  fontSize: 17,
+  margin: 0,
+  marginTop: -5,
+  marginBottom: 10,
+});
+const ArticleSubtitle =
+  Platform.OS === "web"
+    ? ArticleSubtitleStyle.withComponent("h3")
+    : ArticleSubtitleStyle;
+
+const Author: React.ElementType = ({ children, ...props }: any) => {
+  if (Platform.OS === "web") {
+    return (
+      <View>
+        <Text>
+          <a href="https://example.com" rel="author" {...props}>
+            {children}
+          </a>
+        </Text>
+      </View>
+    );
+  } else {
+    return <Text {...props}>{children}</Text>;
+  }
+};
 
 const FeaturedSection: React.ElementType = (props: any) => {
   return (
@@ -89,26 +157,43 @@ const FeaturedSection: React.ElementType = (props: any) => {
     >
       <Section>
         <SectionTitle>Featured</SectionTitle>
-        <View
+        <Article
           style={{
             backgroundColor: "yellow",
           }}
         >
-          <Image
-            style={{
-              width: "100%",
-              height: 200,
-            }}
-            source={{
-              uri:
-                "https://www.stanforddaily.com/wp-content/uploads/2019/08/44010386874_30ea221b19_o.jpg",
-            }}
-            resizeMode="cover"
-          />
-          <ArticleTitle>
-            Stanford legend Andrew Luck retires from NFL after six seasons
-          </ArticleTitle>
-        </View>
+          <LinkToArticle>
+            <Image
+              style={{
+                width: "100%",
+                height: 200,
+              }}
+              source={{
+                uri:
+                  "https://www.stanforddaily.com/wp-content/uploads/2019/08/44010386874_30ea221b19_o.jpg",
+              }}
+              resizeMode="cover"
+            />
+          </LinkToArticle>
+          <ArticleHeader>
+            <ArticleTitle>
+              <LinkToArticle>
+                Stanford legend Andrew Luck retires from NFL after six seasons
+              </LinkToArticle>
+            </ArticleTitle>
+            <ArticleSubtitle>
+              After push by student activists, Second Harvest of Silicon Valley,
+              Graduate Student Council and R&DE partner for three deliveries
+            </ArticleSubtitle>
+          </ArticleHeader>
+          <Text>
+            Bring grocery bags, transportation (like a wagon, stroller, or a
+            car) and your Stanford ID card, the RSVP form asks. The Monday event
+            is a pilot of a campus food pantry, where students who self-identify
+            as food insecure will receive up to 150 lbs of food per household.{" "}
+          </Text>
+          <Author>John Doe</Author>
+        </Article>
         <DesktopRow
           rStyle={{
             [BREAKPOINTS.DEFAULT]: {
