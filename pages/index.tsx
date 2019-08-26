@@ -64,6 +64,351 @@ const ArticleTitle =
     ? ArticleTitleStyle.withComponent("h2")
     : ArticleTitleStyle;
 
+const FeaturedSection: React.ElementType = (props: any) => {
+  return (
+    <Column
+      rStyle={{
+        [BREAKPOINTS.DEFAULT]: {
+          flexGrow: 7,
+          backgroundColor: "green",
+          padding: 15,
+          order: 1,
+        },
+        [BREAKPOINTS.TABLET]: {
+          order: 2,
+        },
+      }}
+    >
+      <SectionTitle>Featured</SectionTitle>
+      <View
+        style={{
+          backgroundColor: "yellow",
+        }}
+      >
+        <Image
+          style={{
+            width: "100%",
+            height: 200,
+          }}
+          source={{
+            uri:
+              "https://www.stanforddaily.com/wp-content/uploads/2019/08/44010386874_30ea221b19_o.jpg",
+          }}
+          resizeMode="cover"
+        />
+        <ArticleTitle>
+          Stanford legend Andrew Luck retires from NFL after six seasons
+        </ArticleTitle>
+      </View>
+      <DesktopRow
+        rStyle={{
+          [BREAKPOINTS.DEFAULT]: {
+            backgroundColor: "blue",
+          },
+        }}
+      >
+        <Column
+          rStyle={{
+            [BREAKPOINTS.DEFAULT]: {
+              backgroundColor: "#298323",
+              height: 200,
+            },
+          }}
+        >
+          <Text>featured article 2</Text>
+        </Column>
+        <Column
+          rStyle={{
+            [BREAKPOINTS.DEFAULT]: {
+              backgroundColor: "lightgray",
+              height: 200,
+            },
+          }}
+        >
+          <Text>featured article 3</Text>
+        </Column>
+      </DesktopRow>
+    </Column>
+  );
+};
+
+const NewsSection: React.ElementType = (props: any) => {
+  return (
+    <Column
+      rStyle={{
+        [BREAKPOINTS.DEFAULT]: {
+          flexGrow: 3,
+          backgroundColor: "lightgreen",
+          order: 2,
+        },
+        [BREAKPOINTS.TABLET]: {
+          order: 1,
+        },
+      }}
+    >
+      <View
+        style={{
+          backgroundColor: "#123456",
+          height: 100,
+        }}
+      >
+        <Text>news 1</Text>
+      </View>
+      <View
+        style={{
+          backgroundColor: "#A23456",
+          height: 100,
+        }}
+      >
+        <Text>news 2</Text>
+      </View>
+      <View
+        style={{
+          backgroundColor: "#523456",
+          height: 70,
+        }}
+      >
+        <Text>news 3</Text>
+      </View>
+      <View
+        style={{
+          backgroundColor: "#D2E456",
+          height: 70,
+        }}
+      >
+        <Text>news 4</Text>
+      </View>
+    </Column>
+  );
+};
+
+const SportsSection: React.ElementType = (props: any) => {
+  return (
+    <DesktopRow>
+      <Column
+        rStyle={{
+          [BREAKPOINTS.DEFAULT]: {
+            flexGrow: 3,
+            backgroundColor: "cyan",
+            height: 300,
+          },
+        }}
+      >
+        <Text>sports1</Text>
+      </Column>
+      <Column
+        rStyle={{
+          [BREAKPOINTS.DEFAULT]: {
+            flexGrow: 7,
+            backgroundColor: "orange",
+            height: 300,
+          },
+        }}
+      >
+        <Text>sports2</Text>
+      </Column>
+    </DesktopRow>
+  );
+};
+
+const OpinionSection: React.ElementType = (props: any) => {
+  return (
+    <View
+      style={{
+        flexGrow: 3,
+        flexBasis: 0,
+        backgroundColor: "blue",
+        height: 100,
+      }}
+    >
+      <Text>opinion</Text>
+    </View>
+  );
+};
+
+const GrindSection: React.ElementType = (props: any) => {
+  return (
+    <View
+      style={{
+        flexGrow: 3,
+        flexBasis: 0,
+        backgroundColor: "cyan",
+        height: 100,
+      }}
+    >
+      <Text>The Grind</Text>
+    </View>
+  );
+};
+
+const ArtsAndLifeSection: React.ElementType = (props: any) => {
+  return (
+    <View
+      style={{
+        flexGrow: 3,
+        flexBasis: 0,
+        backgroundColor: "lightred",
+        height: 100,
+      }}
+    >
+      <Text>arts and life</Text>
+    </View>
+  );
+};
+
+const SponsoredSection: React.ElementType = (props: any) => {
+  return (
+    <View
+      style={{
+        flexGrow: 3,
+        flexBasis: 0,
+        backgroundColor: "gray",
+        height: 100,
+      }}
+    >
+      <Text>sponsored content</Text>
+    </View>
+  );
+};
+
+const MultimediaSection: React.ElementType = (props: any) => {
+  return (
+    <View
+      style={{
+        flexGrow: 1,
+        backgroundColor: "yellow",
+        height: 400,
+      }}
+    >
+      <Text>multimedia</Text>
+    </View>
+  );
+};
+
+const MoreFromTheDailySection: React.ElementType = (props: any) => {
+  return (
+    <View
+      style={{
+        flexGrow: 1,
+        backgroundColor: "green",
+        flexDirection: "column",
+      }}
+    >
+      <Text>more from daily</Text>
+      <DesktopRow
+        rStyle={{
+          [BREAKPOINTS.DEFAULT]: {
+            backgroundColor: "lightblue",
+          },
+        }}
+      >
+        <Column
+          rStyle={{
+            [BREAKPOINTS.DEFAULT]: {
+              flexGrow: 2,
+            },
+          }}
+        >
+          <View
+            style={{
+              height: 100,
+              backgroundColor: "#123456",
+            }}
+          >
+            <Text>article 1</Text>
+          </View>
+          <View
+            style={{
+              height: 100,
+              backgroundColor: "#234234",
+            }}
+          >
+            <Text>article 2</Text>
+          </View>
+          <View
+            style={{
+              height: 100,
+              backgroundColor: "#928284",
+            }}
+          >
+            <Text>article 3</Text>
+          </View>
+        </Column>
+        <Column>
+          <View
+            style={{
+              height: 80,
+              backgroundColor: "#903894",
+            }}
+          >
+            <Text>article 4</Text>
+          </View>
+          <View
+            style={{
+              height: 80,
+              backgroundColor: "#098764",
+            }}
+          >
+            <Text>article 5</Text>
+          </View>
+          <View
+            style={{
+              height: 80,
+              backgroundColor: "#238923",
+            }}
+          >
+            <Text>article 6</Text>
+          </View>
+        </Column>
+        <Column>
+          <View
+            style={{
+              height: 75,
+              backgroundColor: "#373737",
+            }}
+          >
+            <Text>article 7</Text>
+          </View>
+          <View
+            style={{
+              height: 75,
+              backgroundColor: "#292929",
+            }}
+          >
+            <Text>article 8</Text>
+          </View>
+          <View
+            style={{
+              height: 75,
+              backgroundColor: "#575757",
+            }}
+          >
+            <Text>article 9</Text>
+          </View>
+          <View
+            style={{
+              height: 75,
+              backgroundColor: "#ababba",
+            }}
+          >
+            <Text>article 10</Text>
+          </View>
+        </Column>
+        <Column>
+          <View
+            style={{
+              height: 75,
+              backgroundColor: "#e83944",
+            }}
+          >
+            <Text>article 11</Text>
+          </View>
+        </Column>
+      </DesktopRow>
+    </View>
+  );
+};
+
 interface IndexProps {
   posts?: any[];
   navigation?: any;
@@ -142,137 +487,11 @@ export default class Index extends React.Component<IndexProps, IndexState> {
             }}
           >
             <DesktopRow>
-              <Column
-                rStyle={{
-                  [BREAKPOINTS.DEFAULT]: {
-                    flexGrow: 7,
-                    backgroundColor: "green",
-                    padding: 15,
-                    order: 1,
-                  },
-                  [BREAKPOINTS.TABLET]: {
-                    order: 2,
-                  },
-                }}
-              >
-                <SectionTitle>Featured</SectionTitle>
-                <View
-                  style={{
-                    backgroundColor: "yellow",
-                  }}
-                >
-                  <Image
-                    style={{ width: "100%", height: 200 }}
-                    source={{
-                      uri:
-                        "https://www.stanforddaily.com/wp-content/uploads/2019/08/44010386874_30ea221b19_o.jpg",
-                    }}
-                    resizeMode="cover"
-                  />
-                  <ArticleTitle>
-                    Stanford legend Andrew Luck retires from NFL after six
-                    seasons
-                  </ArticleTitle>
-                </View>
-                <DesktopRow
-                  rStyle={{
-                    [BREAKPOINTS.DEFAULT]: {
-                      backgroundColor: "blue",
-                    },
-                  }}
-                >
-                  <Column
-                    rStyle={{
-                      [BREAKPOINTS.DEFAULT]: {
-                        backgroundColor: "#298323",
-                        height: 200,
-                      },
-                    }}
-                  >
-                    <Text>featured article 2</Text>
-                  </Column>
-                  <Column
-                    rStyle={{
-                      [BREAKPOINTS.DEFAULT]: {
-                        backgroundColor: "lightgray",
-                        height: 200,
-                      },
-                    }}
-                  >
-                    <Text>featured article 3</Text>
-                  </Column>
-                </DesktopRow>
-              </Column>
-              <Column
-                rStyle={{
-                  [BREAKPOINTS.DEFAULT]: {
-                    flexGrow: 3,
-                    backgroundColor: "lightgreen",
-                    order: 2,
-                  },
-                  [BREAKPOINTS.TABLET]: {
-                    order: 1,
-                  },
-                }}
-              >
-                <View
-                  style={{
-                    backgroundColor: "#123456",
-                    height: 100,
-                  }}
-                >
-                  <Text>news 1</Text>
-                </View>
-                <View
-                  style={{
-                    backgroundColor: "#A23456",
-                    height: 100,
-                  }}
-                >
-                  <Text>news 2</Text>
-                </View>
-                <View
-                  style={{
-                    backgroundColor: "#523456",
-                    height: 70,
-                  }}
-                >
-                  <Text>news 3</Text>
-                </View>
-                <View
-                  style={{
-                    backgroundColor: "#D2E456",
-                    height: 70,
-                  }}
-                >
-                  <Text>news 4</Text>
-                </View>
-              </Column>
+              {/* TODO: on iPad FeaturedSection should not be displayed before NewsSection */}
+              <FeaturedSection />
+              <NewsSection />
             </DesktopRow>
-            <DesktopRow>
-              <Column
-                rStyle={{
-                  [BREAKPOINTS.DEFAULT]: {
-                    flexGrow: 3,
-                    backgroundColor: "cyan",
-                    height: 300,
-                  },
-                }}
-              >
-                <Text>sports1</Text>
-              </Column>
-              <Column
-                rStyle={{
-                  [BREAKPOINTS.DEFAULT]: {
-                    flexGrow: 7,
-                    backgroundColor: "orange",
-                    height: 300,
-                  },
-                }}
-              >
-                <Text>sports2</Text>
-              </Column>
-            </DesktopRow>
+            <SportsSection />
           </Column>
           <Column
             rStyle={{
@@ -281,121 +500,14 @@ export default class Index extends React.Component<IndexProps, IndexState> {
               },
             }}
           >
-            <View
-              style={{
-                flexGrow: 3,
-                flexBasis: 0,
-                backgroundColor: "blue",
-                height: 100,
-              }}
-            >
-              <Text>opinion</Text>
-            </View>
-            <View
-              style={{
-                flexGrow: 3,
-                flexBasis: 0,
-                backgroundColor: "cyan",
-                height: 100,
-              }}
-            >
-              <Text>grind</Text>
-            </View>
-            <View
-              style={{
-                flexGrow: 3,
-                flexBasis: 0,
-                backgroundColor: "lightred",
-                height: 100,
-              }}
-            >
-              <Text>arts and life</Text>
-            </View>
-            <View
-              style={{
-                flexGrow: 3,
-                flexBasis: 0,
-                backgroundColor: "gray",
-                height: 100,
-              }}
-            >
-              <Text>sponsored content</Text>
-            </View>
+            <OpinionSection />
+            <GrindSection />
+            <ArtsAndLifeSection />
+            <SponsoredSection />
           </Column>
         </DesktopRow>
-        <View
-          style={{
-            flexGrow: 1,
-            backgroundColor: "yellow",
-            height: 400,
-          }}
-        >
-          <Text>multimedia</Text>
-        </View>
-        <View
-          style={{
-            flexGrow: 1,
-            backgroundColor: "green",
-            flexDirection: "column",
-          }}
-        >
-          <Text>more from daily</Text>
-          <DesktopRow
-            rStyle={{
-              [BREAKPOINTS.DEFAULT]: {
-                backgroundColor: "lightblue",
-              },
-            }}
-          >
-            <Column
-              rStyle={{
-                [BREAKPOINTS.DEFAULT]: {
-                  flexGrow: 2,
-                },
-              }}
-            >
-              <View style={{ height: 100, backgroundColor: "#123456" }}>
-                <Text>article 1</Text>
-              </View>
-              <View style={{ height: 100, backgroundColor: "#234234" }}>
-                <Text>article 2</Text>
-              </View>
-              <View style={{ height: 100, backgroundColor: "#928284" }}>
-                <Text>article 3</Text>
-              </View>
-            </Column>
-            <Column>
-              <View style={{ height: 80, backgroundColor: "#903894" }}>
-                <Text>article 4</Text>
-              </View>
-              <View style={{ height: 80, backgroundColor: "#098764" }}>
-                <Text>article 5</Text>
-              </View>
-              <View style={{ height: 80, backgroundColor: "#238923" }}>
-                <Text>article 6</Text>
-              </View>
-            </Column>
-            <Column>
-              <View style={{ height: 75, backgroundColor: "#373737" }}>
-                <Text>article 7</Text>
-              </View>
-              <View style={{ height: 75, backgroundColor: "#292929" }}>
-                <Text>article 8</Text>
-              </View>
-              <View style={{ height: 75, backgroundColor: "#575757" }}>
-                <Text>article 9</Text>
-              </View>
-              <View style={{ height: 75, backgroundColor: "#ababba" }}>
-                <Text>article 10</Text>
-              </View>
-            </Column>
-            <Column>
-              <View style={{ height: 75, backgroundColor: "#e83944" }}>
-                <Text>article 11</Text>
-              </View>
-            </Column>
-          </DesktopRow>
-        </View>
+        <MultimediaSection />
+        <MoreFromTheDailySection />
       </ScrollView>
     );
   }
