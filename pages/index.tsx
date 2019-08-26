@@ -41,6 +41,14 @@ const DesktopRow: React.ElementType = (props: any) => {
   return <RView {...remainingProps} rStyle={resultRStyle} />;
 };
 
+const SectionStyle = styled.View({
+  padding: 15,
+});
+const Section =
+  Platform.OS === "web" ? SectionStyle.withComponent("section") : SectionStyle;
+const SectionWithoutStyle =
+  Platform.OS === "web" ? styled.View().withComponent("section") : View;
+
 const SectionTitleStyle = styled.Text({
   backgroundColor: "#333",
   fontSize: 25,
@@ -52,6 +60,7 @@ const SectionTitle =
     ? SectionTitleStyle.withComponent("h1")
     : SectionTitleStyle;
 
+// TODO: use `<article>` tag for articles
 const ArticleTitleStyle = styled.Text({
   backgroundColor: "#666",
   fontSize: 20,
@@ -71,7 +80,6 @@ const FeaturedSection: React.ElementType = (props: any) => {
         [BREAKPOINTS.DEFAULT]: {
           flexGrow: 7,
           backgroundColor: "green",
-          padding: 15,
           order: 1,
         },
         [BREAKPOINTS.TABLET]: {
@@ -79,55 +87,57 @@ const FeaturedSection: React.ElementType = (props: any) => {
         },
       }}
     >
-      <SectionTitle>Featured</SectionTitle>
-      <View
-        style={{
-          backgroundColor: "yellow",
-        }}
-      >
-        <Image
+      <Section>
+        <SectionTitle>Featured</SectionTitle>
+        <View
           style={{
-            width: "100%",
-            height: 200,
+            backgroundColor: "yellow",
           }}
-          source={{
-            uri:
-              "https://www.stanforddaily.com/wp-content/uploads/2019/08/44010386874_30ea221b19_o.jpg",
-          }}
-          resizeMode="cover"
-        />
-        <ArticleTitle>
-          Stanford legend Andrew Luck retires from NFL after six seasons
-        </ArticleTitle>
-      </View>
-      <DesktopRow
-        rStyle={{
-          [BREAKPOINTS.DEFAULT]: {
-            backgroundColor: "blue",
-          },
-        }}
-      >
-        <Column
+        >
+          <Image
+            style={{
+              width: "100%",
+              height: 200,
+            }}
+            source={{
+              uri:
+                "https://www.stanforddaily.com/wp-content/uploads/2019/08/44010386874_30ea221b19_o.jpg",
+            }}
+            resizeMode="cover"
+          />
+          <ArticleTitle>
+            Stanford legend Andrew Luck retires from NFL after six seasons
+          </ArticleTitle>
+        </View>
+        <DesktopRow
           rStyle={{
             [BREAKPOINTS.DEFAULT]: {
-              backgroundColor: "#298323",
-              height: 200,
+              backgroundColor: "blue",
             },
           }}
         >
-          <Text>featured article 2</Text>
-        </Column>
-        <Column
-          rStyle={{
-            [BREAKPOINTS.DEFAULT]: {
-              backgroundColor: "lightgray",
-              height: 200,
-            },
-          }}
-        >
-          <Text>featured article 3</Text>
-        </Column>
-      </DesktopRow>
+          <Column
+            rStyle={{
+              [BREAKPOINTS.DEFAULT]: {
+                backgroundColor: "#298323",
+                height: 200,
+              },
+            }}
+          >
+            <Text>featured article 2</Text>
+          </Column>
+          <Column
+            rStyle={{
+              [BREAKPOINTS.DEFAULT]: {
+                backgroundColor: "lightgray",
+                height: 200,
+              },
+            }}
+          >
+            <Text>featured article 3</Text>
+          </Column>
+        </DesktopRow>
+      </Section>
     </Column>
   );
 };
@@ -146,74 +156,82 @@ const NewsSection: React.ElementType = (props: any) => {
         },
       }}
     >
-      <View
-        style={{
-          backgroundColor: "#123456",
-          height: 100,
-        }}
-      >
-        <Text>news 1</Text>
-      </View>
-      <View
-        style={{
-          backgroundColor: "#A23456",
-          height: 100,
-        }}
-      >
-        <Text>news 2</Text>
-      </View>
-      <View
-        style={{
-          backgroundColor: "#523456",
-          height: 70,
-        }}
-      >
-        <Text>news 3</Text>
-      </View>
-      <View
-        style={{
-          backgroundColor: "#D2E456",
-          height: 70,
-        }}
-      >
-        <Text>news 4</Text>
-      </View>
+      <Section>
+        <View
+          style={{
+            backgroundColor: "#123456",
+            height: 100,
+          }}
+        >
+          <Text>news 1</Text>
+        </View>
+        <View
+          style={{
+            backgroundColor: "#A23456",
+            height: 100,
+          }}
+        >
+          <Text>news 2</Text>
+        </View>
+        <View
+          style={{
+            backgroundColor: "#523456",
+            height: 70,
+          }}
+        >
+          <Text>news 3</Text>
+        </View>
+        <View
+          style={{
+            backgroundColor: "#D2E456",
+            height: 70,
+          }}
+        >
+          <Text>news 4</Text>
+        </View>
+      </Section>
     </Column>
   );
 };
 
 const SportsSection: React.ElementType = (props: any) => {
   return (
-    <DesktopRow>
-      <Column
-        rStyle={{
-          [BREAKPOINTS.DEFAULT]: {
-            flexGrow: 3,
-            backgroundColor: "cyan",
-            height: 300,
-          },
-        }}
-      >
-        <Text>sports1</Text>
-      </Column>
-      <Column
-        rStyle={{
-          [BREAKPOINTS.DEFAULT]: {
-            flexGrow: 7,
-            backgroundColor: "orange",
-            height: 300,
-          },
-        }}
-      >
-        <Text>sports2</Text>
-      </Column>
-    </DesktopRow>
+    <SectionWithoutStyle>
+      <DesktopRow>
+        <Column
+          rStyle={{
+            [BREAKPOINTS.DEFAULT]: {
+              flexGrow: 3,
+              backgroundColor: "cyan",
+              height: 300,
+            },
+          }}
+        >
+          <SectionStyle>
+            <Text>sports1</Text>
+          </SectionStyle>
+        </Column>
+        <Column
+          rStyle={{
+            [BREAKPOINTS.DEFAULT]: {
+              flexGrow: 7,
+              backgroundColor: "orange",
+              height: 300,
+            },
+          }}
+        >
+          <SectionStyle>
+            <Text>sports2</Text>
+          </SectionStyle>
+        </Column>
+      </DesktopRow>
+    </SectionWithoutStyle>
   );
 };
 
 const OpinionSection: React.ElementType = (props: any) => {
   return (
-    <View
+    <Section
       style={{
         flexGrow: 3,
         flexBasis: 0,
@@ -222,13 +240,13 @@ const OpinionSection: React.ElementType = (props: any) => {
       }}
     >
       <Text>opinion</Text>
-    </View>
+    </Section>
   );
 };
 
 const GrindSection: React.ElementType = (props: any) => {
   return (
-    <View
+    <Section
       style={{
         flexGrow: 3,
         flexBasis: 0,
@@ -237,13 +255,13 @@ const GrindSection: React.ElementType = (props: any) => {
       }}
     >
       <Text>The Grind</Text>
-    </View>
+    </Section>
   );
 };
 
 const ArtsAndLifeSection: React.ElementType = (props: any) => {
   return (
-    <View
+    <Section
       style={{
         flexGrow: 3,
         flexBasis: 0,
@@ -252,13 +270,13 @@ const ArtsAndLifeSection: React.ElementType = (props: any) => {
       }}
     >
       <Text>arts and life</Text>
-    </View>
+    </Section>
   );
 };
 
 const SponsoredSection: React.ElementType = (props: any) => {
   return (
-    <View
+    <Section
       style={{
         flexGrow: 3,
         flexBasis: 0,
@@ -267,13 +285,13 @@ const SponsoredSection: React.ElementType = (props: any) => {
       }}
     >
       <Text>sponsored content</Text>
-    </View>
+    </Section>
   );
 };
 
 const MultimediaSection: React.ElementType = (props: any) => {
   return (
-    <View
+    <Section
       style={{
         flexGrow: 1,
         backgroundColor: "yellow",
@@ -281,13 +299,13 @@ const MultimediaSection: React.ElementType = (props: any) => {
       }}
     >
       <Text>multimedia</Text>
-    </View>
+    </Section>
   );
 };
 
 const MoreFromTheDailySection: React.ElementType = (props: any) => {
   return (
-    <View
+    <Section
       style={{
         flexGrow: 1,
         backgroundColor: "green",
@@ -405,7 +423,7 @@ const MoreFromTheDailySection: React.ElementType = (props: any) => {
           </View>
         </Column>
       </DesktopRow>
-    </View>
+    </Section>
   );
 };
 
