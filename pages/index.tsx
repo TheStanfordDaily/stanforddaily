@@ -110,6 +110,26 @@ const Article: React.ElementType = (props: any) => {
   }
 };
 
+const ThumbnailImage: React.ElementType = ({ style, ...props }: any) => {
+  return (
+    <Image
+      resizeMode="cover"
+      style={{
+        width: "100%",
+        ...style,
+      }}
+      {...props}
+    />
+  );
+};
+const ThumbnailImageWithLink: React.ElementType = (props: any) => {
+  return (
+    <LinkToArticle>
+      <ThumbnailImage {...props} />
+    </LinkToArticle>
+  );
+};
+
 const ArticleHeader =
   Platform.OS === "web" ? styled.View().withComponent("header") : View;
 
@@ -167,19 +187,15 @@ const HeadlineArticle: React.ElementType = (props: any) => {
         backgroundColor: "yellow",
       }}
     >
-      <LinkToArticle>
-        <Image
-          style={{
-            width: "100%",
-            height: 200,
-          }}
-          source={{
-            uri:
-              "https://www.stanforddaily.com/wp-content/uploads/2019/08/44010386874_30ea221b19_o.jpg",
-          }}
-          resizeMode="cover"
-        />
-      </LinkToArticle>
+      <ThumbnailImageWithLink
+        style={{
+          height: 200,
+        }}
+        source={{
+          uri:
+            "https://www.stanforddaily.com/wp-content/uploads/2019/08/44010386874_30ea221b19_o.jpg",
+        }}
+      />
       <ArticleHeader>
         <ArticleTitleWithLink>
           Stanford legend Andrew Luck retires from NFL after six seasons
@@ -207,19 +223,15 @@ const ThumbnailArticle: React.ElementType = (props: any) => {
         backgroundColor: "#ABCDEF",
       }}
     >
-      <LinkToArticle>
-        <Image
-          style={{
-            width: "100%",
-            height: 100,
-          }}
-          source={{
-            uri:
-              "https://www.stanforddaily.com/wp-content/uploads/2019/08/44010386874_30ea221b19_o.jpg",
-          }}
-          resizeMode="cover"
-        />
-      </LinkToArticle>
+      <ThumbnailImageWithLink
+        style={{
+          height: 100,
+        }}
+        source={{
+          uri:
+            "https://www.stanforddaily.com/wp-content/uploads/2019/08/44010386874_30ea221b19_o.jpg",
+        }}
+      />
       <ArticleHeader>
         <ArticleTitleWithLink>
           Stanford legend Andrew Luck retires from NFL after six seasons
