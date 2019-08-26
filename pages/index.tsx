@@ -69,18 +69,24 @@ const SectionTitle =
     ? SectionTitleStyle.withComponent("h1")
     : SectionTitleStyle;
 
+const ArticleStyle = styled.View({
+  marginTop: 5,
+  marginBottom: 5,
+});
 const Article: React.ElementType = (props: any) => {
   if (Platform.OS === "web") {
-    const ArticleTag = styled.View().withComponent("article");
+    const ArticleTag = ArticleStyle.withComponent("article");
     return <ArticleTag {...props} />;
   } else {
     return (
-      <TouchableOpacity
-        onPress={() => {
-          this.alert("Go to article!");
-        }}
-        {...props}
-      />
+      <ArticleStyle>
+        <TouchableOpacity
+          onPress={() => {
+            this.alert("Go to article!");
+          }}
+          {...props}
+        />
+      </ArticleStyle>
     );
   }
 };
@@ -142,6 +148,79 @@ const Author: React.ElementType = ({ children, ...props }: any) => {
 };
 
 const FeaturedSection: React.ElementType = (props: any) => {
+  const HeadlineArticle: React.ElementType = (hProps: any) => {
+    return (
+      <Article
+        style={{
+          backgroundColor: "yellow",
+        }}
+      >
+        <LinkToArticle>
+          <Image
+            style={{
+              width: "100%",
+              height: 200,
+            }}
+            source={{
+              uri:
+                "https://www.stanforddaily.com/wp-content/uploads/2019/08/44010386874_30ea221b19_o.jpg",
+            }}
+            resizeMode="cover"
+          />
+        </LinkToArticle>
+        <ArticleHeader>
+          <ArticleTitle>
+            <LinkToArticle>
+              Stanford legend Andrew Luck retires from NFL after six seasons
+            </LinkToArticle>
+          </ArticleTitle>
+          <ArticleSubtitle>
+            After push by student activists, Second Harvest of Silicon Valley,
+            Graduate Student Council and R&DE partner for three deliveries
+          </ArticleSubtitle>
+        </ArticleHeader>
+        <Text>
+          Bring grocery bags, transportation (like a wagon, stroller, or a car)
+          and your Stanford ID card, the RSVP form asks. The Monday event is a
+          pilot of a campus food pantry, where students who self-identify as
+          food insecure will receive up to 150 lbs of food per household.{" "}
+        </Text>
+        <Author>John Doe</Author>
+      </Article>
+    );
+  };
+  const SmallArticle: React.ElementType = (sProps: any) => {
+    return (
+      <Article
+        style={{
+          backgroundColor: "#ABCDEF",
+        }}
+      >
+        <LinkToArticle>
+          <Image
+            style={{
+              width: "100%",
+              height: 100,
+            }}
+            source={{
+              uri:
+                "https://www.stanforddaily.com/wp-content/uploads/2019/08/44010386874_30ea221b19_o.jpg",
+            }}
+            resizeMode="cover"
+          />
+        </LinkToArticle>
+        <ArticleHeader>
+          <ArticleTitle>
+            <LinkToArticle>
+              Stanford legend Andrew Luck retires from NFL after six seasons
+            </LinkToArticle>
+          </ArticleTitle>
+        </ArticleHeader>
+        <Author>John Doe</Author>
+      </Article>
+    );
+  };
+
   return (
     <Column
       rStyle={{
@@ -157,43 +236,7 @@ const FeaturedSection: React.ElementType = (props: any) => {
     >
       <Section>
         <SectionTitle>Featured</SectionTitle>
-        <Article
-          style={{
-            backgroundColor: "yellow",
-          }}
-        >
-          <LinkToArticle>
-            <Image
-              style={{
-                width: "100%",
-                height: 200,
-              }}
-              source={{
-                uri:
-                  "https://www.stanforddaily.com/wp-content/uploads/2019/08/44010386874_30ea221b19_o.jpg",
-              }}
-              resizeMode="cover"
-            />
-          </LinkToArticle>
-          <ArticleHeader>
-            <ArticleTitle>
-              <LinkToArticle>
-                Stanford legend Andrew Luck retires from NFL after six seasons
-              </LinkToArticle>
-            </ArticleTitle>
-            <ArticleSubtitle>
-              After push by student activists, Second Harvest of Silicon Valley,
-              Graduate Student Council and R&DE partner for three deliveries
-            </ArticleSubtitle>
-          </ArticleHeader>
-          <Text>
-            Bring grocery bags, transportation (like a wagon, stroller, or a
-            car) and your Stanford ID card, the RSVP form asks. The Monday event
-            is a pilot of a campus food pantry, where students who self-identify
-            as food insecure will receive up to 150 lbs of food per household.{" "}
-          </Text>
-          <Author>John Doe</Author>
-        </Article>
+        <HeadlineArticle />
         <DesktopRow
           rStyle={{
             [BREAKPOINTS.DEFAULT]: {
@@ -204,22 +247,20 @@ const FeaturedSection: React.ElementType = (props: any) => {
           <Column
             rStyle={{
               [BREAKPOINTS.DEFAULT]: {
-                backgroundColor: "#298323",
-                height: 200,
+                backgroundColor: "blue",
               },
             }}
           >
-            <Text>featured article 2</Text>
+            <SmallArticle />
           </Column>
           <Column
             rStyle={{
               [BREAKPOINTS.DEFAULT]: {
                 backgroundColor: "lightgray",
-                height: 200,
               },
             }}
           >
-            <Text>featured article 3</Text>
+            <SmallArticle />
           </Column>
         </DesktopRow>
       </Section>
