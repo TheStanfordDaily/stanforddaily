@@ -74,6 +74,20 @@ const SectionTitle =
     ? SectionTitleStyle.withComponent("h1")
     : SectionTitleStyle;
 
+const LinkToArticle: React.ElementType = ({ children, ...props }: any) => {
+  if (Platform.OS === "web") {
+    return (
+      <Link href="/[year]/[month]/[day]/[slug]/" as="/2019/01/01/test">
+        <a title="ARTICLE TITLE HERE" {...props}>
+          {children}
+        </a>
+      </Link>
+    );
+  } else {
+    return children;
+  }
+};
+
 const ArticleStyle = styled.View({
   marginTop: 5,
   marginBottom: 5,
@@ -110,18 +124,12 @@ const ArticleTitle =
   Platform.OS === "web"
     ? ArticleTitleStyle.withComponent("h2")
     : ArticleTitleStyle;
-const LinkToArticle: React.ElementType = ({ children, ...props }: any) => {
-  if (Platform.OS === "web") {
-    return (
-      <Link href="/[year]/[month]/[day]/[slug]/" as="/2019/01/01/test">
-        <a title="ARTICLE TITLE HERE" {...props}>
-          {children}
-        </a>
-      </Link>
-    );
-  } else {
-    return children;
-  }
+const ArticleTitleWithLink: React.ElementType = (props: any) => {
+  return (
+    <ArticleTitle>
+      <LinkToArticle {...props} />
+    </ArticleTitle>
+  );
 };
 
 const ArticleSubtitleStyle = styled.Text({
@@ -173,11 +181,9 @@ const HeadlineArticle: React.ElementType = (props: any) => {
         />
       </LinkToArticle>
       <ArticleHeader>
-        <ArticleTitle>
-          <LinkToArticle>
-            Stanford legend Andrew Luck retires from NFL after six seasons
-          </LinkToArticle>
-        </ArticleTitle>
+        <ArticleTitleWithLink>
+          Stanford legend Andrew Luck retires from NFL after six seasons
+        </ArticleTitleWithLink>
         <ArticleSubtitle>
           After push by student activists, Second Harvest of Silicon Valley,
           Graduate Student Council and R&DE partner for three deliveries
@@ -215,11 +221,9 @@ const ThumbnailArticle: React.ElementType = (props: any) => {
         />
       </LinkToArticle>
       <ArticleHeader>
-        <ArticleTitle>
-          <LinkToArticle>
-            Stanford legend Andrew Luck retires from NFL after six seasons
-          </LinkToArticle>
-        </ArticleTitle>
+        <ArticleTitleWithLink>
+          Stanford legend Andrew Luck retires from NFL after six seasons
+        </ArticleTitleWithLink>
       </ArticleHeader>
       <Author>John Doe</Author>
     </Article>
@@ -234,11 +238,9 @@ const TextOnlyArticle: React.ElementType = (props: any) => {
       }}
     >
       <ArticleHeader>
-        <ArticleTitle>
-          <LinkToArticle>
-            Stanford legend Andrew Luck retires from NFL after six seasons
-          </LinkToArticle>
-        </ArticleTitle>
+        <ArticleTitleWithLink>
+          Stanford legend Andrew Luck retires from NFL after six seasons
+        </ArticleTitleWithLink>
       </ArticleHeader>
       <Author>John Doe</Author>
     </Article>
