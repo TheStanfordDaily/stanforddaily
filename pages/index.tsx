@@ -308,31 +308,42 @@ const TitleOnlyArticle: React.ElementType = (props: any) => {
 const TextOnlyArticle: React.ElementType = (props: any) => {
   const { style } = props;
   return (
-    <Article
-      style={{
-        width: 250,
-        backgroundColor: "#AAAAAA",
-        ...style,
+    <RView
+      rStyle={{
+        [BREAKPOINTS.DEFAULT]: {
+          width: "100%",
+        },
+        [BREAKPOINTS.TABLET]: {
+          width: 250,
+        },
       }}
     >
-      {/* TODO: ADD CATEGORY LINK */}
-      <Text>Sports</Text>
-      <ArticleHeader>
-        <ArticleTitleWithLink>
-          Stanford legend Andrew Luck retires from NFL after six seasons
-        </ArticleTitleWithLink>
-      </ArticleHeader>
-      <Text>
-        Bring grocery bags, transportation (like a wagon, stroller, or a car)
-        and your Stanford ID card, the RSVP form asks. The Monday event is a
-        pilot of a campus food pantry, where students who self-identify as food
-        insecure will receive up to 150 lbs of food per household.{" "}
-      </Text>
-      <View>
-        <Author>John Doe</Author>
-        <Text>Jan 01, 2019</Text>
-      </View>
-    </Article>
+      <Article
+        style={{
+          width: "100%",
+          backgroundColor: "#AAAAAA",
+          ...style,
+        }}
+      >
+        {/* TODO: ADD CATEGORY LINK */}
+        <Text>Sports</Text>
+        <ArticleHeader>
+          <ArticleTitleWithLink>
+            Stanford legend Andrew Luck retires from NFL after six seasons
+          </ArticleTitleWithLink>
+        </ArticleHeader>
+        <Text>
+          Bring grocery bags, transportation (like a wagon, stroller, or a car)
+          and your Stanford ID card, the RSVP form asks. The Monday event is a
+          pilot of a campus food pantry, where students who self-identify as
+          food insecure will receive up to 150 lbs of food per household.{" "}
+        </Text>
+        <View>
+          <Author>John Doe</Author>
+          <Text>Jan 01, 2019</Text>
+        </View>
+      </Article>
+    </RView>
   );
 };
 
@@ -592,18 +603,22 @@ const MoreFromTheDailySection: React.ElementType = (props: any) => {
         rStyle={{
           [BREAKPOINTS.DEFAULT]: {
             backgroundColor: "lightblue",
-            height: 700,
             width: "100%",
-            flexWrap: "wrap",
             flexDirection: "column",
+          },
+          [BREAKPOINTS.TABLET]: {
+            height: 700,
+            flexWrap: "wrap",
+            overflow: "auto",
           },
         }}
       >
-        <View style={{ width: 400, height: "100%" }}>
-          <TextOnlyArticle style={{ width: "100%" }} />
-          <TextOnlyArticle style={{ width: "100%" }} />
-          <TextOnlyArticle style={{ width: "100%" }} />
-        </View>
+        <TextOnlyArticle />
+        <TextOnlyArticle />
+        <TextOnlyArticle />
+        <TextOnlyArticle />
+        <TextOnlyArticle />
+        <TextOnlyArticle />
         <TextOnlyArticle />
         <TextOnlyArticle />
         <TextOnlyArticle />
