@@ -17,6 +17,11 @@ import {
 } from "../helpers/responsiveStyle";
 import { getPostsAsync, getPostPath } from "../helpers/wpapi";
 import Wrapper from "../components/Wrapper";
+import {
+  Section,
+  SectionStyle,
+  SectionWithoutStyle,
+} from "../components/Section";
 import { OrderedList } from "../components/List";
 
 // TODO: layout got reset to mobile one when returning from other app on iPad
@@ -55,14 +60,6 @@ const DesktopRow: React.ElementType = (props: any) => {
 
   return <RView {...remainingProps} rStyle={resultRStyle} />;
 };
-
-const SectionStyle = styled.View({
-  padding: 15,
-});
-const Section =
-  Platform.OS === "web" ? SectionStyle.withComponent("section") : SectionStyle;
-const SectionWithoutStyle =
-  Platform.OS === "web" ? styled.View().withComponent("section") : View;
 
 const SectionTitleStyle = styled.Text({
   backgroundColor: "#333",
