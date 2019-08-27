@@ -30,7 +30,12 @@ const HeaderLogo: React.ElementType = (props: any) => {
               src="https://www.stanforddaily.com/wp-content/uploads/2019/03/cropped-DailyLogo-CardinalRed.png"
               alt="The Stanford Daily"
               title="The Stanford Daily"
-              css={{ height: 50, width: "auto" }}
+              css={{
+                height: "auto",
+                width: "auto",
+                maxHeight: 50,
+                maxWidth: "100%",
+              }}
             />
           </a>
         </h1>
