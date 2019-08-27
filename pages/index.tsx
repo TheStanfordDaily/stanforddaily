@@ -21,6 +21,7 @@ import {
   Section,
   SectionStyle,
   SectionWithoutStyle,
+  SECTION_PADDING,
 } from "../components/Section";
 import { OrderedList } from "../components/List";
 
@@ -359,6 +360,48 @@ const ListStyleArticle: React.ElementType = (props: any) => {
         </ArticleTitleWithLink>
       </ArticleHeader>
     </Article>
+  );
+};
+
+const CategoryList: React.ElementType = (props: any) => {
+  const CategoryLink: React.ElementType = ({
+    children,
+    style,
+    ...clProps
+  }: any) => {
+    // We have to add `paddingTop` and `paddingBottom` here instead of in `contentContainerStyle`
+    // because if we do that, the letter will get cut off at the bottom.
+    return (
+      <Text
+        {...clProps}
+        style={{
+          marginRight: 30,
+          paddingTop: SECTION_PADDING,
+          paddingBottom: SECTION_PADDING,
+          ...style,
+        }}
+      >
+        {children}
+      </Text>
+    );
+  };
+
+  return (
+    <ScrollView
+      horizontal
+      showsHorizontalScrollIndicator={false}
+      contentContainerStyle={{
+        paddingLeft: SECTION_PADDING,
+        paddingRight: SECTION_PADDING,
+      }}
+    >
+      <CategoryLink>Home</CategoryLink>
+      <CategoryLink>Sports</CategoryLink>
+      <CategoryLink>Opinion</CategoryLink>
+      <CategoryLink>Arts and life</CategoryLink>
+      <CategoryLink>The Grind</CategoryLink>
+      <CategoryLink style={{ marginRight: 0 }}>Magazine</CategoryLink>
+    </ScrollView>
   );
 };
 
@@ -792,51 +835,54 @@ export default class Index extends React.Component<IndexProps, IndexState> {
     };
 
     return (
-      <ScrollView
-        contentContainerStyle={{
-          flexDirection: "column",
-        }}
-      >
-        <TopSection />
-        <DesktopRow>
-          <Column
-            rStyle={{
-              [BREAKPOINTS.DEFAULT]: {
-                flexGrow: 6,
-              },
-            }}
-          >
-            <DesktopRow>
-              {featuredBeforeNews ? (
-                <>
-                  <FeaturedSection />
-                  <NewsSection />
-                </>
-              ) : (
-                <>
-                  <NewsSection />
-                  <FeaturedSection />
-                </>
-              )}
-            </DesktopRow>
-            <SportsSection mainBeforeSide={featuredBeforeNews} />
-          </Column>
-          <Column
-            rStyle={{
-              [BREAKPOINTS.DEFAULT]: {
-                flexGrow: 3,
-              },
-            }}
-          >
-            <OpinionSection />
-            <GrindSection />
-            <ArtsAndLifeSection />
-            <SponsoredSection />
-          </Column>
-        </DesktopRow>
-        <MultimediaSection />
-        <MoreFromTheDailySection />
-      </ScrollView>
+      <>
+        {Platform.OS === "ios" && <CategoryList />}
+        <ScrollView
+          contentContainerStyle={{
+            flexDirection: "column",
+          }}
+        >
+          <TopSection />
+          <DesktopRow>
+            <Column
+              rStyle={{
+                [BREAKPOINTS.DEFAULT]: {
+                  flexGrow: 6,
+                },
+              }}
+            >
+              <DesktopRow>
+                {featuredBeforeNews ? (
+                  <>
+                    <FeaturedSection />
+                    <NewsSection />
+                  </>
+                ) : (
+                  <>
+                    <NewsSection />
+                    <FeaturedSection />
+                  </>
+                )}
+              </DesktopRow>
+              <SportsSection mainBeforeSide={featuredBeforeNews} />
+            </Column>
+            <Column
+              rStyle={{
+                [BREAKPOINTS.DEFAULT]: {
+                  flexGrow: 3,
+                },
+              }}
+            >
+              <OpinionSection />
+              <GrindSection />
+              <ArtsAndLifeSection />
+              <SponsoredSection />
+            </Column>
+          </DesktopRow>
+          <MultimediaSection />
+          <MoreFromTheDailySection />
+        </ScrollView>
+      </>
     );
   }
 }
