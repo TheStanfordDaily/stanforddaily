@@ -288,7 +288,7 @@ const SideThumbnailArticle: React.ElementType = (props: any) => {
   );
 };
 
-const TextOnlyArticle: React.ElementType = (props: any) => {
+const TitleOnlyArticle: React.ElementType = (props: any) => {
   return (
     <Article
       style={{
@@ -301,6 +301,37 @@ const TextOnlyArticle: React.ElementType = (props: any) => {
         </ArticleTitleWithLink>
       </ArticleHeader>
       <Author>John Doe</Author>
+    </Article>
+  );
+};
+
+const TextOnlyArticle: React.ElementType = (props: any) => {
+  const { style } = props;
+  return (
+    <Article
+      style={{
+        width: 250,
+        backgroundColor: "#AAAAAA",
+        ...style,
+      }}
+    >
+      {/* TODO: ADD CATEGORY LINK */}
+      <Text>Sports</Text>
+      <ArticleHeader>
+        <ArticleTitleWithLink>
+          Stanford legend Andrew Luck retires from NFL after six seasons
+        </ArticleTitleWithLink>
+      </ArticleHeader>
+      <Text>
+        Bring grocery bags, transportation (like a wagon, stroller, or a car)
+        and your Stanford ID card, the RSVP form asks. The Monday event is a
+        pilot of a campus food pantry, where students who self-identify as food
+        insecure will receive up to 150 lbs of food per household.{" "}
+      </Text>
+      <View>
+        <Author>John Doe</Author>
+        <Text>Jan 01, 2019</Text>
+      </View>
     </Article>
   );
 };
@@ -407,14 +438,14 @@ const LeftSection: React.ElementType = (props: any) => {
             backgroundColor: "#523456",
           }}
         >
-          <TextOnlyArticle />
+          <TitleOnlyArticle />
         </View>
         <View
           style={{
             backgroundColor: "#D2E456",
           }}
         >
-          <TextOnlyArticle />
+          <TitleOnlyArticle />
         </View>
       </SectionTag>
     </Column>
@@ -557,116 +588,32 @@ const MoreFromTheDailySection: React.ElementType = (props: any) => {
       }}
     >
       <Text>more from daily</Text>
-      <DesktopRow
+      <RView
         rStyle={{
           [BREAKPOINTS.DEFAULT]: {
             backgroundColor: "lightblue",
+            height: 700,
+            width: "100%",
+            flexWrap: "wrap",
+            flexDirection: "column",
           },
         }}
       >
-        <Column
-          rStyle={{
-            [BREAKPOINTS.DEFAULT]: {
-              flexGrow: 2,
-            },
-          }}
-        >
-          <View
-            style={{
-              height: 100,
-              backgroundColor: "#123456",
-            }}
-          >
-            <Text>article 1</Text>
-          </View>
-          <View
-            style={{
-              height: 100,
-              backgroundColor: "#234234",
-            }}
-          >
-            <Text>article 2</Text>
-          </View>
-          <View
-            style={{
-              height: 100,
-              backgroundColor: "#928284",
-            }}
-          >
-            <Text>article 3</Text>
-          </View>
-        </Column>
-        <Column>
-          <View
-            style={{
-              height: 80,
-              backgroundColor: "#903894",
-            }}
-          >
-            <Text>article 4</Text>
-          </View>
-          <View
-            style={{
-              height: 80,
-              backgroundColor: "#098764",
-            }}
-          >
-            <Text>article 5</Text>
-          </View>
-          <View
-            style={{
-              height: 80,
-              backgroundColor: "#238923",
-            }}
-          >
-            <Text>article 6</Text>
-          </View>
-        </Column>
-        <Column>
-          <View
-            style={{
-              height: 75,
-              backgroundColor: "#373737",
-            }}
-          >
-            <Text>article 7</Text>
-          </View>
-          <View
-            style={{
-              height: 75,
-              backgroundColor: "#292929",
-            }}
-          >
-            <Text>article 8</Text>
-          </View>
-          <View
-            style={{
-              height: 75,
-              backgroundColor: "#575757",
-            }}
-          >
-            <Text>article 9</Text>
-          </View>
-          <View
-            style={{
-              height: 75,
-              backgroundColor: "#ababba",
-            }}
-          >
-            <Text>article 10</Text>
-          </View>
-        </Column>
-        <Column>
-          <View
-            style={{
-              height: 75,
-              backgroundColor: "#e83944",
-            }}
-          >
-            <Text>article 11</Text>
-          </View>
-        </Column>
-      </DesktopRow>
+        <View style={{ width: 400, height: "100%" }}>
+          <TextOnlyArticle style={{ width: "100%" }} />
+          <TextOnlyArticle style={{ width: "100%" }} />
+          <TextOnlyArticle style={{ width: "100%" }} />
+        </View>
+        <TextOnlyArticle />
+        <TextOnlyArticle />
+        <TextOnlyArticle />
+        <TextOnlyArticle />
+        <TextOnlyArticle />
+        <TextOnlyArticle />
+        <TextOnlyArticle />
+        <TextOnlyArticle />
+        <TextOnlyArticle />
+      </RView>
     </Section>
   );
 };
