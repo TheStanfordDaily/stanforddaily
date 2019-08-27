@@ -2,6 +2,7 @@ import React from "react";
 import App from "next/app";
 import { RView, BREAKPOINTS } from "../helpers/responsiveStyle";
 import { SectionStyle } from "../components/Section";
+import { CategoryList } from "../components/CategoryList";
 
 const HeaderLogo: React.ElementType = (props: any) => {
   return (
@@ -73,7 +74,32 @@ export default class MyApp extends App {
     return (
       <Layout>
         <header>
-          <HeaderLogo />
+          <RView>
+            <RView
+              rStyle={{
+                [BREAKPOINTS.DEFAULT]: {
+                  order: 1,
+                },
+                [BREAKPOINTS.TABLET]: {
+                  order: 2,
+                },
+              }}
+            >
+              <HeaderLogo />
+            </RView>
+            <RView
+              rStyle={{
+                [BREAKPOINTS.DEFAULT]: {
+                  order: 2,
+                },
+                [BREAKPOINTS.TABLET]: {
+                  order: 1,
+                },
+              }}
+            >
+              <CategoryList />
+            </RView>
+          </RView>
         </header>
         <main>
           <Component {...pageProps} />
