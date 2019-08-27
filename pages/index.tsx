@@ -9,14 +9,15 @@ import {
 } from "react-native";
 import styled from "@emotion/native";
 import Link from "next/link";
-import { getPostsAsync, getPostPath } from "../helpers/wpapi";
-import Wrapper from "../components/Wrapper";
 import {
   RView,
   BREAKPOINTS,
   mergeRStyle,
   isWidthGreaterThan,
 } from "../helpers/responsiveStyle";
+import { getPostsAsync, getPostPath } from "../helpers/wpapi";
+import Wrapper from "../components/Wrapper";
+import { OrderedList } from "../components/List";
 
 // TODO: layout got reset to mobile one when returning from other app on iPad
 
@@ -361,6 +362,87 @@ const ListStyleArticle: React.ElementType = (props: any) => {
         </ArticleTitleWithLink>
       </ArticleHeader>
     </Article>
+  );
+};
+
+const TopSection: React.ElementType = (props: any) => {
+  const SmallSection: React.ElementType = (sProps: any) => {
+    return (
+      <View
+        style={{
+          marginLeft: 20,
+          flexDirection: "row",
+          alignItems: "center",
+          backgroundColor: "#666666",
+        }}
+      >
+        <ThumbnailImage
+          style={{
+            width: 50,
+            height: 50,
+          }}
+          source={{
+            uri:
+              "https://www.stanforddaily.com/wp-content/uploads/2019/08/44010386874_30ea221b19_o.jpg",
+          }}
+        />
+        <View>
+          <View>
+            <Text>Issue #</Text>
+          </View>
+          <View>
+            <Text>The Daily Magazine</Text>
+          </View>
+          <View>
+            <Text>Subtitle here lorem</Text>
+          </View>
+        </View>
+      </View>
+    );
+  };
+
+  return (
+    <RView
+      rStyle={{
+        [BREAKPOINTS.DEFAULT]: {
+          display: "none",
+        },
+        [BREAKPOINTS.DESKTOP]: {
+          display: "flex",
+        },
+      }}
+    >
+      <SectionStyle
+        style={{
+          flexDirection: "row",
+          justifyContent: "space-between",
+          flexWrap: "wrap",
+        }}
+      >
+        <View style={{ flexDirection: "row", alignItems: "center" }}>
+          <View style={{ backgroundColor: "#987654" }}>
+            <Text>Top{"\n"}Stories</Text>
+          </View>
+          <OrderedList
+            data={[
+              { title: "Hello World first" },
+              { title: "Welcome World Second" },
+              { title: "Hi World Third" },
+            ]}
+            renderItem={(item: any) => {
+              console.log(item);
+              return <LinkToArticle>{item.title}</LinkToArticle>;
+            }}
+            style={{ backgroundColor: "#472044" }}
+          />
+        </View>
+        <View style={{ flexDirection: "row", alignItems: "center" }}>
+          <SmallSection />
+          <SmallSection />
+          <SmallSection />
+        </View>
+      </SectionStyle>
+    </RView>
   );
 };
 
@@ -718,6 +800,7 @@ export default class Index extends React.Component<IndexProps, IndexState> {
           flexDirection: "column",
         }}
       >
+        <TopSection />
         <DesktopRow>
           <Column
             rStyle={{
