@@ -216,7 +216,7 @@ const HeadlineArticle: React.ElementType = (props: any) => {
   );
 };
 
-const ThumbnailArticle: React.ElementType = (props: any) => {
+const TopThumbnailArticle: React.ElementType = (props: any) => {
   return (
     <Article
       style={{
@@ -238,6 +238,52 @@ const ThumbnailArticle: React.ElementType = (props: any) => {
         </ArticleTitleWithLink>
       </ArticleHeader>
       <Author>John Doe</Author>
+    </Article>
+  );
+};
+
+const SideThumbnailArticle: React.ElementType = (props: any) => {
+  return (
+    <Article
+      style={{
+        backgroundColor: "#ABCDEF",
+      }}
+    >
+      <View
+        style={{
+          flexDirection: "row",
+        }}
+      >
+        <View
+          style={{
+            flexBasis: "35%",
+            justifyContent: "center",
+          }}
+        >
+          <ThumbnailImageWithLink
+            style={{
+              height: 100,
+            }}
+            source={{
+              uri:
+                "https://www.stanforddaily.com/wp-content/uploads/2019/08/44010386874_30ea221b19_o.jpg",
+            }}
+          />
+        </View>
+        <View
+          style={{
+            flexBasis: "65%",
+            justifyContent: "center",
+          }}
+        >
+          <ArticleHeader>
+            <ArticleTitleWithLink>
+              Stanford legend Andrew Luck retires from NFL after six seasons
+            </ArticleTitleWithLink>
+          </ArticleHeader>
+          <Author>John Doe</Author>
+        </View>
+      </View>
     </Article>
   );
 };
@@ -308,7 +354,7 @@ const MainSection: React.ElementType = (props: any) => {
               },
             }}
           >
-            <ThumbnailArticle />
+            <TopThumbnailArticle />
           </Column>
           <Column
             rStyle={{
@@ -317,7 +363,7 @@ const MainSection: React.ElementType = (props: any) => {
               },
             }}
           >
-            <ThumbnailArticle />
+            <TopThumbnailArticle />
           </Column>
         </DesktopRow>
       </SectionTag>
@@ -347,14 +393,14 @@ const LeftSection: React.ElementType = (props: any) => {
             backgroundColor: "#123456",
           }}
         >
-          <ThumbnailArticle />
+          <TopThumbnailArticle />
         </View>
         <View
           style={{
             backgroundColor: "#A23456",
           }}
         >
-          <ThumbnailArticle />
+          <TopThumbnailArticle />
         </View>
         <View
           style={{
@@ -463,10 +509,13 @@ const ArtsAndLifeSection: React.ElementType = (props: any) => {
     <Section
       style={{
         backgroundColor: "lightred",
-        height: 100,
       }}
     >
       <SectionTitle>arts and life</SectionTitle>
+      <SideThumbnailArticle />
+      <SideThumbnailArticle />
+      <SideThumbnailArticle />
+      <SideThumbnailArticle />
     </Section>
   );
 };
