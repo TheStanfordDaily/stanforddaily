@@ -50,7 +50,7 @@ function _getStyleBasedOnCurrentWidth(rStyle: RStyle): Style {
 }
 
 export const RView: React.ElementType = (props: any) => {
-  const { style, rStyle, ...remainingProps } = props;
+  const { style, rStyle = {}, ...remainingProps } = props;
 
   if (style) {
     console.warn("You should not use `style` property on `RView`.");
