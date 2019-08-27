@@ -74,7 +74,13 @@ export default class MyApp extends App {
     return (
       <Layout>
         <header>
-          <RView>
+          <RView
+            rStyle={{
+              [BREAKPOINTS.DEFAULT]: {
+                width: "100vw",
+              },
+            }}
+          >
             <RView
               rStyle={{
                 [BREAKPOINTS.DEFAULT]: {
