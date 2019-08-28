@@ -10,7 +10,10 @@ const HeaderLogo: React.ElementType = (props: any) => {
       <RView
         rStyle={{
           [BREAKPOINTS.DEFAULT]: {
+            height: 60,
             backgroundColor: "#888888",
+            justifyContent: "center",
+            alignItems: "center",
           },
         }}
       >
@@ -20,12 +23,17 @@ const HeaderLogo: React.ElementType = (props: any) => {
             margin: 0,
             display: "flex",
             justifyContent: "center",
+            height: "100%",
           }}
         >
           <a
             href="https://www.stanforddaily.com/"
             rel="home"
-            css={{ display: "inline-flex" }}
+            css={{
+              display: "flex",
+              alignItems: "center",
+              height: "100%",
+            }}
           >
             <img
               src="https://www.stanforddaily.com/wp-content/uploads/2019/03/cropped-DailyLogo-CardinalRed.png"
@@ -34,7 +42,7 @@ const HeaderLogo: React.ElementType = (props: any) => {
               css={{
                 height: "auto",
                 width: "auto",
-                maxHeight: 50,
+                maxHeight: "100%",
                 maxWidth: "100%",
               }}
             />
@@ -77,7 +85,7 @@ export default class MyApp extends App {
           <RView
             rStyle={{
               [BREAKPOINTS.DEFAULT]: {
-                width: "100vw",
+                maxWidth: "100vw",
               },
             }}
           >
