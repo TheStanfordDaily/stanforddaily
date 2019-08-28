@@ -1,5 +1,6 @@
 import React from "react";
 import App from "next/app";
+import { Global, css } from "@emotion/core";
 import { RView, BREAKPOINTS } from "../helpers/responsiveStyle";
 import { SectionStyle } from "../components/Section";
 import { CategoryList } from "../components/CategoryList";
@@ -81,40 +82,54 @@ export default class MyApp extends App {
     const { Component, pageProps } = this.props;
     return (
       <Layout>
-        <header>
+        {/* `body` `overflow: initial` is added in order for `position: "sticky"` below to work. */}
+        <Global
+          styles={css`
+            body {
+              overflow: initial;
+            }
+          `}
+        />
+        <RView
+          WebTag="header"
+          rStyle={{
+            [BREAKPOINTS.DEFAULT]: {
+              maxWidth: "100vw",
+              position: "sticky",
+              top: 0,
+              zIndex: 999,
+              backgroundColor: "white",
+            },
+            [BREAKPOINTS.TABLET]: {
+              position: "inherit",
+            },
+          }}
+        >
           <RView
             rStyle={{
               [BREAKPOINTS.DEFAULT]: {
-                maxWidth: "100vw",
+                order: 1,
+              },
+              [BREAKPOINTS.TABLET]: {
+                order: 2,
               },
             }}
           >
-            <RView
-              rStyle={{
-                [BREAKPOINTS.DEFAULT]: {
-                  order: 1,
-                },
-                [BREAKPOINTS.TABLET]: {
-                  order: 2,
-                },
-              }}
-            >
-              <HeaderLogo />
-            </RView>
-            <RView
-              rStyle={{
-                [BREAKPOINTS.DEFAULT]: {
-                  order: 2,
-                },
-                [BREAKPOINTS.TABLET]: {
-                  order: 1,
-                },
-              }}
-            >
-              <CategoryList />
-            </RView>
+            <HeaderLogo />
           </RView>
-        </header>
+          <RView
+            rStyle={{
+              [BREAKPOINTS.DEFAULT]: {
+                order: 2,
+              },
+              [BREAKPOINTS.TABLET]: {
+                order: 1,
+              },
+            }}
+          >
+            <CategoryList />
+          </RView>
+        </RView>
         <main>
           <Component {...pageProps} />
         </main>

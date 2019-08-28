@@ -50,7 +50,13 @@ function _getStyleBasedOnCurrentWidth(rStyle: RStyle): Style {
 }
 
 export const RView: React.ElementType = (props: any) => {
-  const { style, rStyle = {}, ...remainingProps } = props;
+  const {
+    WebTag = "div",
+    NativeTag = View,
+    style,
+    rStyle = {},
+    ...remainingProps
+  } = props;
 
   if (style) {
     console.warn("You should not use `style` property on `RView`.");
@@ -73,7 +79,7 @@ export const RView: React.ElementType = (props: any) => {
 
     const rStylesMediaQueries = _getStyleWithMediaQuery(rStyle);
     return (
-      <div
+      <WebTag
         css={{
           ...reactNativeWebViewStyle,
           ...rStylesMediaQueries,
@@ -84,7 +90,7 @@ export const RView: React.ElementType = (props: any) => {
     );
   } else {
     const mobileStyle = _getStyleBasedOnCurrentWidth(rStyle);
-    return <View style={{ ...mobileStyle, ...style }} {...props} />;
+    return <NativeTag style={{ ...mobileStyle, ...style }} {...props} />;
   }
 };
 
