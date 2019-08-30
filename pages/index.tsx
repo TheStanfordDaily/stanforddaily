@@ -416,34 +416,36 @@ const TopSection: React.ElementType = (props: any) => {
         },
       }}
     >
-      <SectionStyle
-        style={{
-          flexDirection: "row",
-          justifyContent: "space-between",
-          flexWrap: "wrap",
-        }}
-      >
-        <View style={{ flexDirection: "row", alignItems: "center" }}>
-          <View style={{ backgroundColor: "#987654" }}>
-            <Text>Top{"\n"}Stories</Text>
+      <SectionStyle>
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "space-between",
+            flexWrap: "wrap",
+          }}
+        >
+          <View style={{ flexDirection: "row", alignItems: "center" }}>
+            <View style={{ backgroundColor: "#987654" }}>
+              <Text>Top{"\n"}Stories</Text>
+            </View>
+            <OrderedList
+              data={[
+                { title: "Hello World first" },
+                { title: "Welcome World Second" },
+                { title: "Hi World Third" },
+              ]}
+              renderItem={(item: any) => {
+                console.log(item);
+                return <LinkToArticle>{item.title}</LinkToArticle>;
+              }}
+              style={{ backgroundColor: "#472044" }}
+            />
           </View>
-          <OrderedList
-            data={[
-              { title: "Hello World first" },
-              { title: "Welcome World Second" },
-              { title: "Hi World Third" },
-            ]}
-            renderItem={(item: any) => {
-              console.log(item);
-              return <LinkToArticle>{item.title}</LinkToArticle>;
-            }}
-            style={{ backgroundColor: "#472044" }}
-          />
-        </View>
-        <View style={{ flexDirection: "row", alignItems: "center" }}>
-          <SmallSection />
-          <SmallSection />
-          <SmallSection />
+          <View style={{ flexDirection: "row", alignItems: "center" }}>
+            <SmallSection />
+            <SmallSection />
+            <SmallSection />
+          </View>
         </View>
       </SectionStyle>
     </RView>
