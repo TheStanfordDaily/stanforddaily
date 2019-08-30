@@ -9,13 +9,11 @@ const HeaderLogo: React.ElementType = (props: any) => {
   return (
     <SectionStyle>
       <RView
-        rStyle={{
-          [BREAKPOINTS.DEFAULT]: {
-            height: 60,
-            backgroundColor: "#888888",
-            justifyContent: "center",
-            alignItems: "center",
-          },
+        style={{
+          height: 60,
+          backgroundColor: "#888888",
+          justifyContent: "center",
+          alignItems: "center",
         }}
       >
         <h1
@@ -58,11 +56,11 @@ const Layout: React.ElementType = (props: any) => {
   const { children } = props;
   return (
     <RView
+      style={{
+        margin: "0 auto",
+        width: "100%",
+      }}
       rStyle={{
-        [BREAKPOINTS.DEFAULT]: {
-          margin: "0 auto",
-          width: "100%",
-        },
         [BREAKPOINTS.TABLET]: {},
         [BREAKPOINTS.DESKTOP]: {
           maxWidth: BREAKPOINTS.DESKTOP,
@@ -92,24 +90,24 @@ export default class MyApp extends App {
         />
         <RView
           WebTag="header"
+          style={{
+            maxWidth: "100vw",
+            position: "sticky",
+            top: 0,
+            zIndex: 999,
+            backgroundColor: "white",
+          }}
           rStyle={{
-            [BREAKPOINTS.DEFAULT]: {
-              maxWidth: "100vw",
-              position: "sticky",
-              top: 0,
-              zIndex: 999,
-              backgroundColor: "white",
-            },
             [BREAKPOINTS.TABLET]: {
               position: "inherit",
             },
           }}
         >
           <RView
+            style={{
+              order: 1,
+            }}
             rStyle={{
-              [BREAKPOINTS.DEFAULT]: {
-                order: 1,
-              },
               [BREAKPOINTS.TABLET]: {
                 order: 2,
               },
@@ -118,10 +116,10 @@ export default class MyApp extends App {
             <HeaderLogo />
           </RView>
           <RView
+            style={{
+              order: 2,
+            }}
             rStyle={{
-              [BREAKPOINTS.DEFAULT]: {
-                order: 2,
-              },
               [BREAKPOINTS.TABLET]: {
                 order: 1,
               },

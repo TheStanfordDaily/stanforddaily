@@ -28,13 +28,14 @@ import { CategoryList } from "../components/CategoryList";
 // TODO: layout got reset to mobile one when returning from other app on iPad
 
 const Column: React.ElementType = (props: any) => {
-  const { rStyle = {}, ...remainingProps } = props;
+  const { style = {}, rStyle = {}, ...remainingProps } = props;
+  const resultStyle = {
+    flexDirection: "column",
+    flexGrow: 1,
+    ...style,
+  };
   const resultRStyle = mergeRStyle(
     {
-      [BREAKPOINTS.DEFAULT]: {
-        flexDirection: "column",
-        flexGrow: 1,
-      },
       [BREAKPOINTS.TABLET]: {
         flexBasis: 0,
       },
@@ -42,16 +43,19 @@ const Column: React.ElementType = (props: any) => {
     rStyle,
   );
 
-  return <RView {...remainingProps} rStyle={resultRStyle} />;
+  return (
+    <RView {...remainingProps} style={resultStyle} rStyle={resultRStyle} />
+  );
 };
 
 const DesktopRow: React.ElementType = (props: any) => {
-  const { rStyle = {}, ...remainingProps } = props;
+  const { style = {}, rStyle = {}, ...remainingProps } = props;
+  const resultStyle = {
+    flexDirection: "column",
+    ...style,
+  };
   const resultRStyle = mergeRStyle(
     {
-      [BREAKPOINTS.DEFAULT]: {
-        flexDirection: "column",
-      },
       [BREAKPOINTS.TABLET]: {
         flexDirection: "row",
       },
@@ -59,7 +63,9 @@ const DesktopRow: React.ElementType = (props: any) => {
     rStyle,
   );
 
-  return <RView {...remainingProps} rStyle={resultRStyle} />;
+  return (
+    <RView {...remainingProps} style={resultStyle} rStyle={resultRStyle} />
+  );
 };
 
 const SectionTitleStyle = styled.Text({
@@ -308,10 +314,10 @@ const TextOnlyArticle: React.ElementType = (props: any) => {
   const { style } = props;
   return (
     <RView
+      style={{
+        width: "100%",
+      }}
       rStyle={{
-        [BREAKPOINTS.DEFAULT]: {
-          width: "100%",
-        },
         [BREAKPOINTS.TABLET]: {
           width: 250,
         },
@@ -401,10 +407,10 @@ const TopSection: React.ElementType = (props: any) => {
 
   return (
     <RView
+      style={{
+        display: "none",
+      }}
       rStyle={{
-        [BREAKPOINTS.DEFAULT]: {
-          display: "none",
-        },
         [BREAKPOINTS.DESKTOP]: {
           display: "flex",
         },
@@ -448,12 +454,12 @@ const MainSection: React.ElementType = (props: any) => {
   const { sectionTitle, SectionTag = Section } = props;
   return (
     <Column
+      style={{
+        flexGrow: 7,
+        backgroundColor: "green",
+        order: 1,
+      }}
       rStyle={{
-        [BREAKPOINTS.DEFAULT]: {
-          flexGrow: 7,
-          backgroundColor: "green",
-          order: 1,
-        },
         [BREAKPOINTS.TABLET]: {
           order: 2,
         },
@@ -463,26 +469,20 @@ const MainSection: React.ElementType = (props: any) => {
         {sectionTitle && <SectionTitle>{sectionTitle}</SectionTitle>}
         <HeadlineArticle />
         <DesktopRow
-          rStyle={{
-            [BREAKPOINTS.DEFAULT]: {
-              backgroundColor: "blue",
-            },
+          style={{
+            backgroundColor: "blue",
           }}
         >
           <Column
-            rStyle={{
-              [BREAKPOINTS.DEFAULT]: {
-                backgroundColor: "blue",
-              },
+            style={{
+              backgroundColor: "blue",
             }}
           >
             <TopThumbnailArticle />
           </Column>
           <Column
-            rStyle={{
-              [BREAKPOINTS.DEFAULT]: {
-                backgroundColor: "lightgray",
-              },
+            style={{
+              backgroundColor: "lightgray",
             }}
           >
             <TopThumbnailArticle />
@@ -497,12 +497,12 @@ const LeftSection: React.ElementType = (props: any) => {
   const { sectionTitle, SectionTag = Section } = props;
   return (
     <Column
+      style={{
+        flexGrow: 3,
+        backgroundColor: "lightgreen",
+        order: 2,
+      }}
       rStyle={{
-        [BREAKPOINTS.DEFAULT]: {
-          flexGrow: 3,
-          backgroundColor: "lightgreen",
-          order: 2,
-        },
         [BREAKPOINTS.TABLET]: {
           order: 1,
         },
@@ -680,12 +680,12 @@ const MoreFromTheDailySection: React.ElementType = (props: any) => {
     >
       <Text>more from daily</Text>
       <RView
+        style={{
+          backgroundColor: "lightblue",
+          width: "100%",
+          flexDirection: "column",
+        }}
         rStyle={{
-          [BREAKPOINTS.DEFAULT]: {
-            backgroundColor: "lightblue",
-            width: "100%",
-            flexDirection: "column",
-          },
           [BREAKPOINTS.TABLET]: {
             height: 700,
             flexWrap: "wrap",
@@ -734,14 +734,14 @@ export default class Index extends React.Component<IndexProps, IndexState> {
     /*
     return (
       <RView
+        style={{
+          margin: 0,
+          padding: 30,
+          lineHeight: "1.5",
+          fontFamily: "Sans-Serif",
+          backgroundColor: "red",
+        }}
         rStyle={{
-          [BREAKPOINTS.DEFAULT]: {
-            margin: 0,
-            padding: 30,
-            lineHeight: "1.5",
-            fontFamily: "Sans-Serif",
-            backgroundColor: "red",
-          },
           [BREAKPOINTS.TABLET]: {
             backgroundColor: "pink",
           },
@@ -803,10 +803,8 @@ export default class Index extends React.Component<IndexProps, IndexState> {
           <TopSection />
           <DesktopRow>
             <Column
-              rStyle={{
-                [BREAKPOINTS.DEFAULT]: {
-                  flexGrow: 6,
-                },
+              style={{
+                flexGrow: 6,
               }}
             >
               <DesktopRow>
@@ -825,10 +823,8 @@ export default class Index extends React.Component<IndexProps, IndexState> {
               <SportsSection mainBeforeSide={featuredBeforeNews} />
             </Column>
             <Column
-              rStyle={{
-                [BREAKPOINTS.DEFAULT]: {
-                  flexGrow: 3,
-                },
+              style={{
+                flexGrow: 3,
               }}
             >
               <OpinionSection />
