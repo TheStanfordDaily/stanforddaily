@@ -11,7 +11,7 @@ const OrderedListWrapper: React.ElementType = ({
     return (
       <ol {...props} style={{ marginTop: 0, marginBottom: 0, ...style }}>
         {data.map((item: any) => (
-          <li key={item}>{renderItem(item)}</li>
+          <li key={JSON.stringify(item)}>{renderItem(item)}</li>
         ))}
       </ol>
     );
