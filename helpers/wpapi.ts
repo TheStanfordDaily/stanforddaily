@@ -49,7 +49,7 @@ export type Post = {
 };
 
 const wp = new WPAPI({
-  endpoint: "http://localhost.stanforddaily.com/wp-json",
+  endpoint: "https://www.stanforddaily.com/wp-json",
   routes: tsdJson.routes,
 });
 const wpTsdJson = wp.namespace("tsd/json/v1");
