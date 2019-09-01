@@ -32,7 +32,7 @@ export type Category = {
 };
 
 export type Post = {
-  ID: number;
+  id: number;
   postDate: string;
   postDateGmt: string;
   postModified: string;

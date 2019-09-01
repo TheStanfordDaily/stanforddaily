@@ -15,7 +15,14 @@ import {
   mergeRStyle,
   isWidthGreaterThan,
 } from "../helpers/responsiveStyle";
-import { getHomeAsync, getPostPath, Home } from "../helpers/wpapi";
+import {
+  getHomeAsync,
+  getPostPath,
+  getPostLocalDate,
+  Home,
+  Post,
+  Author,
+} from "../helpers/wpapi";
 import Wrapper from "../components/Wrapper";
 import {
   Section,
@@ -26,6 +33,18 @@ import { OrderedList } from "../components/List";
 import { CategoryList } from "../components/CategoryList";
 
 // TODO: layout got reset to mobile one when returning from other app on iPad
+
+type SectionProps = {
+  content: Post[];
+  sectionTitle?: string;
+  SectionTag?: string | React.Component;
+  [key: string]: any;
+};
+
+type ArticleProps = {
+  post: Post;
+  [key: string]: any;
+};
 
 const Column: React.ElementType = (props: any) => {
   const { style = {}, rStyle = {}, ...remainingProps } = props;
@@ -79,17 +98,24 @@ const SectionTitle =
     ? SectionTitleStyle.withComponent("h1")
     : SectionTitleStyle;
 
-const LinkToArticle: React.ElementType = ({ children, ...props }: any) => {
+const LinkToArticle: React.ElementType = ({
+  post,
+  children,
+  ...props
+}: {
+  post: Post;
+  [key: string]: any;
+}) => {
   if (Platform.OS === "web") {
     return (
-      <Link href="/[year]/[month]/[day]/[slug]/" as="/2019/01/01/test">
-        <a title="ARTICLE TITLE HERE" {...props}>
+      <Link href="/[year]/[month]/[day]/[slug]/" as={getPostPath(post)}>
+        <a title={post.postTitle} {...props}>
           {children}
         </a>
       </Link>
     );
   } else {
-    return children;
+    return <Text>{post.postTitle}</Text>;
   }
 };
 
@@ -115,7 +141,14 @@ const Article: React.ElementType = (props: any) => {
   }
 };
 
-const ThumbnailImage: React.ElementType = ({ style, ...props }: any) => {
+const ThumbnailImage: React.ElementType = ({
+  post,
+  style,
+  ...props
+}: {
+  post: Post;
+  [key: string]: any;
+}) => {
   return (
     <Image
       resizeMode="cover"
@@ -123,13 +156,21 @@ const ThumbnailImage: React.ElementType = ({ style, ...props }: any) => {
         width: "100%",
         ...style,
       }}
+      source={{
+        uri:
+          "https://www.stanforddaily.com/wp-content/uploads/2019/08/44010386874_30ea221b19_o.jpg",
+      }}
       {...props}
     />
   );
 };
-const ThumbnailImageWithLink: React.ElementType = (props: any) => {
+const ThumbnailImageWithLink: React.ElementType = (props: {
+  post: Post;
+  [key: string]: any;
+}) => {
+  const { post } = props;
   return (
-    <LinkToArticle>
+    <LinkToArticle post={post}>
       <ThumbnailImage {...props} />
     </LinkToArticle>
   );
@@ -149,10 +190,14 @@ const ArticleTitle =
   Platform.OS === "web"
     ? ArticleTitleStyle.withComponent("h2")
     : ArticleTitleStyle;
-const ArticleTitleWithLink: React.ElementType = (props: any) => {
+const ArticleTitleWithLink: React.ElementType = (props: {
+  post: Post;
+  [key: string]: any;
+}) => {
+  const { post } = props;
   return (
     <ArticleTitle>
-      <LinkToArticle {...props} />
+      <LinkToArticle {...props}>{post.postTitle}</LinkToArticle>
     </ArticleTitle>
   );
 };
@@ -169,23 +214,35 @@ const ArticleSubtitle =
     ? ArticleSubtitleStyle.withComponent("h3")
     : ArticleSubtitleStyle;
 
-const Author: React.ElementType = ({ children, ...props }: any) => {
+const AuthorView: React.ElementType = ({
+  author,
+  ...props
+}: {
+  author: Author;
+  [key: string]: any;
+}) => {
+  const { displayName, userNicename } = author;
   if (Platform.OS === "web") {
     return (
       <View>
         <Text>
-          <a href="https://example.com" rel="author" {...props}>
-            {children}
+          <a
+            href={`https://www.stanforddaily.com/author/${userNicename}/`}
+            rel="author"
+            {...props}
+          >
+            {displayName}
           </a>
         </Text>
       </View>
     );
   } else {
-    return <Text {...props}>{children}</Text>;
+    return <Text {...props}>{displayName}</Text>;
   }
 };
 
-const HeadlineArticle: React.ElementType = (props: any) => {
+const HeadlineArticle: React.ElementType = ({ post }: ArticleProps) => {
+  const { postSubtitle, postExcerpt, tsdAuthors } = post;
   return (
     <Article
       style={{
@@ -193,35 +250,23 @@ const HeadlineArticle: React.ElementType = (props: any) => {
       }}
     >
       <ThumbnailImageWithLink
+        post={post}
         style={{
           height: 200,
         }}
-        source={{
-          uri:
-            "https://www.stanforddaily.com/wp-content/uploads/2019/08/44010386874_30ea221b19_o.jpg",
-        }}
       />
       <ArticleHeader>
-        <ArticleTitleWithLink>
-          Stanford legend Andrew Luck retires from NFL after six seasons
-        </ArticleTitleWithLink>
-        <ArticleSubtitle>
-          After push by student activists, Second Harvest of Silicon Valley,
-          Graduate Student Council and R&DE partner for three deliveries
-        </ArticleSubtitle>
+        <ArticleTitleWithLink post={post} />
+        <ArticleSubtitle>{postSubtitle}</ArticleSubtitle>
       </ArticleHeader>
-      <Text>
-        Bring grocery bags, transportation (like a wagon, stroller, or a car)
-        and your Stanford ID card, the RSVP form asks. The Monday event is a
-        pilot of a campus food pantry, where students who self-identify as food
-        insecure will receive up to 150 lbs of food per household.{" "}
-      </Text>
-      <Author>John Doe</Author>
+      <Text>{postExcerpt}</Text>
+      <AuthorView author={tsdAuthors} />
     </Article>
   );
 };
 
-const TopThumbnailArticle: React.ElementType = (props: any) => {
+const TopThumbnailArticle: React.ElementType = ({ post }: ArticleProps) => {
+  const { tsdAuthors } = post;
   return (
     <Article
       style={{
@@ -229,25 +274,21 @@ const TopThumbnailArticle: React.ElementType = (props: any) => {
       }}
     >
       <ThumbnailImageWithLink
+        post={post}
         style={{
           height: 100,
         }}
-        source={{
-          uri:
-            "https://www.stanforddaily.com/wp-content/uploads/2019/08/44010386874_30ea221b19_o.jpg",
-        }}
       />
       <ArticleHeader>
-        <ArticleTitleWithLink>
-          Stanford legend Andrew Luck retires from NFL after six seasons
-        </ArticleTitleWithLink>
+        <ArticleTitleWithLink post={post} />
       </ArticleHeader>
-      <Author>John Doe</Author>
+      <AuthorView author={tsdAuthors} />
     </Article>
   );
 };
 
-const SideThumbnailArticle: React.ElementType = (props: any) => {
+const SideThumbnailArticle: React.ElementType = ({ post }: ArticleProps) => {
+  const { tsdAuthors } = post;
   return (
     <Article
       style={{
@@ -266,12 +307,9 @@ const SideThumbnailArticle: React.ElementType = (props: any) => {
           }}
         >
           <ThumbnailImageWithLink
+            post={post}
             style={{
               height: 100,
-            }}
-            source={{
-              uri:
-                "https://www.stanforddaily.com/wp-content/uploads/2019/08/44010386874_30ea221b19_o.jpg",
             }}
           />
         </View>
@@ -282,18 +320,17 @@ const SideThumbnailArticle: React.ElementType = (props: any) => {
           }}
         >
           <ArticleHeader>
-            <ArticleTitleWithLink>
-              Stanford legend Andrew Luck retires from NFL after six seasons
-            </ArticleTitleWithLink>
+            <ArticleTitleWithLink post={post} />
           </ArticleHeader>
-          <Author>John Doe</Author>
+          <AuthorView author={tsdAuthors} />
         </View>
       </View>
     </Article>
   );
 };
 
-const TitleOnlyArticle: React.ElementType = (props: any) => {
+const TitleOnlyArticle: React.ElementType = ({ post }: ArticleProps) => {
+  const { tsdAuthors } = post;
   return (
     <Article
       style={{
@@ -301,17 +338,16 @@ const TitleOnlyArticle: React.ElementType = (props: any) => {
       }}
     >
       <ArticleHeader>
-        <ArticleTitleWithLink>
-          Stanford legend Andrew Luck retires from NFL after six seasons
-        </ArticleTitleWithLink>
+        <ArticleTitleWithLink post={post} />
       </ArticleHeader>
-      <Author>John Doe</Author>
+      <AuthorView author={tsdAuthors} />
     </Article>
   );
 };
 
-const TextOnlyArticle: React.ElementType = (props: any) => {
-  const { style } = props;
+const TextOnlyArticle: React.ElementType = ({ post, style }: ArticleProps) => {
+  const { tsdPrimaryCategory, postExcerpt, tsdAuthors } = post;
+  const date = getPostLocalDate(post);
   return (
     <RView
       style={{
@@ -331,45 +367,37 @@ const TextOnlyArticle: React.ElementType = (props: any) => {
         }}
       >
         {/* TODO: ADD CATEGORY LINK */}
-        <Text>Sports</Text>
+        <Text>{tsdPrimaryCategory.name}</Text>
         <ArticleHeader>
-          <ArticleTitleWithLink>
-            Stanford legend Andrew Luck retires from NFL after six seasons
-          </ArticleTitleWithLink>
+          <ArticleTitleWithLink post={post} />
         </ArticleHeader>
-        <Text>
-          Bring grocery bags, transportation (like a wagon, stroller, or a car)
-          and your Stanford ID card, the RSVP form asks. The Monday event is a
-          pilot of a campus food pantry, where students who self-identify as
-          food insecure will receive up to 150 lbs of food per household.{" "}
-        </Text>
+        <Text>{postExcerpt}</Text>
         <View>
-          <Author>John Doe</Author>
-          <Text>Jan 01, 2019</Text>
+          <AuthorView author={tsdAuthors} />
+          <Text>{date.format("YYYY-MM-DD")}</Text>
         </View>
       </Article>
     </RView>
   );
 };
 
-const ListStyleArticle: React.ElementType = (props: any) => {
+const ListStyleArticle: React.ElementType = ({ post }: ArticleProps) => {
+  const { tsdAuthors } = post;
   return (
     <Article
       style={{
         backgroundColor: "#935502",
       }}
     >
-      <Author>John Doe</Author>
+      <AuthorView author={tsdAuthors} />
       <ArticleHeader>
-        <ArticleTitleWithLink>
-          Stanford legend Andrew Luck retires from NFL after six seasons
-        </ArticleTitleWithLink>
+        <ArticleTitleWithLink post={post} />
       </ArticleHeader>
     </Article>
   );
 };
 
-const TopSection: React.ElementType = (props: any) => {
+const TopSection: React.ElementType = ({ content }: SectionProps) => {
   const SmallSection: React.ElementType = (sProps: any) => {
     return (
       <View
@@ -436,7 +464,10 @@ const TopSection: React.ElementType = (props: any) => {
               ]}
               renderItem={(item: any) => {
                 console.log(item);
-                return <LinkToArticle>{item.title}</LinkToArticle>;
+                // TODO: COMPLETE THIS
+                return (
+                  <LinkToArticle post={content[0]}>{item.title}</LinkToArticle>
+                );
               }}
               style={{ backgroundColor: "#472044" }}
             />
@@ -452,8 +483,8 @@ const TopSection: React.ElementType = (props: any) => {
   );
 };
 
-const MainSection: React.ElementType = (props: any) => {
-  const { sectionTitle, SectionTag = Section } = props;
+const MainSection: React.ElementType = (props: SectionProps) => {
+  const { content, sectionTitle, SectionTag = Section } = props;
   return (
     <Column
       style={{
@@ -469,7 +500,7 @@ const MainSection: React.ElementType = (props: any) => {
     >
       <SectionTag>
         {sectionTitle && <SectionTitle>{sectionTitle}</SectionTitle>}
-        <HeadlineArticle />
+        <HeadlineArticle post={content[0]} />
         <DesktopRow
           style={{
             backgroundColor: "blue",
@@ -480,14 +511,14 @@ const MainSection: React.ElementType = (props: any) => {
               backgroundColor: "blue",
             }}
           >
-            <TopThumbnailArticle />
+            <TopThumbnailArticle post={content[1]} />
           </Column>
           <Column
             style={{
               backgroundColor: "lightgray",
             }}
           >
-            <TopThumbnailArticle />
+            <TopThumbnailArticle post={content[2]} />
           </Column>
         </DesktopRow>
       </SectionTag>
@@ -495,8 +526,8 @@ const MainSection: React.ElementType = (props: any) => {
   );
 };
 
-const LeftSection: React.ElementType = (props: any) => {
-  const { sectionTitle, SectionTag = Section } = props;
+const LeftSection: React.ElementType = (props: SectionProps) => {
+  const { content, sectionTitle, SectionTag = Section } = props;
   return (
     <Column
       style={{
@@ -517,66 +548,75 @@ const LeftSection: React.ElementType = (props: any) => {
             backgroundColor: "#123456",
           }}
         >
-          <TopThumbnailArticle />
+          <TopThumbnailArticle post={content[0]} />
         </View>
         <View
           style={{
             backgroundColor: "#A23456",
           }}
         >
-          <TopThumbnailArticle />
+          <TopThumbnailArticle post={content[1]} />
         </View>
         <View
           style={{
             backgroundColor: "#523456",
           }}
         >
-          <TitleOnlyArticle />
+          <TitleOnlyArticle post={content[2]} />
         </View>
         <View
           style={{
             backgroundColor: "#D2E456",
           }}
         >
-          <TitleOnlyArticle />
+          <TitleOnlyArticle post={content[3]} />
         </View>
       </SectionTag>
     </Column>
   );
 };
 
-const RightListedSection: React.ElementType = (props: any) => {
-  const { sectionTitle, SectionTag = Section, ...remainingProps } = props;
+const RightListedSection: React.ElementType = (props: SectionProps) => {
+  const {
+    content,
+    sectionTitle,
+    SectionTag = Section,
+    ...remainingProps
+  } = props;
   return (
     <SectionTag {...remainingProps}>
       {sectionTitle && <SectionTitle>{sectionTitle}</SectionTitle>}
-      <ListStyleArticle />
-      <ListStyleArticle />
-      <ListStyleArticle />
-      <ListStyleArticle />
+      <ListStyleArticle post={content[0]} />
+      <ListStyleArticle post={content[1]} />
+      <ListStyleArticle post={content[2]} />
+      <ListStyleArticle post={content[3]} />
     </SectionTag>
   );
 };
 
-const SportsSection: React.ElementType = (props: any) => {
-  const { mainBeforeSide } = props;
+const SportsSection: React.ElementType = (props: SectionProps) => {
+  const { content, mainBeforeSide } = props;
+  const leftContent = content.slice(3);
+  const mainContent = content.slice(0, 3);
 
   const SectionStyleWithoutPaddingTop = styled(SectionStyle)({
     paddingTop: 0,
   });
 
-  const LeftSportSection: React.ElementType = (lsProps: any) => {
+  const LeftSportSection: React.ElementType = (lsProps: SectionProps) => {
     return (
       <LeftSection
+        content={leftContent}
         sectionTitle={null}
         SectionTag={SectionStyleWithoutPaddingTop}
         {...lsProps}
       />
     );
   };
-  const MainSportSection: React.ElementType = (msProps: any) => {
+  const MainSportSection: React.ElementType = (msProps: SectionProps) => {
     return (
       <MainSection
+        content={mainContent}
         sectionTitle={null}
         SectionTag={SectionStyleWithoutPaddingTop}
         {...msProps}
@@ -606,9 +646,10 @@ const SportsSection: React.ElementType = (props: any) => {
   );
 };
 
-const OpinionSection: React.ElementType = (props: any) => {
+const OpinionSection: React.ElementType = ({ content }: SectionProps) => {
   return (
     <RightListedSection
+      content={content}
       sectionTitle="Opinion"
       style={{
         backgroundColor: "blue",
@@ -617,9 +658,10 @@ const OpinionSection: React.ElementType = (props: any) => {
   );
 };
 
-const GrindSection: React.ElementType = (props: any) => {
+const GrindSection: React.ElementType = ({ content }: SectionProps) => {
   return (
     <RightListedSection
+      content={content}
       sectionTitle="The Grind"
       style={{
         backgroundColor: "cyan",
@@ -628,7 +670,7 @@ const GrindSection: React.ElementType = (props: any) => {
   );
 };
 
-const ArtsAndLifeSection: React.ElementType = (props: any) => {
+const ArtsAndLifeSection: React.ElementType = ({ content }: SectionProps) => {
   return (
     <Section
       style={{
@@ -636,15 +678,15 @@ const ArtsAndLifeSection: React.ElementType = (props: any) => {
       }}
     >
       <SectionTitle>arts and life</SectionTitle>
-      <SideThumbnailArticle />
-      <SideThumbnailArticle />
-      <SideThumbnailArticle />
-      <SideThumbnailArticle />
+      <SideThumbnailArticle post={content[0]} />
+      <SideThumbnailArticle post={content[1]} />
+      <SideThumbnailArticle post={content[2]} />
+      <SideThumbnailArticle post={content[3]} />
     </Section>
   );
 };
 
-const SponsoredSection: React.ElementType = (props: any) => {
+const SponsoredSection: React.ElementType = ({ content }: SectionProps) => {
   return (
     <Section
       style={{
@@ -657,7 +699,7 @@ const SponsoredSection: React.ElementType = (props: any) => {
   );
 };
 
-const MultimediaSection: React.ElementType = (props: any) => {
+const MultimediaSection: React.ElementType = (props: SectionProps) => {
   return (
     <Section
       style={{
@@ -671,7 +713,9 @@ const MultimediaSection: React.ElementType = (props: any) => {
   );
 };
 
-const MoreFromTheDailySection: React.ElementType = (props: any) => {
+const MoreFromTheDailySection: React.ElementType = ({
+  content,
+}: SectionProps) => {
   return (
     <Section
       style={{
@@ -695,21 +739,9 @@ const MoreFromTheDailySection: React.ElementType = (props: any) => {
           },
         }}
       >
-        <TextOnlyArticle />
-        <TextOnlyArticle />
-        <TextOnlyArticle />
-        <TextOnlyArticle />
-        <TextOnlyArticle />
-        <TextOnlyArticle />
-        <TextOnlyArticle />
-        <TextOnlyArticle />
-        <TextOnlyArticle />
-        <TextOnlyArticle />
-        <TextOnlyArticle />
-        <TextOnlyArticle />
-        <TextOnlyArticle />
-        <TextOnlyArticle />
-        <TextOnlyArticle />
+        {content.map(post => (
+          <TextOnlyArticle key={post.id} post={post} />
+        ))}
       </RView>
     </Section>
   );
@@ -789,10 +821,22 @@ export default class IndexPage extends React.Component<IndexProps, IndexState> {
     }
 
     const FeaturedSection: React.ElementType = (fsProps: any) => {
-      return <MainSection sectionTitle="Featured" {...fsProps} />;
+      return (
+        <MainSection
+          sectionTitle="Featured"
+          content={homePosts.featured}
+          {...fsProps}
+        />
+      );
     };
     const NewsSection: React.ElementType = (nsProps: any) => {
-      return <LeftSection sectionTitle="News" {...nsProps} />;
+      return (
+        <LeftSection
+          sectionTitle="News"
+          content={homePosts.news}
+          {...nsProps}
+        />
+      );
     };
 
     return (
@@ -803,7 +847,8 @@ export default class IndexPage extends React.Component<IndexProps, IndexState> {
             flexDirection: "column",
           }}
         >
-          <TopSection />
+          {/* TODO: FIX THIS */}
+          <TopSection content={homePosts.featured} />
           <DesktopRow>
             <Column
               style={{
@@ -823,21 +868,24 @@ export default class IndexPage extends React.Component<IndexProps, IndexState> {
                   </>
                 )}
               </DesktopRow>
-              <SportsSection mainBeforeSide={featuredBeforeNews} />
+              <SportsSection
+                content={homePosts.sports}
+                mainBeforeSide={featuredBeforeNews}
+              />
             </Column>
             <Column
               style={{
                 flexGrow: 3,
               }}
             >
-              <OpinionSection />
-              <GrindSection />
-              <ArtsAndLifeSection />
-              <SponsoredSection />
+              <OpinionSection content={homePosts.opinions} />
+              <GrindSection content={homePosts.theGrind} />
+              <ArtsAndLifeSection content={homePosts.artsAndLife} />
+              <SponsoredSection content={[]} />
             </Column>
           </DesktopRow>
-          <MultimediaSection />
-          <MoreFromTheDailySection />
+          <MultimediaSection content={[]} />
+          <MoreFromTheDailySection content={homePosts.moreFromTheDaily} />
         </ScrollView>
       </>
     );
