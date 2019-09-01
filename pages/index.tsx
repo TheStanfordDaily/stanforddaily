@@ -266,7 +266,7 @@ const HeadlineArticle: React.ElementType = ({ post }: ArticleProps) => {
       />
       <ArticleHeader>
         <ArticleTitleWithLink post={post} />
-        <ArticleSubtitle>{postSubtitle}</ArticleSubtitle>
+        {postSubtitle && <ArticleSubtitle>{postSubtitle}</ArticleSubtitle>}
       </ArticleHeader>
       <Text>{postExcerpt}</Text>
       <AuthorView authors={tsdAuthors} />
