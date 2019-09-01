@@ -380,7 +380,7 @@ const TextOnlyArticle: React.ElementType = ({ post, style }: ArticleProps) => {
         <Text>{postExcerpt}</Text>
         <View>
           <AuthorView authors={tsdAuthors} />
-          <Text>{date.format("YYYY-MM-DD")}</Text>
+          <Text>{date.format("MMM DD YYYY")}</Text>
         </View>
       </Article>
     </RView>
