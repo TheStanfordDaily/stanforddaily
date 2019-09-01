@@ -24,7 +24,7 @@ export default class PostPage extends React.Component<PostProps, PostState> {
     const { year, month, day, slug } = query;
     console.warn({ year, month, day, slug });
     const post = await getPostAsync(year, month, day, slug);
-    console.log(post.post_title);
+    console.log(post.postTitle);
     return { post };
   }
 
@@ -36,14 +36,14 @@ export default class PostPage extends React.Component<PostProps, PostState> {
     if (Platform.OS === "web") {
       return (
         // eslint-disable-next-line react/no-danger
-        <div dangerouslySetInnerHTML={{ __html: post.post_content }} />
+        <div dangerouslySetInnerHTML={{ __html: post.postContent }} />
       );
     }
 
     // TODO: Make source the actual webpage (i.e., directly loading the above page)
     return (
       <WebView
-        source={{ html: post.post_content }}
+        source={{ html: post.postContent }}
         originWhitelist={["*"]}
         style={{ marginTop: 20 }}
       />

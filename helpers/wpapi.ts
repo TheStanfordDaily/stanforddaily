@@ -7,9 +7,9 @@ export type Home = {
   news: Post[];
   sports: Post[];
   opinions: Post[];
-  the_grind: Post[];
-  arts_and_life: Post[];
-  more_from_the_daily: Post[];
+  theGrind: Post[];
+  artsAndLife: Post[];
+  moreFromTheDaily: Post[];
 };
 
 export type PostURL = {
@@ -21,8 +21,8 @@ export type PostURL = {
 
 export type Author = {
   id: number;
-  display_name: string;
-  user_nicename: string; // This is user's URL-friendly slug
+  displayName: string;
+  userNicename: string; // This is user's URL-friendly slug
 };
 
 export type Category = {
@@ -33,18 +33,18 @@ export type Category = {
 
 export type Post = {
   ID: number;
-  post_date: string;
-  post_date_gmt: string;
-  post_modified: string;
-  post_modified_gmt: string;
-  post_title: string;
-  post_subtitle?: string;
-  tsd_authors: Author[];
-  post_excerpt: string;
-  post_content?: string;
-  tsd_primary_category?: Category;
-  tags_input: string[];
-  tsd_url_parameters: PostURL;
+  postDate: string;
+  postDateGmt: string;
+  postModified: string;
+  postModifiedGmt: string;
+  postTitle: string;
+  postSubtitle?: string;
+  tsdAuthors: Author[];
+  postExcerpt: string;
+  postContent?: string;
+  tsdPrimaryCategory?: Category;
+  tagsInput: string[];
+  tsdUrlParameters: PostURL;
   guid: string; // Unique perminlinks (e.g., "https://www.stanforddaily.com/?p=1144743")
 };
 
@@ -73,10 +73,11 @@ export async function getHomeAsync(): Promise<any> {
 }
 
 export function getPostLocalDate(post: Post): moment.Moment {
-  const date = moment.utc(post.post_date_gmt);
+  const date = moment.utc(post.postDateGmt);
   return date;
 }
 
 export function getPostPath(post: Post): string {
-  return `/${post.tsd_url_parameters.year}/${post.tsd_url_parameters.month}/${post.tsd_url_parameters.day}/${post.tsd_url_parameters.slug}/`;
+  const { tsdUrlParameters } = post;
+  return `/${tsdUrlParameters.year}/${tsdUrlParameters.month}/${tsdUrlParameters.day}/${tsdUrlParameters.slug}/`;
 }

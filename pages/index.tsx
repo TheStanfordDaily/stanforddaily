@@ -758,20 +758,20 @@ export default class IndexPage extends React.Component<IndexProps, IndexState> {
     */
 
     /*
-    const fposts = homePosts.more_from_the_daily.map(post => {
+    const fposts = homePosts.moreFromTheDaily.map(post => {
       return (
-        <View key={post.tsd_url_parameters.slug}>
+        <View key={post.tsdUrlParameters.slug}>
           {Platform.OS === "web" ? (
             <Link href="/[year]/[month]/[day]/[slug]/" as={getPostPath(post)}>
-              <a>{post.post_title}</a>
+              <a>{post.postTitle}</a>
             </Link>
           ) : (
             <Text
               onPress={() => {
-                this.props.navigation.push("post", post.tsd_url_parameters);
+                this.props.navigation.push("post", post.tsdUrlParameters);
               }}
             >
-              {post.post_title}
+              {post.postTitle}
             </Text>
           )}
         </View>
