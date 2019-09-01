@@ -722,7 +722,7 @@ interface IndexProps {
 
 interface IndexState {}
 
-export default class Index extends React.Component<IndexProps, IndexState> {
+export default class IndexPage extends React.Component<IndexProps, IndexState> {
   static async getInitialProps(): Promise<any> {
     const homePosts = await getHomeAsync();
     return { homePosts };
@@ -844,6 +844,6 @@ export default class Index extends React.Component<IndexProps, IndexState> {
   }
 }
 
-export function IndexWrapper(props): any {
-  return <Wrapper class={Index} props={props} getInitialProps={{}} />;
+export function IndexPageWrapper(props): any {
+  return <Wrapper class={IndexPage} props={props} getInitialProps={{}} />;
 }

@@ -51,7 +51,7 @@ export default class PostPage extends React.Component<PostProps, PostState> {
   }
 }
 
-export function PostPageViewWrapper(props: any): any {
+export function PostPageWrapper(props: any): any {
   const urlParameters = props.navigation.state.params;
   return (
     <Wrapper
