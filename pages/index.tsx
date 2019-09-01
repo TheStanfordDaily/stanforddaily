@@ -15,7 +15,7 @@ import {
   mergeRStyle,
   isWidthGreaterThan,
 } from "../helpers/responsiveStyle";
-import { getPostsAsync, getPostPath } from "../helpers/wpapi";
+import { getHomeAsync, getPostPath, Home } from "../helpers/wpapi";
 import Wrapper from "../components/Wrapper";
 import {
   Section,
@@ -716,7 +716,7 @@ const MoreFromTheDailySection: React.ElementType = (props: any) => {
 };
 
 interface IndexProps {
-  posts?: any[];
+  homePosts?: Home;
   navigation?: any;
 }
 
@@ -724,13 +724,13 @@ interface IndexState {}
 
 export default class Index extends React.Component<IndexProps, IndexState> {
   static async getInitialProps(): Promise<any> {
-    const posts = await getPostsAsync();
-    return { posts };
+    const homePosts = await getHomeAsync();
+    return { homePosts };
   }
 
   render(): React.ReactNode {
-    const { posts } = this.props;
-    if (!posts) {
+    const { homePosts } = this.props;
+    if (!homePosts) {
       return <Text>Loading...</Text>;
     }
     /*
@@ -756,27 +756,28 @@ export default class Index extends React.Component<IndexProps, IndexState> {
       </RView>
     );
     */
+
     /*
-    const fposts = posts.map(post => {
+    const fposts = homePosts.more_from_the_daily.map(post => {
       return (
-        <View key={post.slug}>
+        <View key={post.tsd_url_parameters.slug}>
           {Platform.OS === "web" ? (
             <Link href="/[year]/[month]/[day]/[slug]/" as={getPostPath(post)}>
-              <a>{post.title.rendered}</a>
+              <a>{post.post_title}</a>
             </Link>
           ) : (
             <Text
               onPress={() => {
-                this.props.navigation.push("post", { slug: post.slug });
+                this.props.navigation.push("post", post.tsd_url_parameters);
               }}
             >
-              {post.title.rendered}
+              {post.post_title}
             </Text>
           )}
         </View>
       );
     });
-    return <View style={containerStyle}>{fposts}</View>;
+    return <View>{fposts}</View>;
     */
 
     let featuredBeforeNews = true;

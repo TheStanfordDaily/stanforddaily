@@ -2,7 +2,7 @@ import React from "react";
 import { Text, View, Platform } from "react-native";
 import { WebView } from "react-native-webview";
 import styled, { css } from "@emotion/native";
-import { getPostBySlugAsync } from "../../../../helpers/wpapi";
+import { getPostAsync, Post } from "../../../../helpers/wpapi";
 import Wrapper from "../../../../components/Wrapper";
 
 const containerStyle = css({
@@ -13,16 +13,18 @@ const containerStyle = css({
 });
 
 interface PostProps {
-  post?: any;
+  post?: Post;
 }
 
 interface PostState {}
 
-export default class Post extends React.Component<PostProps, PostState> {
+export default class PostPage extends React.Component<PostProps, PostState> {
   static async getInitialProps({ query }): Promise<any> {
     console.warn(query);
-    const post = await getPostBySlugAsync(query.slug);
-    console.log(post.title);
+    const { year, month, day, slug } = query;
+    console.warn({ year, month, day, slug });
+    const post = await getPostAsync(year, month, day, slug);
+    console.log(post.post_title);
     return { post };
   }
 
@@ -34,14 +36,14 @@ export default class Post extends React.Component<PostProps, PostState> {
     if (Platform.OS === "web") {
       return (
         // eslint-disable-next-line react/no-danger
-        <div dangerouslySetInnerHTML={{ __html: post.content.rendered }} />
+        <div dangerouslySetInnerHTML={{ __html: post.post_content }} />
       );
     }
 
     // TODO: Make source the actual webpage (i.e., directly loading the above page)
     return (
       <WebView
-        source={{ html: post.content.rendered }}
+        source={{ html: post.post_content }}
         originWhitelist={["*"]}
         style={{ marginTop: 20 }}
       />
@@ -49,16 +51,14 @@ export default class Post extends React.Component<PostProps, PostState> {
   }
 }
 
-export function PostWrapper(props: any): any {
-  const { slug } = props.navigation.state.params;
+export function PostPageViewWrapper(props: any): any {
+  const urlParameters = props.navigation.state.params;
   return (
     <Wrapper
-      class={Post}
+      class={PostPage}
       props={props}
       getInitialProps={{
-        query: {
-          slug,
-        },
+        query: urlParameters,
       }}
     />
   );
