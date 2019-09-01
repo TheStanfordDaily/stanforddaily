@@ -186,8 +186,6 @@ const ArticleTitleStyle = styled.Text({
   backgroundColor: "#666",
   fontSize: 20,
   margin: 0,
-  marginTop: 10,
-  marginBottom: 10,
 });
 const ArticleTitle =
   Platform.OS === "web"
@@ -195,11 +193,27 @@ const ArticleTitle =
     : ArticleTitleStyle;
 const ArticleTitleWithLink: React.ElementType = (props: {
   post: Post;
+  marginBottomMore: boolean;
   [key: string]: any;
 }) => {
-  const { post } = props;
+  const { post, marginBottomMore = false, style } = props;
+  let margin = {
+    marginTop: 10,
+    marginBottom: 5,
+  };
+  if (marginBottomMore) {
+    margin = {
+      marginTop: 5,
+      marginBottom: 10,
+    };
+  }
   return (
-    <ArticleTitle>
+    <ArticleTitle
+      style={{
+        ...margin,
+        ...style,
+      }}
+    >
       <LinkToArticle {...props}>{post.postTitle}</LinkToArticle>
     </ArticleTitle>
   );
@@ -209,13 +223,19 @@ const ArticleSubtitleStyle = styled.Text({
   backgroundColor: "#999",
   fontSize: 17,
   margin: 0,
-  marginTop: -5,
-  marginBottom: 10,
+  marginBottom: 5,
 });
-const ArticleSubtitle =
-  Platform.OS === "web"
-    ? ArticleSubtitleStyle.withComponent("h3")
-    : ArticleSubtitleStyle;
+const ArticleSubtitle: React.ElementType = (props: any) => {
+  const Tag =
+    Platform.OS === "web"
+      ? ArticleSubtitleStyle.withComponent("h3")
+      : ArticleSubtitleStyle;
+  return (
+    <View>
+      <Tag {...props} />
+    </View>
+  );
+};
 
 const AuthorView: React.ElementType = ({
   authors,
@@ -250,25 +270,32 @@ const AuthorView: React.ElementType = ({
   }
 };
 
-const HeadlineArticle: React.ElementType = ({ post }: ArticleProps) => {
+const HeadlineArticle: React.ElementType = ({ post, style }: ArticleProps) => {
   const { postSubtitle, postExcerpt, tsdAuthors } = post;
   return (
     <Article
       style={{
         backgroundColor: "yellow",
+        ...style,
       }}
     >
       <ThumbnailImageWithLink
         post={post}
         style={{
-          height: 200,
+          height: 350,
         }}
       />
       <ArticleHeader>
         <ArticleTitleWithLink post={post} />
         {postSubtitle && <ArticleSubtitle>{postSubtitle}</ArticleSubtitle>}
       </ArticleHeader>
-      <Text>{postExcerpt}</Text>
+      <View
+        style={{
+          marginBottom: 5,
+        }}
+      >
+        <Text>{postExcerpt}</Text>
+      </View>
       <AuthorView authors={tsdAuthors} />
     </Article>
   );
@@ -285,7 +312,7 @@ const TopThumbnailArticle: React.ElementType = ({ post }: ArticleProps) => {
       <ThumbnailImageWithLink
         post={post}
         style={{
-          height: 100,
+          height: 120,
         }}
       />
       <ArticleHeader>
@@ -329,7 +356,12 @@ const SideThumbnailArticle: React.ElementType = ({ post }: ArticleProps) => {
           }}
         >
           <ArticleHeader>
-            <ArticleTitleWithLink post={post} />
+            <ArticleTitleWithLink
+              post={post}
+              style={{
+                marginTop: 0,
+              }}
+            />
           </ArticleHeader>
           <AuthorView authors={tsdAuthors} />
         </View>
@@ -400,7 +432,7 @@ const ListStyleArticle: React.ElementType = ({ post }: ArticleProps) => {
     >
       <AuthorView authors={tsdAuthors} />
       <ArticleHeader>
-        <ArticleTitleWithLink post={post} />
+        <ArticleTitleWithLink post={post} marginBottomMore />
       </ArticleHeader>
     </Article>
   );
@@ -506,7 +538,7 @@ const MainSection: React.ElementType = (props: SectionProps) => {
     >
       <SectionTag>
         {sectionTitle && <SectionTitle>{sectionTitle}</SectionTitle>}
-        <HeadlineArticle post={content[0]} />
+        <HeadlineArticle post={content[0]} style={{ marginBottom: 20 }} />
         <DesktopRow
           style={{
             backgroundColor: "blue",
