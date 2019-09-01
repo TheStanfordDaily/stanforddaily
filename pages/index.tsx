@@ -215,29 +215,35 @@ const ArticleSubtitle =
     : ArticleSubtitleStyle;
 
 const AuthorView: React.ElementType = ({
-  author,
+  authors,
   ...props
 }: {
-  author: Author;
+  authors: Author[];
   [key: string]: any;
 }) => {
-  const { displayName, userNicename } = author;
   if (Platform.OS === "web") {
     return (
       <View>
         <Text>
-          <a
-            href={`https://www.stanforddaily.com/author/${userNicename}/`}
-            rel="author"
-            {...props}
-          >
-            {displayName}
-          </a>
+          {authors.map((author, index) => (
+            <>
+              {index > 0 && (authors.length !== 2 ? ", " : " ")}
+              {index > 0 && index === authors.length - 1 && "and "}
+              <a
+                key={author.id}
+                href={`https://www.stanforddaily.com/author/${author.userNicename}/`}
+                rel="author"
+                {...props}
+              >
+                {author.displayName}
+              </a>
+            </>
+          ))}
         </Text>
       </View>
     );
   } else {
-    return <Text {...props}>{displayName}</Text>;
+    return <Text {...props}>{authors.join(", ")}</Text>;
   }
 };
 
@@ -260,7 +266,7 @@ const HeadlineArticle: React.ElementType = ({ post }: ArticleProps) => {
         <ArticleSubtitle>{postSubtitle}</ArticleSubtitle>
       </ArticleHeader>
       <Text>{postExcerpt}</Text>
-      <AuthorView author={tsdAuthors} />
+      <AuthorView authors={tsdAuthors} />
     </Article>
   );
 };
@@ -282,7 +288,7 @@ const TopThumbnailArticle: React.ElementType = ({ post }: ArticleProps) => {
       <ArticleHeader>
         <ArticleTitleWithLink post={post} />
       </ArticleHeader>
-      <AuthorView author={tsdAuthors} />
+      <AuthorView authors={tsdAuthors} />
     </Article>
   );
 };
@@ -322,7 +328,7 @@ const SideThumbnailArticle: React.ElementType = ({ post }: ArticleProps) => {
           <ArticleHeader>
             <ArticleTitleWithLink post={post} />
           </ArticleHeader>
-          <AuthorView author={tsdAuthors} />
+          <AuthorView authors={tsdAuthors} />
         </View>
       </View>
     </Article>
@@ -340,7 +346,7 @@ const TitleOnlyArticle: React.ElementType = ({ post }: ArticleProps) => {
       <ArticleHeader>
         <ArticleTitleWithLink post={post} />
       </ArticleHeader>
-      <AuthorView author={tsdAuthors} />
+      <AuthorView authors={tsdAuthors} />
     </Article>
   );
 };
@@ -373,7 +379,7 @@ const TextOnlyArticle: React.ElementType = ({ post, style }: ArticleProps) => {
         </ArticleHeader>
         <Text>{postExcerpt}</Text>
         <View>
-          <AuthorView author={tsdAuthors} />
+          <AuthorView authors={tsdAuthors} />
           <Text>{date.format("YYYY-MM-DD")}</Text>
         </View>
       </Article>
@@ -389,7 +395,7 @@ const ListStyleArticle: React.ElementType = ({ post }: ArticleProps) => {
         backgroundColor: "#935502",
       }}
     >
-      <AuthorView author={tsdAuthors} />
+      <AuthorView authors={tsdAuthors} />
       <ArticleHeader>
         <ArticleTitleWithLink post={post} />
       </ArticleHeader>
