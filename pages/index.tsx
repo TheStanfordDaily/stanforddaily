@@ -149,16 +149,19 @@ const ThumbnailImage: React.ElementType = ({
   post: Post;
   [key: string]: any;
 }) => {
+  const { thumbnailUrl } = post;
   return (
     <Image
       resizeMode="cover"
       style={{
         width: "100%",
+        backgroundColor: "#f4f4f4",
         ...style,
       }}
       source={{
         uri:
-          "https://www.stanforddaily.com/wp-content/uploads/2019/08/44010386874_30ea221b19_o.jpg",
+          thumbnailUrl ||
+          "https://raw.githubusercontent.com/TheStanfordDaily/stanforddaily-graphic-assets/master/DailyIcon/without-background/DailyIcon.png",
       }}
       {...props}
     />
@@ -419,10 +422,7 @@ const TopSection: React.ElementType = ({ content }: SectionProps) => {
             width: 50,
             height: 50,
           }}
-          source={{
-            uri:
-              "https://www.stanforddaily.com/wp-content/uploads/2019/08/44010386874_30ea221b19_o.jpg",
-          }}
+          post={content[0]}
         />
         <View>
           <View>

@@ -42,6 +42,7 @@ export type Post = {
   tsdAuthors: Author[];
   postExcerpt: string;
   postContent?: string;
+  thumbnailUrl?: string;
   tsdPrimaryCategory?: Category;
   tagsInput: string[];
   tsdUrlParameters: PostURL;
