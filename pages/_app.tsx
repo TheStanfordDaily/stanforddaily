@@ -25,6 +25,7 @@ const HeaderLogo: React.ElementType = (props: any) => {
             height: "100%",
           }}
         >
+          {/* TODO: USE NEXT LINK */}
           <a
             href="https://www.stanforddaily.com/"
             rel="home"
