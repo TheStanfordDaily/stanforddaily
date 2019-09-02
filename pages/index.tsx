@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import styled from "@emotion/native";
 import Link from "next/link";
+import { withNavigation } from "react-navigation";
 import {
   RView,
   BREAKPOINTS,
@@ -123,7 +124,11 @@ const ArticleStyle = styled.View({
   marginTop: 5,
   marginBottom: 5,
 });
-const Article: React.ElementType = (props: any) => {
+const _Article: React.ElementType = (props: {
+  post: Post;
+  [key: string]: any;
+}) => {
+  const { post } = props;
   if (Platform.OS === "web") {
     const ArticleTag = ArticleStyle.withComponent("article");
     return <ArticleTag {...props} />;
@@ -132,7 +137,7 @@ const Article: React.ElementType = (props: any) => {
       <ArticleStyle>
         <TouchableOpacity
           onPress={() => {
-            this.alert("Go to article!");
+            props.navigation.push("post", post.tsdUrlParameters);
           }}
           {...props}
         />
@@ -140,6 +145,7 @@ const Article: React.ElementType = (props: any) => {
     );
   }
 };
+const Article = withNavigation(_Article);
 
 const ThumbnailImage: React.ElementType = ({
   post,
@@ -278,6 +284,7 @@ const HeadlineArticle: React.ElementType = ({ post, style }: ArticleProps) => {
   const { postSubtitle, postExcerpt, tsdAuthors } = post;
   return (
     <Article
+      post={post}
       style={{
         backgroundColor: "yellow",
         ...style,
@@ -313,6 +320,7 @@ const TopThumbnailArticle: React.ElementType = ({ post }: ArticleProps) => {
   const { tsdAuthors } = post;
   return (
     <Article
+      post={post}
       style={{
         backgroundColor: "#ABCDEF",
       }}
@@ -335,6 +343,7 @@ const SideThumbnailArticle: React.ElementType = ({ post }: ArticleProps) => {
   const { tsdAuthors } = post;
   return (
     <Article
+      post={post}
       style={{
         backgroundColor: "#ABCDEF",
       }}
@@ -382,6 +391,7 @@ const TitleOnlyArticle: React.ElementType = ({ post }: ArticleProps) => {
   const { tsdAuthors } = post;
   return (
     <Article
+      post={post}
       style={{
         backgroundColor: "#FEDCBA",
       }}
@@ -413,6 +423,7 @@ const TextOnlyArticle: React.ElementType = ({ post, style }: ArticleProps) => {
       }}
     >
       <Article
+        post={post}
         style={{
           width: "100%",
           backgroundColor: "#AAAAAA",
@@ -438,6 +449,7 @@ const ListStyleArticle: React.ElementType = ({ post }: ArticleProps) => {
   const { tsdAuthors } = post;
   return (
     <Article
+      post={post}
       style={{
         backgroundColor: "#935502",
       }}
