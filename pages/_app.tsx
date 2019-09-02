@@ -132,7 +132,11 @@ export default class MyApp extends App {
         <main>
           <Component {...pageProps} />
         </main>
-        <footer>Footer here</footer>
+        <footer>
+          <SectionStyle>
+            <p>Footer here</p>
+          </SectionStyle>
+        </footer>
       </Layout>
     );
   }

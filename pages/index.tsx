@@ -1,15 +1,7 @@
 import React from "react";
-import {
-  Text,
-  View,
-  Image,
-  TouchableOpacity,
-  ScrollView,
-  Platform,
-} from "react-native";
+import { Text, View, Image, ScrollView, Platform } from "react-native";
 import styled from "@emotion/native";
 import Link from "next/link";
-import { withNavigation } from "../helpers/trivial/react-navigation";
 import {
   RView,
   BREAKPOINTS,
@@ -30,6 +22,7 @@ import {
   SectionStyle,
   SectionWithoutStyle,
 } from "../components/Section";
+import { Article, ArticleHeader } from "../components/Article";
 import { OrderedList } from "../components/List";
 import { CategoryList } from "../components/CategoryList";
 
@@ -120,33 +113,6 @@ const LinkToArticle: React.ElementType = ({
   }
 };
 
-const ArticleStyle = styled.View({
-  marginTop: 5,
-  marginBottom: 5,
-});
-const _Article: React.ElementType = (props: {
-  post: Post;
-  [key: string]: any;
-}) => {
-  const { post } = props;
-  if (Platform.OS === "web") {
-    const ArticleTag = ArticleStyle.withComponent("article");
-    return <ArticleTag {...props} />;
-  } else {
-    return (
-      <ArticleStyle>
-        <TouchableOpacity
-          onPress={() => {
-            props.navigation.push("post", post.tsdUrlParameters);
-          }}
-          {...props}
-        />
-      </ArticleStyle>
-    );
-  }
-};
-const Article = withNavigation(_Article);
-
 const ThumbnailImage: React.ElementType = ({
   post,
   style,
@@ -184,9 +150,6 @@ const ThumbnailImageWithLink: React.ElementType = (props: {
     </LinkToArticle>
   );
 };
-
-const ArticleHeader =
-  Platform.OS === "web" ? styled.View().withComponent("header") : View;
 
 const ArticleTitleStyle = styled.Text({
   backgroundColor: "#666",

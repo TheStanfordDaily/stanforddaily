@@ -1,16 +1,16 @@
 import React from "react";
 import { Text, View, Platform } from "react-native";
 import { WebView } from "react-native-webview";
-import styled, { css } from "@emotion/native";
-import { getPostAsync, Post } from "../../../../helpers/wpapi";
+import styled from "@emotion/native";
+import {
+  getPostAsync,
+  getPostPath,
+  getPostLocalDate,
+  Post,
+} from "../../../../helpers/wpapi";
 import Wrapper from "../../../../components/Wrapper";
-
-const containerStyle = css({
-  flex: 1,
-  backgroundColor: "#fff",
-  alignItems: "center",
-  justifyContent: "center",
-});
+import { SectionStyle } from "../../../../components/Section";
+import { Article, ArticleHeader } from "../../../../components/Article";
 
 interface PostProps {
   post?: Post;
@@ -33,20 +33,45 @@ export default class PostPage extends React.Component<PostProps, PostState> {
     if (!post) {
       return <Text>Loading...</Text>;
     }
-    if (Platform.OS === "web") {
+
+    const { postTitle, thumbnailUrl, tsdAuthors, postContent } = post;
+    const date = getPostLocalDate(post);
+
+    if (Platform.OS !== "web") {
       return (
-        // eslint-disable-next-line react/no-danger
-        <div dangerouslySetInnerHTML={{ __html: post.postContent }} />
+        <WebView
+          source={{ uri: `http://10.31.234.102:19006/${getPostPath(post)}` }}
+          originWhitelist={["*"]}
+          applicationNameForUserAgent="TSDApp/1.0.0"
+        />
       );
     }
 
-    // TODO: Make source the actual webpage (i.e., directly loading the above page)
     return (
-      <WebView
-        source={{ html: post.postContent }}
-        originWhitelist={["*"]}
-        style={{ marginTop: 20 }}
-      />
+      <SectionStyle>
+        <Article>
+          <ArticleHeader>
+            <h1>{postTitle}</h1>
+          </ArticleHeader>
+          <main>
+            <p>
+              By{" "}
+              {tsdAuthors.map(author => (
+                <span key={author.id}>{author.displayName}, </span>
+              ))}
+              on {date.format("MMMM D, YYYY")}
+            </p>
+            {/* eslint-disable-next-line react/no-danger */}
+            <div dangerouslySetInnerHTML={{ __html: post.postContent }} />
+          </main>
+          <footer>
+            {tsdAuthors.map(author => (
+              <div key={author.id}>{author.displayName}</div>
+            ))}
+          </footer>
+        </Article>
+        <div>{/* TODO: ADD DISQUS */}</div>
+      </SectionStyle>
     );
   }
 }
