@@ -115,7 +115,7 @@ const LinkToArticle: React.ElementType = ({
       </Link>
     );
   } else {
-    return <Text>{post.postTitle}</Text>;
+    return children;
   }
 };
 
@@ -266,7 +266,11 @@ const AuthorView: React.ElementType = ({
       </View>
     );
   } else {
-    return <Text {...props}>{authors.join(", ")}</Text>;
+    return (
+      <Text {...props}>
+        {authors.map(author => author.displayName).join(", ")}
+      </Text>
+    );
   }
 };
 
@@ -287,7 +291,11 @@ const HeadlineArticle: React.ElementType = ({ post, style }: ArticleProps) => {
       />
       <ArticleHeader>
         <ArticleTitleWithLink post={post} />
-        {postSubtitle && <ArticleSubtitle>{postSubtitle}</ArticleSubtitle>}
+        {postSubtitle ? (
+          <ArticleSubtitle>{postSubtitle}</ArticleSubtitle>
+        ) : (
+          undefined
+        )}
       </ArticleHeader>
       <View
         style={{
