@@ -397,6 +397,10 @@ const TextOnlyArticle: React.ElementType = ({ post, style }: ArticleProps) => {
       rStyle={{
         [BREAKPOINTS.TABLET]: {
           width: 250,
+          height: 340,
+          paddingRight: 15,
+          paddingLeft: 15,
+          borderRight: "1px solid black",
         },
       }}
     >
