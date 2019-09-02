@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import styled from "@emotion/native";
 import Link from "next/link";
-import { withNavigation } from "react-navigation";
+import { withNavigation } from "../helpers/trivial/react-navigation";
 import {
   RView,
   BREAKPOINTS,
