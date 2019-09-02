@@ -197,12 +197,16 @@ const ArticleTitle =
   Platform.OS === "web"
     ? ArticleTitleStyle.withComponent("h2")
     : ArticleTitleStyle;
-const ArticleTitleWithLink: React.ElementType = (props: {
+const ArticleTitleWithLink: React.ElementType = ({
+  post,
+  marginBottomMore = false,
+  style,
+  ...props
+}: {
   post: Post;
   marginBottomMore: boolean;
   [key: string]: any;
 }) => {
-  const { post, marginBottomMore = false, style } = props;
   let margin = {
     marginTop: 10,
     marginBottom: 5,
@@ -220,7 +224,9 @@ const ArticleTitleWithLink: React.ElementType = (props: {
         ...style,
       }}
     >
-      <LinkToArticle {...props}>{post.postTitle}</LinkToArticle>
+      <LinkToArticle post={post} {...props}>
+        {post.postTitle}
+      </LinkToArticle>
     </ArticleTitle>
   );
 };
@@ -255,18 +261,18 @@ const AuthorView: React.ElementType = ({
       <View>
         <Text>
           {authors.map((author, index) => (
-            <>
+            <React.Fragment key={author.id}>
               {index > 0 && (authors.length !== 2 ? ", " : " ")}
               {index > 0 && index === authors.length - 1 && "and "}
+              {/* TODO: USE NEXT LINK */}
               <a
-                key={author.id}
                 href={`https://www.stanforddaily.com/author/${author.userNicename}/`}
                 rel="author"
                 {...props}
               >
                 {author.displayName}
               </a>
-            </>
+            </React.Fragment>
           ))}
         </Text>
       </View>
