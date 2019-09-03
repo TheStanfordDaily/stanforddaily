@@ -8,6 +8,7 @@ import {
   getPostLocalDate,
   Post,
 } from "../../../../helpers/wpapi";
+import { STRINGS } from "../../../../helpers/constants";
 import Wrapper from "../../../../components/Wrapper";
 import { SectionStyle } from "../../../../components/Section";
 import { Article, ArticleHeader } from "../../../../components/Article";
@@ -40,9 +41,13 @@ export default class PostPage extends React.Component<PostProps, PostState> {
     if (Platform.OS !== "web") {
       return (
         <WebView
-          source={{ uri: `http://10.31.234.102:19006/${getPostPath(post)}` }}
+          source={{
+            uri: `http://10.31.234.102:19006${getPostPath(post)}?${
+              STRINGS._MAIN_ONLY_QUERY
+            }`,
+          }}
           originWhitelist={["*"]}
-          applicationNameForUserAgent="TSDApp/1.0.0"
+          applicationNameForUserAgent={STRINGS.TSD_APP_USERAGENT}
         />
       );
     }

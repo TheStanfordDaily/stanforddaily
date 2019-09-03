@@ -1,6 +1,7 @@
 import React from "react";
 import App from "next/app";
 import { Global, css } from "@emotion/core";
+import { STRINGS } from "../helpers/constants";
 import { RView, BREAKPOINTS } from "../helpers/responsiveStyle";
 import { SectionStyle } from "../components/Section";
 import { CategoryList } from "../components/CategoryList";
@@ -53,6 +54,62 @@ const HeaderLogo: React.ElementType = (props: any) => {
   );
 };
 
+const SiteHeader: React.ElementType = (props: any) => {
+  return (
+    <RView
+      WebTag="header"
+      style={{
+        maxWidth: "100vw",
+        position: "sticky",
+        top: 0,
+        zIndex: 999,
+        backgroundColor: "white",
+      }}
+      rStyle={{
+        [BREAKPOINTS.TABLET]: {
+          position: "inherit",
+        },
+      }}
+      {...props}
+    >
+      <RView
+        style={{
+          order: 1,
+        }}
+        rStyle={{
+          [BREAKPOINTS.TABLET]: {
+            order: 2,
+          },
+        }}
+      >
+        <HeaderLogo />
+      </RView>
+      <RView
+        style={{
+          order: 2,
+        }}
+        rStyle={{
+          [BREAKPOINTS.TABLET]: {
+            order: 1,
+          },
+        }}
+      >
+        <CategoryList />
+      </RView>
+    </RView>
+  );
+};
+
+const SiteFooter: React.ElementType = (props: any) => {
+  return (
+    <footer {...props}>
+      <SectionStyle>
+        <p>Footer here</p>
+      </SectionStyle>
+    </footer>
+  );
+};
+
 const Layout: React.ElementType = (props: any) => {
   const { children } = props;
   return (
@@ -78,7 +135,13 @@ const Layout: React.ElementType = (props: any) => {
 
 export default class MyApp extends App {
   render(): JSX.Element {
-    const { Component, pageProps } = this.props;
+    const { Component, pageProps, router } = this.props;
+
+    let includeHeaderAndFooter = true;
+    if (router.query[STRINGS._MAIN_ONLY_QUERY] != null) {
+      includeHeaderAndFooter = false;
+    }
+
     return (
       <Layout>
         {/* `body` `overflow: initial` is added in order for `position: "sticky"` below to work. */}
@@ -89,54 +152,11 @@ export default class MyApp extends App {
             }
           `}
         />
-        <RView
-          WebTag="header"
-          style={{
-            maxWidth: "100vw",
-            position: "sticky",
-            top: 0,
-            zIndex: 999,
-            backgroundColor: "white",
-          }}
-          rStyle={{
-            [BREAKPOINTS.TABLET]: {
-              position: "inherit",
-            },
-          }}
-        >
-          <RView
-            style={{
-              order: 1,
-            }}
-            rStyle={{
-              [BREAKPOINTS.TABLET]: {
-                order: 2,
-              },
-            }}
-          >
-            <HeaderLogo />
-          </RView>
-          <RView
-            style={{
-              order: 2,
-            }}
-            rStyle={{
-              [BREAKPOINTS.TABLET]: {
-                order: 1,
-              },
-            }}
-          >
-            <CategoryList />
-          </RView>
-        </RView>
-        <main>
+        {includeHeaderAndFooter && <SiteHeader id="site-header" />}
+        <main id="site-main">
           <Component {...pageProps} />
         </main>
-        <footer>
-          <SectionStyle>
-            <p>Footer here</p>
-          </SectionStyle>
-        </footer>
+        {includeHeaderAndFooter && <SiteFooter id="site-footer" />}
       </Layout>
     );
   }
