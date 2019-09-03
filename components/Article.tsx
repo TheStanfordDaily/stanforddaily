@@ -22,7 +22,7 @@ const _Article: React.ElementType = (props: {
       <ArticleStyle>
         <TouchableOpacity
           onPress={() => {
-            props.navigation.push("post", post.tsdUrlParameters);
+            props.navigation.push("post", post);
           }}
           {...props}
         />

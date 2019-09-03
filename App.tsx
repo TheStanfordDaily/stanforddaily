@@ -1,6 +1,6 @@
 import { createStackNavigator, createAppContainer } from "react-navigation";
 import { IndexPageWrapper } from "./pages/index";
-import { PostPageWrapper } from "./pages/[year]/[month]/[day]/[slug]";
+import { PostPageWrapper } from "./pages/[year]/[month]/[day]/[slug].native";
 
 const AppNavigator = createStackNavigator(
   {

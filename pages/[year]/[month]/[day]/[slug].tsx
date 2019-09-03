@@ -1,15 +1,9 @@
 import React from "react";
-import { Text, View, Platform } from "react-native";
-import { WebView } from "react-native-webview";
-import styled from "@emotion/native";
 import {
   getPostAsync,
-  getPostPath,
   getPostLocalDate,
   Post,
 } from "../../../../helpers/wpapi";
-import { STRINGS } from "../../../../helpers/constants";
-import Wrapper from "../../../../components/Wrapper";
 import { SectionStyle } from "../../../../components/Section";
 import { Article, ArticleHeader } from "../../../../components/Article";
 
@@ -32,25 +26,11 @@ export default class PostPage extends React.Component<PostProps, PostState> {
   render(): React.ReactNode {
     const { post } = this.props;
     if (!post) {
-      return <Text>Loading...</Text>;
+      return <p>Loading...</p>;
     }
 
     const { postTitle, thumbnailUrl, tsdAuthors, postContent } = post;
     const date = getPostLocalDate(post);
-
-    if (Platform.OS !== "web") {
-      return (
-        <WebView
-          source={{
-            uri: `http://10.31.234.102:19006${getPostPath(post)}?${
-              STRINGS._MAIN_ONLY_QUERY
-            }`,
-          }}
-          originWhitelist={["*"]}
-          applicationNameForUserAgent={STRINGS.TSD_APP_USERAGENT}
-        />
-      );
-    }
 
     return (
       <SectionStyle>
@@ -79,17 +59,4 @@ export default class PostPage extends React.Component<PostProps, PostState> {
       </SectionStyle>
     );
   }
-}
-
-export function PostPageWrapper(props: any): any {
-  const urlParameters = props.navigation.state.params;
-  return (
-    <Wrapper
-      class={PostPage}
-      props={props}
-      getInitialProps={{
-        query: urlParameters,
-      }}
-    />
-  );
 }
