@@ -1,8 +1,8 @@
 import React from "react";
 import App from "next/app";
 import { Global, css } from "@emotion/core";
-import { STRINGS } from "../helpers/constants";
-import { RView, BREAKPOINTS } from "../helpers/responsiveStyle";
+import { STRINGS, BREAKPOINTS } from "../helpers/constants";
+import { RView, MediaRule } from "../helpers/responsiveStyle";
 import { SectionStyle } from "../components/Section";
 import { CategoryList } from "../components/CategoryList";
 
@@ -66,8 +66,10 @@ const SiteHeader: React.ElementType = (props: any) => {
         backgroundColor: "white",
       }}
       rStyle={{
-        [BREAKPOINTS.TABLET]: {
-          position: "inherit",
+        [MediaRule.MinWidth]: {
+          [BREAKPOINTS.TABLET]: {
+            position: "inherit",
+          },
         },
       }}
       {...props}
@@ -77,8 +79,10 @@ const SiteHeader: React.ElementType = (props: any) => {
           order: 1,
         }}
         rStyle={{
-          [BREAKPOINTS.TABLET]: {
-            order: 2,
+          [MediaRule.MinWidth]: {
+            [BREAKPOINTS.TABLET]: {
+              order: 2,
+            },
           },
         }}
       >
@@ -89,8 +93,10 @@ const SiteHeader: React.ElementType = (props: any) => {
           order: 2,
         }}
         rStyle={{
-          [BREAKPOINTS.TABLET]: {
-            order: 1,
+          [MediaRule.MinWidth]: {
+            [BREAKPOINTS.TABLET]: {
+              order: 1,
+            },
           },
         }}
       >
@@ -119,12 +125,14 @@ const Layout: React.ElementType = (props: any) => {
         width: "100%",
       }}
       rStyle={{
-        [BREAKPOINTS.TABLET]: {},
-        [BREAKPOINTS.DESKTOP]: {
-          maxWidth: BREAKPOINTS.DESKTOP,
-        },
-        1300: {
-          maxWidth: 1300,
+        [MediaRule.MinWidth]: {
+          [BREAKPOINTS.TABLET]: {},
+          [BREAKPOINTS.DESKTOP]: {
+            maxWidth: BREAKPOINTS.DESKTOP,
+          },
+          1300: {
+            maxWidth: 1300,
+          },
         },
       }}
     >

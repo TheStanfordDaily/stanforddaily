@@ -4,10 +4,11 @@ import styled from "@emotion/native";
 import Link from "next/link";
 import {
   RView,
-  BREAKPOINTS,
+  MediaRule,
   mergeRStyle,
   isWidthGreaterThan,
 } from "../helpers/responsiveStyle";
+import { BREAKPOINTS } from "../helpers/constants";
 import {
   getHomeAsync,
   getPostPath,
@@ -32,7 +33,7 @@ import LoadingView from "../components/Loading";
 type SectionProps = {
   content: Post[];
   sectionTitle?: string;
-  SectionTag?: string | React.Component;
+  SectionTag?: string | React.ElementType;
   [key: string]: any;
 };
 
@@ -50,8 +51,10 @@ const Column: React.ElementType = (props: any) => {
   };
   const resultRStyle = mergeRStyle(
     {
-      [BREAKPOINTS.TABLET]: {
-        flexBasis: 0,
+      [MediaRule.MinWidth]: {
+        [BREAKPOINTS.TABLET]: {
+          flexBasis: 0,
+        },
       },
     },
     rStyle,
@@ -70,8 +73,10 @@ const DesktopRow: React.ElementType = (props: any) => {
   };
   const resultRStyle = mergeRStyle(
     {
-      [BREAKPOINTS.TABLET]: {
-        flexDirection: "row",
+      [MediaRule.MinWidth]: {
+        [BREAKPOINTS.TABLET]: {
+          flexDirection: "row",
+        },
       },
     },
     rStyle,
@@ -383,12 +388,14 @@ const TextOnlyArticle: React.ElementType = ({ post, style }: ArticleProps) => {
         width: "100%",
       }}
       rStyle={{
-        [BREAKPOINTS.TABLET]: {
-          width: 250,
-          height: 340,
-          paddingRight: 15,
-          paddingLeft: 15,
-          borderRight: "1px solid black",
+        [MediaRule.MinWidth]: {
+          [BREAKPOINTS.TABLET]: {
+            width: 250,
+            height: 340,
+            paddingRight: 15,
+            paddingLeft: 15,
+            borderRight: "1px solid black",
+          },
         },
       }}
     >
@@ -471,8 +478,10 @@ const TopSection: React.ElementType = ({ content }: SectionProps) => {
         display: "none",
       }}
       rStyle={{
-        [BREAKPOINTS.DESKTOP]: {
-          display: "flex",
+        [MediaRule.MinWidth]: {
+          [BREAKPOINTS.DESKTOP]: {
+            display: "flex",
+          },
         },
       }}
     >
@@ -525,8 +534,10 @@ const MainSection: React.ElementType = (props: SectionProps) => {
         order: 1,
       }}
       rStyle={{
-        [BREAKPOINTS.TABLET]: {
-          order: 2,
+        [MediaRule.MinWidth]: {
+          [BREAKPOINTS.TABLET]: {
+            order: 2,
+          },
         },
       }}
     >
@@ -568,8 +579,10 @@ const LeftSection: React.ElementType = (props: SectionProps) => {
         order: 2,
       }}
       rStyle={{
-        [BREAKPOINTS.TABLET]: {
-          order: 1,
+        [MediaRule.MinWidth]: {
+          [BREAKPOINTS.TABLET]: {
+            order: 1,
+          },
         },
       }}
     >
@@ -764,10 +777,12 @@ const MoreFromTheDailySection: React.ElementType = ({
           flexDirection: "column",
         }}
         rStyle={{
-          [BREAKPOINTS.TABLET]: {
-            height: 700,
-            flexWrap: "wrap",
-            overflow: "auto",
+          [MediaRule.MinWidth]: {
+            [BREAKPOINTS.TABLET]: {
+              height: 700,
+              flexWrap: "wrap",
+              overflow: "auto",
+            },
           },
         }}
       >
@@ -797,29 +812,6 @@ export default class IndexPage extends React.Component<IndexProps, IndexState> {
     if (!homePosts) {
       return <LoadingView />;
     }
-    /*
-    return (
-      <RView
-        style={{
-          margin: 0,
-          padding: 30,
-          lineHeight: "1.5",
-          fontFamily: "Sans-Serif",
-          backgroundColor: "red",
-        }}
-        rStyle={{
-          [BREAKPOINTS.TABLET]: {
-            backgroundColor: "pink",
-          },
-          [BREAKPOINTS.DESKTOP]: {
-            backgroundColor: "green",
-          },
-        }}
-      >
-        <Text>haha</Text>
-      </RView>
-    );
-    */
 
     /*
     const fposts = homePosts.moreFromTheDaily.map(post => {

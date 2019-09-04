@@ -4,49 +4,92 @@ import { View, Platform, Dimensions } from "react-native";
 import { jsx, css } from "@emotion/core"; // eslint-disable-line @typescript-eslint/no-unused-vars
 import merge from "lodash.merge";
 
-export type Style = { [key: string]: any };
-export type RStyle = { [minWidth: number]: Style };
+export enum MediaRule {
+  MinWidth,
+  MaxWidth,
+}
 
-export const BREAKPOINTS = {
-  TABLET: 576,
-  DESKTOP: 1100,
+export type Style = { [key: string]: any };
+export type RStyle = {
+  [MediaRule.MinWidth]?: { [minWidth: number]: Style };
+  [MediaRule.MaxWidth]?: { [maxWidth: number]: Style };
 };
 
 export function isWidthGreaterThan(breakpoint: number): boolean {
   const { width } = Dimensions.get("window");
-  console.warn(width);
   return width > breakpoint;
 }
 
-function _getStyleWithMediaQuery(rStyle: RStyle): { [key: string]: any } {
-  const rStylesMediaQueries = {};
-  Object.entries(rStyle).forEach(([minWidth, value]) => {
-    rStylesMediaQueries[`@media (min-width: ${minWidth}px)`] = value;
-  });
-
-  return rStylesMediaQueries;
+export function isWidthSmallerThan(breakpoint: number): boolean {
+  const { width } = Dimensions.get("window");
+  return width < breakpoint;
 }
 
-function _getStyleBasedOnCurrentWidth(rStyle: RStyle): Style {
-  let style = {};
-  Object.entries(rStyle).forEach(([minWidth, value]) => {
-    if (isWidthGreaterThan(Number(minWidth))) {
-      style = { ...style, ...value };
-    }
+function _getStyleWithMediaQuery(
+  rStyle: RStyle,
+): { [mediaQuery: string]: any } {
+  const {
+    [MediaRule.MinWidth]: minWidthStyle = {},
+    [MediaRule.MaxWidth]: maxWidthStyle = {},
+  } = rStyle;
+
+  const rStyleMediaQueries = {};
+  Object.entries(minWidthStyle).forEach(([minWidth, value]) => {
+    rStyleMediaQueries[`@media (min-width: ${minWidth}px)`] = value;
   });
+  Object.entries(maxWidthStyle).forEach(([maxWidth, value]) => {
+    rStyleMediaQueries[`@media (max-width: ${maxWidth}px)`] = value;
+  });
+
+  return rStyleMediaQueries;
+}
+
+function _getFlattenedStyleForCurrentScreen(rStyle: RStyle): Style {
+  const {
+    [MediaRule.MinWidth]: minWidthStyle = {},
+    [MediaRule.MaxWidth]: maxWidthStyle = {},
+  } = rStyle;
+
+  let style = {};
+
+  Object.keys(minWidthStyle)
+    // We have to sort the style ascendingly first, else different order will produce different results
+    .sort((a, b) => Number(a) - Number(b))
+    .forEach(minWidth => {
+      if (isWidthGreaterThan(Number(minWidth))) {
+        const value = minWidthStyle[minWidth];
+        style = { ...style, ...value };
+      }
+    });
+
+  Object.keys(maxWidthStyle)
+    // We have to sort the style descendingly first, else different order will produce different results
+    .sort((a, b) => Number(b) - Number(a))
+    .forEach(maxWidth => {
+      if (isWidthSmallerThan(Number(maxWidth))) {
+        const value = maxWidthStyle[maxWidth];
+        style = { ...style, ...value };
+      }
+    });
 
   return style;
 }
 
-export const RView: React.ElementType = (props: any) => {
-  const {
-    WebTag = "div",
-    NativeTag = View,
-    style: defaultStyle = {},
-    rStyle = {},
-    ...remainingProps
-  } = props;
+interface RViewProps {
+  WebTag?: string | React.ElementType;
+  NativeTag?: string | React.ElementType;
+  style?: Style;
+  rStyle?: RStyle;
+  [key: string]: any;
+}
 
+export const RView: React.FunctionComponent<RViewProps> = ({
+  WebTag = "div",
+  NativeTag = View,
+  style: defaultStyle = {},
+  rStyle = {},
+  ...remainingProps
+}) => {
   if (Platform.OS === "web") {
     // Partly based on https://github.com/necolas/react-native-web/blob/e810f1fd2b41293cb1efe04e332fb6f8d4bcca65/packages/react-native-web/src/exports/View/index.js#L80-L94
     const reactNativeWebViewStyle = {
@@ -62,21 +105,27 @@ export const RView: React.ElementType = (props: any) => {
       zIndex: 0,
     };
 
-    const rStylesMediaQueries = _getStyleWithMediaQuery(rStyle);
+    const rStyleMediaQueries = _getStyleWithMediaQuery(rStyle);
     return (
       <WebTag
         css={{
           ...reactNativeWebViewStyle,
           ...defaultStyle,
-          ...rStylesMediaQueries,
+          ...rStyleMediaQueries,
         }}
         {...remainingProps}
       />
     );
   } else {
-    const responsiveStyle = _getStyleBasedOnCurrentWidth(rStyle);
+    const responsiveStyle = _getFlattenedStyleForCurrentScreen(rStyle);
     return (
-      <NativeTag style={{ ...defaultStyle, ...responsiveStyle }} {...props} />
+      <NativeTag
+        style={{
+          ...defaultStyle,
+          ...responsiveStyle,
+        }}
+        {...remainingProps}
+      />
     );
   }
 };
