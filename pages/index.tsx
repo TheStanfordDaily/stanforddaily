@@ -6,7 +6,7 @@ import {
   RView,
   MediaRule,
   mergeRStyle,
-  isWidthGreaterThan,
+  isWidthGreaterThanOrEqualTo,
 } from "../helpers/responsiveStyle";
 import { BREAKPOINTS } from "../helpers/constants";
 import {
@@ -474,13 +474,10 @@ const TopSection: React.ElementType = ({ content }: SectionProps) => {
 
   return (
     <RView
-      style={{
-        display: "none",
-      }}
       rStyle={{
-        [MediaRule.MinWidth]: {
-          [BREAKPOINTS.DESKTOP]: {
-            display: "flex",
+        [MediaRule.MaxWidth]: {
+          [BREAKPOINTS.MAX_WIDTH.DESKTOP]: {
+            display: "none",
           },
         },
       }}
@@ -839,7 +836,7 @@ export default class IndexPage extends React.Component<IndexProps, IndexState> {
     let featuredBeforeNews = true;
     // Note that on web it is handled by the CSS `order` property and media query.
     if (Platform.OS !== "web") {
-      if (isWidthGreaterThan(BREAKPOINTS.TABLET)) {
+      if (isWidthGreaterThanOrEqualTo(BREAKPOINTS.TABLET)) {
         featuredBeforeNews = false;
       }
     }
