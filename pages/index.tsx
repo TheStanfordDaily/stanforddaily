@@ -916,3 +916,6 @@ export default class IndexPage extends React.Component<IndexProps, IndexState> {
 export function IndexPageWrapper(props): any {
   return <Wrapper class={IndexPage} props={props} getInitialProps={{}} />;
 }
+IndexPageWrapper.navigationOptions = {
+  title: "Home",
+};
