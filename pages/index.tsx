@@ -30,17 +30,17 @@ import LoadingView from "../components/Loading";
 
 // TODO: layout got reset to mobile one when returning from other app on iPad
 
-type SectionProps = {
+interface SectionProps {
   content: Post[];
   sectionTitle?: string;
   SectionTag?: string | React.ElementType;
   [key: string]: any;
-};
+}
 
-type ArticleProps = {
+interface ArticleProps {
   post: Post;
   [key: string]: any;
-};
+}
 
 const Column: React.ElementType = (props: any) => {
   const { style = {}, rStyle = {}, ...remainingProps } = props;
