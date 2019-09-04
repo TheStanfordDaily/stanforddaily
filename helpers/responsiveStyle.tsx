@@ -15,14 +15,14 @@ export type RStyle = {
   [MediaRule.MaxWidth]?: { [maxWidth: number]: Style };
 };
 
-export function isWidthGreaterThan(breakpoint: number): boolean {
+export function isWidthGreaterThanOrEqualTo(breakpoint: number): boolean {
   const { width } = Dimensions.get("window");
-  return width > breakpoint;
+  return width >= breakpoint;
 }
 
-export function isWidthSmallerThan(breakpoint: number): boolean {
+export function isWidthSmallerThanOrEqualTo(breakpoint: number): boolean {
   const { width } = Dimensions.get("window");
-  return width < breakpoint;
+  return width <= breakpoint;
 }
 
 function _getStyleWithMediaQuery(
@@ -56,7 +56,7 @@ function _getFlattenedStyleForCurrentScreen(rStyle: RStyle): Style {
     // We have to sort the style ascendingly first, else different order will produce different results
     .sort((a, b) => Number(a) - Number(b))
     .forEach(minWidth => {
-      if (isWidthGreaterThan(Number(minWidth))) {
+      if (isWidthGreaterThanOrEqualTo(Number(minWidth))) {
         const value = minWidthStyle[minWidth];
         style = { ...style, ...value };
       }
@@ -66,7 +66,7 @@ function _getFlattenedStyleForCurrentScreen(rStyle: RStyle): Style {
     // We have to sort the style descendingly first, else different order will produce different results
     .sort((a, b) => Number(b) - Number(a))
     .forEach(maxWidth => {
-      if (isWidthSmallerThan(Number(maxWidth))) {
+      if (isWidthSmallerThanOrEqualTo(Number(maxWidth))) {
         const value = maxWidthStyle[maxWidth];
         style = { ...style, ...value };
       }
