@@ -1,9 +1,13 @@
 import React from "react";
+import { View } from "react-native";
+import { WebView } from "react-native-webview";
 import {
   getPostAsync,
   getPostLocalDate,
+  getPostPath,
   Post,
 } from "../../../../helpers/wpapi";
+import { STRINGS } from "../../../../helpers/constants";
 import { SectionStyle } from "../../../../components/Section";
 import { Article, ArticleHeader } from "../../../../components/Article";
 import LoadingView from "../../../../components/Loading";
@@ -60,4 +64,33 @@ export default class PostPage extends React.Component<PostProps, PostState> {
       </SectionStyle>
     );
   }
+}
+
+export function PostPageWrapper(props: any): any {
+  const post: Post = props.navigation.state.params;
+  return (
+    <View style={{ overflow: "hidden", flex: 1, width: "100%" }}>
+      <WebView
+        source={{
+          uri: `https://stanford-daily.hesyifei.now.sh${getPostPath(post)}?${
+            STRINGS._MAIN_ONLY_QUERY
+          }`,
+        }}
+        originWhitelist={["*"]}
+        applicationNameForUserAgent={STRINGS.TSD_APP_USERAGENT}
+        startInLoadingState
+        renderLoading={() => (
+          <View
+            style={{
+              justifyContent: "center",
+              height: "100%",
+              width: "100%",
+            }}
+          >
+            <LoadingView />
+          </View>
+        )}
+      />
+    </View>
+  );
 }
