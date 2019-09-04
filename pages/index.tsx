@@ -25,6 +25,7 @@ import {
 import { Article, ArticleHeader } from "../components/Article";
 import { OrderedList } from "../components/List";
 import { CategoryList } from "../components/CategoryList";
+import LoadingView from "../components/Loading";
 
 // TODO: layout got reset to mobile one when returning from other app on iPad
 
@@ -794,7 +795,7 @@ export default class IndexPage extends React.Component<IndexProps, IndexState> {
   render(): React.ReactNode {
     const { homePosts } = this.props;
     if (!homePosts) {
-      return <Text>Loading...</Text>;
+      return <LoadingView />;
     }
     /*
     return (

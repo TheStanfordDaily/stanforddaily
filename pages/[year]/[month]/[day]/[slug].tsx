@@ -6,6 +6,7 @@ import {
 } from "../../../../helpers/wpapi";
 import { SectionStyle } from "../../../../components/Section";
 import { Article, ArticleHeader } from "../../../../components/Article";
+import LoadingView from "../../../../components/Loading";
 
 interface PostProps {
   post?: Post;
@@ -26,7 +27,7 @@ export default class PostPage extends React.Component<PostProps, PostState> {
   render(): React.ReactNode {
     const { post } = this.props;
     if (!post) {
-      return <p>Loading...</p>;
+      return <LoadingView />;
     }
 
     const { postTitle, thumbnailUrl, tsdAuthors, postContent } = post;
