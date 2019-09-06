@@ -4802,9 +4802,10 @@ emojis-list@^2.0.0:
   resolved "https://registry.yarnpkg.com/emojis-list/-/emojis-list-2.1.0.tgz#4daa4d9db00f9819880c79fa457ae5b09a1fd389"
   integrity sha1-TapNnbAPmBmIDHn6RXrlsJof04k=
 
-"emotion-native-media-query@https://github.com/hesyifei/emotion-native-media-query":
-  version "1.0.0"
-  resolved "https://github.com/hesyifei/emotion-native-media-query#719f1465f570b375275844ab288cbaeaf730a89e"
+emotion-native-media-query@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/emotion-native-media-query/-/emotion-native-media-query-0.1.0.tgz#d05c52be19c1ee6215bf446b5dda2b70b6874eed"
+  integrity sha512-ZAjrPTbxnqFF/IsRnXvUguBEBPh9Tv1UAfv/Ds60WFzGE9uHYgjpZ34pkiPNIWj5ux6rk5PxCLS8BfuGThFkDw==
   dependencies:
     lodash.merge "^4.6.2"
 
