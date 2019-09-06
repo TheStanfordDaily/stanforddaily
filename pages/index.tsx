@@ -32,7 +32,7 @@ import LoadingView from "../components/Loading";
 interface SectionProps {
   content: Post[];
   sectionTitle?: string;
-  SectionTag?: string | React.ElementType;
+  SectionTag?: React.ElementType;
   [key: string]: any;
 }
 
