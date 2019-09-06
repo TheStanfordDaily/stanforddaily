@@ -1,8 +1,8 @@
 import React from "react";
 import App from "next/app";
 import { Global, css } from "@emotion/core";
+import RView, { MediaRule } from "emotion-native-media-query";
 import { STRINGS, BREAKPOINTS } from "../helpers/constants";
-import { RView, MediaRule } from "../helpers/responsiveStyle";
 import { SectionStyle } from "../components/Section";
 import { CategoryList } from "../components/CategoryList";
 

@@ -2,12 +2,11 @@ import React from "react";
 import { Text, View, Image, ScrollView, Platform } from "react-native";
 import styled from "@emotion/native";
 import Link from "next/link";
-import {
-  RView,
+import RView, {
   MediaRule,
   mergeRStyle,
   isWidthGreaterThanOrEqualTo,
-} from "../helpers/responsiveStyle";
+} from "emotion-native-media-query";
 import { BREAKPOINTS } from "../helpers/constants";
 import {
   getHomeAsync,
@@ -777,8 +776,8 @@ const MoreFromTheDailySection: React.ElementType = ({
           [MediaRule.MinWidth]: {
             [BREAKPOINTS.TABLET]: {
               height: 700,
+              overflow: "scroll",
               flexWrap: "wrap",
-              overflow: "auto",
             },
           },
         }}

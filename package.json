@@ -19,6 +19,7 @@
     "@emotion/babel-preset-css-prop": "^10.0.14",
     "@emotion/core": "^10.0.15",
     "@emotion/native": "^10.0.14",
+    "emotion-native-media-query": "https://github.com/hesyifei/emotion-native-media-query",
     "expo": "^34.0.1",
     "lodash.merge": "^4.6.2",
     "moment": "^2.24.0",
