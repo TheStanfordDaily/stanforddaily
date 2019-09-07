@@ -36,8 +36,14 @@ export default class PostPage extends React.Component<PostProps, PostState> {
       return <LoadingView />;
     }
 
-    const { postTitle, thumbnailUrl, tsdAuthors, postContent } = post;
+    const { postTitle, thumbnailInfo, tsdAuthors, postContent } = post;
     const date = getPostLocalDate(post);
+
+    const {
+      urls: { full: thumbnailUrl },
+      caption: thumbnailCaption,
+      alt: thumbnailAlt = thumbnailCaption,
+    } = thumbnailInfo;
 
     return (
       <SectionStyle>
@@ -81,10 +87,18 @@ export default class PostPage extends React.Component<PostProps, PostState> {
             }}
           />
           <RView WebTag="main" id="main-article-content">
-            <figure id="featured-image">
-              <img src={thumbnailUrl} alt="TODO: " />
-              <figcaption>TODO: GET CAPTION</figcaption>
-            </figure>
+            {thumbnailUrl ? (
+              <figure id="featured-image">
+                <img src={thumbnailUrl} alt={thumbnailAlt} />
+                {thumbnailCaption ? (
+                  <figcaption>{thumbnailCaption}</figcaption>
+                ) : (
+                  undefined
+                )}
+              </figure>
+            ) : (
+              undefined
+            )}
             <p>
               By{" "}
               {tsdAuthors.map(author => (
@@ -94,7 +108,7 @@ export default class PostPage extends React.Component<PostProps, PostState> {
             </p>
             <div
               // eslint-disable-next-line react/no-danger
-              dangerouslySetInnerHTML={{ __html: post.postContent }}
+              dangerouslySetInnerHTML={{ __html: postContent }}
             />
           </RView>
           <footer>

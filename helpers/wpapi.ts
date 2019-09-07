@@ -31,6 +31,16 @@ export type Category = {
   slug: string;
 };
 
+export type Thumbnail = {
+  urls: {
+    full?: string;
+    mediumLarge?: string;
+    thumbnail?: string;
+  };
+  caption?: string;
+  alt?: string;
+};
+
 export type Post = {
   id: number;
   postDate: string;
@@ -42,7 +52,7 @@ export type Post = {
   tsdAuthors: Author[];
   postExcerpt: string;
   postContent?: string;
-  thumbnailUrl?: string;
+  thumbnailInfo?: Thumbnail;
   tsdPrimaryCategory?: Category;
   tagsInput: string[];
   tsdUrlParameters: PostURL;

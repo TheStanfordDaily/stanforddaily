@@ -126,7 +126,10 @@ const ThumbnailImage: React.ElementType = ({
   post: Post;
   [key: string]: any;
 }) => {
-  const { thumbnailUrl } = post;
+  const { thumbnailInfo } = post;
+  const {
+    urls: { mediumLarge: thumbnailUrl },
+  } = thumbnailInfo;
   return (
     <Image
       resizeMode="cover"
