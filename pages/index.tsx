@@ -7,7 +7,7 @@ import RView, {
   mergeRStyle,
   isWidthGreaterThanOrEqualTo,
 } from "emotion-native-media-query";
-import { BREAKPOINTS } from "../helpers/constants";
+import { BREAKPOINTS, FONTS } from "../helpers/constants";
 import {
   getHomeAsync,
   getPostPath,
@@ -87,6 +87,7 @@ const DesktopRow: React.ElementType = (props: any) => {
 };
 
 const SectionTitleStyle = styled.Text({
+  fontFamily: FONTS.TITLE,
   fontSize: 25,
   margin: 0,
   marginBottom: 15,
@@ -160,6 +161,7 @@ const ThumbnailImageWithLink: React.ElementType = (props: {
 };
 
 const ArticleTitleStyle = styled.Text({
+  fontFamily: FONTS.TITLE,
   fontSize: 20,
   margin: 0,
 });
@@ -228,7 +230,7 @@ const AuthorView: React.ElementType = ({
   if (Platform.OS === "web") {
     return (
       <View>
-        <Text>
+        <Text style={{ fontFamily: FONTS.AUXILIARY }}>
           {authors.map((author, index) => (
             <React.Fragment key={author.id}>
               {index > 0 && (authors.length !== 2 ? ", " : " ")}
@@ -255,8 +257,21 @@ const AuthorView: React.ElementType = ({
   }
 };
 
+const PostExcerpt: React.ElementType = ({ post, style }: ArticleProps) => {
+  const { postExcerpt } = post;
+  return (
+    <Text
+      style={{
+        fontFamily: FONTS.CONTENT,
+      }}
+    >
+      {postExcerpt}
+    </Text>
+  );
+};
+
 const HeadlineArticle: React.ElementType = ({ post, style }: ArticleProps) => {
-  const { postSubtitle, postExcerpt, tsdAuthors } = post;
+  const { postSubtitle, tsdAuthors } = post;
   return (
     <Article
       post={post}
@@ -283,7 +298,7 @@ const HeadlineArticle: React.ElementType = ({ post, style }: ArticleProps) => {
           marginBottom: 5,
         }}
       >
-        <Text>{postExcerpt}</Text>
+        <PostExcerpt post={post} />
       </View>
       <AuthorView authors={tsdAuthors} />
     </Article>
@@ -364,7 +379,7 @@ const TitleOnlyArticle: React.ElementType = ({ post }: ArticleProps) => {
 };
 
 const TextOnlyArticle: React.ElementType = ({ post, style }: ArticleProps) => {
-  const { tsdPrimaryCategory, postExcerpt, tsdAuthors } = post;
+  const { tsdPrimaryCategory, tsdAuthors } = post;
   const date = getPostLocalDate(post);
   return (
     <RView
@@ -395,10 +410,12 @@ const TextOnlyArticle: React.ElementType = ({ post, style }: ArticleProps) => {
         <ArticleHeader>
           <ArticleTitleWithLink post={post} />
         </ArticleHeader>
-        <Text>{postExcerpt}</Text>
+        <PostExcerpt post={post} />
         <View>
           <AuthorView authors={tsdAuthors} />
-          <Text>{date.format("MMM DD YYYY")}</Text>
+          <Text style={{ fontFamily: FONTS.AUXILIARY }}>
+            {date.format("MMM DD YYYY")}
+          </Text>
         </View>
       </Article>
     </RView>

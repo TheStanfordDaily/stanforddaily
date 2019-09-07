@@ -10,7 +10,7 @@ import {
   getPostPath,
   Post,
 } from "../../../../helpers/wpapi";
-import { STRINGS, BREAKPOINTS } from "../../../../helpers/constants";
+import { STRINGS, BREAKPOINTS, FONTS } from "../../../../helpers/constants";
 import { SectionStyle } from "../../../../components/Section";
 import { Article, ArticleHeader } from "../../../../components/Article";
 import LoadingView from "../../../../components/Loading";
@@ -71,6 +71,7 @@ export default class PostPage extends React.Component<PostProps, PostState> {
               css={{
                 textAlign: "center",
                 fontSize: "2.25rem",
+                fontFamily: FONTS.TITLE,
               }}
             >
               {postTitle}
@@ -79,7 +80,7 @@ export default class PostPage extends React.Component<PostProps, PostState> {
           <Global
             styles={{
               "#main-article-content": {
-                fontFamily: "'PT Serif', serif",
+                fontFamily: `'${FONTS.CONTENT}', serif`,
                 "p, figcaption": {
                   ...centerContentStyle,
                   marginBottom: "1.75em",
@@ -88,7 +89,6 @@ export default class PostPage extends React.Component<PostProps, PostState> {
                 figure: {
                   margin: "0 auto",
                   width: "initial !important",
-                  textAlign: "center",
                   img: {
                     maxWidth: "100%",
                     width: "100%",

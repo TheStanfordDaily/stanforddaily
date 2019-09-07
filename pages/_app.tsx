@@ -155,7 +155,7 @@ export default class MyApp extends App {
       <Layout>
         <Head>
           <link
-            href="https://fonts.googleapis.com/css?family=PT+Serif:400,400i,700,700i&display=swap"
+            href="https://fonts.googleapis.com/css?family=Open+Sans|Libre+Baskerville:400,700|PT+Serif:400,400i,700,700i&display=swap"
             rel="stylesheet"
           />
         </Head>
