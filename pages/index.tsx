@@ -127,9 +127,12 @@ const ThumbnailImage: React.ElementType = ({
   [key: string]: any;
 }) => {
   const { thumbnailInfo } = post;
-  const {
-    urls: { mediumLarge: thumbnailUrl },
-  } = thumbnailInfo;
+
+  let thumbnailUrl =
+    "https://raw.githubusercontent.com/TheStanfordDaily/stanforddaily-graphic-assets/master/DailyIcon/without-background/DailyIcon.png";
+  if (thumbnailInfo && thumbnailInfo.urls && thumbnailInfo.urls.mediumLarge) {
+    thumbnailUrl = thumbnailInfo.urls.mediumLarge;
+  }
   return (
     <Image
       resizeMode="cover"
@@ -139,9 +142,7 @@ const ThumbnailImage: React.ElementType = ({
         ...style,
       }}
       source={{
-        uri:
-          thumbnailUrl ||
-          "https://raw.githubusercontent.com/TheStanfordDaily/stanforddaily-graphic-assets/master/DailyIcon/without-background/DailyIcon.png",
+        uri: thumbnailUrl,
       }}
       {...props}
     />
