@@ -19,6 +19,7 @@
     "@emotion/babel-preset-css-prop": "^10.0.14",
     "@emotion/core": "^10.0.15",
     "@emotion/native": "^10.0.14",
+    "disqus-react": "^1.0.6",
     "emotion-native-media-query": "^0.1.0",
     "expo": "^34.0.1",
     "lodash.merge": "^4.6.2",

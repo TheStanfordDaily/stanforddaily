@@ -2,6 +2,7 @@ import React from "react";
 import { View } from "react-native";
 import { WebView } from "react-native-webview";
 import { Global } from "@emotion/core";
+import { DiscussionEmbed, CommentCount } from "disqus-react";
 import RView from "emotion-native-media-query";
 import {
   getPostAsync,
@@ -36,7 +37,24 @@ export default class PostPage extends React.Component<PostProps, PostState> {
       return <LoadingView />;
     }
 
-    const { postTitle, thumbnailInfo, tsdAuthors, postContent } = post;
+    const centerContentStyle = {
+      margin: "0 auto",
+      [`@media (min-width: ${BREAKPOINTS.TABLET}px)`]: {
+        width: 600,
+      },
+      [`@media (min-width: ${BREAKPOINTS.DESKTOP}px)`]: {
+        width: 700,
+      },
+    };
+
+    const {
+      id: postId,
+      postTitle,
+      thumbnailInfo,
+      tsdAuthors,
+      postContent,
+      guid,
+    } = post;
     const date = getPostLocalDate(post);
 
     const {
@@ -62,13 +80,7 @@ export default class PostPage extends React.Component<PostProps, PostState> {
             styles={{
               "#main-article-content": {
                 "p, figcaption": {
-                  margin: "0 auto",
-                  [`@media (min-width: ${BREAKPOINTS.TABLET}px)`]: {
-                    width: 600,
-                  },
-                  [`@media (min-width: ${BREAKPOINTS.DESKTOP}px)`]: {
-                    width: 700,
-                  },
+                  ...centerContentStyle,
                 },
                 figure: {
                   margin: "0 auto",
@@ -117,7 +129,16 @@ export default class PostPage extends React.Component<PostProps, PostState> {
             ))}
           </footer>
         </Article>
-        <div>{/* TODO: ADD DISQUS */}</div>
+        <div css={{ ...centerContentStyle }}>
+          <DiscussionEmbed
+            shortname={STRINGS.DISQUS_SHORTNAME}
+            config={{
+              url: guid,
+              identifier: `${STRINGS.DISQUS_SHORTNAME}-${postId}`,
+              title: postTitle,
+            }}
+          />
+        </div>
       </SectionStyle>
     );
   }
