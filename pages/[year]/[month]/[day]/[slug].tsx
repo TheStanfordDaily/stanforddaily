@@ -43,9 +43,48 @@ export default class PostPage extends React.Component<PostProps, PostState> {
       <SectionStyle>
         <Article>
           <ArticleHeader>
-            <h1>{postTitle}</h1>
+            <h1
+              css={{
+                textAlign: "center",
+                fontSize: "2.25rem",
+              }}
+            >
+              {postTitle}
+            </h1>
           </ArticleHeader>
-          <RView WebTag="main">
+          <Global
+            styles={{
+              "#main-article-content": {
+                "p, figcaption": {
+                  margin: "0 auto",
+                  [`@media (min-width: ${BREAKPOINTS.TABLET}px)`]: {
+                    width: 600,
+                  },
+                  [`@media (min-width: ${BREAKPOINTS.DESKTOP}px)`]: {
+                    width: 700,
+                  },
+                },
+                figure: {
+                  margin: "0 auto",
+                  width: "initial !important",
+                  textAlign: "center",
+                  img: {
+                    maxWidth: "100%",
+                    width: "100%",
+                    height: "auto",
+                  },
+                  "&#featured-image": {
+                    width: "100% !important",
+                  },
+                },
+              },
+            }}
+          />
+          <RView WebTag="main" id="main-article-content">
+            <figure id="featured-image">
+              <img src={thumbnailUrl} alt="TODO: " />
+              <figcaption>TODO: GET CAPTION</figcaption>
+            </figure>
             <p>
               By{" "}
               {tsdAuthors.map(author => (
@@ -53,33 +92,7 @@ export default class PostPage extends React.Component<PostProps, PostState> {
               ))}
               on {date.format("MMMM D, YYYY")}
             </p>
-            <Global
-              styles={{
-                "#main-article-content": {
-                  "p, div, figcaption": {
-                    margin: "0 auto",
-                    [`@media (min-width: ${BREAKPOINTS.TABLET}px)`]: {
-                      maxWidth: 600,
-                    },
-                    [`@media (min-width: ${BREAKPOINTS.DESKTOP}px)`]: {
-                      maxWidth: 700,
-                    },
-                  },
-                  figure: {
-                    margin: "0 auto",
-                    width: "initial !important",
-                    textAlign: "center",
-                    img: {
-                      maxWidth: "100%",
-                      width: "100%",
-                      height: "auto",
-                    },
-                  },
-                },
-              }}
-            />
             <div
-              id="main-article-content"
               // eslint-disable-next-line react/no-danger
               dangerouslySetInnerHTML={{ __html: post.postContent }}
             />
