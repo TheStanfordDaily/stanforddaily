@@ -164,7 +164,7 @@ const ThumbnailImageWithLink: React.ElementType = (props: {
 
 const ArticleTitleStyle = styled.Text({
   fontFamily: FONTS.TITLE,
-  fontSize: 20,
+  fontSize: 15,
   margin: 0,
 });
 const ArticleTitle =
@@ -288,7 +288,7 @@ const HeadlineArticle: React.ElementType = ({ post, style }: ArticleProps) => {
         }}
       />
       <ArticleHeader>
-        <ArticleTitleWithLink post={post} />
+        <ArticleTitleWithLink post={post} style={{ fontSize: 20 }} />
         {postSubtitle ? (
           <ArticleSubtitle>{postSubtitle}</ArticleSubtitle>
         ) : (
