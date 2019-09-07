@@ -7,7 +7,12 @@ import RView, {
   mergeRStyle,
   isWidthGreaterThanOrEqualTo,
 } from "emotion-native-media-query";
-import { BREAKPOINTS, FONTS, COLORS } from "../helpers/constants";
+import {
+  BREAKPOINTS,
+  FONTS,
+  COLORS,
+  STANFORD_COLORS,
+} from "../helpers/constants";
 import {
   getHomeAsync,
   getPostPath,
@@ -90,7 +95,8 @@ const DesktopRow: React.ElementType = (props: any) => {
 
 const SectionTitleStyle = styled.Text({
   fontFamily: FONTS.TITLE,
-  fontSize: 25,
+  fontSize: 15,
+  color: STANFORD_COLORS.CARDINAL_DARK_RED,
   margin: 0,
   marginBottom: 15,
 });
@@ -698,7 +704,7 @@ const MultimediaSection: React.ElementType = (props: SectionProps) => {
         ...style,
       }}
     >
-      <Text>multimedia</Text>
+      <SectionTitle>Video & Photograph</SectionTitle>
     </Section>
   );
 };
@@ -713,7 +719,7 @@ const MoreFromTheDailySection: React.ElementType = ({
         flexDirection: "column",
       }}
     >
-      <Text>more from daily</Text>
+      <SectionTitle>More from The Daily</SectionTitle>
       <RView
         style={{
           width: "100%",

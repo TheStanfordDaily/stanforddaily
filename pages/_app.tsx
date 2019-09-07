@@ -4,7 +4,7 @@ import Head from "next/head";
 import Link from "next/link";
 import { Global, css } from "@emotion/core";
 import RView, { MediaRule } from "emotion-native-media-query";
-import { STRINGS, BREAKPOINTS } from "../helpers/constants";
+import { STRINGS, BREAKPOINTS, COLORS } from "../helpers/constants";
 import { SectionStyle } from "../components/Section";
 import { CategoryList } from "../components/CategoryList";
 
@@ -153,6 +153,26 @@ export default class MyApp extends App {
 
     return (
       <Layout>
+        <Global
+          styles={{
+            a: {
+              color: COLORS.LINK.DEFAULT,
+              textDecoration: "none",
+              "&:visited": {
+                color: COLORS.LINK.VISITED,
+              },
+              "&:hover, &:focus, &:active": {
+                color: COLORS.LINK.HOVER,
+              },
+              "&:focus": {
+                outline: "thin dotted",
+              },
+              "&:hover, &:active": {
+                outline: 0,
+              },
+            },
+          }}
+        />
         <Head>
           <link
             href="https://fonts.googleapis.com/css?family=Open+Sans|Libre+Baskerville:400,700|PT+Serif:400,400i,700,700i&display=swap"
