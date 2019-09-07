@@ -6,6 +6,8 @@ import RView, {
   MediaRule,
   mergeRStyle,
   isWidthGreaterThanOrEqualTo,
+  Style,
+  RStyle,
 } from "emotion-native-media-query";
 import {
   BREAKPOINTS,
@@ -38,6 +40,8 @@ interface SectionProps {
   content: Post[];
   sectionTitle?: string;
   SectionTag?: React.ElementType;
+  style?: Style;
+  rStyle?: RStyle;
   [key: string]: any;
 }
 
@@ -478,6 +482,11 @@ const TopSection: React.ElementType = ({ content, style }: SectionProps) => {
     <RView
       style={{ ...style }}
       rStyle={{
+        [MediaRule.MinWidth]: {
+          [BREAKPOINTS.DESKTOP]: {
+            borderTop: borderValue,
+          },
+        },
         [MediaRule.MaxWidth]: {
           [BREAKPOINTS.MAX_WIDTH.DESKTOP]: {
             display: "none",
@@ -525,20 +534,24 @@ const TopSection: React.ElementType = ({ content, style }: SectionProps) => {
 };
 
 const MainSection: React.ElementType = (props: SectionProps) => {
-  const { content, sectionTitle, SectionTag = Section } = props;
+  const { content, sectionTitle, SectionTag = Section, style, rStyle } = props;
   return (
     <Column
       style={{
         flexGrow: 7,
         order: 1,
+        ...style,
       }}
-      rStyle={{
-        [MediaRule.MinWidth]: {
-          [BREAKPOINTS.TABLET]: {
-            order: 2,
+      rStyle={mergeRStyle(
+        {
+          [MediaRule.MinWidth]: {
+            [BREAKPOINTS.TABLET]: {
+              order: 2,
+            },
           },
         },
-      }}
+        rStyle,
+      )}
     >
       <SectionTag>
         {sectionTitle && <SectionTitle>{sectionTitle}</SectionTitle>}
@@ -557,7 +570,7 @@ const MainSection: React.ElementType = (props: SectionProps) => {
 };
 
 const LeftSection: React.ElementType = (props: SectionProps) => {
-  const { content, sectionTitle, SectionTag = Section, style } = props;
+  const { content, sectionTitle, SectionTag = Section, style, rStyle } = props;
   return (
     <Column
       style={{
@@ -565,13 +578,16 @@ const LeftSection: React.ElementType = (props: SectionProps) => {
         order: 2,
         ...style,
       }}
-      rStyle={{
-        [MediaRule.MinWidth]: {
-          [BREAKPOINTS.TABLET]: {
-            order: 1,
+      rStyle={mergeRStyle(
+        {
+          [MediaRule.MinWidth]: {
+            [BREAKPOINTS.TABLET]: {
+              order: 1,
+            },
           },
         },
-      }}
+        rStyle,
+      )}
     >
       <SectionTag>
         {sectionTitle && <SectionTitle>{sectionTitle}</SectionTitle>}
@@ -600,18 +616,18 @@ const RightListedSection: React.ElementType = (props: SectionProps) => {
     ...remainingProps
   } = props;
   return (
-    <SectionTag {...remainingProps}>
+    <RView WebTag={SectionTag} NativeTag={SectionTag} {...remainingProps}>
       {sectionTitle && <SectionTitle>{sectionTitle}</SectionTitle>}
       <ListStyleArticle post={content[0]} />
       <ListStyleArticle post={content[1]} />
       <ListStyleArticle post={content[2]} />
       <ListStyleArticle post={content[3]} />
-    </SectionTag>
+    </RView>
   );
 };
 
 const SportsSection: React.ElementType = (props: SectionProps) => {
-  const { content, mainBeforeSide } = props;
+  const { content, mainBeforeSide, style, rStyle } = props;
   const leftContent = content.slice(3);
   const mainContent = content.slice(0, 3);
 
@@ -641,7 +657,12 @@ const SportsSection: React.ElementType = (props: SectionProps) => {
   };
 
   return (
-    <SectionWithoutStyle>
+    <RView
+      WebTag={SectionWithoutStyle}
+      NativeTag={SectionWithoutStyle}
+      style={style}
+      rStyle={rStyle}
+    >
       <SectionStyle style={{ paddingBottom: 0 }}>
         <SectionTitle>Sports</SectionTitle>
       </SectionStyle>
@@ -658,31 +679,47 @@ const SportsSection: React.ElementType = (props: SectionProps) => {
           </>
         )}
       </DesktopRow>
-    </SectionWithoutStyle>
+    </RView>
   );
 };
 
-const OpinionSection: React.ElementType = ({ content }: SectionProps) => {
-  return <RightListedSection content={content} sectionTitle="Opinion" />;
-};
-
-const GrindSection: React.ElementType = ({ content }: SectionProps) => {
-  return <RightListedSection content={content} sectionTitle="The Grind" />;
-};
-
-const ArtsAndLifeSection: React.ElementType = ({ content }: SectionProps) => {
+const OpinionSection: React.ElementType = ({
+  content,
+  ...props
+}: SectionProps) => {
   return (
-    <Section>
+    <RightListedSection content={content} sectionTitle="Opinion" {...props} />
+  );
+};
+
+const GrindSection: React.ElementType = ({
+  content,
+  ...props
+}: SectionProps) => {
+  return (
+    <RightListedSection content={content} sectionTitle="The Grind" {...props} />
+  );
+};
+
+const ArtsAndLifeSection: React.ElementType = ({
+  content,
+  ...props
+}: SectionProps) => {
+  return (
+    <RView WebTag={Section} NativeTag={Section} {...props}>
       <SectionTitle>arts and life</SectionTitle>
       <SideThumbnailArticle post={content[0]} />
       <SideThumbnailArticle post={content[1]} />
       <SideThumbnailArticle post={content[2]} />
       <SideThumbnailArticle post={content[3]} />
-    </Section>
+    </RView>
   );
 };
 
-const SponsoredSection: React.ElementType = ({ content }: SectionProps) => {
+const SponsoredSection: React.ElementType = ({
+  content,
+  ...props
+}: SectionProps) => {
   return (
     <Section
       style={{
@@ -798,6 +835,13 @@ export default class IndexPage extends React.Component<IndexProps, IndexState> {
         <MainSection
           sectionTitle="Featured"
           content={homePosts.featured}
+          rStyle={{
+            [MediaRule.MaxWidth]: {
+              [BREAKPOINTS.MAX_WIDTH.TABLET]: {
+                borderBottom: borderValue,
+              },
+            },
+          }}
           {...fsProps}
         />
       );
@@ -807,7 +851,13 @@ export default class IndexPage extends React.Component<IndexProps, IndexState> {
         <LeftSection
           sectionTitle="News"
           content={homePosts.news}
-          style={{ borderRight: borderValue }}
+          rStyle={{
+            [MediaRule.MinWidth]: {
+              [BREAKPOINTS.TABLET]: {
+                borderRight: borderValue,
+              },
+            },
+          }}
           {...nsProps}
         />
       );
@@ -822,12 +872,7 @@ export default class IndexPage extends React.Component<IndexProps, IndexState> {
           }}
         >
           {/* TODO: FIX THIS */}
-          <TopSection
-            content={homePosts.featured}
-            style={{
-              borderTop: borderValue,
-            }}
-          />
+          <TopSection content={homePosts.featured} />
           <DesktopRow
             style={{
               borderTop: borderValue,
@@ -855,17 +900,57 @@ export default class IndexPage extends React.Component<IndexProps, IndexState> {
               <SportsSection
                 content={homePosts.sports}
                 mainBeforeSide={featuredBeforeNews}
+                rStyle={{
+                  [MediaRule.MaxWidth]: {
+                    [BREAKPOINTS.MAX_WIDTH.TABLET]: {
+                      borderBottom: borderValue,
+                    },
+                  },
+                }}
               />
             </Column>
             <Column
               style={{
                 flexGrow: 3,
-                borderLeft: borderValue,
+              }}
+              rStyle={{
+                [MediaRule.MinWidth]: {
+                  [BREAKPOINTS.TABLET]: {
+                    borderLeft: borderValue,
+                  },
+                },
               }}
             >
-              <OpinionSection content={homePosts.opinions} />
-              <GrindSection content={homePosts.theGrind} />
-              <ArtsAndLifeSection content={homePosts.artsAndLife} />
+              <OpinionSection
+                content={homePosts.opinions}
+                rStyle={{
+                  [MediaRule.MaxWidth]: {
+                    [BREAKPOINTS.MAX_WIDTH.TABLET]: {
+                      borderBottom: borderValue,
+                    },
+                  },
+                }}
+              />
+              <GrindSection
+                content={homePosts.theGrind}
+                rStyle={{
+                  [MediaRule.MaxWidth]: {
+                    [BREAKPOINTS.MAX_WIDTH.TABLET]: {
+                      borderBottom: borderValue,
+                    },
+                  },
+                }}
+              />
+              <ArtsAndLifeSection
+                content={homePosts.artsAndLife}
+                rStyle={{
+                  [MediaRule.MaxWidth]: {
+                    [BREAKPOINTS.MAX_WIDTH.TABLET]: {
+                      borderBottom: borderValue,
+                    },
+                  },
+                }}
+              />
               <SponsoredSection content={[]} />
             </Column>
           </DesktopRow>
