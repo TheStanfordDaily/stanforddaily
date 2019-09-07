@@ -87,7 +87,6 @@ const DesktopRow: React.ElementType = (props: any) => {
 };
 
 const SectionTitleStyle = styled.Text({
-  backgroundColor: "#333",
   fontSize: 25,
   margin: 0,
   marginBottom: 15,
@@ -161,7 +160,6 @@ const ThumbnailImageWithLink: React.ElementType = (props: {
 };
 
 const ArticleTitleStyle = styled.Text({
-  backgroundColor: "#666",
   fontSize: 20,
   margin: 0,
 });
@@ -204,7 +202,6 @@ const ArticleTitleWithLink: React.ElementType = ({
 };
 
 const ArticleSubtitleStyle = styled.Text({
-  backgroundColor: "#999",
   fontSize: 17,
   margin: 0,
   marginBottom: 5,
@@ -264,7 +261,6 @@ const HeadlineArticle: React.ElementType = ({ post, style }: ArticleProps) => {
     <Article
       post={post}
       style={{
-        backgroundColor: "yellow",
         ...style,
       }}
     >
@@ -297,12 +293,7 @@ const HeadlineArticle: React.ElementType = ({ post, style }: ArticleProps) => {
 const TopThumbnailArticle: React.ElementType = ({ post }: ArticleProps) => {
   const { tsdAuthors } = post;
   return (
-    <Article
-      post={post}
-      style={{
-        backgroundColor: "#ABCDEF",
-      }}
-    >
+    <Article post={post}>
       <ThumbnailImageWithLink
         post={post}
         style={{
@@ -320,12 +311,7 @@ const TopThumbnailArticle: React.ElementType = ({ post }: ArticleProps) => {
 const SideThumbnailArticle: React.ElementType = ({ post }: ArticleProps) => {
   const { tsdAuthors } = post;
   return (
-    <Article
-      post={post}
-      style={{
-        backgroundColor: "#ABCDEF",
-      }}
-    >
+    <Article post={post}>
       <View
         style={{
           flexDirection: "row",
@@ -368,12 +354,7 @@ const SideThumbnailArticle: React.ElementType = ({ post }: ArticleProps) => {
 const TitleOnlyArticle: React.ElementType = ({ post }: ArticleProps) => {
   const { tsdAuthors } = post;
   return (
-    <Article
-      post={post}
-      style={{
-        backgroundColor: "#FEDCBA",
-      }}
-    >
+    <Article post={post}>
       <ArticleHeader>
         <ArticleTitleWithLink post={post} />
       </ArticleHeader>
@@ -406,7 +387,6 @@ const TextOnlyArticle: React.ElementType = ({ post, style }: ArticleProps) => {
         post={post}
         style={{
           width: "100%",
-          backgroundColor: "#AAAAAA",
           ...style,
         }}
       >
@@ -428,12 +408,7 @@ const TextOnlyArticle: React.ElementType = ({ post, style }: ArticleProps) => {
 const ListStyleArticle: React.ElementType = ({ post }: ArticleProps) => {
   const { tsdAuthors } = post;
   return (
-    <Article
-      post={post}
-      style={{
-        backgroundColor: "#935502",
-      }}
-    >
+    <Article post={post}>
       <AuthorView authors={tsdAuthors} />
       <ArticleHeader>
         <ArticleTitleWithLink post={post} marginBottomMore />
@@ -450,7 +425,6 @@ const TopSection: React.ElementType = ({ content }: SectionProps) => {
           marginLeft: 20,
           flexDirection: "row",
           alignItems: "center",
-          backgroundColor: "#666666",
         }}
       >
         <ThumbnailImage
@@ -530,7 +504,6 @@ const MainSection: React.ElementType = (props: SectionProps) => {
     <Column
       style={{
         flexGrow: 7,
-        backgroundColor: "green",
         order: 1,
       }}
       rStyle={{
@@ -544,23 +517,11 @@ const MainSection: React.ElementType = (props: SectionProps) => {
       <SectionTag>
         {sectionTitle && <SectionTitle>{sectionTitle}</SectionTitle>}
         <HeadlineArticle post={content[0]} style={{ marginBottom: 20 }} />
-        <DesktopRow
-          style={{
-            backgroundColor: "blue",
-          }}
-        >
-          <Column
-            style={{
-              backgroundColor: "blue",
-            }}
-          >
+        <DesktopRow>
+          <Column>
             <TopThumbnailArticle post={content[1]} />
           </Column>
-          <Column
-            style={{
-              backgroundColor: "lightgray",
-            }}
-          >
+          <Column>
             <TopThumbnailArticle post={content[2]} />
           </Column>
         </DesktopRow>
@@ -575,7 +536,6 @@ const LeftSection: React.ElementType = (props: SectionProps) => {
     <Column
       style={{
         flexGrow: 3,
-        backgroundColor: "lightgreen",
         order: 2,
       }}
       rStyle={{
@@ -588,32 +548,16 @@ const LeftSection: React.ElementType = (props: SectionProps) => {
     >
       <SectionTag>
         {sectionTitle && <SectionTitle>{sectionTitle}</SectionTitle>}
-        <View
-          style={{
-            backgroundColor: "#123456",
-          }}
-        >
+        <View>
           <TopThumbnailArticle post={content[0]} />
         </View>
-        <View
-          style={{
-            backgroundColor: "#A23456",
-          }}
-        >
+        <View>
           <TopThumbnailArticle post={content[1]} />
         </View>
-        <View
-          style={{
-            backgroundColor: "#523456",
-          }}
-        >
+        <View>
           <TitleOnlyArticle post={content[2]} />
         </View>
-        <View
-          style={{
-            backgroundColor: "#D2E456",
-          }}
-        >
+        <View>
           <TitleOnlyArticle post={content[3]} />
         </View>
       </SectionTag>
@@ -692,36 +636,16 @@ const SportsSection: React.ElementType = (props: SectionProps) => {
 };
 
 const OpinionSection: React.ElementType = ({ content }: SectionProps) => {
-  return (
-    <RightListedSection
-      content={content}
-      sectionTitle="Opinion"
-      style={{
-        backgroundColor: "blue",
-      }}
-    />
-  );
+  return <RightListedSection content={content} sectionTitle="Opinion" />;
 };
 
 const GrindSection: React.ElementType = ({ content }: SectionProps) => {
-  return (
-    <RightListedSection
-      content={content}
-      sectionTitle="The Grind"
-      style={{
-        backgroundColor: "cyan",
-      }}
-    />
-  );
+  return <RightListedSection content={content} sectionTitle="The Grind" />;
 };
 
 const ArtsAndLifeSection: React.ElementType = ({ content }: SectionProps) => {
   return (
-    <Section
-      style={{
-        backgroundColor: "lightred",
-      }}
-    >
+    <Section>
       <SectionTitle>arts and life</SectionTitle>
       <SideThumbnailArticle post={content[0]} />
       <SideThumbnailArticle post={content[1]} />
@@ -735,7 +659,6 @@ const SponsoredSection: React.ElementType = ({ content }: SectionProps) => {
   return (
     <Section
       style={{
-        backgroundColor: "gray",
         height: 300,
       }}
     >
@@ -749,7 +672,6 @@ const MultimediaSection: React.ElementType = (props: SectionProps) => {
     <Section
       style={{
         flexGrow: 1,
-        backgroundColor: "yellow",
         height: 400,
       }}
     >
@@ -765,14 +687,12 @@ const MoreFromTheDailySection: React.ElementType = ({
     <Section
       style={{
         flexGrow: 1,
-        backgroundColor: "green",
         flexDirection: "column",
       }}
     >
       <Text>more from daily</Text>
       <RView
         style={{
-          backgroundColor: "lightblue",
           width: "100%",
           flexDirection: "column",
         }}
