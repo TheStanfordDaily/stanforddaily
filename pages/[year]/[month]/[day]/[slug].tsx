@@ -40,10 +40,10 @@ export default class PostPage extends React.Component<PostProps, PostState> {
     const date = getPostLocalDate(post);
 
     const {
-      urls: { full: thumbnailUrl },
-      caption: thumbnailCaption,
+      urls: { full: thumbnailUrl = null } = {},
+      caption: thumbnailCaption = null,
       alt: thumbnailAlt = thumbnailCaption,
-    } = thumbnailInfo;
+    } = thumbnailInfo || {};
 
     return (
       <SectionStyle>
