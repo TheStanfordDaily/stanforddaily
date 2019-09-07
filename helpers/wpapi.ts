@@ -1,5 +1,6 @@
 import WPAPI from "wpapi";
 import moment from "moment";
+import { STRINGS } from "./constants";
 import tsdJson from "./tsd-json.json";
 
 export type Home = {
@@ -60,7 +61,7 @@ export type Post = {
 };
 
 const wp = new WPAPI({
-  endpoint: "https://www.stanforddaily.com/wp-json",
+  endpoint: `${STRINGS.ROOT_URL}/wp-json`,
   routes: tsdJson.routes,
 });
 const wpTsdJson = wp.namespace("tsd/json/v1");

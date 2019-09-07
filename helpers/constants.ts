@@ -11,6 +11,7 @@ export const BREAKPOINTS = {
 };
 
 export const STRINGS = {
+  ROOT_URL: "https://www.stanforddaily.com",
   DISQUS_SHORTNAME: "stanforddaily",
   TSD_APP_USERAGENT: "TheStanfordDailyApp/1.0.0",
   _MAIN_ONLY_QUERY: "_main-only",

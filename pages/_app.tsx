@@ -37,7 +37,7 @@ const HeaderLogo: React.ElementType = (props: any) => {
               }}
             >
               <img
-                src="https://www.stanforddaily.com/wp-content/uploads/2019/03/cropped-DailyLogo-CardinalRed.png"
+                src="https://raw.githubusercontent.com/TheStanfordDaily/stanforddaily-graphic-assets/master/DailyLogo/DailyLogo.png"
                 alt="The Stanford Daily"
                 title="The Stanford Daily"
                 css={{
