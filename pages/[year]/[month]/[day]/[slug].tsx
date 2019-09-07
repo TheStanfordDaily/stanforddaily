@@ -1,13 +1,15 @@
 import React from "react";
 import { View } from "react-native";
 import { WebView } from "react-native-webview";
+import { Global } from "@emotion/core";
+import RView from "emotion-native-media-query";
 import {
   getPostAsync,
   getPostLocalDate,
   getPostPath,
   Post,
 } from "../../../../helpers/wpapi";
-import { STRINGS } from "../../../../helpers/constants";
+import { STRINGS, BREAKPOINTS } from "../../../../helpers/constants";
 import { SectionStyle } from "../../../../components/Section";
 import { Article, ArticleHeader } from "../../../../components/Article";
 import LoadingView from "../../../../components/Loading";
@@ -43,7 +45,7 @@ export default class PostPage extends React.Component<PostProps, PostState> {
           <ArticleHeader>
             <h1>{postTitle}</h1>
           </ArticleHeader>
-          <main>
+          <RView WebTag="main">
             <p>
               By{" "}
               {tsdAuthors.map(author => (
@@ -51,9 +53,37 @@ export default class PostPage extends React.Component<PostProps, PostState> {
               ))}
               on {date.format("MMMM D, YYYY")}
             </p>
-            {/* eslint-disable-next-line react/no-danger */}
-            <div dangerouslySetInnerHTML={{ __html: post.postContent }} />
-          </main>
+            <Global
+              styles={{
+                "#main-article-content": {
+                  "p, div, figcaption": {
+                    margin: "0 auto",
+                    [`@media (min-width: ${BREAKPOINTS.TABLET}px)`]: {
+                      maxWidth: 600,
+                    },
+                    [`@media (min-width: ${BREAKPOINTS.DESKTOP}px)`]: {
+                      maxWidth: 700,
+                    },
+                  },
+                  figure: {
+                    margin: "0 auto",
+                    width: "initial !important",
+                    textAlign: "center",
+                    img: {
+                      maxWidth: "100%",
+                      width: "100%",
+                      height: "auto",
+                    },
+                  },
+                },
+              }}
+            />
+            <div
+              id="main-article-content"
+              // eslint-disable-next-line react/no-danger
+              dangerouslySetInnerHTML={{ __html: post.postContent }}
+            />
+          </RView>
           <footer>
             {tsdAuthors.map(author => (
               <div key={author.id}>{author.displayName}</div>
