@@ -22,3 +22,7 @@ export const FONTS = {
   CONTENT: "PT Serif",
   AUXILIARY: "Open Sans",
 };
+
+export const COLORS = {
+  BORDER_COLOR: "gray",
+};

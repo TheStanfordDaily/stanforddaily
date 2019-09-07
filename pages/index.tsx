@@ -7,7 +7,7 @@ import RView, {
   mergeRStyle,
   isWidthGreaterThanOrEqualTo,
 } from "emotion-native-media-query";
-import { BREAKPOINTS, FONTS } from "../helpers/constants";
+import { BREAKPOINTS, FONTS, COLORS } from "../helpers/constants";
 import {
   getHomeAsync,
   getPostPath,
@@ -40,6 +40,8 @@ interface ArticleProps {
   post: Post;
   [key: string]: any;
 }
+
+const borderValue = `1px solid ${COLORS.BORDER_COLOR}`;
 
 const Column: React.ElementType = (props: any) => {
   const { style = {}, rStyle = {}, ...remainingProps } = props;
@@ -434,7 +436,7 @@ const ListStyleArticle: React.ElementType = ({ post }: ArticleProps) => {
   );
 };
 
-const TopSection: React.ElementType = ({ content }: SectionProps) => {
+const TopSection: React.ElementType = ({ content, style }: SectionProps) => {
   const SmallSection: React.ElementType = (sProps: any) => {
     return (
       <View
@@ -468,6 +470,7 @@ const TopSection: React.ElementType = ({ content }: SectionProps) => {
 
   return (
     <RView
+      style={{ ...style }}
       rStyle={{
         [MediaRule.MaxWidth]: {
           [BREAKPOINTS.MAX_WIDTH.DESKTOP]: {
@@ -548,12 +551,13 @@ const MainSection: React.ElementType = (props: SectionProps) => {
 };
 
 const LeftSection: React.ElementType = (props: SectionProps) => {
-  const { content, sectionTitle, SectionTag = Section } = props;
+  const { content, sectionTitle, SectionTag = Section, style } = props;
   return (
     <Column
       style={{
         flexGrow: 3,
         order: 2,
+        ...style,
       }}
       rStyle={{
         [MediaRule.MinWidth]: {
@@ -685,11 +689,13 @@ const SponsoredSection: React.ElementType = ({ content }: SectionProps) => {
 };
 
 const MultimediaSection: React.ElementType = (props: SectionProps) => {
+  const { style } = props;
   return (
     <Section
       style={{
         flexGrow: 1,
         height: 400,
+        ...style,
       }}
     >
       <Text>multimedia</Text>
@@ -795,6 +801,7 @@ export default class IndexPage extends React.Component<IndexProps, IndexState> {
         <LeftSection
           sectionTitle="News"
           content={homePosts.news}
+          style={{ borderRight: borderValue }}
           {...nsProps}
         />
       );
@@ -809,14 +816,24 @@ export default class IndexPage extends React.Component<IndexProps, IndexState> {
           }}
         >
           {/* TODO: FIX THIS */}
-          <TopSection content={homePosts.featured} />
-          <DesktopRow>
+          <TopSection
+            content={homePosts.featured}
+            style={{
+              borderTop: borderValue,
+            }}
+          />
+          <DesktopRow
+            style={{
+              borderTop: borderValue,
+              borderBottom: borderValue,
+            }}
+          >
             <Column
               style={{
                 flexGrow: 6,
               }}
             >
-              <DesktopRow>
+              <DesktopRow style={{ borderBottom: borderValue }}>
                 {featuredBeforeNews ? (
                   <>
                     <FeaturedSection />
@@ -837,6 +854,7 @@ export default class IndexPage extends React.Component<IndexProps, IndexState> {
             <Column
               style={{
                 flexGrow: 3,
+                borderLeft: borderValue,
               }}
             >
               <OpinionSection content={homePosts.opinions} />
@@ -845,7 +863,10 @@ export default class IndexPage extends React.Component<IndexProps, IndexState> {
               <SponsoredSection content={[]} />
             </Column>
           </DesktopRow>
-          <MultimediaSection content={[]} />
+          <MultimediaSection
+            content={[]}
+            style={{ borderBottom: borderValue }}
+          />
           <MoreFromTheDailySection content={homePosts.moreFromTheDaily} />
         </ScrollView>
       </>
