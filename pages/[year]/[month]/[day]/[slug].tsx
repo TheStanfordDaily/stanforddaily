@@ -40,10 +40,10 @@ export default class PostPage extends React.Component<PostProps, PostState> {
     const centerContentStyle = {
       margin: "0 auto",
       [`@media (min-width: ${BREAKPOINTS.TABLET}px)`]: {
-        width: 600,
+        width: 690,
       },
       [`@media (min-width: ${BREAKPOINTS.DESKTOP}px)`]: {
-        width: 700,
+        width: 810,
       },
     };
 
@@ -79,8 +79,11 @@ export default class PostPage extends React.Component<PostProps, PostState> {
           <Global
             styles={{
               "#main-article-content": {
+                fontFamily: "'PT Serif', serif",
                 "p, figcaption": {
                   ...centerContentStyle,
+                  marginBottom: "1.75em",
+                  fontSize: "1.3rem",
                 },
                 figure: {
                   margin: "0 auto",

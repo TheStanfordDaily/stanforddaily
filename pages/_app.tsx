@@ -1,5 +1,6 @@
 import React from "react";
 import App from "next/app";
+import Head from "next/head";
 import Link from "next/link";
 import { Global, css } from "@emotion/core";
 import RView, { MediaRule } from "emotion-native-media-query";
@@ -152,6 +153,12 @@ export default class MyApp extends App {
 
     return (
       <Layout>
+        <Head>
+          <link
+            href="https://fonts.googleapis.com/css?family=PT+Serif:400,400i,700,700i&display=swap"
+            rel="stylesheet"
+          />
+        </Head>
         {/* `body` `overflow: initial` is added in order for `position: "sticky"` below to work. */}
         <Global
           styles={css`
