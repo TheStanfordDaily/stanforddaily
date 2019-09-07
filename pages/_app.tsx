@@ -1,5 +1,6 @@
 import React from "react";
 import App from "next/app";
+import Link from "next/link";
 import { Global, css } from "@emotion/core";
 import RView, { MediaRule } from "emotion-native-media-query";
 import { STRINGS, BREAKPOINTS } from "../helpers/constants";
@@ -26,28 +27,28 @@ const HeaderLogo: React.ElementType = (props: any) => {
             height: "100%",
           }}
         >
-          {/* TODO: USE NEXT LINK */}
-          <a
-            href="https://www.stanforddaily.com/"
-            rel="home"
-            css={{
-              display: "flex",
-              alignItems: "center",
-              height: "100%",
-            }}
-          >
-            <img
-              src="https://www.stanforddaily.com/wp-content/uploads/2019/03/cropped-DailyLogo-CardinalRed.png"
-              alt="The Stanford Daily"
-              title="The Stanford Daily"
-              css={{
-                height: "auto",
-                width: "auto",
-                maxHeight: "100%",
-                maxWidth: "100%",
+          <Link href="/">
+            <a
+              rel="home"
+              style={{
+                display: "flex",
+                alignItems: "center",
+                height: "100%",
               }}
-            />
-          </a>
+            >
+              <img
+                src="https://www.stanforddaily.com/wp-content/uploads/2019/03/cropped-DailyLogo-CardinalRed.png"
+                alt="The Stanford Daily"
+                title="The Stanford Daily"
+                css={{
+                  height: "auto",
+                  width: "auto",
+                  maxHeight: "100%",
+                  maxWidth: "100%",
+                }}
+              />
+            </a>
+          </Link>
         </h1>
       </RView>
     </SectionStyle>
