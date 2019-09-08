@@ -408,7 +408,6 @@ const TextOnlyArticle: React.ElementType = ({ post, style }: ArticleProps) => {
         flexGrow: 1,
         flexShrink: 0,
         flexBasis: 300,
-        padding: 10,
         marginLeft: 10,
         marginRight: 10,
         marginBottom: 20,
@@ -418,6 +417,7 @@ const TextOnlyArticle: React.ElementType = ({ post, style }: ArticleProps) => {
         [MediaRule.MinWidth]: {
           [BREAKPOINTS.TABLET]: {
             minHeight: 340,
+            padding: 10,
           },
         },
       }}
@@ -536,7 +536,7 @@ const TopSection: React.ElementType = ({ content, style }: SectionProps) => {
                 );
               }}
               style={{
-                paddingLeft: "2em",
+                paddingLeft: 30,
               }}
             />
           </View>
