@@ -858,29 +858,6 @@ export default class IndexPage extends React.Component<IndexProps, IndexState> {
       return <LoadingView />;
     }
 
-    /*
-    const fposts = homePosts.moreFromTheDaily.map(post => {
-      return (
-        <View key={post.tsdUrlParameters.slug}>
-          {Platform.OS === "web" ? (
-            <Link href="/[year]/[month]/[day]/[slug]/" as={getPostPath(post)}>
-              <a>{post.postTitle}</a>
-            </Link>
-          ) : (
-            <Text
-              onPress={() => {
-                this.props.navigation.push("post", post.tsdUrlParameters);
-              }}
-            >
-              {post.postTitle}
-            </Text>
-          )}
-        </View>
-      );
-    });
-    return <View>{fposts}</View>;
-    */
-
     let featuredBeforeNews = true;
     // Note that on web it is handled by the CSS `order` property and media query.
     if (Platform.OS !== "web") {
