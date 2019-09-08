@@ -39,6 +39,7 @@ export default class PostPage extends React.Component<PostProps, PostState> {
 
     const centerContentStyle = {
       margin: "0 auto",
+      width: "100%",
       [`@media (min-width: ${BREAKPOINTS.TABLET}px)`]: {
         width: 690,
       },
