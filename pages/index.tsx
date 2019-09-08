@@ -4,6 +4,7 @@ import {
   View,
   Image,
   ScrollView,
+  RefreshControl,
   TouchableOpacity,
   Platform,
 } from "react-native";
@@ -821,6 +822,7 @@ const MoreFromTheDailySection: React.ElementType = ({
 interface IndexProps {
   homePosts?: Home;
   navigation?: any;
+  refreshControl?: any;
 }
 
 interface IndexState {
@@ -922,6 +924,7 @@ export default class IndexPage extends React.Component<IndexProps, IndexState> {
           contentContainerStyle={{
             flexDirection: "column",
           }}
+          refreshControl={this.props.refreshControl}
         >
           {/* TODO: FIX THIS */}
           <TopSection content={homePosts.featured} />
@@ -1053,7 +1056,29 @@ export default class IndexPage extends React.Component<IndexProps, IndexState> {
 }
 
 export function IndexPageWrapper(props): any {
-  return <Wrapper class={IndexPage} props={props} getInitialProps={{}} />;
+  const [refreshing, setRefreshing] = React.useState(false);
+  const wrapper: React.RefObject<Wrapper> = React.createRef();
+
+  return (
+    <Wrapper
+      class={IndexPage}
+      ref={wrapper}
+      props={{
+        ...props,
+        refreshControl: (
+          <RefreshControl
+            refreshing={refreshing}
+            onRefresh={async () => {
+              setRefreshing(true);
+              await wrapper.current._setInitialProps();
+              setRefreshing(false);
+            }}
+          />
+        ),
+      }}
+      getInitialProps={{}}
+    />
+  );
 }
 IndexPageWrapper.navigationOptions = {
   title: "Home",

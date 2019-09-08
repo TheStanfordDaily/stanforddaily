@@ -21,6 +21,10 @@ export default class Wrapper extends React.Component<
   }
 
   async componentDidMount(): Promise<void> {
+    await this._setInitialProps();
+  }
+
+  async _setInitialProps(): Promise<void> {
     const { class: WrappedClass, getInitialProps: param } = this.props;
     if (typeof WrappedClass.getInitialProps === "function") {
       this.setState({
