@@ -44,11 +44,10 @@ export const CategoryList: React.ElementType = ({ itemStyle }: any) => {
       }}
     >
       {categoryLinkList.map((categoryName, i) => {
-        let _itemStyle: any = {};
+        const _itemStyle = { ...itemStyle };
         if (i === categoryLinkList.length - 1) {
           _itemStyle.marginRight = 0;
         }
-        _itemStyle = { _itemStyle, ...itemStyle };
         return (
           <CategoryLink key={categoryName} style={_itemStyle}>
             {categoryName}
