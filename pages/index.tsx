@@ -458,7 +458,7 @@ const TopSection: React.ElementType = ({ content, style }: SectionProps) => {
     return (
       <View
         style={{
-          marginLeft: 20,
+          marginLeft: 30,
           flexDirection: "row",
           alignItems: "center",
         }}
@@ -470,7 +470,11 @@ const TopSection: React.ElementType = ({ content, style }: SectionProps) => {
           }}
           post={content[0]}
         />
-        <View>
+        <View
+          style={{
+            marginLeft: 10,
+          }}
+        >
           <View>
             <Text>Issue #</Text>
           </View>
@@ -501,7 +505,7 @@ const TopSection: React.ElementType = ({ content, style }: SectionProps) => {
         },
       }}
     >
-      <SectionStyle>
+      <SectionStyle style={{ paddingTop: 10, paddingBottom: 10 }}>
         <View
           style={{
             flexDirection: "row",
@@ -510,8 +514,8 @@ const TopSection: React.ElementType = ({ content, style }: SectionProps) => {
           }}
         >
           <View style={{ flexDirection: "row", alignItems: "center" }}>
-            <View style={{ backgroundColor: "#987654" }}>
-              <Text>Top{"\n"}Stories</Text>
+            <View style={{ backgroundColor: "#d7b9b9" }}>
+              <Text style={{ color: "white" }}>Top{"\n"}Stories</Text>
             </View>
             <OrderedList
               data={[
@@ -526,7 +530,9 @@ const TopSection: React.ElementType = ({ content, style }: SectionProps) => {
                   <LinkToArticle post={content[0]}>{item.title}</LinkToArticle>
                 );
               }}
-              style={{ backgroundColor: "#472044" }}
+              style={{
+                paddingLeft: "2em",
+              }}
             />
           </View>
           <View style={{ flexDirection: "row", alignItems: "center" }}>
