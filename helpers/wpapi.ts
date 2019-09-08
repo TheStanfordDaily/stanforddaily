@@ -80,8 +80,17 @@ export async function getPostAsync(
     .postslug(slug);
 }
 
-export async function getHomeAsync(): Promise<any> {
+export async function getHomeAsync(): Promise<Home> {
   return wpTsdJson.home();
+}
+
+export async function getHomeMoreAsync(
+  extraPageNumber: number,
+): Promise<Post[]> {
+  return wpTsdJson
+    .home()
+    .more()
+    .extraPageNumber(extraPageNumber);
 }
 
 export function getPostLocalDate(post: Post): moment.Moment {

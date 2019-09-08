@@ -23,6 +23,11 @@
         "self": "https://www.stanforddaily.com/wp-json/tsd/json/v1/home"
       }
     },
+    "/tsd/json/v1/home/more/(?P<extraPageNumber>\\d+)": {
+      "namespace": "tsd/json/v1",
+      "methods": ["GET"],
+      "endpoints": [{ "methods": ["GET"], "args": [] }]
+    },
     "/tsd/json/v1/posts/(?P<postyear>\\d{4})/(?P<postmonth>\\d{2})/(?P<postday>\\d{2})/(?P<postslug>[\\w-]+)": {
       "namespace": "tsd/json/v1",
       "methods": ["GET"],

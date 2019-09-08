@@ -1,5 +1,12 @@
 import React from "react";
-import { Text, View, Image, ScrollView, Platform } from "react-native";
+import {
+  Text,
+  View,
+  Image,
+  ScrollView,
+  TouchableOpacity,
+  Platform,
+} from "react-native";
 import styled from "@emotion/native";
 import Link from "next/link";
 import RView, {
@@ -17,6 +24,7 @@ import {
 } from "../helpers/constants";
 import {
   getHomeAsync,
+  getHomeMoreAsync,
   getPostPath,
   getPostLocalDate,
   Home,
@@ -766,6 +774,9 @@ const MultimediaSection: React.ElementType = (props: SectionProps) => {
 
 const MoreFromTheDailySection: React.ElementType = ({
   content,
+  extraContent,
+  loadMore,
+  loadMoreEnabled,
 }: SectionProps) => {
   return (
     <Section
@@ -786,6 +797,22 @@ const MoreFromTheDailySection: React.ElementType = ({
         {content.map(post => (
           <TextOnlyArticle key={post.id} post={post} />
         ))}
+        {(extraContent as Post[]).map(post => (
+          <TextOnlyArticle key={post.id} post={post} />
+        ))}
+        <TouchableOpacity
+          style={{
+            width: "100%",
+            alignItems: "center",
+            justifyContent: "center",
+            height: 100,
+            backgroundColor: STANFORD_COLORS.LIGHT_SANDSTONE,
+          }}
+          disabled={!loadMoreEnabled}
+          onPress={async () => loadMore()}
+        >
+          <Text>{loadMoreEnabled ? "Load more" : "Loading..."}</Text>
+        </TouchableOpacity>
       </RView>
     </Section>
   );
@@ -796,9 +823,23 @@ interface IndexProps {
   navigation?: any;
 }
 
-interface IndexState {}
+interface IndexState {
+  extraArticles: Post[];
+  extraArticlesPageCount: number;
+  extraArticlesLoading: boolean;
+}
 
 export default class IndexPage extends React.Component<IndexProps, IndexState> {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      extraArticles: [],
+      extraArticlesPageCount: 0,
+      extraArticlesLoading: false,
+    };
+  }
+
   static async getInitialProps(): Promise<any> {
     const homePosts = await getHomeAsync();
     return { homePosts };
@@ -981,7 +1022,30 @@ export default class IndexPage extends React.Component<IndexProps, IndexState> {
               ...getBorderValue("Bottom"),
             }}
           />
-          <MoreFromTheDailySection content={homePosts.moreFromTheDaily} />
+          <MoreFromTheDailySection
+            content={homePosts.moreFromTheDaily}
+            extraContent={this.state.extraArticles}
+            loadMoreEnabled={!this.state.extraArticlesLoading}
+            loadMore={async () => {
+              this.setState({ extraArticlesLoading: true }, async () => {
+                const newExtraArticles = await getHomeMoreAsync(
+                  this.state.extraArticlesPageCount + 1,
+                );
+                this.setState(
+                  prevState => ({
+                    extraArticlesPageCount:
+                      prevState.extraArticlesPageCount + 1,
+                    extraArticles: prevState.extraArticles.concat(
+                      newExtraArticles,
+                    ),
+                  }),
+                  () => {
+                    this.setState({ extraArticlesLoading: false });
+                  },
+                );
+              });
+            }}
+          />
         </ScrollView>
       </>
     );
