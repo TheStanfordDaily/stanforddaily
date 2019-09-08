@@ -805,19 +805,20 @@ const MoreFromTheDailySection: React.ElementType = ({
         {(extraContent as Post[]).map(post => (
           <TextOnlyArticle key={post.id} post={post} />
         ))}
-        <TouchableOpacity
-          style={{
-            width: "100%",
-            alignItems: "center",
-            justifyContent: "center",
-            height: 100,
-            backgroundColor: STANFORD_COLORS.LIGHT_SANDSTONE,
-          }}
-          disabled={!loadMoreEnabled}
-          onPress={async () => loadMore()}
-        >
-          <Text>{loadMoreEnabled ? "Load more" : "Loading..."}</Text>
-        </TouchableOpacity>
+        <SectionStyle style={{ width: "100%" }}>
+          <TouchableOpacity
+            style={{
+              alignItems: "center",
+              justifyContent: "center",
+              height: 100,
+              backgroundColor: STANFORD_COLORS.LIGHT_SANDSTONE,
+            }}
+            disabled={!loadMoreEnabled}
+            onPress={async () => loadMore()}
+          >
+            <Text>{loadMoreEnabled ? "Load more" : "Loading..."}</Text>
+          </TouchableOpacity>
+        </SectionStyle>
       </RView>
     </Section>
   );
