@@ -4,9 +4,26 @@ import Head from "next/head";
 import Link from "next/link";
 import { Global, css } from "@emotion/core";
 import RView, { MediaRule } from "emotion-native-media-query";
-import { STRINGS, BREAKPOINTS, COLORS } from "../helpers/constants";
+import {
+  STRINGS,
+  BREAKPOINTS,
+  COLORS,
+  STANFORD_COLORS,
+} from "../helpers/constants";
 import { SectionStyle } from "../components/Section";
 import { CategoryList } from "../components/CategoryList";
+
+const containerRStyle = {
+  [MediaRule.MinWidth]: {
+    [BREAKPOINTS.TABLET]: {},
+    [BREAKPOINTS.DESKTOP]: {
+      maxWidth: BREAKPOINTS.DESKTOP,
+    },
+    1300: {
+      maxWidth: 1300,
+    },
+  },
+};
 
 const HeaderLogo: React.ElementType = (props: any) => {
   return (
@@ -14,7 +31,6 @@ const HeaderLogo: React.ElementType = (props: any) => {
       <RView
         style={{
           height: 60,
-          backgroundColor: "#888888",
           justifyContent: "center",
           alignItems: "center",
         }}
@@ -61,7 +77,6 @@ const SiteHeader: React.ElementType = (props: any) => {
     <RView
       WebTag="header"
       style={{
-        maxWidth: "100vw",
         backgroundColor: "white",
       }}
       rStyle={{
@@ -92,6 +107,8 @@ const SiteHeader: React.ElementType = (props: any) => {
       <RView
         style={{
           order: 2,
+          maxWidth: "100vw",
+          backgroundColor: STANFORD_COLORS.CARDINAL_RED,
         }}
         rStyle={{
           [MediaRule.MinWidth]: {
@@ -101,7 +118,15 @@ const SiteHeader: React.ElementType = (props: any) => {
           },
         }}
       >
-        <CategoryList />
+        <RView
+          style={{
+            width: "100%",
+            margin: "0 auto",
+          }}
+          rStyle={containerRStyle}
+        >
+          <CategoryList itemStyle={{ color: "white" }} />
+        </RView>
       </RView>
     </RView>
   );
@@ -125,17 +150,7 @@ const Layout: React.ElementType = (props: any) => {
         margin: "0 auto",
         width: "100%",
       }}
-      rStyle={{
-        [MediaRule.MinWidth]: {
-          [BREAKPOINTS.TABLET]: {},
-          [BREAKPOINTS.DESKTOP]: {
-            maxWidth: BREAKPOINTS.DESKTOP,
-          },
-          1300: {
-            maxWidth: 1300,
-          },
-        },
-      }}
+      rStyle={containerRStyle}
     >
       {children}
     </RView>
@@ -152,7 +167,11 @@ export default class MyApp extends App {
     }
 
     return (
-      <Layout>
+      <div
+        css={{
+          width: "100%",
+        }}
+      >
         <Global
           styles={{
             a: {
@@ -188,11 +207,13 @@ export default class MyApp extends App {
           `}
         />
         {includeHeaderAndFooter && <SiteHeader id="site-header" />}
-        <main id="site-main">
-          <Component {...pageProps} />
-        </main>
+        <Layout>
+          <main id="site-main">
+            <Component {...pageProps} />
+          </main>
+        </Layout>
         {includeHeaderAndFooter && <SiteFooter id="site-footer" />}
-      </Layout>
+      </div>
     );
   }
 }

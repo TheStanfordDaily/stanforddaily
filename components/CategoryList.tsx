@@ -2,7 +2,7 @@ import React from "react";
 import { Text, ScrollView } from "react-native";
 import { SECTION_PADDING } from "./Section";
 
-export const CategoryList: React.ElementType = (props: any) => {
+export const CategoryList: React.ElementType = ({ itemStyle }: any) => {
   const CategoryLink: React.ElementType = ({
     children,
     style,
@@ -25,6 +25,15 @@ export const CategoryList: React.ElementType = (props: any) => {
     );
   };
 
+  const categoryLinkList = [
+    "Home",
+    "Sports",
+    "Opinion",
+    "Arts and life",
+    "The Grind",
+    "Magazine",
+  ];
+
   return (
     <ScrollView
       horizontal
@@ -34,12 +43,18 @@ export const CategoryList: React.ElementType = (props: any) => {
         paddingRight: SECTION_PADDING,
       }}
     >
-      <CategoryLink>Home</CategoryLink>
-      <CategoryLink>Sports</CategoryLink>
-      <CategoryLink>Opinion</CategoryLink>
-      <CategoryLink>Arts and life</CategoryLink>
-      <CategoryLink>The Grind</CategoryLink>
-      <CategoryLink style={{ marginRight: 0 }}>Magazine</CategoryLink>
+      {categoryLinkList.map((categoryName, i) => {
+        let _itemStyle: any = {};
+        if (i === categoryLinkList.length - 1) {
+          _itemStyle.marginRight = 0;
+        }
+        _itemStyle = { _itemStyle, ...itemStyle };
+        return (
+          <CategoryLink key={categoryName} style={_itemStyle}>
+            {categoryName}
+          </CategoryLink>
+        );
+      })}
     </ScrollView>
   );
 };
