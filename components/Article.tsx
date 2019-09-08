@@ -9,11 +9,13 @@ export const ArticleStyle = styled.View({
   marginBottom: 5,
 });
 
-const _Article: React.ElementType = (props: {
+const _Article: React.ElementType = ({
+  post,
+  ...props
+}: {
   post: Post;
   [key: string]: any;
 }) => {
-  const { post } = props;
   if (Platform.OS === "web") {
     const ArticleTag = ArticleStyle.withComponent("article");
     return <ArticleTag {...props} />;
