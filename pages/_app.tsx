@@ -15,6 +15,10 @@ import { CategoryList } from "../components/CategoryList";
 
 const containerRStyle = {
   [MediaRule.MinWidth]: {
+    0: {
+      margin: "0 auto",
+      width: "100%",
+    },
     [BREAKPOINTS.TABLET]: {},
     [BREAKPOINTS.DESKTOP]: {
       maxWidth: BREAKPOINTS.DESKTOP,
@@ -118,13 +122,7 @@ const SiteHeader: React.ElementType = (props: any) => {
           },
         }}
       >
-        <RView
-          style={{
-            width: "100%",
-            margin: "0 auto",
-          }}
-          rStyle={containerRStyle}
-        >
+        <RView rStyle={containerRStyle}>
           <CategoryList itemStyle={{ color: "white" }} />
         </RView>
       </RView>
@@ -132,29 +130,31 @@ const SiteHeader: React.ElementType = (props: any) => {
   );
 };
 
-const SiteFooter: React.ElementType = (props: any) => {
+const SiteFooter: React.ElementType = ({ style, ...props }: any) => {
   return (
-    <footer {...props}>
-      <SectionStyle>
-        <p>Footer here</p>
-      </SectionStyle>
+    <footer
+      css={{
+        backgroundColor: STANFORD_COLORS.CARDINAL_RED,
+        ...style,
+      }}
+      {...props}
+    >
+      <RView rStyle={containerRStyle}>
+        <SectionStyle
+          css={{
+            color: "white",
+          }}
+        >
+          <p>Footer here</p>
+        </SectionStyle>
+      </RView>
     </footer>
   );
 };
 
 const Layout: React.ElementType = (props: any) => {
   const { children } = props;
-  return (
-    <RView
-      style={{
-        margin: "0 auto",
-        width: "100%",
-      }}
-      rStyle={containerRStyle}
-    >
-      {children}
-    </RView>
-  );
+  return <RView rStyle={containerRStyle}>{children}</RView>;
 };
 
 export default class MyApp extends App {
