@@ -368,6 +368,7 @@ const SideThumbnailArticle: React.ElementType = ({ post }: ArticleProps) => {
           style={{
             flexBasis: "65%",
             justifyContent: "center",
+            marginLeft: 20,
           }}
         >
           <ArticleHeader>
