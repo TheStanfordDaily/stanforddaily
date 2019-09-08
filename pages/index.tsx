@@ -530,7 +530,9 @@ const TopSection: React.ElementType = ({ content, style }: SectionProps) => {
         >
           <View style={{ flexDirection: "row", alignItems: "center" }}>
             <View style={{ backgroundColor: "#d7b9b9" }}>
-              <Text style={{ color: "white" }}>Top{"\n"}Stories</Text>
+              <Text style={{ color: STANFORD_COLORS.WHITE }}>
+                Top{"\n"}Stories
+              </Text>
             </View>
             <OrderedList
               data={[

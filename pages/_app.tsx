@@ -81,7 +81,7 @@ const SiteHeader: React.ElementType = (props: any) => {
     <RView
       WebTag="header"
       style={{
-        backgroundColor: "white",
+        backgroundColor: STANFORD_COLORS.WHITE,
       }}
       rStyle={{
         [MediaRule.MaxWidth]: {
@@ -123,7 +123,7 @@ const SiteHeader: React.ElementType = (props: any) => {
         }}
       >
         <RView rStyle={containerRStyle}>
-          <CategoryList itemStyle={{ color: "white" }} />
+          <CategoryList itemStyle={{ color: STANFORD_COLORS.WHITE }} />
         </RView>
       </RView>
     </RView>
@@ -142,7 +142,7 @@ const SiteFooter: React.ElementType = ({ style, ...props }: any) => {
       <RView rStyle={containerRStyle}>
         <SectionStyle
           css={{
-            color: "white",
+            color: STANFORD_COLORS.WHITE,
           }}
         >
           <p>Footer here</p>

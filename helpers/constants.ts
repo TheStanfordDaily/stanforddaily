@@ -39,6 +39,7 @@ export const STANFORD_COLORS = {
   REDWOOD: "#8D3C1E",
   BROWN: "#5E3032",
   SUN: "#EAAB00",
+  WHITE: "#FFFFFF",
 };
 
 export const COLORS = {
