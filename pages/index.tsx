@@ -882,8 +882,14 @@ export default class IndexPage extends React.Component<IndexProps, IndexState> {
           <TopSection content={homePosts.featured} />
           <DesktopRow
             style={{
-              ...getBorderValue("Top"),
               ...getBorderValue("Bottom"),
+            }}
+            rStyle={{
+              [MediaRule.MinWidth]: {
+                [BREAKPOINTS.TABLET]: {
+                  ...getBorderValue("Top"),
+                },
+              },
             }}
           >
             <Column
