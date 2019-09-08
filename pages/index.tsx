@@ -405,15 +405,19 @@ const TextOnlyArticle: React.ElementType = ({ post, style }: ArticleProps) => {
     <RView
       style={{
         width: "100%",
+        flexGrow: 1,
+        flexShrink: 0,
+        flexBasis: 300,
+        padding: 10,
+        marginLeft: 10,
+        marginRight: 10,
+        marginBottom: 20,
+        border: "1px solid black",
       }}
       rStyle={{
         [MediaRule.MinWidth]: {
           [BREAKPOINTS.TABLET]: {
-            width: 250,
-            height: 340,
-            paddingRight: 15,
-            paddingLeft: 15,
-            borderRight: "1px solid black",
+            minHeight: 340,
           },
         },
       }}
@@ -773,17 +777,10 @@ const MoreFromTheDailySection: React.ElementType = ({
       <SectionTitle>More from The Daily</SectionTitle>
       <RView
         style={{
-          width: "100%",
-          flexDirection: "column",
-        }}
-        rStyle={{
-          [MediaRule.MinWidth]: {
-            [BREAKPOINTS.TABLET]: {
-              height: 700,
-              overflow: "scroll",
-              flexWrap: "wrap",
-            },
-          },
+          flexWrap: "wrap",
+          flexDirection: "row",
+          marginLeft: -10,
+          marginRight: -10,
         }}
       >
         {content.map(post => (
