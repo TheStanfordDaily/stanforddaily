@@ -50,7 +50,14 @@ interface ArticleProps {
   [key: string]: any;
 }
 
-const borderValue = `1px solid ${COLORS.BORDER_COLOR}`;
+const getBorderValue = (type: "Top" | "Bottom" | "Left" | "Right"): Style => {
+  return Platform.OS === "web"
+    ? { [`border${type}`]: `1px solid ${COLORS.BORDER_COLOR}` }
+    : {
+        [`border${type}Color`]: COLORS.BORDER_COLOR,
+        [`border${type}Width`]: 1,
+      };
+};
 
 const Column: React.ElementType = (props: any) => {
   const { style = {}, rStyle = {}, ...remainingProps } = props;
@@ -484,7 +491,7 @@ const TopSection: React.ElementType = ({ content, style }: SectionProps) => {
       rStyle={{
         [MediaRule.MinWidth]: {
           [BREAKPOINTS.DESKTOP]: {
-            borderTop: borderValue,
+            ...getBorderValue("Top"),
           },
         },
         [MediaRule.MaxWidth]: {
@@ -838,7 +845,7 @@ export default class IndexPage extends React.Component<IndexProps, IndexState> {
           rStyle={{
             [MediaRule.MaxWidth]: {
               [BREAKPOINTS.MAX_WIDTH.TABLET]: {
-                borderBottom: borderValue,
+                ...getBorderValue("Bottom"),
               },
             },
           }}
@@ -854,7 +861,7 @@ export default class IndexPage extends React.Component<IndexProps, IndexState> {
           rStyle={{
             [MediaRule.MinWidth]: {
               [BREAKPOINTS.TABLET]: {
-                borderRight: borderValue,
+                ...getBorderValue("Right"),
               },
             },
           }}
@@ -875,8 +882,8 @@ export default class IndexPage extends React.Component<IndexProps, IndexState> {
           <TopSection content={homePosts.featured} />
           <DesktopRow
             style={{
-              borderTop: borderValue,
-              borderBottom: borderValue,
+              ...getBorderValue("Top"),
+              ...getBorderValue("Bottom"),
             }}
           >
             <Column
@@ -884,7 +891,11 @@ export default class IndexPage extends React.Component<IndexProps, IndexState> {
                 flexGrow: 6,
               }}
             >
-              <DesktopRow style={{ borderBottom: borderValue }}>
+              <DesktopRow
+                style={{
+                  ...getBorderValue("Bottom"),
+                }}
+              >
                 {featuredBeforeNews ? (
                   <>
                     <FeaturedSection />
@@ -903,7 +914,7 @@ export default class IndexPage extends React.Component<IndexProps, IndexState> {
                 rStyle={{
                   [MediaRule.MaxWidth]: {
                     [BREAKPOINTS.MAX_WIDTH.TABLET]: {
-                      borderBottom: borderValue,
+                      ...getBorderValue("Bottom"),
                     },
                   },
                 }}
@@ -916,7 +927,7 @@ export default class IndexPage extends React.Component<IndexProps, IndexState> {
               rStyle={{
                 [MediaRule.MinWidth]: {
                   [BREAKPOINTS.TABLET]: {
-                    borderLeft: borderValue,
+                    ...getBorderValue("Left"),
                   },
                 },
               }}
@@ -926,7 +937,7 @@ export default class IndexPage extends React.Component<IndexProps, IndexState> {
                 rStyle={{
                   [MediaRule.MaxWidth]: {
                     [BREAKPOINTS.MAX_WIDTH.TABLET]: {
-                      borderBottom: borderValue,
+                      ...getBorderValue("Bottom"),
                     },
                   },
                 }}
@@ -936,7 +947,7 @@ export default class IndexPage extends React.Component<IndexProps, IndexState> {
                 rStyle={{
                   [MediaRule.MaxWidth]: {
                     [BREAKPOINTS.MAX_WIDTH.TABLET]: {
-                      borderBottom: borderValue,
+                      ...getBorderValue("Bottom"),
                     },
                   },
                 }}
@@ -946,7 +957,7 @@ export default class IndexPage extends React.Component<IndexProps, IndexState> {
                 rStyle={{
                   [MediaRule.MaxWidth]: {
                     [BREAKPOINTS.MAX_WIDTH.TABLET]: {
-                      borderBottom: borderValue,
+                      ...getBorderValue("Bottom"),
                     },
                   },
                 }}
@@ -956,7 +967,9 @@ export default class IndexPage extends React.Component<IndexProps, IndexState> {
           </DesktopRow>
           <MultimediaSection
             content={[]}
-            style={{ borderBottom: borderValue }}
+            style={{
+              ...getBorderValue("Bottom"),
+            }}
           />
           <MoreFromTheDailySection content={homePosts.moreFromTheDaily} />
         </ScrollView>
