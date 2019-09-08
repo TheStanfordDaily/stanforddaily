@@ -4807,10 +4807,10 @@ emojis-list@^2.0.0:
   resolved "https://registry.yarnpkg.com/emojis-list/-/emojis-list-2.1.0.tgz#4daa4d9db00f9819880c79fa457ae5b09a1fd389"
   integrity sha1-TapNnbAPmBmIDHn6RXrlsJof04k=
 
-emotion-native-media-query@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/emotion-native-media-query/-/emotion-native-media-query-0.2.0.tgz#65c7a197258f0bf15488b335a4985e6c85052cb1"
-  integrity sha512-DWSPGC1iRLWs+5lXK5P7CJPuS4ZmNacHfcLbF+JdnyiSOALLZb8Oy80KH09ftAJBOYNcvO294Pbaz76qJIWv5w==
+emotion-native-media-query@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/emotion-native-media-query/-/emotion-native-media-query-0.2.1.tgz#9f30bc7bc4ab68208da53b82d94d12c6031f1a66"
+  integrity sha512-HuAIIo7TXyd3sPtfTYl6395b9FTYtBlpRDOwkVTuG/IX/n+1HxP/laIcVwHgm54YBl6LMCrKuHaoWtZ6uJmLDA==
   dependencies:
     lodash.merge "^4.6.2"
 
