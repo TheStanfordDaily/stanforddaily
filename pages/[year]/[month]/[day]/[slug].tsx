@@ -41,7 +41,7 @@ export default class PostPage extends React.Component<PostProps, PostState> {
       margin: "0 auto",
       width: "100%",
       [`@media (min-width: ${BREAKPOINTS.TABLET}px)`]: {
-        width: 690,
+        width: 650,
       },
       [`@media (min-width: ${BREAKPOINTS.DESKTOP}px)`]: {
         width: 810,
