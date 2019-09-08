@@ -795,8 +795,8 @@ const MoreFromTheDailySection: React.ElementType = ({
           flexWrap: "wrap",
           flexDirection: "row",
           // Offset the leftmost and rightmost articles' margin
-          marginLeft: -SECTION_PADDING,
-          marginRight: -SECTION_PADDING,
+          marginLeft: -SECTION_PADDING / 2,
+          marginRight: -SECTION_PADDING / 2,
         }}
       >
         {content.map(post => (
