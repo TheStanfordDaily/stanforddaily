@@ -37,6 +37,7 @@ import {
   Section,
   SectionStyle,
   SectionWithoutStyle,
+  SECTION_PADDING,
 } from "../components/Section";
 import { Article, ArticleHeader } from "../components/Article";
 import { OrderedList } from "../components/List";
@@ -417,16 +418,16 @@ const TextOnlyArticle: React.ElementType = ({ post, style }: ArticleProps) => {
         flexGrow: 1,
         flexShrink: 0,
         flexBasis: 300,
-        marginLeft: 10,
-        marginRight: 10,
-        marginBottom: 20,
+        padding: 10,
+        marginLeft: SECTION_PADDING / 2,
+        marginRight: SECTION_PADDING / 2,
+        marginBottom: SECTION_PADDING,
         border: "1px solid black",
       }}
       rStyle={{
         [MediaRule.MinWidth]: {
           [BREAKPOINTS.TABLET]: {
             minHeight: 340,
-            padding: 10,
           },
         },
       }}
@@ -791,8 +792,9 @@ const MoreFromTheDailySection: React.ElementType = ({
         style={{
           flexWrap: "wrap",
           flexDirection: "row",
-          marginLeft: -10,
-          marginRight: -10,
+          // Offset the leftmost and rightmost articles' margin
+          marginLeft: -SECTION_PADDING,
+          marginRight: -SECTION_PADDING,
         }}
       >
         {content.map(post => (
