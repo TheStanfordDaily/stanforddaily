@@ -587,10 +587,26 @@ const MainSection: React.ElementType = (props: SectionProps) => {
         {sectionTitle && <SectionTitle>{sectionTitle}</SectionTitle>}
         <HeadlineArticle post={content[0]} style={{ marginBottom: 20 }} />
         <DesktopRow>
-          <Column>
+          <Column
+            rStyle={{
+              [MediaRule.MinWidth]: {
+                [BREAKPOINTS.TABLET]: {
+                  paddingRight: SECTION_PADDING / 2,
+                },
+              },
+            }}
+          >
             <TopThumbnailArticle post={content[1]} />
           </Column>
-          <Column>
+          <Column
+            rStyle={{
+              [MediaRule.MinWidth]: {
+                [BREAKPOINTS.TABLET]: {
+                  paddingLeft: SECTION_PADDING / 2,
+                },
+              },
+            }}
+          >
             <TopThumbnailArticle post={content[2]} />
           </Column>
         </DesktopRow>
