@@ -441,6 +441,12 @@ const TextOnlyArticle: React.ElementType = ({ post, style }: ArticleProps) => {
       >
         {/* TODO: ADD CATEGORY LINK */}
         <Text>{tsdPrimaryCategory.name}</Text>
+        <ThumbnailImageWithLink
+          post={post}
+          style={{
+            height: 150,
+          }}
+        />
         <ArticleHeader>
           <ArticleTitleWithLink post={post} />
         </ArticleHeader>
