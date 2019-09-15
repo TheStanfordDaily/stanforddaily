@@ -1,6 +1,6 @@
 import React from "react";
 import { View } from "react-native";
-import { Article, ArticleHeader } from "../Article";
+import { Article, ArticleHeader } from "../../Article";
 import { AuthorView } from "./AuthorView";
 import { ArticleProps } from "./ArticleProps";
 import { ThumbnailImageWithLink } from "./ThumbnailImageWithLink";

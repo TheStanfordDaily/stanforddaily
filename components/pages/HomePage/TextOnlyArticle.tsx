@@ -1,10 +1,10 @@
 import React from "react";
 import { Text, View } from "react-native";
 import RView, { MediaRule } from "emotion-native-media-query";
-import { BREAKPOINTS, FONTS } from "../../helpers/constants";
-import { getPostLocalDate } from "../../helpers/wpapi";
-import { SECTION_PADDING } from "../Section";
-import { Article, ArticleHeader } from "../Article";
+import { BREAKPOINTS, FONTS } from "../../../helpers/constants";
+import { getPostLocalDate } from "../../../helpers/wpapi";
+import { SECTION_PADDING } from "../../Section";
+import { Article, ArticleHeader } from "../../Article";
 import { AuthorView } from "./AuthorView";
 import { PostExcerpt } from "./PostExcerpt";
 import { ArticleProps } from "./ArticleProps";

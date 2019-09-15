@@ -1,5 +1,5 @@
 import React from "react";
-import { Post } from "../../helpers/wpapi";
+import { Post } from "../../../helpers/wpapi";
 import { ThumbnailImage } from "./ThumbnailImage";
 import { LinkToArticle } from "./LinkToArticle";
 

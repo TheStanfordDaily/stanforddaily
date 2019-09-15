@@ -1,8 +1,8 @@
 import React from "react";
 import { View } from "react-native";
 import { MediaRule, mergeRStyle } from "emotion-native-media-query";
-import { BREAKPOINTS } from "../../helpers/constants";
-import { Section } from "../Section";
+import { BREAKPOINTS } from "../../../helpers/constants";
+import { Section } from "../../Section";
 import { TopThumbnailArticle } from "./TopThumbnailArticle";
 import { TitleOnlyArticle } from "./TitleOnlyArticle";
 import { Column } from "./Column";

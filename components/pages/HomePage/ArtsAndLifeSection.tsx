@@ -1,6 +1,6 @@
 import React from "react";
 import RView from "emotion-native-media-query";
-import { Section } from "../Section";
+import { Section } from "../../Section";
 import { SideThumbnailArticle } from "./SideThumbnailArticle";
 import { SectionTitle } from "./SectionTitle";
 import { SectionProps } from "./SectionProps";
