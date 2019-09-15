@@ -1,7 +1,7 @@
 import React from "react";
 import { Text, View } from "react-native";
 import RView, { MediaRule } from "emotion-native-media-query";
-import { BREAKPOINTS, FONTS } from "helpers/constants";
+import { BREAKPOINTS, FONTS, STANFORD_COLORS } from "helpers/constants";
 import { getPostLocalDate } from "helpers/wpapi";
 import { SECTION_PADDING } from "components/Section";
 import { Article, ArticleHeader } from "components/Article";
@@ -24,11 +24,10 @@ export const TextOnlyArticle: React.ElementType = ({
         flexGrow: 1,
         flexShrink: 0,
         flexBasis: 300,
-        padding: 10,
         marginLeft: SECTION_PADDING / 2,
         marginRight: SECTION_PADDING / 2,
         marginBottom: SECTION_PADDING,
-        border: "1px solid black",
+        backgroundColor: STANFORD_COLORS.LIGHT_SANDSTONE,
       }}
       rStyle={{
         [MediaRule.MinWidth]: {
@@ -42,32 +41,47 @@ export const TextOnlyArticle: React.ElementType = ({
         post={post}
         style={{
           width: "100%",
+          marginTop: 0,
+          marginbottom: 0,
           ...style,
         }}
       >
-        <Text
+        <View
           style={{
-            ...FONTS.AUXILIARY,
+            padding: SECTION_PADDING,
           }}
         >
-          {tsdPrimaryCategory.name}
-        </Text>
+          <Text
+            style={{
+              ...FONTS.AUXILIARY,
+            }}
+          >
+            {tsdPrimaryCategory.name}
+          </Text>
+        </View>
         <ThumbnailImageWithLink
           post={post}
           style={{
             height: 150,
-            marginTop: 10,
           }}
         />
-        <ArticleHeader>
-          <ArticleTitleWithLink post={post} />
-        </ArticleHeader>
-        <PostExcerpt post={post} />
-        <View>
-          <AuthorView authors={tsdAuthors} />
-          <Text style={{ ...FONTS.AUXILIARY }}>
-            {date.format("MMM DD YYYY")}
-          </Text>
+        <View
+          style={{
+            paddingLeft: SECTION_PADDING,
+            paddingRight: SECTION_PADDING,
+            paddingBottom: SECTION_PADDING,
+          }}
+        >
+          <ArticleHeader>
+            <ArticleTitleWithLink post={post} />
+          </ArticleHeader>
+          <PostExcerpt post={post} />
+          <View>
+            <AuthorView authors={tsdAuthors} />
+            <Text style={{ ...FONTS.AUXILIARY }}>
+              {date.format("MMM DD YYYY")}
+            </Text>
+          </View>
         </View>
       </Article>
     </RView>
