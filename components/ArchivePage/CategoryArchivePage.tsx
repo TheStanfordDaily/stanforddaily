@@ -6,13 +6,21 @@ import ArchivePage, {
   ArchiveState,
 } from "../ArchivePage";
 import Wrapper from "../Wrapper";
+import { getPostsByCategory } from "../../helpers/wpapi";
 
 export default class CategoryArchivePage extends React.Component<
   ArchiveProps,
   ArchiveState
 > {
   static async getInitialProps(param): Promise<any> {
-    return ArchivePage.getInitialProps(param);
+    const { query } = param;
+    const { slug } = query;
+    return {
+      ...ArchivePage.getInitialProps(param),
+      content: await getPostsByCategory(slug),
+      type: ArchiveType.Category,
+      title: slug.replace(/-/g, " "), // TODO: better way to get the actual title from the wp api.
+    };
   }
 
   render(): React.ReactNode {

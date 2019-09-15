@@ -11,6 +11,7 @@ export enum ArchiveType {
 
 export interface ArchiveProps {
   type: ArchiveType;
+  title: string;
   content?: Post[];
 }
 
@@ -21,11 +22,18 @@ export default class ArchivePage extends React.Component<
   ArchiveState
 > {
   static async getInitialProps(param): Promise<any> {
-    const homePosts = await getHomeAsync();
-    return { homePosts };
+    return {};
   }
 
   render(): React.ReactNode {
-    return <Text>{this.props.type}</Text>;
+    const { content } = this.props;
+    // console.log("render", this.props.content.length);
+    return (
+      <View>
+        {/* <Text>{content.map(post => <View>
+        
+      </View>)}</Text> */}
+      </View>
+    );
   }
 }

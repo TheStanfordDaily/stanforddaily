@@ -102,3 +102,9 @@ export function getPostPath(post: Post): string {
   const { tsdUrlParameters } = post;
   return `/${tsdUrlParameters.year}/${tsdUrlParameters.month}/${tsdUrlParameters.day}/${tsdUrlParameters.slug}/`;
 }
+
+export async function getPostsByCategory(categorySlug): Promise<Post[]> {
+  // TODO: Actually return category posts via the right endpoint.
+  console.log("getPostsByCategory", categorySlug);
+  return wpTsdJson.home();
+}
