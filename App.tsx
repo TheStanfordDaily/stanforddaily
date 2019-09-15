@@ -1,18 +1,18 @@
 import { createStackNavigator, createAppContainer } from "react-navigation";
-import { IndexPageWrapper } from "./pages/index";
-import { PostPageWrapper } from "./pages/[year]/[month]/[day]/[slug]";
-import { CategoryArchivePageWrapper } from "./components/ArchivePage/CategoryArchivePage";
-import { TimeArchivePageWrapper } from "./components/ArchivePage/TimeArchivePage";
+import { HomePageWrapper } from "components/pages/HomePage";
+import { ArticlePageWrapper } from "components/pages/ArticlePage";
+import { CategoryArchivePageWrapper } from "components/pages/CategoryArchivePage";
+import { TimeArchivePageWrapper } from "components/pages/TimeArchivePage";
 
 const AppNavigator = createStackNavigator(
   {
-    index: IndexPageWrapper,
-    post: PostPageWrapper,
+    home: HomePageWrapper,
+    post: ArticlePageWrapper,
     timeArchive: TimeArchivePageWrapper,
     categoryArchive: CategoryArchivePageWrapper,
   },
   {
-    initialRouteName: "index",
+    initialRouteName: "home",
   },
 );
 

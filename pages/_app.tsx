@@ -9,9 +9,9 @@ import {
   BREAKPOINTS,
   COLORS,
   STANFORD_COLORS,
-} from "../helpers/constants";
-import { SectionStyle } from "../components/Section";
-import { CategoryList } from "../components/CategoryList";
+} from "helpers/constants";
+import { SectionStyle } from "components/Section";
+import { CategoryList } from "components/CategoryList";
 
 const containerRStyle = {
   [MediaRule.MinWidth]: {

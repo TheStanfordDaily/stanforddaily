@@ -1,25 +1,24 @@
 import React from "react";
 import { View, Text } from "react-native";
-import { getHomeAsync, Post } from "../helpers/wpapi";
-import LoadingView from "./Loading";
+import { getHomeAsync, Post } from "helpers/wpapi";
+import LoadingView from "components/Loading";
 
-export enum ArchiveType {
+export enum ArchivePageType {
   Time,
   Category,
   Tag,
 }
 
-export interface ArchiveProps {
-  type: ArchiveType;
-  title: string;
+export interface ArchivePageProps {
+  type: ArchivePageType;
   content?: Post[];
 }
 
-export interface ArchiveState {}
+export interface ArchivePageState {}
 
 export default class ArchivePage extends React.Component<
-  ArchiveProps,
-  ArchiveState
+  ArchivePageProps,
+  ArchivePageState
 > {
   static async getInitialProps(param): Promise<any> {
     return {};
@@ -31,7 +30,7 @@ export default class ArchivePage extends React.Component<
     return (
       <View>
         {/* <Text>{content.map(post => <View>
-        
+
       </View>)}</Text> */}
       </View>
     );

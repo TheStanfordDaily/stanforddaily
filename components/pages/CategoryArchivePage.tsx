@@ -1,16 +1,16 @@
 import React from "react";
 import { View } from "react-native";
+import { getPostsByCategory } from "helpers/wpapi";
+import Wrapper from "components/Wrapper";
 import ArchivePage, {
-  ArchiveType,
-  ArchiveProps,
-  ArchiveState,
-} from "../ArchivePage";
-import Wrapper from "../Wrapper";
-import { getPostsByCategory } from "../../helpers/wpapi";
+  ArchivePageType,
+  ArchivePageProps,
+  ArchivePageState,
+} from "./ArchivePage";
 
 export default class CategoryArchivePage extends React.Component<
-  ArchiveProps,
-  ArchiveState
+  ArchivePageProps,
+  ArchivePageState
 > {
   static async getInitialProps(param): Promise<any> {
     const { query } = param;
@@ -24,7 +24,7 @@ export default class CategoryArchivePage extends React.Component<
   }
 
   render(): React.ReactNode {
-    return <ArchivePage type={ArchiveType.Category} {...this.props} />;
+    return <ArchivePage type={ArchivePageType.Category} {...this.props} />;
   }
 }
 
