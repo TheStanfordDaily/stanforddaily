@@ -1,5 +1,6 @@
 import React from "react";
 import { Text, ScrollView } from "react-native";
+import Link from "next/link";
 import { SECTION_PADDING } from "./Section";
 
 export const CategoryList: React.ElementType = ({ itemStyle }: any) => {
@@ -10,18 +11,23 @@ export const CategoryList: React.ElementType = ({ itemStyle }: any) => {
   }: any) => {
     // We have to add `paddingTop` and `paddingBottom` here instead of in `contentContainerStyle`
     // because if we do that, the letter will get cut off at the bottom.
+    // TODO: do a better slug replacement logic here. Not sure if this covers all cases.
+    const slug = children.replace(/\s+/g, "-").toLowerCase();
     return (
-      <Text
-        {...clProps}
-        style={{
-          marginRight: 30,
-          paddingTop: SECTION_PADDING,
-          paddingBottom: SECTION_PADDING,
-          ...style,
-        }}
-      >
-        {children}
-      </Text>
+      <Link href="/category/[slug]" as={`/category/${slug}`}>
+        <Text
+          {...clProps}
+          style={{
+            marginRight: 30,
+            paddingTop: SECTION_PADDING,
+            paddingBottom: SECTION_PADDING,
+            cursor: "pointer",
+            ...style,
+          }}
+        >
+          {children}
+        </Text>
+      </Link>
     );
   };
 
@@ -49,6 +55,7 @@ export const CategoryList: React.ElementType = ({ itemStyle }: any) => {
           _itemStyle.marginRight = 0;
         }
         return (
+          // TODO: Add special case for "Home" link.
           <CategoryLink key={categoryName} style={_itemStyle}>
             {categoryName}
           </CategoryLink>
