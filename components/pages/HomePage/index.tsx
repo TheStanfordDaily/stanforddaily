@@ -4,13 +4,8 @@ import {
   MediaRule,
   isWidthGreaterThanOrEqualTo,
 } from "emotion-native-media-query";
-import { BREAKPOINTS } from "../../../helpers/constants";
-import {
-  getHomeAsync,
-  getHomeMoreAsync,
-  Home,
-  Post,
-} from "../../../helpers/wpapi";
+import { BREAKPOINTS } from "helpers/constants";
+import { getHomeAsync, getHomeMoreAsync, Home, Post } from "helpers/wpapi";
 import Wrapper from "../../Wrapper";
 import { CategoryList } from "../../CategoryList";
 import LoadingView from "../../Loading";

@@ -1,6 +1,6 @@
 import React from "react";
 import { MediaRule, mergeRStyle } from "emotion-native-media-query";
-import { BREAKPOINTS } from "../../../helpers/constants";
+import { BREAKPOINTS } from "helpers/constants";
 import { Section, SECTION_PADDING } from "../../Section";
 import { HeadlineArticle } from "./HeadlineArticle";
 import { TopThumbnailArticle } from "./TopThumbnailArticle";

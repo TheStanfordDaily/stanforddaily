@@ -1,8 +1,8 @@
 import styled from "@emotion/native";
 import React from "react";
 import { Platform } from "react-native";
-import { FONTS } from "../../../helpers/constants";
-import { Post } from "../../../helpers/wpapi";
+import { FONTS } from "helpers/constants";
+import { Post } from "helpers/wpapi";
 import { LinkToArticle } from "./LinkToArticle";
 
 const ArticleTitleStyle = styled.Text({

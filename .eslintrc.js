@@ -31,6 +31,9 @@ module.exports = {
     react: {
       version: "detect",
     },
+    "import/resolver": {
+      "babel-module": require('./module-resolver-config'),
+    },
   },
   rules: {
     "prettier/prettier": "error",

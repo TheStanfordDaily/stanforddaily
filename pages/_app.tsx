@@ -9,7 +9,7 @@ import {
   BREAKPOINTS,
   COLORS,
   STANFORD_COLORS,
-} from "../helpers/constants";
+} from "helpers/constants";
 import { SectionStyle } from "../components/Section";
 import { CategoryList } from "../components/CategoryList";
 

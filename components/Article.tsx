@@ -1,7 +1,7 @@
 import React from "react";
 import { View, TouchableOpacity, Platform } from "react-native";
 import styled from "@emotion/native";
-import { Post } from "../helpers/wpapi";
+import { Post } from "helpers/wpapi";
 import { withNavigation } from "../helpers/trivial/react-navigation";
 
 export const ArticleStyle = styled.View({

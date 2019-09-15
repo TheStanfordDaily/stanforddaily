@@ -9,8 +9,8 @@ import {
   getPostLocalDate,
   getPostPath,
   Post,
-} from "../../../../helpers/wpapi";
-import { STRINGS, BREAKPOINTS, FONTS } from "../../../../helpers/constants";
+} from "helpers/wpapi";
+import { STRINGS, BREAKPOINTS, FONTS } from "helpers/constants";
 import { SectionStyle } from "../../../../components/Section";
 import { Article, ArticleHeader } from "../../../../components/Article";
 import LoadingView from "../../../../components/Loading";

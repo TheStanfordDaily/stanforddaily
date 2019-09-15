@@ -1,6 +1,6 @@
 import React from "react";
 import { Image } from "react-native";
-import { Post } from "../../../helpers/wpapi";
+import { Post } from "helpers/wpapi";
 
 export const ThumbnailImage: React.ElementType = ({
   post,

@@ -1,4 +1,4 @@
-import { Post } from "../../../helpers/wpapi";
+import { Post } from "helpers/wpapi";
 
 export interface ArticleProps {
   post: Post;

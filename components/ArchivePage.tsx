@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Text } from "react-native";
-import { getHomeAsync, Post } from "../helpers/wpapi";
+import { getHomeAsync, Post } from "helpers/wpapi";
 import LoadingView from "./Loading";
 
 export enum ArchiveType {

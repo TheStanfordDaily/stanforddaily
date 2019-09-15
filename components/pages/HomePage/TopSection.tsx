@@ -1,7 +1,7 @@
 import React from "react";
 import { Text, View } from "react-native";
 import RView, { MediaRule } from "emotion-native-media-query";
-import { BREAKPOINTS, STANFORD_COLORS } from "../../../helpers/constants";
+import { BREAKPOINTS, STANFORD_COLORS } from "helpers/constants";
 import { SectionStyle } from "../../Section";
 import { OrderedList } from "../../List";
 import { getBorderValue } from "./getBorderValue";

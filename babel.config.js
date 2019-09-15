@@ -10,6 +10,7 @@ module.exports = function(api) {
     plugins: [
       !isWeb && ["emotion"],
       !isDev && ["transform-remove-console"],
+      ["module-resolver", require("./module-resolver-config")],
     ].filter(Boolean),
   };
 };

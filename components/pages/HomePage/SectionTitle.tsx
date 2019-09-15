@@ -1,6 +1,6 @@
 import { Platform } from "react-native";
 import styled from "@emotion/native";
-import { FONTS, STANFORD_COLORS } from "../../../helpers/constants";
+import { FONTS, STANFORD_COLORS } from "helpers/constants";
 
 const SectionTitleStyle = styled.Text({
   fontFamily: FONTS.TITLE,
