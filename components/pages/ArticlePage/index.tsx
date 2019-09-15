@@ -73,10 +73,9 @@ export default class ArticlePage extends React.Component<
           <ArticleHeader>
             <h1
               css={{
+                ...FONTS.ARTICLE_TITLE,
                 textAlign: "center",
                 fontSize: "2.25rem",
-                fontFamily: FONTS.TITLE,
-                fontWeight: "bold",
               }}
             >
               {postTitle}

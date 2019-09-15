@@ -1,3 +1,5 @@
+import { Platform } from "react-native";
+
 export const BREAKPOINTS = {
   // For `min-width`
   TABLET: 700,
@@ -17,8 +19,31 @@ export const STRINGS = {
   _MAIN_ONLY_QUERY: "_main-only",
 };
 
-export const FONTS = {
-  TITLE: "Faune",
+export const FONTS: any = {
+  ARTICLE_TITLE:
+    Platform.OS === "web"
+      ? {
+          fontFamily: "'Faune', sans-serif",
+          fontWeight: "bold",
+          fontSize: 15,
+          lineHeight: 1,
+        }
+      : {
+          fontFamily: "Faune-Text_Bold",
+          fontSize: 20,
+        },
+  SECTION_TITLE:
+    Platform.OS === "web"
+      ? {
+          fontFamily: "'Faune', sans-serif",
+          fontWeight: 900,
+          fontSize: 15,
+          lineHeight: 1,
+        }
+      : {
+          fontFamily: "Faune-Display_Black",
+          fontSize: 20,
+        },
   CONTENT: "PT Serif",
   AUXILIARY: "Open Sans",
 };
