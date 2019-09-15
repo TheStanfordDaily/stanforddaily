@@ -18,7 +18,7 @@ export default class CategoryArchivePage extends React.Component<
     return {
       ...ArchivePage.getInitialProps(param),
       content: await getPostsByCategory(slug),
-      type: ArchiveType.Category,
+      type: ArchivePageType.Category,
       title: slug.replace(/-/g, " "), // TODO: better way to get the actual title from the wp api.
     };
   }
