@@ -84,7 +84,7 @@ export default class ArticlePage extends React.Component<
           <Global
             styles={{
               "#main-article-content": {
-                fontFamily: `'${FONTS.CONTENT}', serif`,
+                ...FONTS.CONTENT,
                 "p, figcaption": {
                   ...centerContentStyle,
                   marginBottom: "1.75em",

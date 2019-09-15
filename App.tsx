@@ -31,6 +31,7 @@ class App extends React.Component<{}, { fontLoaded: boolean }> {
     await Font.loadAsync({
       "Faune-Display_Black": require("./static/fonts/Faune/ttf/Faune-Display_Black.ttf"), // eslint-disable-line global-require
       "Faune-Text_Bold": require("./static/fonts/Faune/ttf/Faune-Text_Bold.ttf"), // eslint-disable-line global-require
+      "PublicSans-Regular": require("./static/fonts/PublicSans/PublicSans-Regular.ttf"), // eslint-disable-line global-require
     });
 
     this.setState({ fontLoaded: true });

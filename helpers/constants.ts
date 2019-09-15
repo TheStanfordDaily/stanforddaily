@@ -44,7 +44,14 @@ export const FONTS: any = {
           fontFamily: "Faune-Display_Black",
           fontSize: 20,
         },
-  CONTENT: "PT Serif",
+  CONTENT:
+    Platform.OS === "web"
+      ? {
+          fontFamily: "'Public Sans Web', sans-serif",
+        }
+      : {
+          fontFamily: "PublicSans-Regular",
+        },
   AUXILIARY: "Open Sans",
 };
 

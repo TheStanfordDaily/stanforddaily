@@ -26,3 +26,17 @@
   font-weight: bold;
   font-style: normal;
 }
+
+
+/*
+ * https://github.com/uswds/public-sans/blob/develop/ofl.txt
+ */
+@font-face {
+  font-family: "Public Sans Web";
+  font-style: normal;
+  font-weight: 400;
+  font-display: fallback;
+  src: url("fonts/PublicSans/PublicSans-Regular.woff2") format("woff2"),
+    url("fonts/PublicSans/PublicSans-Regular.woff") format("woff"),
+    url("fonts/PublicSans/PublicSans-Regular.ttf") format("truetype");
+}

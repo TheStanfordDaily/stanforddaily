@@ -11,7 +11,7 @@ export const PostExcerpt: React.ElementType = ({
   return (
     <Text
       style={{
-        fontFamily: FONTS.CONTENT,
+        ...FONTS.CONTENT,
       }}
     >
       {postExcerpt}

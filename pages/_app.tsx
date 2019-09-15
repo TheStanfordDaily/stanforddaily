@@ -9,6 +9,7 @@ import {
   BREAKPOINTS,
   COLORS,
   STANFORD_COLORS,
+  FONTS,
 } from "helpers/constants";
 import { SectionStyle } from "components/Section";
 import { CategoryList } from "components/CategoryList";
@@ -175,6 +176,9 @@ export default class MyApp extends App {
       >
         <Global
           styles={{
+            "body, button, input, optgroup, select, textarea": {
+              ...FONTS.CONTENT,
+            },
             a: {
               color: COLORS.LINK.DEFAULT,
               textDecoration: "none",
