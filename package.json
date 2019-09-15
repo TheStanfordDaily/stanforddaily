@@ -67,12 +67,10 @@
   },
   "lint-staged": {
     "*.+(js|jsx|ts|tsx)": [
-      "eslint --fix",
-      "git add"
+      "eslint"
     ],
     "*.+(md|json)": [
-      "prettier --check --write",
-      "git add"
+      "prettier --check"
     ]
   }
 }
