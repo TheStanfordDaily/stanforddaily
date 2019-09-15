@@ -1,6 +1,6 @@
 import { Platform } from "react-native";
 import { Style } from "emotion-native-media-query";
-import { COLORS } from "../helpers/constants";
+import { COLORS } from "../../helpers/constants";
 
 export const getBorderValue = (
   type: "Top" | "Bottom" | "Left" | "Right",
