@@ -10,7 +10,7 @@ export enum ArchivePageType {
 }
 
 export interface ArchivePageProps {
-  type: ArchiveType;
+  type: ArchivePageType;
   content?: Post[];
 }
 
