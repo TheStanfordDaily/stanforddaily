@@ -3,7 +3,7 @@ import { Text, TouchableOpacity } from "react-native";
 import RView from "emotion-native-media-query";
 import { STANFORD_COLORS } from "helpers/constants";
 import { Post } from "helpers/wpapi";
-import { Section, SectionStyle, SECTION_PADDING } from "../../Section";
+import { Section, SectionStyle, SECTION_PADDING } from "components/Section";
 import { TextOnlyArticle } from "./TextOnlyArticle";
 import { SectionTitle } from "./SectionTitle";
 import { SectionProps } from "./SectionProps";

@@ -6,9 +6,9 @@ import {
 } from "emotion-native-media-query";
 import { BREAKPOINTS } from "helpers/constants";
 import { getHomeAsync, getHomeMoreAsync, Home, Post } from "helpers/wpapi";
-import Wrapper from "../../Wrapper";
-import { CategoryList } from "../../CategoryList";
-import LoadingView from "../../Loading";
+import Wrapper from "components/Wrapper";
+import { CategoryList } from "components/CategoryList";
+import LoadingView from "components/Loading";
 import { TopSection } from "./TopSection";
 import { MainSection } from "./MainSection";
 import { LeftSection } from "./LeftSection";

@@ -1,6 +1,6 @@
 import React from "react";
 import { View } from "react-native";
-import { Article, ArticleHeader } from "../../Article";
+import { Article, ArticleHeader } from "components/Article";
 import { AuthorView } from "./AuthorView";
 import { PostExcerpt } from "./PostExcerpt";
 import { ArticleSubtitle } from "./ArticleSubtitle";

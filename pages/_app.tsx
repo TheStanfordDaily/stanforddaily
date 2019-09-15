@@ -10,8 +10,8 @@ import {
   COLORS,
   STANFORD_COLORS,
 } from "helpers/constants";
-import { SectionStyle } from "../components/Section";
-import { CategoryList } from "../components/CategoryList";
+import { SectionStyle } from "components/Section";
+import { CategoryList } from "components/CategoryList";
 
 const containerRStyle = {
   [MediaRule.MinWidth]: {

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "@emotion/native";
 import RView from "emotion-native-media-query";
-import { SectionStyle, SectionWithoutStyle } from "../../Section";
+import { SectionStyle, SectionWithoutStyle } from "components/Section";
 import { MainSection } from "./MainSection";
 import { LeftSection } from "./LeftSection";
 import { DesktopRow } from "./DesktopRow";

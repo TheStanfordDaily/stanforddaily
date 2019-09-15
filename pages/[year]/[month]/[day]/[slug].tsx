@@ -11,9 +11,9 @@ import {
   Post,
 } from "helpers/wpapi";
 import { STRINGS, BREAKPOINTS, FONTS } from "helpers/constants";
-import { SectionStyle } from "../../../../components/Section";
-import { Article, ArticleHeader } from "../../../../components/Article";
-import LoadingView from "../../../../components/Loading";
+import { SectionStyle } from "components/Section";
+import { Article, ArticleHeader } from "components/Article";
+import LoadingView from "components/Loading";
 
 interface PostProps {
   post?: Post;
