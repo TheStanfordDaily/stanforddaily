@@ -1,3 +1,3 @@
-import TimeArchivePage from "../../../components/ArchivePage/TimeArchivePage";
+import TimeArchivePage from "components/pages/TimeArchivePage";
 
 export default TimeArchivePage;

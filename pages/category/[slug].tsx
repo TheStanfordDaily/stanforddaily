@@ -1,3 +1,3 @@
-import CategoryArchivePage from "../../components/ArchivePage/CategoryArchivePage";
+import CategoryArchivePage from "components/pages/CategoryArchivePage";
 
 export default CategoryArchivePage;

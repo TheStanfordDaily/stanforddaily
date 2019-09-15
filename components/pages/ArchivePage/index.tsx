@@ -1,24 +1,24 @@
 import React from "react";
 import { View, Text } from "react-native";
 import { getHomeAsync, Post } from "helpers/wpapi";
-import LoadingView from "./Loading";
+import LoadingView from "components/Loading";
 
-export enum ArchiveType {
+export enum ArchivePageType {
   Time,
   Category,
   Tag,
 }
 
-export interface ArchiveProps {
+export interface ArchivePageProps {
   type: ArchiveType;
   content?: Post[];
 }
 
-export interface ArchiveState {}
+export interface ArchivePageState {}
 
 export default class ArchivePage extends React.Component<
-  ArchiveProps,
-  ArchiveState
+  ArchivePageProps,
+  ArchivePageState
 > {
   static async getInitialProps(param): Promise<any> {
     const homePosts = await getHomeAsync();

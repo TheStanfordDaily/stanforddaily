@@ -1,22 +1,22 @@
 import React from "react";
 import { View } from "react-native";
+import Wrapper from "components/Wrapper";
 import ArchivePage, {
-  ArchiveType,
-  ArchiveProps,
-  ArchiveState,
-} from "../ArchivePage";
-import Wrapper from "../Wrapper";
+  ArchivePageType,
+  ArchivePageProps,
+  ArchivePageState,
+} from "./ArchivePage";
 
 export default class TimeArchivePage extends React.Component<
-  ArchiveProps,
-  ArchiveState
+  ArchivePageProps,
+  ArchivePageState
 > {
   static async getInitialProps(param): Promise<any> {
     return ArchivePage.getInitialProps(param);
   }
 
   render(): React.ReactNode {
-    return <ArchivePage type={ArchiveType.Time} {...this.props} />;
+    return <ArchivePage type={ArchivePageType.Time} {...this.props} />;
   }
 }
 
