@@ -52,7 +52,16 @@ export const FONTS: any = {
       : {
           fontFamily: "PublicSans-Regular",
         },
-  AUXILIARY: "Open Sans",
+  AUXILIARY:
+    Platform.OS === "web"
+      ? {
+          fontFamily: "'IBM Plex Sans Condensed', sans-serif",
+          textTransform: "uppercase",
+        }
+      : {
+          fontFamily: "IBMPlexSansCondensed-Regular",
+          textTransform: "uppercase",
+        },
 };
 
 export const STANFORD_COLORS = {

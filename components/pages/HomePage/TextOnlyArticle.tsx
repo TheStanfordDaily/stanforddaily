@@ -45,11 +45,18 @@ export const TextOnlyArticle: React.ElementType = ({
           ...style,
         }}
       >
-        <Text>{tsdPrimaryCategory.name}</Text>
+        <Text
+          style={{
+            ...FONTS.AUXILIARY,
+          }}
+        >
+          {tsdPrimaryCategory.name}
+        </Text>
         <ThumbnailImageWithLink
           post={post}
           style={{
             height: 150,
+            marginTop: 10,
           }}
         />
         <ArticleHeader>
@@ -58,7 +65,7 @@ export const TextOnlyArticle: React.ElementType = ({
         <PostExcerpt post={post} />
         <View>
           <AuthorView authors={tsdAuthors} />
-          <Text style={{ fontFamily: FONTS.AUXILIARY }}>
+          <Text style={{ ...FONTS.AUXILIARY }}>
             {date.format("MMM DD YYYY")}
           </Text>
         </View>

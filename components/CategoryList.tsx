@@ -1,5 +1,6 @@
 import React from "react";
 import { Text, ScrollView } from "react-native";
+import { FONTS } from "helpers/constants";
 import { SECTION_PADDING } from "./Section";
 
 export const CategoryList: React.ElementType = ({ itemStyle }: any) => {
@@ -14,6 +15,7 @@ export const CategoryList: React.ElementType = ({ itemStyle }: any) => {
       <Text
         {...clProps}
         style={{
+          ...FONTS.AUXILIARY,
           marginRight: 30,
           paddingTop: SECTION_PADDING,
           paddingBottom: SECTION_PADDING,

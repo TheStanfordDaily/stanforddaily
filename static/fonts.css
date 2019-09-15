@@ -6,7 +6,8 @@
 @font-face {
   font-family: "Faune";
   src: url("fonts/Faune/eot/Faune-Display_Black.eot");
-  src: url("fonts/Faune/eot/Faune-Display_Black.eot?#iefix") format("embedded-opentype"),
+  src: url("fonts/Faune/eot/Faune-Display_Black.eot?#iefix")
+      format("embedded-opentype"),
     url("fonts/Faune/woff/Faune-Display_Black.woff") format("woff"),
     url("fonts/Faune/woff2/Faune-Display_Black.woff2") format("woff2"),
     url("fonts/Faune/ttf/Faune-Display_Black.ttf") format("truetype"),
@@ -18,7 +19,8 @@
 @font-face {
   font-family: "Faune";
   src: url("fonts/Faune/eot/Faune-Text_Bold.eot");
-  src: url("fonts/Faune/eot/Faune-Text_Bold.eot?#iefix") format("embedded-opentype"),
+  src: url("fonts/Faune/eot/Faune-Text_Bold.eot?#iefix")
+      format("embedded-opentype"),
     url("fonts/Faune/woff/Faune-Text_Bold.woff") format("woff"),
     url("fonts/Faune/woff2/Faune-Text_Bold.woff2") format("woff2"),
     url("fonts/Faune/ttf/Faune-Text_Bold.ttf") format("truetype"),
@@ -26,7 +28,6 @@
   font-weight: bold;
   font-style: normal;
 }
-
 
 /*
  * https://github.com/uswds/public-sans/blob/develop/ofl.txt
@@ -39,4 +40,21 @@
   src: url("fonts/PublicSans/PublicSans-Regular.woff2") format("woff2"),
     url("fonts/PublicSans/PublicSans-Regular.woff") format("woff"),
     url("fonts/PublicSans/PublicSans-Regular.ttf") format("truetype");
+}
+
+/*
+ * https://github.com/IBM/plex/blob/master/LICENSE.txt
+ */
+@font-face {
+  font-family: "IBM Plex Sans Condensed";
+  font-style: normal;
+  font-weight: normal;
+  src: local("IBM Plex Sans Condensed"), local("IBMPlexSansCondensed"),
+    url("fonts/IBM-Plex-Sans/eot/IBMPlexSansCondensed-Regular.eot"),
+    url("fonts/IBM-Plex-Sans/woff2/IBMPlexSansCondensed-Regular.woff2")
+      format("woff2"),
+    url("fonts/IBM-Plex-Sans/woff/IBMPlexSansCondensed-Regular.woff")
+      format("woff"),
+    url("fonts/IBM-Plex-Sans/ttf/IBMPlexSansCondensed-Regular.ttf")
+      format("truetype");
 }

@@ -32,6 +32,7 @@ class App extends React.Component<{}, { fontLoaded: boolean }> {
       "Faune-Display_Black": require("./static/fonts/Faune/ttf/Faune-Display_Black.ttf"), // eslint-disable-line global-require
       "Faune-Text_Bold": require("./static/fonts/Faune/ttf/Faune-Text_Bold.ttf"), // eslint-disable-line global-require
       "PublicSans-Regular": require("./static/fonts/PublicSans/PublicSans-Regular.ttf"), // eslint-disable-line global-require
+      "IBMPlexSansCondensed-Regular": require("./static/fonts/IBM-Plex-Sans/ttf/IBMPlexSansCondensed-Regular.ttf"), // eslint-disable-line global-require
     });
 
     this.setState({ fontLoaded: true });
