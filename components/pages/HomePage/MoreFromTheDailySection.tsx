@@ -1,9 +1,9 @@
 import React from "react";
-import { Text, TouchableOpacity } from "react-native";
+import { View, Text, TouchableOpacity, Platform } from "react-native";
 import RView from "emotion-native-media-query";
-import { STANFORD_COLORS } from "helpers/constants";
+import { STANFORD_COLORS, FONTS, COLORS } from "helpers/constants";
 import { Post } from "helpers/wpapi";
-import { Section, SectionStyle, SECTION_PADDING } from "components/Section";
+import { Section, SECTION_PADDING } from "components/Section";
 import { TextOnlyArticle } from "./TextOnlyArticle";
 import { SectionTitle } from "./SectionTitle";
 import { SectionProps } from "./SectionProps";
@@ -14,6 +14,11 @@ export const MoreFromTheDailySection: React.ElementType = ({
   loadMore,
   loadMoreEnabled,
 }: SectionProps) => {
+  const LoadMoreTag = Platform.OS === "web" ? "a" : View;
+  let LoadMoreNativeColor = loadMoreEnabled ? COLORS.LINK.DEFAULT : "black";
+  if (Platform.OS === "web") {
+    LoadMoreNativeColor = loadMoreEnabled ? "inherit" : "black";
+  }
   return (
     <Section
       style={{
@@ -37,7 +42,13 @@ export const MoreFromTheDailySection: React.ElementType = ({
         {(extraContent as Post[]).map(post => (
           <TextOnlyArticle key={post.id} post={post} />
         ))}
-        <SectionStyle style={{ width: "100%" }}>
+        <LoadMoreTag
+          style={{
+            width: "100%",
+            paddingLeft: SECTION_PADDING / 2,
+            paddingRight: SECTION_PADDING / 2,
+          }}
+        >
           <TouchableOpacity
             style={{
               alignItems: "center",
@@ -48,9 +59,17 @@ export const MoreFromTheDailySection: React.ElementType = ({
             disabled={!loadMoreEnabled}
             onPress={async () => loadMore()}
           >
-            <Text>{loadMoreEnabled ? "Load more" : "Loading..."}</Text>
+            <Text
+              style={{
+                ...FONTS.AUXILIARY,
+                fontSize: 30,
+                color: LoadMoreNativeColor,
+              }}
+            >
+              {loadMoreEnabled ? "Load more" : "Loading..."}
+            </Text>
           </TouchableOpacity>
-        </SectionStyle>
+        </LoadMoreTag>
       </RView>
     </Section>
   );

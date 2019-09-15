@@ -5,6 +5,7 @@ import { Author } from "helpers/wpapi";
 
 export const AuthorView: React.ElementType = ({
   authors,
+  style,
   ...props
 }: {
   authors: Author[];
@@ -13,7 +14,12 @@ export const AuthorView: React.ElementType = ({
   if (Platform.OS === "web") {
     return (
       <View>
-        <Text style={{ fontFamily: FONTS.AUXILIARY }}>
+        <Text
+          style={{
+            ...FONTS.AUXILIARY,
+            ...style,
+          }}
+        >
           {authors.map((author, index) => (
             <React.Fragment key={author.id}>
               {index > 0 && (authors.length !== 2 ? ", " : " ")}
@@ -33,7 +39,13 @@ export const AuthorView: React.ElementType = ({
     );
   } else {
     return (
-      <Text {...props}>
+      <Text
+        style={{
+          ...FONTS.AUXILIARY,
+          ...style,
+        }}
+        {...props}
+      >
         {authors.map(author => author.displayName).join(", ")}
       </Text>
     );

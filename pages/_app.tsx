@@ -9,6 +9,7 @@ import {
   BREAKPOINTS,
   COLORS,
   STANFORD_COLORS,
+  FONTS,
 } from "helpers/constants";
 import { SectionStyle } from "components/Section";
 import { CategoryList } from "components/CategoryList";
@@ -131,6 +132,7 @@ const SiteHeader: React.ElementType = (props: any) => {
 };
 
 const SiteFooter: React.ElementType = ({ style, ...props }: any) => {
+  // TODO: ADD FONTS CREDIT
   return (
     <footer
       css={{
@@ -174,6 +176,9 @@ export default class MyApp extends App {
       >
         <Global
           styles={{
+            "body, button, input, optgroup, select, textarea": {
+              ...FONTS.CONTENT,
+            },
             a: {
               color: COLORS.LINK.DEFAULT,
               textDecoration: "none",
@@ -193,10 +198,7 @@ export default class MyApp extends App {
           }}
         />
         <Head>
-          <link
-            href="https://fonts.googleapis.com/css?family=Open+Sans|Libre+Baskerville:400,700|PT+Serif:400,400i,700,700i&display=swap"
-            rel="stylesheet"
-          />
+          <link href="/static/fonts.css" rel="stylesheet" />
         </Head>
         {/* `body` `overflow: initial` is added in order for `position: "sticky"` below to work. */}
         <Global

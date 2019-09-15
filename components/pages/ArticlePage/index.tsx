@@ -73,9 +73,9 @@ export default class ArticlePage extends React.Component<
           <ArticleHeader>
             <h1
               css={{
+                ...FONTS.ARTICLE_TITLE,
                 textAlign: "center",
                 fontSize: "2.25rem",
-                fontFamily: FONTS.TITLE,
               }}
             >
               {postTitle}
@@ -84,7 +84,7 @@ export default class ArticlePage extends React.Component<
           <Global
             styles={{
               "#main-article-content": {
-                fontFamily: `'${FONTS.CONTENT}', serif`,
+                ...FONTS.CONTENT,
                 "p, figcaption": {
                   ...centerContentStyle,
                   marginBottom: "1.75em",

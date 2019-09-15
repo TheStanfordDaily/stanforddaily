@@ -1,3 +1,5 @@
+import { Platform } from "react-native";
+
 export const BREAKPOINTS = {
   // For `min-width`
   TABLET: 700,
@@ -17,10 +19,49 @@ export const STRINGS = {
   _MAIN_ONLY_QUERY: "_main-only",
 };
 
-export const FONTS = {
-  TITLE: "Libre Baskerville",
-  CONTENT: "PT Serif",
-  AUXILIARY: "Open Sans",
+export const FONTS: any = {
+  ARTICLE_TITLE:
+    Platform.OS === "web"
+      ? {
+          fontFamily: "'Faune', sans-serif",
+          fontWeight: "bold",
+          fontSize: 15,
+          lineHeight: 1,
+        }
+      : {
+          fontFamily: "Faune-Text_Bold",
+          fontSize: 20,
+        },
+  SECTION_TITLE:
+    Platform.OS === "web"
+      ? {
+          fontFamily: "'Faune', sans-serif",
+          fontWeight: 900,
+          fontSize: 15,
+          lineHeight: 1,
+        }
+      : {
+          fontFamily: "Faune-Display_Black",
+          fontSize: 20,
+        },
+  CONTENT:
+    Platform.OS === "web"
+      ? {
+          fontFamily: "'Public Sans Web', sans-serif",
+        }
+      : {
+          fontFamily: "PublicSans-Regular",
+        },
+  AUXILIARY:
+    Platform.OS === "web"
+      ? {
+          fontFamily: "'IBM Plex Sans Condensed', sans-serif",
+          textTransform: "uppercase",
+        }
+      : {
+          fontFamily: "IBMPlexSansCondensed-Regular",
+          textTransform: "uppercase",
+        },
 };
 
 export const STANFORD_COLORS = {

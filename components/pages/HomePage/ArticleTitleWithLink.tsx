@@ -6,8 +6,7 @@ import { Post } from "helpers/wpapi";
 import { LinkToArticle } from "./LinkToArticle";
 
 const ArticleTitleStyle = styled.Text({
-  fontFamily: FONTS.TITLE,
-  fontSize: 15,
+  ...FONTS.ARTICLE_TITLE,
   margin: 0,
 });
 const ArticleTitle =
