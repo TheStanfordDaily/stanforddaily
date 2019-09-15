@@ -7,7 +7,7 @@ import { SECTION_PADDING } from "../Section";
 import { Article, ArticleHeader } from "../Article";
 import { AuthorView } from "./AuthorView";
 import { PostExcerpt } from "./PostExcerpt";
-import { ArticleProps } from "../../pages/ArticleProps";
+import { ArticleProps } from "./ArticleProps";
 import { ThumbnailImageWithLink } from "./ThumbnailImageWithLink";
 import { ArticleTitleWithLink } from "./ArticleTitleWithLink";
 

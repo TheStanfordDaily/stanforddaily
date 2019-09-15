@@ -4,9 +4,9 @@ import RView from "emotion-native-media-query";
 import { SectionStyle, SectionWithoutStyle } from "../Section";
 import { MainSection } from "./MainSection";
 import { LeftSection } from "./LeftSection";
-import { DesktopRow } from "../../pages/DesktopRow";
-import { SectionTitle } from "../../pages/SectionTitle";
-import { SectionProps } from "../../pages/SectionProps";
+import { DesktopRow } from "./DesktopRow";
+import { SectionTitle } from "./SectionTitle";
+import { SectionProps } from "./SectionProps";
 
 export const SportsSection: React.ElementType = (props: SectionProps) => {
   const { content, mainBeforeSide, style, rStyle } = props;

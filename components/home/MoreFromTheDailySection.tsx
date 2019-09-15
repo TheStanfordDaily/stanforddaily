@@ -5,8 +5,8 @@ import { STANFORD_COLORS } from "../../helpers/constants";
 import { Post } from "../../helpers/wpapi";
 import { Section, SectionStyle, SECTION_PADDING } from "../Section";
 import { TextOnlyArticle } from "./TextOnlyArticle";
-import { SectionTitle } from "../../pages/SectionTitle";
-import { SectionProps } from "../../pages/SectionProps";
+import { SectionTitle } from "./SectionTitle";
+import { SectionProps } from "./SectionProps";
 
 export const MoreFromTheDailySection: React.ElementType = ({
   content,

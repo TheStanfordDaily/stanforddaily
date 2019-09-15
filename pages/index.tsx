@@ -1,19 +1,10 @@
 import React from "react";
 import { ScrollView, RefreshControl, Platform } from "react-native";
-import styled from "@emotion/native";
-import RView, {
-  MediaRule,
-  mergeRStyle,
-  isWidthGreaterThanOrEqualTo,
-  Style,
-  RStyle,
-} from "emotion-native-media-query";
 import {
-  BREAKPOINTS,
-  FONTS,
-  COLORS,
-  STANFORD_COLORS,
-} from "../helpers/constants";
+  MediaRule,
+  isWidthGreaterThanOrEqualTo,
+} from "emotion-native-media-query";
+import { BREAKPOINTS } from "../helpers/constants";
 import { getHomeAsync, getHomeMoreAsync, Home, Post } from "../helpers/wpapi";
 import Wrapper from "../components/Wrapper";
 import { CategoryList } from "../components/CategoryList";
@@ -28,90 +19,9 @@ import { ArtsAndLifeSection } from "../components/home/ArtsAndLifeSection";
 import { SponsoredSection } from "../components/home/SponsoredSection";
 import { MultimediaSection } from "../components/home/MultimediaSection";
 import { MoreFromTheDailySection } from "../components/home/MoreFromTheDailySection";
-
-// TODO: layout got reset to mobile one when returning from other app on iPad
-
-export interface SectionProps {
-  content: Post[];
-  sectionTitle?: string;
-  SectionTag?: React.ElementType;
-  style?: Style;
-  rStyle?: RStyle;
-  [key: string]: any;
-}
-
-export interface ArticleProps {
-  post: Post;
-  [key: string]: any;
-}
-
-export const getBorderValue = (
-  type: "Top" | "Bottom" | "Left" | "Right",
-): Style => {
-  return Platform.OS === "web"
-    ? { [`border${type}`]: `1px solid ${COLORS.BORDER_COLOR}` }
-    : {
-        [`border${type}Color`]: COLORS.BORDER_COLOR,
-        [`border${type}Width`]: 1,
-      };
-};
-
-export const Column: React.ElementType = (props: any) => {
-  const { style = {}, rStyle = {}, ...remainingProps } = props;
-  const resultStyle = {
-    flexDirection: "column",
-    flexGrow: 1,
-    ...style,
-  };
-  const resultRStyle = mergeRStyle(
-    {
-      [MediaRule.MinWidth]: {
-        [BREAKPOINTS.TABLET]: {
-          flexBasis: 0,
-        },
-      },
-    },
-    rStyle,
-  );
-
-  return (
-    <RView {...remainingProps} style={resultStyle} rStyle={resultRStyle} />
-  );
-};
-
-export const DesktopRow: React.ElementType = (props: any) => {
-  const { style = {}, rStyle = {}, ...remainingProps } = props;
-  const resultStyle = {
-    flexDirection: "column",
-    ...style,
-  };
-  const resultRStyle = mergeRStyle(
-    {
-      [MediaRule.MinWidth]: {
-        [BREAKPOINTS.TABLET]: {
-          flexDirection: "row",
-        },
-      },
-    },
-    rStyle,
-  );
-
-  return (
-    <RView {...remainingProps} style={resultStyle} rStyle={resultRStyle} />
-  );
-};
-
-const SectionTitleStyle = styled.Text({
-  fontFamily: FONTS.TITLE,
-  fontSize: 15,
-  color: STANFORD_COLORS.CARDINAL_DARK_RED,
-  margin: 0,
-  marginBottom: 15,
-});
-export const SectionTitle =
-  Platform.OS === "web"
-    ? SectionTitleStyle.withComponent("h1")
-    : SectionTitleStyle;
+import { DesktopRow } from "../components/home/DesktopRow";
+import { Column } from "../components/home/Column";
+import { getBorderValue } from "../components/home/getBorderValue";
 
 interface IndexProps {
   homePosts?: Home;

@@ -1,7 +1,7 @@
 import React from "react";
 import { Section } from "../Section";
-import { SectionTitle } from "../../pages/SectionTitle";
-import { SectionProps } from "../../pages/SectionProps";
+import { SectionTitle } from "./SectionTitle";
+import { SectionProps } from "./SectionProps";
 
 export const MultimediaSection: React.ElementType = (props: SectionProps) => {
   const { style } = props;

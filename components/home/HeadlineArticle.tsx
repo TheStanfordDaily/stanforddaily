@@ -4,7 +4,7 @@ import { Article, ArticleHeader } from "../Article";
 import { AuthorView } from "./AuthorView";
 import { PostExcerpt } from "./PostExcerpt";
 import { ArticleSubtitle } from "./ArticleSubtitle";
-import { ArticleProps } from "../../pages/ArticleProps";
+import { ArticleProps } from "./ArticleProps";
 import { ArticleTitleWithLink } from "./ArticleTitleWithLink";
 import { ThumbnailImageWithLink } from "./ThumbnailImageWithLink";
 

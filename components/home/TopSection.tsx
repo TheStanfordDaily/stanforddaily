@@ -4,8 +4,8 @@ import RView, { MediaRule } from "emotion-native-media-query";
 import { BREAKPOINTS, STANFORD_COLORS } from "../../helpers/constants";
 import { SectionStyle } from "../Section";
 import { OrderedList } from "../List";
-import { getBorderValue } from "../../pages/getBorderValue";
-import { SectionProps } from "../../pages/SectionProps";
+import { getBorderValue } from "./getBorderValue";
+import { SectionProps } from "./SectionProps";
 import { LinkToArticle } from "./LinkToArticle";
 import { ThumbnailImage } from "./ThumbnailImage";
 

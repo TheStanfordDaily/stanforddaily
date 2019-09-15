@@ -2,8 +2,8 @@ import React from "react";
 import RView from "emotion-native-media-query";
 import { Section } from "../Section";
 import { SideThumbnailArticle } from "./SideThumbnailArticle";
-import { SectionTitle } from "../../pages/SectionTitle";
-import { SectionProps } from "../../pages/SectionProps";
+import { SectionTitle } from "./SectionTitle";
+import { SectionProps } from "./SectionProps";
 
 export const ArtsAndLifeSection: React.ElementType = ({
   content,

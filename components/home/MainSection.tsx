@@ -4,10 +4,10 @@ import { BREAKPOINTS } from "../../helpers/constants";
 import { Section, SECTION_PADDING } from "../Section";
 import { HeadlineArticle } from "./HeadlineArticle";
 import { TopThumbnailArticle } from "./TopThumbnailArticle";
-import { Column } from "../../pages/Column";
-import { DesktopRow } from "../../pages/DesktopRow";
-import { SectionTitle } from "../../pages/SectionTitle";
-import { SectionProps } from "../../pages/SectionProps";
+import { Column } from "./Column";
+import { DesktopRow } from "./DesktopRow";
+import { SectionTitle } from "./SectionTitle";
+import { SectionProps } from "./SectionProps";
 
 export const MainSection: React.ElementType = (props: SectionProps) => {
   const { content, sectionTitle, SectionTag = Section, style, rStyle } = props;

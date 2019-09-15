@@ -2,8 +2,8 @@ import React from "react";
 import RView from "emotion-native-media-query";
 import { Section } from "../Section";
 import { ListStyleArticle } from "./ListStyleArticle";
-import { SectionTitle } from "../../pages/SectionTitle";
-import { SectionProps } from "../../pages/SectionProps";
+import { SectionTitle } from "./SectionTitle";
+import { SectionProps } from "./SectionProps";
 
 export const RightListedSection: React.ElementType = (props: SectionProps) => {
   const {

@@ -5,9 +5,9 @@ import { BREAKPOINTS } from "../../helpers/constants";
 import { Section } from "../Section";
 import { TopThumbnailArticle } from "./TopThumbnailArticle";
 import { TitleOnlyArticle } from "./TitleOnlyArticle";
-import { Column } from "../../pages/Column";
-import { SectionTitle } from "../../pages/SectionTitle";
-import { SectionProps } from "../../pages/SectionProps";
+import { Column } from "./Column";
+import { SectionTitle } from "./SectionTitle";
+import { SectionProps } from "./SectionProps";
 
 export const LeftSection: React.ElementType = (props: SectionProps) => {
   const { content, sectionTitle, SectionTag = Section, style, rStyle } = props;

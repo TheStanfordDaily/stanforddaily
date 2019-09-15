@@ -1,6 +1,6 @@
 import React from "react";
 import { RightListedSection } from "./RightListedSection";
-import { SectionProps } from "../../pages/SectionProps";
+import { SectionProps } from "./SectionProps";
 
 export const OpinionSection: React.ElementType = ({
   content,

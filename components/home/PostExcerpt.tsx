@@ -1,7 +1,7 @@
 import React from "react";
 import { Text } from "react-native";
 import { FONTS } from "../../helpers/constants";
-import { ArticleProps } from "../../pages/ArticleProps";
+import { ArticleProps } from "./ArticleProps";
 
 export const PostExcerpt: React.ElementType = ({
   post,

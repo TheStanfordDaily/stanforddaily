@@ -1,7 +1,7 @@
 import React from "react";
 import { Section } from "../Section";
-import { SectionTitle } from "../../pages/SectionTitle";
-import { SectionProps } from "../../pages/SectionProps";
+import { SectionTitle } from "./SectionTitle";
+import { SectionProps } from "./SectionProps";
 
 export const SponsoredSection: React.ElementType = ({
   content,
