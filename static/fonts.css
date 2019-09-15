@@ -1,0 +1,28 @@
+/*
+ * The Faune typeface used in this document was created by Alice Savoie
+ * in the context of a commission by the Centre National des Arts Plastiques
+ * in partnership with the Groupe Imprimerie Nationale.
+*/
+@font-face {
+  font-family: "Faune";
+  src: url("fonts/Faune/eot/Faune-Display_Black.eot");
+  src: url("fonts/Faune/eot/Faune-Display_Black.eot?#iefix") format("embedded-opentype"),
+    url("fonts/Faune/woff/Faune-Display_Black.woff") format("woff"),
+    url("fonts/Faune/woff2/Faune-Display_Black.woff2") format("woff2"),
+    url("fonts/Faune/ttf/Faune-Display_Black.ttf") format("truetype"),
+    url("fonts/Faune/svg/Faune-Display_Black.svg#svgFontName") format("svg");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Faune";
+  src: url("fonts/Faune/eot/Faune-Text_Bold.eot");
+  src: url("fonts/Faune/eot/Faune-Text_Bold.eot?#iefix") format("embedded-opentype"),
+    url("fonts/Faune/woff/Faune-Text_Bold.woff") format("woff"),
+    url("fonts/Faune/woff2/Faune-Text_Bold.woff2") format("woff2"),
+    url("fonts/Faune/ttf/Faune-Text_Bold.ttf") format("truetype"),
+    url("fonts/Faune/svg/Faune-Text_Bold.svg#svgFontName") format("svg");
+  font-weight: bold;
+  font-style: normal;
+}

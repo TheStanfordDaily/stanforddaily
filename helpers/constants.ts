@@ -18,7 +18,7 @@ export const STRINGS = {
 };
 
 export const FONTS = {
-  TITLE: "Libre Baskerville",
+  TITLE: "Faune",
   CONTENT: "PT Serif",
   AUXILIARY: "Open Sans",
 };

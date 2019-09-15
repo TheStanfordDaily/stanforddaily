@@ -76,6 +76,7 @@ export default class ArticlePage extends React.Component<
                 textAlign: "center",
                 fontSize: "2.25rem",
                 fontFamily: FONTS.TITLE,
+                fontWeight: "bold",
               }}
             >
               {postTitle}

@@ -7,7 +7,9 @@ import { LinkToArticle } from "./LinkToArticle";
 
 const ArticleTitleStyle = styled.Text({
   fontFamily: FONTS.TITLE,
+  fontWeight: "bold",
   fontSize: 15,
+  lineHeight: Platform.OS === "web" ? 1 : undefined,
   margin: 0,
 });
 const ArticleTitle =

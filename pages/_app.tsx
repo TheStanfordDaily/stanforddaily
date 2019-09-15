@@ -131,6 +131,7 @@ const SiteHeader: React.ElementType = (props: any) => {
 };
 
 const SiteFooter: React.ElementType = ({ style, ...props }: any) => {
+  // TODO: ADD FONTS CREDIT
   return (
     <footer
       css={{
@@ -193,10 +194,7 @@ export default class MyApp extends App {
           }}
         />
         <Head>
-          <link
-            href="https://fonts.googleapis.com/css?family=Open+Sans|Libre+Baskerville:400,700|PT+Serif:400,400i,700,700i&display=swap"
-            rel="stylesheet"
-          />
+          <link href="/static/fonts.css" rel="stylesheet" />
         </Head>
         {/* `body` `overflow: initial` is added in order for `position: "sticky"` below to work. */}
         <Global
