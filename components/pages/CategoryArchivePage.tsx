@@ -1,13 +1,18 @@
 import React from "react";
-import { getCategoryAsync, Post } from "helpers/wpapi";
+import { View, Text } from "react-native";
+import { getCategoryAsync, ArchivePageData } from "helpers/wpapi";
 import Wrapper from "components/Wrapper";
+import { Section } from "components/Section";
 import ArchivePage, {
   ArchivePageType,
   ArchivePageProps,
   ArchivePageState,
 } from "./ArchivePage";
 
-function _getPosts(slug: string, pageNumber: number): Promise<Post[]> {
+async function _getCategoryData(
+  slug: string,
+  pageNumber: number,
+): Promise<ArchivePageData> {
   return getCategoryAsync(slug, pageNumber);
 }
 
@@ -22,22 +27,30 @@ export default class CategoryArchivePage extends React.Component<
   static async getInitialProps(param): Promise<any> {
     const { query } = param;
     const { slug } = query;
-    const initPosts = await _getPosts(slug, 1);
+    const categoryData = await _getCategoryData(slug, 1);
 
-    return { initPosts, slug };
+    return { initData: categoryData, slug };
   }
 
   render(): React.ReactNode {
-    const { initPosts, slug } = this.props;
+    const { initData, slug } = this.props;
     return (
-      <ArchivePage
-        initPosts={initPosts}
-        type={ArchivePageType.Category}
-        getExtraPosts={async pageNumber => {
-          return _getPosts(slug, pageNumber);
+      <Section
+        style={{
+          flexGrow: 1,
+          flexDirection: "column",
         }}
-        {...this.props}
-      />
+      >
+        <Text>{initData.meta.title}</Text>
+        <ArchivePage
+          initData={initData}
+          type={ArchivePageType.Category}
+          getExtraData={async pageNumber => {
+            return _getCategoryData(slug, pageNumber);
+          }}
+          {...this.props}
+        />
+      </Section>
     );
   }
 }

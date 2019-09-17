@@ -60,6 +60,13 @@ export type Post = {
   guid: string; // Unique perminlinks (e.g., "https://www.stanforddaily.com/?p=1144743")
 };
 
+export type ArchivePageData = {
+  meta: {
+    title: string;
+  };
+  posts: Post[];
+};
+
 const wp = new WPAPI({
   endpoint: `${STRINGS.ROOT_URL}/wp-json`,
   routes: tsdJson.routes,
@@ -96,7 +103,7 @@ export async function getHomeMoreAsync(
 export async function getCategoryAsync(
   categorySlug: string,
   pageNumber: number,
-): Promise<Post[]> {
+): Promise<ArchivePageData> {
   return wpTsdJson
     .category()
     .categorySlug(categorySlug)
