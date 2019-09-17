@@ -85,7 +85,7 @@ export default class ArticlePage extends React.Component<
             styles={{
               "#main-article-content": {
                 ...FONTS.CONTENT,
-                "p, figcaption": {
+                "p, figcaption, #main-article-text div": {
                   ...centerContentStyle,
                   marginBottom: "1.75em",
                   fontSize: "1.3rem",
@@ -126,6 +126,7 @@ export default class ArticlePage extends React.Component<
               on {date.format("MMMM D, YYYY")}
             </p>
             <div
+              id="main-article-text"
               // eslint-disable-next-line react/no-danger
               dangerouslySetInnerHTML={{ __html: postContent }}
             />
