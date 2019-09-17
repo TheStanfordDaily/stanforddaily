@@ -5,7 +5,7 @@ import {
   isWidthGreaterThanOrEqualTo,
 } from "emotion-native-media-query";
 import { BREAKPOINTS } from "helpers/constants";
-import { getHomeAsync, getHomeMoreAsync, Home, Post } from "helpers/wpapi";
+import { getHomeAsync, Home } from "helpers/wpapi";
 import Wrapper from "components/Wrapper";
 import { CategoryList } from "components/CategoryList";
 import LoadingView from "components/Loading";
@@ -29,23 +29,9 @@ interface IndexProps {
   refreshControl?: any;
 }
 
-interface IndexState {
-  extraArticles: Post[];
-  extraArticlesPageCount: number;
-  extraArticlesLoading: boolean;
-}
+interface IndexState {}
 
 export default class HomePage extends React.Component<IndexProps, IndexState> {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      extraArticles: [],
-      extraArticlesPageCount: 0,
-      extraArticlesLoading: false,
-    };
-  }
-
   static async getInitialProps(): Promise<any> {
     const homePosts = await getHomeAsync();
     return { homePosts };
@@ -206,30 +192,7 @@ export default class HomePage extends React.Component<IndexProps, IndexState> {
               ...getBorderValue("Bottom"),
             }}
           />
-          <MoreFromTheDailySection
-            content={homePosts.moreFromTheDaily}
-            extraContent={this.state.extraArticles}
-            loadMoreEnabled={!this.state.extraArticlesLoading}
-            loadMore={async () => {
-              this.setState({ extraArticlesLoading: true }, async () => {
-                const newExtraArticles = await getHomeMoreAsync(
-                  this.state.extraArticlesPageCount + 1,
-                );
-                this.setState(
-                  prevState => ({
-                    extraArticlesPageCount:
-                      prevState.extraArticlesPageCount + 1,
-                    extraArticles: prevState.extraArticles.concat(
-                      newExtraArticles,
-                    ),
-                  }),
-                  () => {
-                    this.setState({ extraArticlesLoading: false });
-                  },
-                );
-              });
-            }}
-          />
+          <MoreFromTheDailySection content={homePosts.moreFromTheDaily} />
         </ScrollView>
       </>
     );
