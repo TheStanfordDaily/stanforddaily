@@ -8,17 +8,30 @@
         {
           "methods": ["GET"],
           "args": {
-            "namespace": { "required": false, "default": "tsd/json/v1" },
-            "context": { "required": false, "default": "view" }
+            "namespace": {
+              "required": false,
+              "default": "tsd/json/v1"
+            },
+            "context": {
+              "required": false,
+              "default": "view"
+            }
           }
         }
       ],
-      "_links": { "self": "https://www.stanforddaily.com/wp-json/tsd/json/v1" }
+      "_links": {
+        "self": "https://www.stanforddaily.com/wp-json/tsd/json/v1"
+      }
     },
     "/tsd/json/v1/home": {
       "namespace": "tsd/json/v1",
       "methods": ["GET"],
-      "endpoints": [{ "methods": ["GET"], "args": [] }],
+      "endpoints": [
+        {
+          "methods": ["GET"],
+          "args": []
+        }
+      ],
       "_links": {
         "self": "https://www.stanforddaily.com/wp-json/tsd/json/v1/home"
       }
@@ -26,13 +39,39 @@
     "/tsd/json/v1/home/more/(?P<extraPageNumber>\\d+)": {
       "namespace": "tsd/json/v1",
       "methods": ["GET"],
-      "endpoints": [{ "methods": ["GET"], "args": [] }]
+      "endpoints": [
+        {
+          "methods": ["GET"],
+          "args": []
+        }
+      ]
     },
     "/tsd/json/v1/posts/(?P<postyear>\\d{4})/(?P<postmonth>\\d{2})/(?P<postday>\\d{2})/(?P<postslug>[\\w-]+)": {
       "namespace": "tsd/json/v1",
       "methods": ["GET"],
-      "endpoints": [{ "methods": ["GET"], "args": [] }]
+      "endpoints": [
+        {
+          "methods": ["GET"],
+          "args": []
+        }
+      ]
+    },
+    "/tsd/json/v1/category/(?P<categorySlug>[\\w-]+)/(?P<pageNumber>\\d+)": {
+      "namespace": "tsd/json/v1",
+      "methods": ["GET"],
+      "endpoints": [
+        {
+          "methods": ["GET"],
+          "args": []
+        }
+      ]
     }
   },
-  "_links": { "up": [{ "href": "https://www.stanforddaily.com/wp-json/" }] }
+  "_links": {
+    "up": [
+      {
+        "href": "https://www.stanforddaily.com/wp-json/"
+      }
+    ]
+  }
 }

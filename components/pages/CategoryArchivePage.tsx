@@ -1,5 +1,5 @@
 import React from "react";
-import { View } from "react-native";
+import { getCategoryAsync, Post } from "helpers/wpapi";
 import Wrapper from "components/Wrapper";
 import ArchivePage, {
   ArchivePageType,
@@ -7,16 +7,38 @@ import ArchivePage, {
   ArchivePageState,
 } from "./ArchivePage";
 
+function _getPosts(slug: string, pageNumber: number): Promise<Post[]> {
+  return getCategoryAsync(slug, pageNumber);
+}
+
+interface CategoryArchivePageProps extends ArchivePageProps {
+  slug: string;
+}
+
 export default class CategoryArchivePage extends React.Component<
-  ArchivePageProps,
+  CategoryArchivePageProps,
   ArchivePageState
 > {
   static async getInitialProps(param): Promise<any> {
-    return ArchivePage.getInitialProps(param);
+    const { query } = param;
+    const { slug } = query;
+    const initPosts = await _getPosts(slug, 1);
+
+    return { initPosts, slug };
   }
 
   render(): React.ReactNode {
-    return <ArchivePage type={ArchivePageType.Category} {...this.props} />;
+    const { initPosts, slug } = this.props;
+    return (
+      <ArchivePage
+        initPosts={initPosts}
+        type={ArchivePageType.Category}
+        getExtraPosts={async pageNumber => {
+          return _getPosts(slug, pageNumber);
+        }}
+        {...this.props}
+      />
+    );
   }
 }
 

@@ -14,6 +14,7 @@ import { ArticleTitleWithLink } from "./ArticleTitleWithLink";
 export const TextOnlyArticle: React.ElementType = ({
   post,
   style,
+  displayCategory = false,
 }: ArticleProps) => {
   const { tsdPrimaryCategory, tsdAuthors } = post;
   const date = getPostLocalDate(post);
@@ -46,19 +47,21 @@ export const TextOnlyArticle: React.ElementType = ({
           ...style,
         }}
       >
-        <View
-          style={{
-            padding: SECTION_PADDING,
-          }}
-        >
-          <Text
+        {displayCategory && (
+          <View
             style={{
-              ...FONTS.AUXILIARY,
+              padding: SECTION_PADDING,
             }}
           >
-            {tsdPrimaryCategory.name}
-          </Text>
-        </View>
+            <Text
+              style={{
+                ...FONTS.AUXILIARY,
+              }}
+            >
+              {tsdPrimaryCategory.name}
+            </Text>
+          </View>
+        )}
         <ThumbnailImageWithLink
           post={post}
           style={{

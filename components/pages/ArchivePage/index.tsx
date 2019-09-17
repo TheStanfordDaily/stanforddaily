@@ -1,7 +1,8 @@
 import React from "react";
 import { View, Text } from "react-native";
-import { getHomeAsync, Post } from "helpers/wpapi";
+import { Post } from "helpers/wpapi";
 import LoadingView from "components/Loading";
+import ArticlesView from "components/ArticlesView";
 
 export enum ArchivePageType {
   Time,
@@ -11,7 +12,8 @@ export enum ArchivePageType {
 
 export interface ArchivePageProps {
   type: ArchivePageType;
-  content?: Post[];
+  initPosts: Post[];
+  getExtraPosts: (pageNumber: number) => Promise<Post[]>;
 }
 
 export interface ArchivePageState {}
@@ -21,11 +23,24 @@ export default class ArchivePage extends React.Component<
   ArchivePageState
 > {
   static async getInitialProps(param): Promise<any> {
-    const homePosts = await getHomeAsync();
-    return { homePosts };
+    return {};
   }
 
   render(): React.ReactNode {
-    return <Text>{this.props.type}</Text>;
+    const { initPosts, getExtraPosts } = this.props;
+    if (!initPosts) {
+      return <LoadingView />;
+    }
+
+    console.log(typeof getExtraPosts);
+
+    return (
+      <ArticlesView
+        initPosts={initPosts}
+        getExtraPosts={async pageNumber => {
+          return getExtraPosts(pageNumber);
+        }}
+      />
+    );
   }
 }

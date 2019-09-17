@@ -9,11 +9,13 @@ import { TextOnlyArticle } from "components/pages/HomePage/TextOnlyArticle";
 interface ArticlesViewProps {
   initPosts: Post[];
   getExtraPosts: (pageNumber: number) => Promise<Post[]>;
+  displayCategory?: boolean;
 }
 
 const ArticlesView: React.ElementType<ArticlesViewProps> = ({
   initPosts,
   getExtraPosts,
+  displayCategory = false,
 }: ArticlesViewProps) => {
   const [extraPosts, setExtraPosts]: [Post[], any] = React.useState([]);
   const [extraPageNumber, setExtraPageNumber]: [number, any] = React.useState(
@@ -36,11 +38,12 @@ const ArticlesView: React.ElementType<ArticlesViewProps> = ({
         marginRight: -SECTION_PADDING / 2,
       }}
     >
-      {initPosts.map(post => (
-        <TextOnlyArticle key={post.id} post={post} />
-      ))}
-      {extraPosts.map(post => (
-        <TextOnlyArticle key={post.id} post={post} />
+      {initPosts.concat(extraPosts).map(post => (
+        <TextOnlyArticle
+          key={post.id}
+          post={post}
+          displayCategory={displayCategory}
+        />
       ))}
       <LoadMoreTag
         style={{

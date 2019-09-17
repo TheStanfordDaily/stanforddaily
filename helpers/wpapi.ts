@@ -93,6 +93,16 @@ export async function getHomeMoreAsync(
     .extraPageNumber(extraPageNumber);
 }
 
+export async function getCategoryAsync(
+  categorySlug: string,
+  pageNumber: number,
+): Promise<Post[]> {
+  return wpTsdJson
+    .category()
+    .categorySlug(categorySlug)
+    .pageNumber(pageNumber);
+}
+
 export function getPostLocalDate(post: Post): moment.Moment {
   const date = moment.utc(post.postDateGmt);
   return date;
