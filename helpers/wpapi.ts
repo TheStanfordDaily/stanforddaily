@@ -30,6 +30,7 @@ export type Category = {
   id: number;
   name: string;
   slug: string;
+  url: string;
 };
 
 export type Thumbnail = {

@@ -1,6 +1,7 @@
 import React from "react";
 import { Text, View } from "react-native";
 import RView, { MediaRule } from "emotion-native-media-query";
+import Link from "next/link";
 import { BREAKPOINTS, FONTS, STANFORD_COLORS } from "helpers/constants";
 import { getPostLocalDate } from "helpers/wpapi";
 import { SECTION_PADDING } from "components/Section";
@@ -58,7 +59,9 @@ export const TextOnlyArticle: React.ElementType = ({
                 ...FONTS.AUXILIARY,
               }}
             >
-              {tsdPrimaryCategory.name}
+              <Link href="/category/[slug]" as={tsdPrimaryCategory.url}>
+                <a title={tsdPrimaryCategory.name}>{tsdPrimaryCategory.name}</a>
+              </Link>
             </Text>
           </View>
         )}
