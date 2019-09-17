@@ -1,5 +1,6 @@
 import React from "react";
 import { Text, View, Platform } from "react-native";
+import Link from "next/link";
 import { FONTS } from "helpers/constants";
 import { Author } from "helpers/wpapi";
 
@@ -24,14 +25,11 @@ export const AuthorView: React.ElementType = ({
             <React.Fragment key={author.id}>
               {index > 0 && (authors.length !== 2 ? ", " : " ")}
               {index > 0 && index === authors.length - 1 && "and "}
-
-              <a
-                href={`https://www.stanforddaily.com/author/${author.userNicename}/`}
-                rel="author"
-                {...props}
-              >
-                {author.displayName}
-              </a>
+              <Link href="/author/[slug]" as={author.url}>
+                <a title={author.displayName} rel="author" {...props}>
+                  {author.displayName}
+                </a>
+              </Link>
             </React.Fragment>
           ))}
         </Text>

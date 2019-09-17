@@ -24,6 +24,7 @@ export type Author = {
   id: number;
   displayName: string;
   userNicename: string; // This is user's URL-friendly slug
+  url: string;
 };
 
 export type Category = {
