@@ -62,10 +62,20 @@ export type Post = {
 };
 
 export type ArchivePageData = {
+  meta: {};
+  posts: Post[];
+};
+
+export type CategoryArchivePageData = ArchivePageData & {
   meta: {
     title: string;
   };
-  posts: Post[];
+};
+
+export type AuthorArchivePageData = ArchivePageData & {
+  meta: {
+    name: string;
+  };
 };
 
 const wp = new WPAPI({
@@ -104,7 +114,7 @@ export async function getHomeMoreAsync(
 export async function getCategoryAsync(
   categorySlug: string,
   pageNumber: number,
-): Promise<ArchivePageData> {
+): Promise<CategoryArchivePageData> {
   return wpTsdJson
     .category()
     .categorySlug(categorySlug)

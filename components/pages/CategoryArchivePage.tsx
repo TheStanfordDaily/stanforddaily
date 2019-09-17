@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Text } from "react-native";
-import { getCategoryAsync, ArchivePageData } from "helpers/wpapi";
+import { getCategoryAsync, CategoryArchivePageData } from "helpers/wpapi";
 import Wrapper from "components/Wrapper";
 import { Section } from "components/Section";
 import ArchivePage, {
@@ -12,11 +12,12 @@ import ArchivePage, {
 async function _getCategoryData(
   slug: string,
   pageNumber: number,
-): Promise<ArchivePageData> {
+): Promise<CategoryArchivePageData> {
   return getCategoryAsync(slug, pageNumber);
 }
 
 interface CategoryArchivePageProps extends ArchivePageProps {
+  initData: CategoryArchivePageData;
   slug: string;
 }
 
