@@ -6,6 +6,7 @@ import ArticlesView from "components/ArticlesView";
 
 export enum ArchivePageType {
   Time,
+  Author,
   Category,
   Tag,
 }

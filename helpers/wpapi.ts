@@ -121,6 +121,16 @@ export async function getCategoryAsync(
     .pageNumber(pageNumber);
 }
 
+export async function getAuthorAsync(
+  authorSlug: string,
+  pageNumber: number,
+): Promise<AuthorArchivePageData> {
+  return wpTsdJson
+    .author()
+    .authorSlug(authorSlug)
+    .pageNumber(pageNumber);
+}
+
 export function getPostLocalDate(post: Post): moment.Moment {
   const date = moment.utc(post.postDateGmt);
   return date;
