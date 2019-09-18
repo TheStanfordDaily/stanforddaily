@@ -22,7 +22,14 @@ export const RightListedSection: React.ElementType = (props: SectionProps) => {
     <RView WebTag={SectionTag} NativeTag={SectionTag} {...remainingProps}>
       <RView style={innerStyle} rStyle={innerRStyle}>
         {sectionTitle && (
-          <SectionTitle style={sectionTitleStyle}>{sectionTitle}</SectionTitle>
+          <SectionTitle
+            style={{
+              textAlign: "center",
+              ...sectionTitleStyle,
+            }}
+          >
+            {sectionTitle}
+          </SectionTitle>
         )}
         {content.map(post => (
           <ListStyleArticle

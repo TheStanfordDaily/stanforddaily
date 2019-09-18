@@ -11,7 +11,7 @@ export const ArtsAndLifeSection: React.ElementType = ({
 }: SectionProps) => {
   return (
     <RView WebTag={Section} NativeTag={Section} {...props}>
-      <SectionTitle>arts and life</SectionTitle>
+      <SectionTitle style={{ textAlign: "center" }}>arts and life</SectionTitle>
       <SideThumbnailArticle post={content[0]} />
       <SideThumbnailArticle post={content[1]} />
       <SideThumbnailArticle post={content[2]} />
