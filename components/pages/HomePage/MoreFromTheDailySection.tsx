@@ -21,7 +21,6 @@ export const MoreFromTheDailySection: React.ElementType = ({
         getExtraPosts={async pageNumber => {
           return getHomeMoreAsync(pageNumber);
         }}
-        displayCategory
       />
     </Section>
   );

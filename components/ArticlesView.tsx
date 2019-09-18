@@ -15,7 +15,7 @@ interface ArticlesViewProps {
 const ArticlesView: React.ElementType<ArticlesViewProps> = ({
   initPosts,
   getExtraPosts,
-  displayCategory = false,
+  displayCategory = true,
 }: ArticlesViewProps) => {
   const [extraPosts, setExtraPosts]: [Post[], any] = React.useState([]);
   const [extraPageNumber, setExtraPageNumber]: [number, any] = React.useState(

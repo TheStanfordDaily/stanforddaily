@@ -15,7 +15,7 @@ import { ArticleTitleWithLink } from "./ArticleTitleWithLink";
 export const TextOnlyArticle: React.ElementType = ({
   post,
   style,
-  displayCategory = false,
+  displayCategory = true,
 }: ArticleProps) => {
   const { tsdPrimaryCategory, tsdAuthors } = post;
   const date = getPostLocalDate(post);

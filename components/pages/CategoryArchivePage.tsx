@@ -49,6 +49,7 @@ export default class CategoryArchivePage extends React.Component<
       >
         <Text>{initData.meta.title}</Text>
         <ArchivePage
+          displayCategory={false}
           initData={initData}
           type={ArchivePageType.Category}
           getExtraData={async pageNumber => {

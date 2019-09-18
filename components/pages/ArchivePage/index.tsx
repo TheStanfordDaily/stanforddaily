@@ -15,6 +15,7 @@ export interface ArchivePageProps {
   type: ArchivePageType;
   initData: ArchivePageData;
   getExtraData: (pageNumber: number) => Promise<ArchivePageData>;
+  displayCategory?: boolean;
 }
 
 export interface ArchivePageState {}
@@ -28,13 +29,14 @@ export default class ArchivePage extends React.Component<
   }
 
   render(): React.ReactNode {
-    const { initData, getExtraData } = this.props;
+    const { initData, getExtraData, displayCategory } = this.props;
     if (!initData) {
       return <LoadingView />;
     }
 
     return (
       <ArticlesView
+        displayCategory={displayCategory}
         initPosts={initData.posts}
         getExtraPosts={async pageNumber => {
           const extraData = await getExtraData(pageNumber);
