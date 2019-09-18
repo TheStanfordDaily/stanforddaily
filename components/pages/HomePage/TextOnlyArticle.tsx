@@ -1,11 +1,11 @@
 import React from "react";
 import { Text, View } from "react-native";
 import RView, { MediaRule } from "emotion-native-media-query";
-import Link from "next/link";
 import { BREAKPOINTS, FONTS, STANFORD_COLORS } from "helpers/constants";
-import { getPostLocalDate, getNextJsCategoryPath } from "helpers/wpapi";
+import { getPostLocalDate } from "helpers/wpapi";
 import { SECTION_PADDING } from "components/Section";
 import { Article, ArticleHeader } from "components/Article";
+import { CategoryLink } from "components/CategoryLink";
 import { AuthorView } from "./AuthorView";
 import { PostExcerpt } from "./PostExcerpt";
 import { ArticleProps } from "./ArticleProps";
@@ -54,18 +54,7 @@ export const TextOnlyArticle: React.ElementType = ({
               padding: SECTION_PADDING,
             }}
           >
-            <Text
-              style={{
-                ...FONTS.AUXILIARY,
-              }}
-            >
-              <Link
-                href={getNextJsCategoryPath(tsdPrimaryCategory.url)}
-                as={tsdPrimaryCategory.url}
-              >
-                <a title={tsdPrimaryCategory.name}>{tsdPrimaryCategory.name}</a>
-              </Link>
-            </Text>
+            <CategoryLink category={tsdPrimaryCategory} />
           </View>
         )}
         <ThumbnailImageWithLink
