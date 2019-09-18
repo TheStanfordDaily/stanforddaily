@@ -103,6 +103,10 @@ export async function getPostAsync(
   );
 }
 
+export async function getPageAsync(slug: string): Promise<Post> {
+  return wpTsdJson.page().pageSlug(encodeURIComponent(slug));
+}
+
 export async function getHomeAsync(): Promise<Home> {
   return wpTsdJson.home();
 }

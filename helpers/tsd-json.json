@@ -33,6 +33,11 @@
       "methods": ["GET"],
       "endpoints": [{ "methods": ["GET"], "args": [] }]
     },
+    "/tsd/json/v1/page/(?P<pageSlug>[\\S]+)": {
+      "namespace": "tsd/json/v1",
+      "methods": ["GET"],
+      "endpoints": [{ "methods": ["GET"], "args": [] }]
+    },
     "/tsd/json/v1/category/(?P<categorySlugs>[\\S]+)/(?P<pageNumber>\\d+)": {
       "namespace": "tsd/json/v1",
       "methods": ["GET"],
