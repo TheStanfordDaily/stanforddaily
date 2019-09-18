@@ -113,12 +113,12 @@ export async function getHomeMoreAsync(
 }
 
 export async function getCategoryAsync(
-  categorySlug: string,
+  categorySlugs: string[],
   pageNumber: number,
 ): Promise<CategoryArchivePageData> {
   return wpTsdJson
     .category()
-    .categorySlug(categorySlug)
+    .categorySlugs(categorySlugs.join("/"))
     .pageNumber(pageNumber);
 }
 

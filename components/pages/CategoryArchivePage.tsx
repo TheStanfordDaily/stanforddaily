@@ -10,15 +10,20 @@ import ArchivePage, {
 } from "./ArchivePage";
 
 async function _getCategoryData(
-  slug: string,
+  slugs: string[],
   pageNumber: number,
 ): Promise<CategoryArchivePageData> {
-  return getCategoryAsync(slug, pageNumber);
+  return getCategoryAsync(slugs, pageNumber);
 }
 
 interface CategoryArchivePageProps extends ArchivePageProps {
   initData: CategoryArchivePageData;
-  slug: string;
+  slugs: string[];
+}
+
+function _getSlugs(query: any): string[] {
+  const { slug1, slug2, slug3, slug4, slug5 } = query;
+  return [slug1, slug2, slug3, slug4, slug5].filter(Boolean);
 }
 
 export default class CategoryArchivePage extends React.Component<
@@ -27,14 +32,14 @@ export default class CategoryArchivePage extends React.Component<
 > {
   static async getInitialProps(param): Promise<any> {
     const { query } = param;
-    const { slug } = query;
-    const categoryData = await _getCategoryData(slug, 1);
+    const slugs = _getSlugs(query);
+    const categoryData = await _getCategoryData(slugs, 1);
 
-    return { initData: categoryData, slug };
+    return { initData: categoryData, slugs };
   }
 
   render(): React.ReactNode {
-    const { initData, slug } = this.props;
+    const { initData, slugs } = this.props;
     return (
       <Section
         style={{
@@ -47,7 +52,7 @@ export default class CategoryArchivePage extends React.Component<
           initData={initData}
           type={ArchivePageType.Category}
           getExtraData={async pageNumber => {
-            return _getCategoryData(slug, pageNumber);
+            return _getCategoryData(slugs, pageNumber);
           }}
           {...this.props}
         />
