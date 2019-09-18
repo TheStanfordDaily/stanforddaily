@@ -11,15 +11,29 @@ export const RightListedSection: React.ElementType = (props: SectionProps) => {
     sectionTitle,
     SectionTag = Section,
     displayAuthor = true,
+    innerStyle,
+    innerRStyle,
+    titleStyle,
+    authorStyle,
+    sectionTitleStyle,
     ...remainingProps
   } = props;
   return (
     <RView WebTag={SectionTag} NativeTag={SectionTag} {...remainingProps}>
-      {sectionTitle && <SectionTitle>{sectionTitle}</SectionTitle>}
-      <ListStyleArticle displayAuthor={displayAuthor} post={content[0]} />
-      <ListStyleArticle displayAuthor={displayAuthor} post={content[1]} />
-      <ListStyleArticle displayAuthor={displayAuthor} post={content[2]} />
-      <ListStyleArticle displayAuthor={displayAuthor} post={content[3]} />
+      <RView style={innerStyle} rStyle={innerRStyle}>
+        {sectionTitle && (
+          <SectionTitle style={sectionTitleStyle}>{sectionTitle}</SectionTitle>
+        )}
+        {content.map(post => (
+          <ListStyleArticle
+            key={post.id}
+            displayAuthor={displayAuthor}
+            post={post}
+            titleStyle={titleStyle}
+            authorStyle={authorStyle}
+          />
+        ))}
+      </RView>
     </RView>
   );
 };
