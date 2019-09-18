@@ -4,11 +4,14 @@ import { AuthorView } from "./AuthorView";
 import { ArticleProps } from "./ArticleProps";
 import { ArticleTitleWithLink } from "./ArticleTitleWithLink";
 
-export const ListStyleArticle: React.ElementType = ({ post }: ArticleProps) => {
+export const ListStyleArticle: React.ElementType = ({
+  post,
+  displayAuthor = true,
+}: ArticleProps) => {
   const { tsdAuthors } = post;
   return (
     <Article post={post}>
-      <AuthorView authors={tsdAuthors} />
+      {displayAuthor && <AuthorView authors={tsdAuthors} />}
       <ArticleHeader>
         <ArticleTitleWithLink post={post} marginBottomMore />
       </ArticleHeader>

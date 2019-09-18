@@ -183,7 +183,7 @@ export default class HomePage extends React.Component<IndexProps, IndexState> {
                   },
                 }}
               />
-              <SponsoredSection content={[]} />
+              <SponsoredSection content={homePosts.sponsored} />
             </Column>
           </DesktopRow>
           <MultimediaSection

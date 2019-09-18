@@ -1,6 +1,5 @@
 import React from "react";
-import { Section } from "components/Section";
-import { SectionTitle } from "./SectionTitle";
+import { RightListedSection } from "./RightListedSection";
 import { SectionProps } from "./SectionProps";
 
 export const SponsoredSection: React.ElementType = ({
@@ -8,12 +7,11 @@ export const SponsoredSection: React.ElementType = ({
   ...props
 }: SectionProps) => {
   return (
-    <Section
-      style={{
-        height: 300,
-      }}
-    >
-      <SectionTitle>sponsored content</SectionTitle>
-    </Section>
+    <RightListedSection
+      displayAuthor={false}
+      content={content}
+      sectionTitle="Sponsored Content"
+      {...props}
+    />
   );
 };

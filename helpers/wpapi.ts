@@ -10,6 +10,7 @@ export type Home = {
   opinions: Post[];
   theGrind: Post[];
   artsAndLife: Post[];
+  sponsored: Post[];
   moreFromTheDaily: Post[];
 };
 
