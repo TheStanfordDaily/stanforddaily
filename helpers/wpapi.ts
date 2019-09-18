@@ -145,3 +145,13 @@ export function getPostPath(post: Post): string {
   const { tsdUrlParameters } = post;
   return `/${tsdUrlParameters.year}/${tsdUrlParameters.month}/${tsdUrlParameters.day}/${tsdUrlParameters.slug}/`;
 }
+
+export function getNextJsCategoryPath(categoryUrl: string): string {
+  const categorySlugs = categoryUrl.split("/");
+  const categoryLevel = categorySlugs.length - 3; // Remove beginning `"/"`, `"category/"`, and trailing `"/"`
+  let nextJsCategoryPath = "/category";
+  for (let index = 1; index <= categoryLevel; index += 1) {
+    nextJsCategoryPath += `/[slug${index}]`;
+  }
+  return nextJsCategoryPath;
+}
