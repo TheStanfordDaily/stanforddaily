@@ -1,5 +1,4 @@
 import React from "react";
-import { getPageAsync } from "helpers/wpapi";
 import PagePage from "components/pages/PagePage";
 
 export default class FirstLevelPage extends React.Component<any, any> {
