@@ -21,7 +21,9 @@ export const CategoryLink: React.ElementType<CategoryLinkProps> = ({
       }}
     >
       <Link href={getNextJsCategoryPath(category.url)} as={category.url}>
-        <a title={category.name}>{category.name}</a>
+        <a title={category.name} style={{ color: "inherit" }}>
+          {category.name}
+        </a>
       </Link>
     </Text>
   );
