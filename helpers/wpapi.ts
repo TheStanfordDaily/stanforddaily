@@ -92,12 +92,15 @@ export async function getPostAsync(
   day: string,
   slug: string,
 ): Promise<Post> {
-  return wpTsdJson
-    .posts()
-    .postyear(year)
-    .postmonth(month)
-    .postday(day)
-    .postslug(slug);
+  return (
+    wpTsdJson
+      .posts()
+      .postYear(year)
+      .postMonth(month)
+      .postDay(day)
+      // We have to encode it for cases such as https://www.stanforddaily.com/2019/05/09/dont-miss-cap-and-gowns-spring-brunch%ef%bb%bf-featuring-a-guest-from-the-san-francisco-49ers/
+      .postSlug(encodeURIComponent(slug))
+  );
 }
 
 export async function getHomeAsync(): Promise<Home> {
@@ -119,7 +122,7 @@ export async function getCategoryAsync(
 ): Promise<CategoryArchivePageData> {
   return wpTsdJson
     .category()
-    .categorySlugs(categorySlugs.join("/"))
+    .categorySlugs(categorySlugs.map(encodeURIComponent).join("/"))
     .pageNumber(pageNumber);
 }
 
@@ -129,7 +132,7 @@ export async function getAuthorAsync(
 ): Promise<AuthorArchivePageData> {
   return wpTsdJson
     .author()
-    .authorSlug(authorSlug)
+    .authorSlug(encodeURIComponent(authorSlug))
     .pageNumber(pageNumber);
 }
 

@@ -28,7 +28,7 @@
       "methods": ["GET"],
       "endpoints": [{ "methods": ["GET"], "args": [] }]
     },
-    "/tsd/json/v1/posts/(?P<postyear>\\d{4})/(?P<postmonth>\\d{2})/(?P<postday>\\d{2})/(?P<postslug>[\\w-]+)": {
+    "/tsd/json/v1/posts/(?P<postYear>\\d{4})/(?P<postMonth>\\d{2})/(?P<postDay>\\d{2})/(?P<postSlug>[\\S]+)": {
       "namespace": "tsd/json/v1",
       "methods": ["GET"],
       "endpoints": [{ "methods": ["GET"], "args": [] }]
