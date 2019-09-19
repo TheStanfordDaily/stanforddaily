@@ -12,8 +12,9 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
-    "build": "EXPO_DEBUG=true expo build:web",
-    "now-build": "EXPO_DEBUG=true expo build:web"
+    "mymybuild": "rm -rf node_modules/@expo/xdl && git clone https://github.com/hesyifei/_xdl-test.git ./node_modules/@expo/xdl",
+    "build": "yarn mymybuild && EXPO_DEBUG=true yarn expo build:web",
+    "now-build": "yarn mymybuild && EXPO_DEBUG=true yarn expo build:web"
   },
   "dependencies": {
     "@emotion/babel-preset-css-prop": "^10.0.14",
