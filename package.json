@@ -12,9 +12,8 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
-    "mymybuild": "rm -rf node_modules/@expo/xdl && git clone https://github.com/hesyifei/_xdl-test.git ./node_modules/@expo/xdl",
-    "build": "yarn mymybuild && EXPO_DEBUG=true yarn expo build:web",
-    "now-build": "yarn mymybuild && EXPO_DEBUG=true yarn expo build:web"
+    "build": "EXPO_DEBUG=true yarn expo build:web",
+    "now-build": "EXPO_DEBUG=true yarn expo build:web"
   },
   "dependencies": {
     "@emotion/babel-preset-css-prop": "^10.0.14",
@@ -58,7 +57,7 @@
     "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-react": "^7.14.3",
     "eslint-plugin-react-hooks": "^1.7.0",
-    "expo-cli": "^3.0.10",
+    "expo-cli": "^3.1.0",
     "husky": ">=1",
     "lint-staged": ">=8",
     "prettier": "^1.18.2",
