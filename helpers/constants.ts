@@ -19,11 +19,12 @@ export const STRINGS = {
   _MAIN_ONLY_QUERY: "_main-only",
 };
 
+// TODO: CHANGE MOBILE FONTS TOO
 export const FONTS: any = {
   ARTICLE_TITLE:
     Platform.OS === "web"
       ? {
-          fontFamily: "'Faune', sans-serif",
+          fontFamily: "'Libre Baskerville', sans-serif",
           fontWeight: "bold",
           fontSize: 15,
           lineHeight: 1,
@@ -35,7 +36,7 @@ export const FONTS: any = {
   SECTION_TITLE:
     Platform.OS === "web"
       ? {
-          fontFamily: "'Faune', sans-serif",
+          fontFamily: "'Libre Baskerville', sans-serif",
           fontWeight: 900,
           fontSize: 15,
           lineHeight: 1,
@@ -47,7 +48,7 @@ export const FONTS: any = {
   CONTENT:
     Platform.OS === "web"
       ? {
-          fontFamily: "'Public Sans Web', sans-serif",
+          fontFamily: "'PT Serif', sans-serif",
         }
       : {
           fontFamily: "PublicSans-Regular",
