@@ -1,7 +1,9 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View } from "react-native";
+import Link from "next/link";
+import styled from "@emotion/native";
 import RView, { MediaRule } from "emotion-native-media-query";
-import { STANFORD_COLORS, BREAKPOINTS } from "helpers/constants";
+import { STANFORD_COLORS, BREAKPOINTS, FONTS } from "helpers/constants";
 import { Category } from "helpers/wpapi";
 import { SECTION_PADDING } from "./Section";
 import { CategoryLink } from "./CategoryLink";
@@ -288,52 +290,121 @@ export const FooterContent: React.ElementType = ({ itemStyle }: any) => {
     },
   };
 
-  return (
+  const BottomText = styled.Text({
+    ...FONTS.AUXILIARY,
+    color: STANFORD_COLORS.WHITE,
+  });
+
+  const BottomLine: React.ElementType = props => (
     <RView
       style={{
-        padding: SECTION_PADDING,
+        textAlign: "center",
       }}
       rStyle={{
         [MediaRule.MinWidth]: {
-          [BREAKPOINTS.TABLET]: {
-            marginTop: SECTION_PADDING,
-            height: 300,
-            flexWrap: "wrap",
+          [BREAKPOINTS.DESKTOP]: {
+            justifyContent: "space-between",
+            flexDirection: "row",
           },
         },
       }}
+      {...props}
+    />
+  );
+
+  return (
+    <View
+      style={{
+        padding: SECTION_PADDING,
+      }}
     >
-      {Object.values(categoryList).map(category => {
-        return (
-          <View
-            key={category.id}
-            style={{
-              marginBottom: SECTION_PADDING,
-            }}
-          >
-            <CategoryLink
-              category={category}
+      <RView
+        rStyle={{
+          [MediaRule.MinWidth]: {
+            [BREAKPOINTS.TABLET]: {
+              marginTop: SECTION_PADDING,
+              height: 300,
+              flexWrap: "wrap",
+            },
+          },
+        }}
+      >
+        {Object.values(categoryList).map(category => {
+          return (
+            <View
+              key={category.id}
               style={{
-                color: STANFORD_COLORS.WHITE,
-                fontSize: 16,
-                fontWeight: "bold",
+                marginBottom: SECTION_PADDING,
               }}
-            />
-            {Object.values(category.children).map(subCategory => {
-              return (
-                <CategoryLink
-                  key={subCategory.id}
-                  category={subCategory}
-                  style={{
-                    color: STANFORD_COLORS.WHITE,
-                    textTransform: "none",
-                  }}
-                />
-              );
-            })}
-          </View>
-        );
-      })}
-    </RView>
+            >
+              <CategoryLink
+                category={category}
+                style={{
+                  color: STANFORD_COLORS.WHITE,
+                  fontSize: 16,
+                  fontWeight: "bold",
+                }}
+              />
+              {Object.values(category.children).map(subCategory => {
+                return (
+                  <CategoryLink
+                    key={subCategory.id}
+                    category={subCategory}
+                    style={{
+                      color: STANFORD_COLORS.WHITE,
+                      textTransform: "none",
+                    }}
+                  />
+                );
+              })}
+            </View>
+          );
+        })}
+      </RView>
+      <View>
+        <BottomLine>
+          <BottomText style={{ fontWeight: "bold" }}>
+            © 2019 The Stanford Daily Publishing Corporation.
+          </BottomText>
+          <BottomText style={{ fontWeight: "bold" }}>
+            <Link href="/[year]/" as="/privacy-policy/">
+              <a style={{ color: "inherit" }}>Privacy Policy</a>
+            </Link>{" "}
+            |{" "}
+            <a
+              style={{ color: "inherit" }}
+              href="https://app.stanforddaily.com"
+            >
+              Mobile App
+            </a>
+          </BottomText>
+        </BottomLine>
+        <BottomLine>
+          <BottomText style={{ textTransform: "none" }}>
+            Proudly powered by{" "}
+            <a style={{ color: "inherit" }} href="https://wordpress.org/">
+              WordPress
+            </a>{" "}
+            and{" "}
+            <a style={{ color: "inherit" }} href="https://expo.io/">
+              Expo
+            </a>{" "}
+            | Theme by{" "}
+            <a
+              style={{ color: "inherit" }}
+              href="https://github.com/TheStanfordDaily/"
+            >
+              TSD Tech Team
+            </a>
+          </BottomText>
+          <BottomText style={{ textTransform: "none" }}>
+            Support The Stanford Daily when you shop on{" "}
+            <a style={{ color: "inherit" }} href="https://smile.amazon.com/">
+              Amazon
+            </a>
+          </BottomText>
+        </BottomLine>
+      </View>
+    </View>
   );
 };
