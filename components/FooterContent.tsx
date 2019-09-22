@@ -373,10 +373,16 @@ export const FooterContent: React.ElementType = ({ itemStyle }: any) => {
           </BottomText>
           <BottomText style={{ fontWeight: "bold" }}>
             <Link href="/[year]/" as="/privacy-policy/">
-              <a style={bottomLinkStyle}>Privacy Policy</a>
+              <a style={bottomLinkStyle} title="Privacy Policy">
+                Privacy Policy
+              </a>
             </Link>{" "}
             |{" "}
-            <a style={bottomLinkStyle} href="https://app.stanforddaily.com">
+            <a
+              style={bottomLinkStyle}
+              href="https://app.stanforddaily.com"
+              title="Mobile App"
+            >
               Mobile App
             </a>
           </BottomText>
@@ -384,24 +390,33 @@ export const FooterContent: React.ElementType = ({ itemStyle }: any) => {
         <BottomLine>
           <BottomText style={{ textTransform: "none" }}>
             Proudly powered by{" "}
-            <a style={bottomLinkStyle} href="https://wordpress.org/">
+            <a
+              style={bottomLinkStyle}
+              href="https://wordpress.org/"
+              title="WordPress"
+            >
               WordPress
             </a>{" "}
             and{" "}
-            <a style={bottomLinkStyle} href="https://expo.io/">
+            <a style={bottomLinkStyle} href="https://expo.io/" title="Expo">
               Expo
             </a>{" "}
             | Theme by{" "}
             <a
               style={bottomLinkStyle}
               href="https://github.com/TheStanfordDaily/"
+              title="The Stanford Daily Tech Team"
             >
               TSD Tech Team
             </a>
           </BottomText>
           <BottomText style={{ textTransform: "none" }}>
             Support The Stanford Daily when you shop on{" "}
-            <a style={bottomLinkStyle} href="https://smile.amazon.com/">
+            <a
+              style={bottomLinkStyle}
+              href="https://smile.amazon.com/"
+              title="Amazon Smile"
+            >
               Amazon
             </a>
           </BottomText>
