@@ -3,7 +3,12 @@ import { Global } from "@emotion/core";
 import { DiscussionEmbed, CommentCount } from "disqus-react";
 import RView from "emotion-native-media-query";
 import { getPostLocalDate, Post } from "helpers/wpapi";
-import { STRINGS, BREAKPOINTS, FONTS } from "helpers/constants";
+import {
+  STRINGS,
+  BREAKPOINTS,
+  FONTS,
+  STANFORD_COLORS,
+} from "helpers/constants";
 import { SectionStyle } from "components/Section";
 import { Article, ArticleHeader } from "components/Article";
 import LoadingView from "components/Loading";
@@ -116,6 +121,13 @@ const ContentView: React.ElementType<ContentViewProps> = ({
                 ...centerContentStyle,
                 marginBottom: "1.75em",
                 fontSize: "1.3rem",
+              },
+              figcaption: {
+                textAlign: "right",
+                marginTop: 5,
+                color: STANFORD_COLORS.COOL_GREY,
+                fontSize: "1.1rem",
+                fontStyle: "italic",
               },
               figure: {
                 margin: "0 auto",
