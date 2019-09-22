@@ -24,7 +24,9 @@ export const AuthorView: React.ElementType = ({
           {authors.map((author, index) => (
             <React.Fragment key={author.id}>
               {index > 0 && (authors.length !== 2 ? ", " : " ")}
-              {index > 0 && index === authors.length - 1 && "and "}
+              {index > 0 && index === authors.length - 1 && (
+                <Text style={{ textTransform: "none" }}>and </Text>
+              )}
               <Link href="/author/[slug]" as={author.url}>
                 <a
                   title={author.displayName}
