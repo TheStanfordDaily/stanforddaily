@@ -81,7 +81,7 @@ export type AuthorArchivePageData = ArchivePageData & {
 };
 
 const wp = new WPAPI({
-  endpoint: `${STRINGS.ROOT_URL}/wp-json`,
+  endpoint: `${STRINGS.WP_URL}/wp-json`,
   routes: tsdJson.routes,
 });
 const wpTsdJson = wp.namespace("tsd/json/v1");
