@@ -13,6 +13,7 @@ import {
 } from "helpers/constants";
 import { SectionStyle } from "components/Section";
 import { CategoryList } from "components/CategoryList";
+import { FooterContent } from "components/FooterContent";
 
 const containerRStyle = {
   [MediaRule.MinWidth]: {
@@ -147,7 +148,7 @@ const SiteFooter: React.ElementType = ({ style, ...props }: any) => {
             color: STANFORD_COLORS.WHITE,
           }}
         >
-          <p>Footer here</p>
+          <FooterContent />
         </SectionStyle>
       </RView>
     </footer>
