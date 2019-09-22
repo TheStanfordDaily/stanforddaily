@@ -312,6 +312,11 @@ export const FooterContent: React.ElementType = ({ itemStyle }: any) => {
     />
   );
 
+  const bottomLinkStyle = {
+    color: "inherit",
+    textDecoration: "underline",
+  };
+
   return (
     <View
       style={{
@@ -368,13 +373,10 @@ export const FooterContent: React.ElementType = ({ itemStyle }: any) => {
           </BottomText>
           <BottomText style={{ fontWeight: "bold" }}>
             <Link href="/[year]/" as="/privacy-policy/">
-              <a style={{ color: "inherit" }}>Privacy Policy</a>
+              <a style={bottomLinkStyle}>Privacy Policy</a>
             </Link>{" "}
             |{" "}
-            <a
-              style={{ color: "inherit" }}
-              href="https://app.stanforddaily.com"
-            >
+            <a style={bottomLinkStyle} href="https://app.stanforddaily.com">
               Mobile App
             </a>
           </BottomText>
@@ -382,16 +384,16 @@ export const FooterContent: React.ElementType = ({ itemStyle }: any) => {
         <BottomLine>
           <BottomText style={{ textTransform: "none" }}>
             Proudly powered by{" "}
-            <a style={{ color: "inherit" }} href="https://wordpress.org/">
+            <a style={bottomLinkStyle} href="https://wordpress.org/">
               WordPress
             </a>{" "}
             and{" "}
-            <a style={{ color: "inherit" }} href="https://expo.io/">
+            <a style={bottomLinkStyle} href="https://expo.io/">
               Expo
             </a>{" "}
             | Theme by{" "}
             <a
-              style={{ color: "inherit" }}
+              style={bottomLinkStyle}
               href="https://github.com/TheStanfordDaily/"
             >
               TSD Tech Team
@@ -399,7 +401,7 @@ export const FooterContent: React.ElementType = ({ itemStyle }: any) => {
           </BottomText>
           <BottomText style={{ textTransform: "none" }}>
             Support The Stanford Daily when you shop on{" "}
-            <a style={{ color: "inherit" }} href="https://smile.amazon.com/">
+            <a style={bottomLinkStyle} href="https://smile.amazon.com/">
               Amazon
             </a>
           </BottomText>

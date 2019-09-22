@@ -188,6 +188,7 @@ export default class MyApp extends App {
               },
               "&:hover, &:focus, &:active": {
                 color: COLORS.LINK.HOVER,
+                textDecoration: "underline",
               },
               "&:focus": {
                 outline: "thin dotted",
