@@ -7,6 +7,7 @@ import { STRINGS, BREAKPOINTS, FONTS } from "helpers/constants";
 import { SectionStyle } from "components/Section";
 import { Article, ArticleHeader } from "components/Article";
 import LoadingView from "components/Loading";
+import Head from "next/head";
 
 interface ContentViewProps {
   post: Post;
@@ -46,8 +47,55 @@ const ContentView: React.ElementType<ContentViewProps> = ({
     alt: thumbnailAlt = thumbnailCaption,
   } = thumbnailInfo || {};
 
+  const ExtraHead: React.ElementType = () => {
+    const headContent = [];
+    // TODO: BETTER TITLE AND OTHER SEO THINGS
+    headContent.push(<title key="title">{postTitle}</title>);
+    headContent.push(
+      <link
+        key="wp-block-library-css"
+        rel="stylesheet"
+        id="wp-block-library-css"
+        href={`${STRINGS.WP_URL}/wp-includes/css/dist/block-library/style.min.css?ver=5.2.3"`}
+        type="text/css"
+        media="all"
+      />,
+    );
+    if (postContent.includes("ubergrid")) {
+      headContent.push(
+        <link
+          key="uber-grid-css"
+          rel="stylesheet"
+          id="uber-grid-css"
+          href={`${STRINGS.WP_URL}/wp-content/plugins/uber-grid/assets/css/uber-grid.css?ver=2.9.2`}
+          type="text/css"
+          media="all"
+        />,
+        <link
+          key="uber-grid2-css"
+          rel="stylesheet"
+          id="uber-grid2-css"
+          href={`${STRINGS.WP_URL}/wp-content/plugins/uber-grid/assets/js/uber-grid.css?ver=2.9.2`}
+          type="text/css"
+          media="all"
+        />,
+      );
+    }
+    if (postContent.includes("InteractApp")) {
+      headContent.push(
+        <script
+          key="interact-quiz-embed"
+          type="text/javascript"
+          src={`${STRINGS.WP_URL}/wp-content/plugins/interact-quiz-embed/interact-embed.js?ver=1.0`}
+        />,
+      );
+    }
+    return <Head>{headContent}</Head>;
+  };
+
   return (
     <SectionStyle>
+      <ExtraHead />
       <Article>
         <ArticleHeader>
           <h1
@@ -64,7 +112,7 @@ const ContentView: React.ElementType<ContentViewProps> = ({
           styles={{
             "#main-article-content": {
               ...FONTS.CONTENT,
-              "p, figcaption, #main-article-text div": {
+              "p, figcaption": {
                 ...centerContentStyle,
                 marginBottom: "1.75em",
                 fontSize: "1.3rem",

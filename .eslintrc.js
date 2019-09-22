@@ -32,12 +32,13 @@ module.exports = {
       version: "detect",
     },
     "import/resolver": {
-      "babel-module": require('./module-resolver-config'),
+      "babel-module": require("./module-resolver-config"),
     },
   },
   rules: {
     "prettier/prettier": "error",
     "import/prefer-default-export": "off",
+    "react/prop-types": ["error", { skipUndeclared: true }],
     "react/destructuring-assignment": "off",
     "react/jsx-filename-extension": ["error", { extensions: [".jsx", ".tsx"] }],
     "react/jsx-props-no-spreading": "off",
