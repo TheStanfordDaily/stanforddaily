@@ -48,7 +48,8 @@ export const FONTS: any = {
   CONTENT:
     Platform.OS === "web"
       ? {
-          fontFamily: "'PT Serif', sans-serif",
+          fontFamily: "'Spectral', sans-serif",
+          lineHeight: "1.4em",
         }
       : {
           fontFamily: "PublicSans-Regular",

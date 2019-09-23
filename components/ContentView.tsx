@@ -119,7 +119,7 @@ const ContentView: React.ElementType<ContentViewProps> = ({
               ...FONTS.CONTENT,
               "p, figcaption": {
                 ...centerContentStyle,
-                marginBottom: "1.75em",
+                marginBottom: "1em",
                 fontSize: "1.3rem",
               },
               figcaption: {
