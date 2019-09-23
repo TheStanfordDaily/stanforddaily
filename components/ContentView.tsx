@@ -161,12 +161,18 @@ const ContentView: React.ElementType<ContentViewProps> = ({
           ) : (
             undefined
           )}
-          <p>
-            By{" "}
+          <p
+            style={{
+              ...FONTS.AUXILIARY,
+              fontWeight: "bold",
+            }}
+          >
+            <span style={{ textTransform: "none" }}>By</span>{" "}
             {tsdAuthors.map(author => (
               <span key={author.id}>{author.displayName}, </span>
             ))}
-            on {date.format("MMMM D, YYYY")}
+            <span style={{ textTransform: "none" }}>on</span>{" "}
+            {date.format("MMMM D, YYYY")}
           </p>
           <div
             id="main-article-text"
