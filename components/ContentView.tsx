@@ -9,7 +9,7 @@ import {
   FONTS,
   STANFORD_COLORS,
 } from "helpers/constants";
-import { SectionStyle } from "components/Section";
+import { SectionStyle, SECTION_PADDING } from "components/Section";
 import { Article, ArticleHeader } from "components/Article";
 import LoadingView from "components/Loading";
 import Head from "next/head";
@@ -28,11 +28,8 @@ const ContentView: React.ElementType<ContentViewProps> = ({
   const centerContentStyle = {
     margin: "0 auto",
     width: "100%",
-    [`@media (min-width: ${BREAKPOINTS.TABLET}px)`]: {
-      width: 650,
-    },
     [`@media (min-width: ${BREAKPOINTS.DESKTOP}px)`]: {
-      width: 810,
+      width: 600,
     },
   };
 
@@ -105,9 +102,11 @@ const ContentView: React.ElementType<ContentViewProps> = ({
         <ArticleHeader>
           <h1
             css={{
+              ...centerContentStyle,
               ...FONTS.ARTICLE_TITLE,
               textAlign: "center",
               fontSize: "2.25rem",
+              lineHeight: "1.5em",
             }}
           >
             {postTitle}
@@ -117,6 +116,7 @@ const ContentView: React.ElementType<ContentViewProps> = ({
           styles={{
             "#main-article-content": {
               ...FONTS.CONTENT,
+              marginTop: SECTION_PADDING,
               "p, figcaption": {
                 ...centerContentStyle,
                 marginBottom: "1em",
@@ -132,10 +132,14 @@ const ContentView: React.ElementType<ContentViewProps> = ({
               figure: {
                 margin: "0 auto",
                 width: "initial !important",
+                textAlign: "center",
                 img: {
                   maxWidth: "100%",
                   width: "100%",
                   height: "auto",
+                  [`@media (min-width: ${BREAKPOINTS.DESKTOP}px)`]: {
+                    width: 650,
+                  },
                 },
                 "&#featured-image": {
                   width: "100% !important",
