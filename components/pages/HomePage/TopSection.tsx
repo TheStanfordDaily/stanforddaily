@@ -1,33 +1,38 @@
 import React from "react";
-import { Text, View } from "react-native";
+import { Text, View, Image } from "react-native";
+import { Global, css } from "@emotion/core";
 import RView, { MediaRule } from "emotion-native-media-query";
+import LogoFacebook from "react-ionicons/lib/LogoFacebook";
+import LogoTwitter from "react-ionicons/lib/LogoTwitter";
+import LogoInstagram from "react-ionicons/lib/LogoInstagram";
+import LogoYoutube from "react-ionicons/lib/LogoYoutube";
 import { BREAKPOINTS, STANFORD_COLORS } from "helpers/constants";
 import { SectionStyle } from "components/Section";
 import { OrderedList } from "components/List";
 import { getBorderValue } from "./getBorderValue";
-import { SectionProps } from "./SectionProps";
 import { LinkToArticle } from "./LinkToArticle";
 import { ThumbnailImage } from "./ThumbnailImage";
 
-export const TopSection: React.ElementType = ({
-  content,
-  style,
-}: SectionProps) => {
+export const TopSection: React.ElementType = ({ style }) => {
   const SmallSection: React.ElementType = (sProps: any) => {
     return (
       <View
         style={{
-          marginLeft: 30,
+          marginRight: 30,
           flexDirection: "row",
           alignItems: "center",
         }}
       >
-        <ThumbnailImage
+        <Image
+          resizeMode="cover"
           style={{
             width: 50,
             height: 50,
           }}
-          post={content[0]}
+          source={{
+            uri:
+              "https://www.stanforddaily.com/wp-content/uploads/2018/10/Stanford_School_of_Medicine_Li_Ka_Shing_Center.jpg",
+          }}
         />
         <View
           style={{
@@ -47,6 +52,19 @@ export const TopSection: React.ElementType = ({
       </View>
     );
   };
+  const LogoIconWithLink: React.ElementType = ({ url, LogoComponent }: any) => (
+    <a
+      href={url}
+      target="_blank"
+      rel="noopener noreferrer"
+      style={{
+        display: "inline-flex",
+        marginRight: 20,
+      }}
+    >
+      <LogoComponent className="headerLogoIcon" fontSize="25px" />
+    </a>
+  );
   return (
     <RView
       style={{ ...style }}
@@ -72,33 +90,42 @@ export const TopSection: React.ElementType = ({
           }}
         >
           <View style={{ flexDirection: "row", alignItems: "center" }}>
-            <View style={{ backgroundColor: "#d7b9b9" }}>
-              <Text style={{ color: STANFORD_COLORS.WHITE }}>
-                Top{"\n"}Stories
-              </Text>
-            </View>
-            <OrderedList
-              data={[
-                { title: "Hello World first" },
-                { title: "Welcome World Second" },
-                { title: "Hi World Third" },
-              ]}
-              renderItem={(item: any) => {
-                console.log(item);
-                // TODO: COMPLETE THIS
-                return (
-                  <LinkToArticle post={content[0]}>{item.title}</LinkToArticle>
-                );
-              }}
-              style={{
-                paddingLeft: 30,
+            <SmallSection />
+            <SmallSection />
+            <SmallSection />
+          </View>
+          <View
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+            }}
+          >
+            <Global
+              styles={{
+                ".headerLogoIcon": {
+                  fill: STANFORD_COLORS.CARDINAL_RED,
+                  "&:hover": {
+                    fill: STANFORD_COLORS.BLACK,
+                  },
+                },
               }}
             />
-          </View>
-          <View style={{ flexDirection: "row", alignItems: "center" }}>
-            <SmallSection />
-            <SmallSection />
-            <SmallSection />
+            <LogoIconWithLink
+              url="https://www.facebook.com/stanforddaily/"
+              LogoComponent={LogoFacebook}
+            />
+            <LogoIconWithLink
+              url="https://twitter.com/StanfordDaily"
+              LogoComponent={LogoTwitter}
+            />
+            <LogoIconWithLink
+              url="https://www.instagram.com/stanforddaily/"
+              LogoComponent={LogoInstagram}
+            />
+            <LogoIconWithLink
+              url="https://www.youtube.com/channel/UCWg3QqUzqxXt6herm5sMjNw"
+              LogoComponent={LogoYoutube}
+            />
           </View>
         </View>
       </SectionStyle>

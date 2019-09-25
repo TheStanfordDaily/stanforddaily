@@ -9,7 +9,6 @@ import { getHomeAsync, Home } from "helpers/wpapi";
 import Wrapper from "components/Wrapper";
 import { CategoryList } from "components/CategoryList";
 import LoadingView from "components/Loading";
-import { TopSection } from "./TopSection";
 import { MainSection } from "./MainSection";
 import { LeftSection } from "./LeftSection";
 import { SportsSection } from "./SportsSection";
@@ -93,8 +92,6 @@ export default class HomePage extends React.Component<IndexProps, IndexState> {
           }}
           refreshControl={this.props.refreshControl}
         >
-          {/* TODO: FIX THIS */}
-          <TopSection content={homePosts.featured} />
           <DesktopRow
             style={{
               ...getBorderValue("Bottom"),

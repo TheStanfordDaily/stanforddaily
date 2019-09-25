@@ -12,6 +12,7 @@ import {
   FONTS,
 } from "helpers/constants";
 import { SectionStyle } from "components/Section";
+import { TopSection } from "components/pages/HomePage/TopSection";
 import { CategoryList } from "components/CategoryList";
 import { FooterContent } from "components/FooterContent";
 
@@ -126,6 +127,22 @@ const SiteHeader: React.ElementType = (props: any) => {
       >
         <RView rStyle={containerRStyle}>
           <CategoryList itemStyle={{ color: STANFORD_COLORS.WHITE }} />
+        </RView>
+      </RView>
+      <RView
+        style={{
+          order: 3,
+        }}
+        rStyle={{
+          [MediaRule.MaxWidth]: {
+            [BREAKPOINTS.MAX_WIDTH.TABLET]: {
+              display: "none",
+            },
+          },
+        }}
+      >
+        <RView rStyle={containerRStyle}>
+          <TopSection />
         </RView>
       </RView>
     </RView>

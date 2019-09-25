@@ -83,6 +83,7 @@ export const STANFORD_COLORS = {
   BROWN: "#5E3032",
   SUN: "#EAAB00",
   WHITE: "#FFFFFF",
+  BLACK: "#000000",
 };
 
 export const COLORS = {
