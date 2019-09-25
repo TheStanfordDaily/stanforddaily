@@ -151,6 +151,8 @@ const ContentView: React.ElementType<ContentViewProps> = ({
                 fontSize: "1.3rem",
               },
               figcaption: {
+                ...FONTS.AUXILIARY,
+                textTransform: "none",
                 textAlign: "right",
                 marginTop: 5,
                 color: STANFORD_COLORS.COOL_GREY,
