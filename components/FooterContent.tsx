@@ -318,9 +318,13 @@ export const FooterContent: React.ElementType = ({ itemStyle }: any) => {
   };
 
   return (
-    <View
-      style={{
-        padding: SECTION_PADDING,
+    <RView
+      rStyle={{
+        [MediaRule.MinWidth]: {
+          [BREAKPOINTS.TABLET]: {
+            padding: SECTION_PADDING,
+          },
+        },
       }}
     >
       <RView
@@ -422,6 +426,6 @@ export const FooterContent: React.ElementType = ({ itemStyle }: any) => {
           </BottomText>
         </BottomLine>
       </View>
-    </View>
+    </RView>
   );
 };
