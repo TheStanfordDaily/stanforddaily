@@ -1,16 +1,14 @@
 import React from "react";
 import { Text, View, Image } from "react-native";
-import { Global, css } from "@emotion/core";
+import Link from "next/link";
+import { Global } from "@emotion/core";
 import RView, { MediaRule } from "emotion-native-media-query";
 import LogoFacebook from "react-ionicons/lib/LogoFacebook";
 import LogoTwitter from "react-ionicons/lib/LogoTwitter";
 import LogoInstagram from "react-ionicons/lib/LogoInstagram";
 import LogoYoutube from "react-ionicons/lib/LogoYoutube";
-import { BREAKPOINTS, STANFORD_COLORS } from "helpers/constants";
+import { BREAKPOINTS, STANFORD_COLORS, FONTS } from "helpers/constants";
 import { SectionStyle } from "components/Section";
-import { OrderedList } from "components/List";
-import { LinkToArticle } from "./LinkToArticle";
-import { ThumbnailImage } from "./ThumbnailImage";
 
 export const TopSection: React.ElementType = ({ style }) => {
   const SmallSection: React.ElementType = (sProps: any) => {
@@ -120,6 +118,20 @@ export const TopSection: React.ElementType = ({ style }) => {
               url="https://www.youtube.com/channel/UCWg3QqUzqxXt6herm5sMjNw"
               LogoComponent={LogoYoutube}
             />
+            <Link href="/[year]/" as="/email-digests/">
+              <a
+                title="Email Digest"
+                style={{
+                  ...FONTS.AUXILIARY,
+                  color: STANFORD_COLORS.WHITE,
+                  backgroundColor: STANFORD_COLORS.CARDINAL_RED,
+                  letterSpacing: 1.5,
+                  padding: 10,
+                }}
+              >
+                Email Digest
+              </a>
+            </Link>
           </View>
         </View>
       </SectionStyle>
