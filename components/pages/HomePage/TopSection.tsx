@@ -9,7 +9,6 @@ import LogoYoutube from "react-ionicons/lib/LogoYoutube";
 import { BREAKPOINTS, STANFORD_COLORS } from "helpers/constants";
 import { SectionStyle } from "components/Section";
 import { OrderedList } from "components/List";
-import { getBorderValue } from "./getBorderValue";
 import { LinkToArticle } from "./LinkToArticle";
 import { ThumbnailImage } from "./ThumbnailImage";
 
@@ -69,11 +68,6 @@ export const TopSection: React.ElementType = ({ style }) => {
     <RView
       style={{ ...style }}
       rStyle={{
-        [MediaRule.MinWidth]: {
-          [BREAKPOINTS.DESKTOP]: {
-            ...getBorderValue("Top"),
-          },
-        },
         [MediaRule.MaxWidth]: {
           [BREAKPOINTS.MAX_WIDTH.DESKTOP]: {
             display: "none",

@@ -96,13 +96,6 @@ export default class HomePage extends React.Component<IndexProps, IndexState> {
             style={{
               ...getBorderValue("Bottom"),
             }}
-            rStyle={{
-              [MediaRule.MinWidth]: {
-                [BREAKPOINTS.TABLET]: {
-                  ...getBorderValue("Top"),
-                },
-              },
-            }}
           >
             <Column
               style={{

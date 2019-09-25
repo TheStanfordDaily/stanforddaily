@@ -12,6 +12,7 @@ import {
   FONTS,
 } from "helpers/constants";
 import { SectionStyle } from "components/Section";
+import { getBorderValue } from "components/pages/HomePage/getBorderValue";
 import { TopSection } from "components/pages/HomePage/TopSection";
 import { CategoryList } from "components/CategoryList";
 import { FooterContent } from "components/FooterContent";
@@ -87,6 +88,11 @@ const SiteHeader: React.ElementType = (props: any) => {
         backgroundColor: STANFORD_COLORS.WHITE,
       }}
       rStyle={{
+        [MediaRule.MinWidth]: {
+          [BREAKPOINTS.TABLET]: {
+            ...getBorderValue("Bottom"),
+          },
+        },
         [MediaRule.MaxWidth]: {
           [BREAKPOINTS.MAX_WIDTH.TABLET]: {
             position: "sticky",
@@ -134,6 +140,11 @@ const SiteHeader: React.ElementType = (props: any) => {
           order: 3,
         }}
         rStyle={{
+          [MediaRule.MinWidth]: {
+            [BREAKPOINTS.DESKTOP]: {
+              ...getBorderValue("Top"),
+            },
+          },
           [MediaRule.MaxWidth]: {
             [BREAKPOINTS.MAX_WIDTH.TABLET]: {
               display: "none",
