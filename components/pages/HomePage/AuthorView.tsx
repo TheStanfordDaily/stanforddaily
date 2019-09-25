@@ -7,6 +7,7 @@ import { Author } from "helpers/wpapi";
 export const AuthorView: React.ElementType = ({
   authors,
   style,
+  containerStyle,
   ...props
 }: {
   authors: Author[];
@@ -14,7 +15,7 @@ export const AuthorView: React.ElementType = ({
 }) => {
   if (Platform.OS === "web") {
     return (
-      <View>
+      <View style={containerStyle}>
         <Text
           style={{
             ...FONTS.AUXILIARY,

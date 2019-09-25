@@ -71,12 +71,16 @@ export const TextOnlyArticle: React.ElementType = ({
             <ArticleTitleWithLink post={post} />
           </ArticleHeader>
           <PostExcerpt post={post} />
-          <View>
-            <AuthorView authors={tsdAuthors} />
+          <Text>
+            <AuthorView
+              authors={tsdAuthors}
+              containerStyle={{ display: "inline-flex" }}
+            />{" "}
+            •{" "}
             <Text style={{ ...FONTS.AUXILIARY }}>
               {date.format("MMM DD YYYY")}
             </Text>
-          </View>
+          </Text>
         </View>
       </Article>
     </RView>
