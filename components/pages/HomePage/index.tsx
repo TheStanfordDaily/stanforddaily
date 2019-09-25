@@ -176,12 +176,12 @@ export default class HomePage extends React.Component<IndexProps, IndexState> {
               <SponsoredSection content={homePosts.sponsored} />
             </Column>
           </DesktopRow>
-          <MultimediaSection
+          {/* <MultimediaSection
             content={[]}
             style={{
               ...getBorderValue("Bottom"),
             }}
-          />
+          /> */}
           <MoreFromTheDailySection content={homePosts.moreFromTheDaily} />
         </ScrollView>
       </>
