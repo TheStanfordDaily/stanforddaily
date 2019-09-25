@@ -34,8 +34,8 @@ const ArticlesView: React.ElementType<ArticlesViewProps> = ({
         flexWrap: "wrap",
         flexDirection: "row",
         // Offset the leftmost and rightmost articles' margin
-        marginLeft: -SECTION_PADDING / 2,
-        marginRight: -SECTION_PADDING / 2,
+        marginLeft: -SECTION_PADDING,
+        marginRight: -SECTION_PADDING,
       }}
     >
       {initPosts.concat(extraPosts).map(post => (

@@ -25,11 +25,10 @@ export const TextOnlyArticle: React.ElementType = ({
         width: "100%",
         flexGrow: 1,
         flexShrink: 0,
-        flexBasis: 300,
-        marginLeft: SECTION_PADDING / 2,
-        marginRight: SECTION_PADDING / 2,
+        flexBasis: 250,
+        marginLeft: SECTION_PADDING,
+        marginRight: SECTION_PADDING,
         marginBottom: SECTION_PADDING,
-        backgroundColor: STANFORD_COLORS.LIGHT_SANDSTONE,
       }}
       rStyle={{
         [MediaRule.MinWidth]: {
@@ -51,7 +50,7 @@ export const TextOnlyArticle: React.ElementType = ({
         {displayCategory && (
           <View
             style={{
-              padding: SECTION_PADDING,
+              paddingVertical: SECTION_PADDING,
             }}
           >
             <CategoryLink category={tsdPrimaryCategory} />
@@ -65,8 +64,6 @@ export const TextOnlyArticle: React.ElementType = ({
         />
         <View
           style={{
-            paddingLeft: SECTION_PADDING,
-            paddingRight: SECTION_PADDING,
             paddingBottom: SECTION_PADDING,
           }}
         >
