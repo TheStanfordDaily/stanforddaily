@@ -44,6 +44,7 @@ const ContentView: React.ElementType<ContentViewProps> = ({
   const {
     id: postId,
     postTitle,
+    postSubtitle,
     thumbnailInfo,
     tsdAuthors,
     postContent,
@@ -119,6 +120,22 @@ const ContentView: React.ElementType<ContentViewProps> = ({
           >
             {postTitle}
           </h1>
+          {postSubtitle ? (
+            <h2
+              css={{
+                ...centerContentStyle,
+                ...FONTS.ARTICLE_TITLE,
+                textAlign: "center",
+                fontSize: "1.2rem",
+                lineHeight: "1.4em",
+                color: "gray",
+              }}
+            >
+              {postSubtitle}
+            </h2>
+          ) : (
+            undefined
+          )}
         </ArticleHeader>
         <Global
           styles={{
