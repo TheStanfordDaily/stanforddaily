@@ -17,6 +17,7 @@ export const ArtsAndLifeSection: React.ElementType = ({
           source={{
             uri: "/static/sectionHeaders/artsAndLife.png",
           }}
+          accessibilityLabel="Arts & Life"
           resizeMode="contain"
           style={{
             height: 30,
