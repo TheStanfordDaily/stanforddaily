@@ -11,7 +11,8 @@ import {
   STANFORD_COLORS,
   FONTS,
 } from "helpers/constants";
-import { SectionStyle } from "components/Section";
+import IosSearch from "react-ionicons/lib/IosSearch";
+import { SectionStyle, SECTION_PADDING } from "components/Section";
 import { getBorderValue } from "components/pages/HomePage/getBorderValue";
 import { TopSection } from "components/pages/HomePage/TopSection";
 import { CategoryList } from "components/CategoryList";
@@ -81,6 +82,17 @@ const HeaderLogo: React.ElementType = (props: any) => {
 };
 
 const SiteHeader: React.ElementType = (props: any) => {
+  const inputStyle = {
+    display: "inline-flex",
+    color: "#f5f5f5",
+    fontSize: 14,
+    padding: 0,
+    border: 0,
+    outline: 0,
+    boxShadow: "none",
+    background: "0 0",
+  };
+
   return (
     <RView
       WebTag="header"
@@ -131,8 +143,56 @@ const SiteHeader: React.ElementType = (props: any) => {
           },
         }}
       >
-        <RView rStyle={containerRStyle}>
+        <RView
+          style={{
+            flexDirection: "row",
+            alignItems: "center",
+          }}
+          rStyle={containerRStyle}
+        >
           <CategoryList itemStyle={{ color: STANFORD_COLORS.WHITE }} />
+          <RView
+            rStyle={{
+              [MediaRule.MaxWidth]: {
+                [BREAKPOINTS.MAX_WIDTH.DESKTOP]: {
+                  display: "none",
+                },
+              },
+            }}
+          >
+            <form
+              role="search"
+              method="get"
+              action="https://www.stanforddaily.com/"
+              style={{
+                display: "flex",
+                marginRight: SECTION_PADDING,
+              }}
+            >
+              <input
+                type="search"
+                placeholder="Search…"
+                defaultValue=""
+                name="s"
+                id="s"
+                style={{
+                  ...inputStyle,
+                  fontFamily:
+                    "Open Sans,Helvetica Neue,Helvetica,Roboto,Arial,sans-serif",
+                }}
+              />
+              <button
+                type="submit"
+                style={{
+                  ...inputStyle,
+                  paddingLeft: 5,
+                  cursor: "pointer",
+                }}
+              >
+                <IosSearch color="#f5f5f5" />
+              </button>
+            </form>
+          </RView>
         </RView>
       </RView>
       <RView
