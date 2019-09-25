@@ -12,6 +12,7 @@ export const PostExcerpt: React.ElementType = ({
     <Text
       style={{
         ...FONTS.CONTENT,
+        lineHeight: "1.2em",
       }}
     >
       {postExcerpt}
