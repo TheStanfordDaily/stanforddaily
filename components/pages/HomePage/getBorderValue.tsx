@@ -6,7 +6,7 @@ export const getBorderValue = (
   type: "Top" | "Bottom" | "Left" | "Right",
 ): Style => {
   return Platform.OS === "web"
-    ? { [`border${type}`]: `1px solid ${COLORS.BORDER_COLOR}` }
+    ? { [`border${type}`]: `0.5px solid ${COLORS.BORDER_COLOR}` }
     : {
         [`border${type}Color`]: COLORS.BORDER_COLOR,
         [`border${type}Width`]: 1,
