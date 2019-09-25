@@ -60,6 +60,8 @@ export type Post = {
   tsdPrimaryCategory?: Category;
   tagsInput: string[];
   tsdUrlParameters: PostURL;
+  tsdHead?: string;
+  tsdFooter?: string;
   guid: string; // Unique perminlinks (e.g., "https://www.stanforddaily.com/?p=1144743")
 };
 
