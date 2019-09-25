@@ -33,6 +33,14 @@ const ContentView: React.ElementType<ContentViewProps> = ({
     },
   };
 
+  const centerOuterContentStyle = {
+    margin: "0 auto",
+    width: "100%",
+    [`@media (min-width: ${BREAKPOINTS.DESKTOP}px)`]: {
+      width: 650,
+    },
+  };
+
   const {
     id: postId,
     postTitle,
@@ -117,7 +125,10 @@ const ContentView: React.ElementType<ContentViewProps> = ({
             "#main-article-content": {
               ...FONTS.CONTENT,
               marginTop: SECTION_PADDING,
-              "p, figcaption": {
+              "#main-article-text": {
+                ...centerOuterContentStyle,
+              },
+              "p, h1, h2, h3, h4, h5, h6, figcaption": {
                 ...centerContentStyle,
                 marginBottom: "1em",
                 fontSize: "1.3rem",
@@ -134,12 +145,10 @@ const ContentView: React.ElementType<ContentViewProps> = ({
                 width: "initial !important",
                 textAlign: "center",
                 img: {
+                  ...centerOuterContentStyle,
                   maxWidth: "100%",
                   width: "100%",
                   height: "auto",
-                  [`@media (min-width: ${BREAKPOINTS.DESKTOP}px)`]: {
-                    width: 650,
-                  },
                 },
                 "&#featured-image": {
                   width: "100% !important",
