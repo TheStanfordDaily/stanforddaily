@@ -71,7 +71,7 @@ const ArticlesView: React.ElementType<ArticlesViewProps> = ({
           <Text
             style={{
               ...FONTS.AUXILIARY,
-              fontSize: 30,
+              fontSize: 20,
               color: LoadMoreNativeColor,
             }}
           >
