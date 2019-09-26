@@ -4,13 +4,13 @@ import {
   MediaRule,
   isWidthGreaterThanOrEqualTo,
 } from "emotion-native-media-query";
-import Head from "next/head";
-import ReactHtmlParser from "react-html-parser";
 import { BREAKPOINTS } from "helpers/constants";
 import { getHomeAsync, Home } from "helpers/wpapi";
 import Wrapper from "components/Wrapper";
 import { CategoryList } from "components/CategoryList";
 import LoadingView from "components/Loading";
+import WPHead from "components/webHelpers/WPHead";
+import WPFooter from "components/webHelpers/WPFooter.web";
 import { MainSection } from "./MainSection";
 import { LeftSection } from "./LeftSection";
 import { SportsSection } from "./SportsSection";
@@ -87,7 +87,7 @@ export default class HomePage extends React.Component<IndexProps, IndexState> {
 
     return (
       <>
-        <Head>{ReactHtmlParser(homePosts.tsdHead)}</Head>
+        <WPHead base={homePosts} />
         {Platform.OS === "ios" && <CategoryList />}
         <ScrollView
           contentContainerStyle={{
@@ -187,7 +187,7 @@ export default class HomePage extends React.Component<IndexProps, IndexState> {
           /> */}
           <MoreFromTheDailySection content={homePosts.moreFromTheDaily} />
         </ScrollView>
-        {ReactHtmlParser(homePosts.tsdFooter)}
+        <WPFooter base={homePosts} />
       </>
     );
   }

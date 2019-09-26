@@ -3,7 +3,14 @@ import moment from "moment";
 import { STRINGS } from "./constants";
 import tsdJson from "./tsd-json.json";
 
-export type Home = {
+export type Base = {
+  meta: {
+    wpHead?: string; // Elements (scripts, styles, etc.) in `wp_head()`.
+    wpFooter?: string; // Elements (scripts etc.) in `wp_footer()`.
+  };
+};
+
+export type Home = Base & {
   featured: Post[];
   news: Post[];
   sports: Post[];
@@ -12,8 +19,6 @@ export type Home = {
   artsAndLife: Post[];
   sponsored: Post[];
   moreFromTheDaily: Post[];
-  tsdHead: string; // See `Post.tsdHead`
-  tsdFooter: string; // See `Post.tsdFooter`
 };
 
 export type PostURL = {
@@ -47,7 +52,7 @@ export type Thumbnail = {
   alt?: string;
 };
 
-export type Post = {
+export type Post = Base & {
   id: number;
   postDate: string;
   postDateGmt: string;
@@ -62,13 +67,10 @@ export type Post = {
   tsdPrimaryCategory?: Category;
   tagsInput: string[];
   tsdUrlParameters: PostURL;
-  tsdHead?: string; // Elements (scripts, styles, etc.) in `wp_head()`
-  tsdFooter?: string; // Elements (scripts etc.) in `wp_footer()`
   guid: string; // Unique perminlinks (e.g., "https://www.stanforddaily.com/?p=1144743")
 };
 
-export type ArchivePageData = {
-  meta: {};
+export type ArchivePageData = Base & {
   posts: Post[];
 };
 

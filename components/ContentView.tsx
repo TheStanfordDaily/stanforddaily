@@ -1,6 +1,4 @@
 import React from "react";
-import Head from "next/head";
-import ReactHtmlParser from "react-html-parser";
 import { Global } from "@emotion/core";
 import { DiscussionEmbed, CommentCount } from "disqus-react";
 import RView from "emotion-native-media-query";
@@ -14,6 +12,8 @@ import {
 import { SectionStyle, SECTION_PADDING } from "components/Section";
 import { Article, ArticleHeader } from "components/Article";
 import LoadingView from "components/Loading";
+import WPHead from "components/webHelpers/WPHead";
+import WPFooter from "components/webHelpers/WPFooter.web";
 
 interface ContentViewProps {
   post: Post;
@@ -59,13 +59,9 @@ const ContentView: React.ElementType<ContentViewProps> = ({
     alt: thumbnailAlt = thumbnailCaption,
   } = thumbnailInfo || {};
 
-  const ExtraHead: React.ElementType = () => {
-    return <Head>{ReactHtmlParser(post.tsdHead)}</Head>;
-  };
-
   return (
     <SectionStyle>
-      <ExtraHead />
+      <WPHead base={post} />
       <Article>
         <ArticleHeader>
           <h1
@@ -183,7 +179,7 @@ const ContentView: React.ElementType<ContentViewProps> = ({
           }}
         />
       </div>
-      {post.tsdFooter ? ReactHtmlParser(post.tsdFooter) : undefined}
+      <WPFooter base={post} />
     </SectionStyle>
   );
 };
