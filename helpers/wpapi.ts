@@ -60,8 +60,8 @@ export type Post = {
   tsdPrimaryCategory?: Category;
   tagsInput: string[];
   tsdUrlParameters: PostURL;
-  tsdHead?: string;
-  tsdFooter?: string;
+  tsdHead?: string; // Elements (scripts, styles, etc.) in `wp_head()`
+  tsdFooter?: string; // Elements (scripts etc.) in `wp_footer()`
   guid: string; // Unique perminlinks (e.g., "https://www.stanforddaily.com/?p=1144743")
 };
 

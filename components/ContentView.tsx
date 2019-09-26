@@ -1,4 +1,6 @@
 import React from "react";
+import Head from "next/head";
+import ReactHtmlParser from "react-html-parser";
 import { Global } from "@emotion/core";
 import { DiscussionEmbed, CommentCount } from "disqus-react";
 import RView from "emotion-native-media-query";
@@ -12,7 +14,6 @@ import {
 import { SectionStyle, SECTION_PADDING } from "components/Section";
 import { Article, ArticleHeader } from "components/Article";
 import LoadingView from "components/Loading";
-import Head from "next/head";
 
 interface ContentViewProps {
   post: Post;
@@ -59,49 +60,7 @@ const ContentView: React.ElementType<ContentViewProps> = ({
   } = thumbnailInfo || {};
 
   const ExtraHead: React.ElementType = () => {
-    const headContent = [];
-    // TODO: BETTER TITLE AND OTHER SEO THINGS
-    headContent.push(<title key="title">{postTitle}</title>);
-    headContent.push(
-      <link
-        key="wp-block-library-css"
-        rel="stylesheet"
-        id="wp-block-library-css"
-        href={`${STRINGS.WP_URL}/wp-includes/css/dist/block-library/style.min.css?ver=5.2.3"`}
-        type="text/css"
-        media="all"
-      />,
-    );
-    if (postContent.includes("ubergrid")) {
-      headContent.push(
-        <link
-          key="uber-grid-css"
-          rel="stylesheet"
-          id="uber-grid-css"
-          href={`${STRINGS.WP_URL}/wp-content/plugins/uber-grid/assets/css/uber-grid.css?ver=2.9.2`}
-          type="text/css"
-          media="all"
-        />,
-        <link
-          key="uber-grid2-css"
-          rel="stylesheet"
-          id="uber-grid2-css"
-          href={`${STRINGS.WP_URL}/wp-content/plugins/uber-grid/assets/js/uber-grid.css?ver=2.9.2`}
-          type="text/css"
-          media="all"
-        />,
-      );
-    }
-    if (postContent.includes("InteractApp")) {
-      headContent.push(
-        <script
-          key="interact-quiz-embed"
-          type="text/javascript"
-          src={`${STRINGS.WP_URL}/wp-content/plugins/interact-quiz-embed/interact-embed.js?ver=1.0`}
-        />,
-      );
-    }
-    return <Head>{headContent}</Head>;
+    return <Head>{ReactHtmlParser(post.tsdHead)}</Head>;
   };
 
   return (
