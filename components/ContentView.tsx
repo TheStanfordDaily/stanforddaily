@@ -183,6 +183,7 @@ const ContentView: React.ElementType<ContentViewProps> = ({
           }}
         />
       </div>
+      {post.tsdFooter ? ReactHtmlParser(post.tsdFooter) : undefined}
     </SectionStyle>
   );
 };
