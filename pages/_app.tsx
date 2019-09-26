@@ -17,6 +17,7 @@ import { getBorderValue } from "components/pages/HomePage/getBorderValue";
 import { TopSection } from "components/pages/HomePage/TopSection";
 import { CategoryList } from "components/CategoryList";
 import { FooterContent } from "components/FooterContent";
+import HeaderDonationBanner from "components/HeaderDonationBanner";
 
 const containerRStyle = {
   [MediaRule.MinWidth]: {
@@ -94,129 +95,132 @@ const SiteHeader: React.ElementType = (props: any) => {
   };
 
   return (
-    <RView
-      WebTag="header"
-      style={{
-        backgroundColor: STANFORD_COLORS.WHITE,
-      }}
-      rStyle={{
-        [MediaRule.MinWidth]: {
-          [BREAKPOINTS.TABLET]: {
-            ...getBorderValue("Bottom"),
-          },
-        },
-        [MediaRule.MaxWidth]: {
-          [BREAKPOINTS.MAX_WIDTH.TABLET]: {
-            position: "sticky",
-            top: 0,
-            zIndex: 999,
-          },
-        },
-      }}
-      {...props}
-    >
+    <>
+      <HeaderDonationBanner currentPageUrl={props.router.asPath} />
       <RView
+        WebTag="header"
         style={{
-          order: 1,
+          backgroundColor: STANFORD_COLORS.WHITE,
         }}
         rStyle={{
           [MediaRule.MinWidth]: {
             [BREAKPOINTS.TABLET]: {
-              order: 2,
-            },
-          },
-        }}
-      >
-        <HeaderLogo />
-      </RView>
-      <RView
-        style={{
-          order: 2,
-          maxWidth: "100vw",
-          backgroundColor: STANFORD_COLORS.CARDINAL_RED,
-        }}
-        rStyle={{
-          [MediaRule.MinWidth]: {
-            [BREAKPOINTS.TABLET]: {
-              order: 1,
-            },
-          },
-        }}
-      >
-        <RView
-          style={{
-            flexDirection: "row",
-            alignItems: "center",
-          }}
-          rStyle={containerRStyle}
-        >
-          <CategoryList itemStyle={{ color: STANFORD_COLORS.WHITE }} />
-          <RView
-            rStyle={{
-              [MediaRule.MaxWidth]: {
-                [BREAKPOINTS.MAX_WIDTH.DESKTOP]: {
-                  display: "none",
-                },
-              },
-            }}
-          >
-            <form
-              role="search"
-              method="get"
-              action="https://www.stanforddaily.com/"
-              style={{
-                display: "flex",
-                marginRight: SECTION_PADDING,
-              }}
-            >
-              <input
-                type="search"
-                placeholder="Search…"
-                defaultValue=""
-                name="s"
-                id="s"
-                style={{
-                  ...inputStyle,
-                  fontFamily:
-                    "Open Sans,Helvetica Neue,Helvetica,Roboto,Arial,sans-serif",
-                }}
-              />
-              <button
-                type="submit"
-                style={{
-                  ...inputStyle,
-                  paddingLeft: 5,
-                  cursor: "pointer",
-                }}
-              >
-                <IosSearch color="#f5f5f5" />
-              </button>
-            </form>
-          </RView>
-        </RView>
-      </RView>
-      <RView
-        style={{
-          order: 3,
-        }}
-        rStyle={{
-          [MediaRule.MinWidth]: {
-            [BREAKPOINTS.DESKTOP]: {
-              ...getBorderValue("Top"),
+              ...getBorderValue("Bottom"),
             },
           },
           [MediaRule.MaxWidth]: {
             [BREAKPOINTS.MAX_WIDTH.TABLET]: {
-              display: "none",
+              position: "sticky",
+              top: 0,
+              zIndex: 999,
             },
           },
         }}
+        {...props}
       >
-        <RView rStyle={containerRStyle}>
-          <TopSection />
+        <RView
+          style={{
+            order: 1,
+          }}
+          rStyle={{
+            [MediaRule.MinWidth]: {
+              [BREAKPOINTS.TABLET]: {
+                order: 2,
+              },
+            },
+          }}
+        >
+          <HeaderLogo />
+        </RView>
+        <RView
+          style={{
+            order: 2,
+            maxWidth: "100vw",
+            backgroundColor: STANFORD_COLORS.CARDINAL_RED,
+          }}
+          rStyle={{
+            [MediaRule.MinWidth]: {
+              [BREAKPOINTS.TABLET]: {
+                order: 1,
+              },
+            },
+          }}
+        >
+          <RView
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+            }}
+            rStyle={containerRStyle}
+          >
+            <CategoryList itemStyle={{ color: STANFORD_COLORS.WHITE }} />
+            <RView
+              rStyle={{
+                [MediaRule.MaxWidth]: {
+                  [BREAKPOINTS.MAX_WIDTH.DESKTOP]: {
+                    display: "none",
+                  },
+                },
+              }}
+            >
+              <form
+                role="search"
+                method="get"
+                action="https://www.stanforddaily.com/"
+                style={{
+                  display: "flex",
+                  marginRight: SECTION_PADDING,
+                }}
+              >
+                <input
+                  type="search"
+                  placeholder="Search…"
+                  defaultValue=""
+                  name="s"
+                  id="s"
+                  style={{
+                    ...inputStyle,
+                    fontFamily:
+                      "Open Sans,Helvetica Neue,Helvetica,Roboto,Arial,sans-serif",
+                  }}
+                />
+                <button
+                  type="submit"
+                  style={{
+                    ...inputStyle,
+                    paddingLeft: 5,
+                    cursor: "pointer",
+                  }}
+                >
+                  <IosSearch color="#f5f5f5" />
+                </button>
+              </form>
+            </RView>
+          </RView>
+        </RView>
+        <RView
+          style={{
+            order: 3,
+          }}
+          rStyle={{
+            [MediaRule.MinWidth]: {
+              [BREAKPOINTS.DESKTOP]: {
+                ...getBorderValue("Top"),
+              },
+            },
+            [MediaRule.MaxWidth]: {
+              [BREAKPOINTS.MAX_WIDTH.TABLET]: {
+                display: "none",
+              },
+            },
+          }}
+        >
+          <RView rStyle={containerRStyle}>
+            <TopSection />
+          </RView>
         </RView>
       </RView>
-    </RView>
+    </>
   );
 };
 
@@ -302,7 +306,9 @@ export default class MyApp extends App {
             }
           `}
         />
-        {includeHeaderAndFooter && <SiteHeader id="site-header" />}
+        {includeHeaderAndFooter && (
+          <SiteHeader id="site-header" router={router} />
+        )}
         <Layout>
           <main id="site-main">
             <Component {...pageProps} />
