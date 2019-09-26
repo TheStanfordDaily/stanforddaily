@@ -60,7 +60,7 @@ const HeaderDonationBanner: React.ElementType = ({ currentPageUrl }) => {
               marginRight: SECTION_PADDING,
             }}
           >
-            <MdPaper fontSize="4em" className="DonateBannerTitleIcon" />
+            <MdPaper fontSize="4em" />
           </div>
           <div>
             Your support helps give staff members from all backgrounds the

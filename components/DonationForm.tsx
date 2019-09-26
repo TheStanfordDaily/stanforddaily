@@ -20,7 +20,6 @@ const DonationForm: React.ElementType = ({
       <form
         action="https://www.paypal.com/cgi-bin/webscr"
         method="post"
-        className="tsd-donation-form"
         onSubmit={event => {
           if (isRecurring) {
             recurringForm.current.submit();
@@ -80,7 +79,6 @@ const DonationForm: React.ElementType = ({
         </select>
 
         <div
-          className="checkbox"
           style={{
             marginTop: 10,
           }}
@@ -89,7 +87,6 @@ const DonationForm: React.ElementType = ({
             <input
               type="checkbox"
               id="monthlyDonation"
-              className="monthlyDonation"
               value=""
               style={{
                 marginRight: 10,
@@ -114,7 +111,6 @@ const DonationForm: React.ElementType = ({
       <form
         action="https://www.paypal.com/cgi-bin/webscr"
         method="post"
-        className="tsd-donation-form-recurring"
         ref={recurringForm}
       >
         <input type="hidden" name="business" value="coo@stanforddaily.com" />
