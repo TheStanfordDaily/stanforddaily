@@ -1,4 +1,5 @@
 import React from "react";
+import { FONTS, STANFORD_COLORS } from "helpers/constants";
 
 // https://developer.paypal.com/docs/classic/paypal-payments-standard/integration-guide/Appx_websitestandard_htmlvariables/#recurring-payment-variables
 const DonationForm: React.ElementType = ({
@@ -32,14 +33,41 @@ const DonationForm: React.ElementType = ({
         <input type="hidden" name="item_name" value="Stanford Daily Donation" />
         <input type="hidden" name="item_number" value={notes} />
         <input type="hidden" name="currency_code" value="USD" />
-        <button className="tsd-button" type="submit" name="submit">
+        <button
+          type="submit"
+          name="submit"
+          style={{
+            ...FONTS.AUXILIARY,
+            border: "none",
+            borderRadius: 0,
+            backgroundColor: STANFORD_COLORS.CARDINAL_RED,
+            color: STANFORD_COLORS.WHITE,
+            paddindLeft: 20,
+            paddindRight: 20,
+            lineHeight: "40px",
+            height: 40,
+            display: "inlineBlock",
+            cursor: "pointer",
+            fontSize: 15,
+            fontWeight: 700,
+            letterSpacing: 1,
+            outline: 0,
+          }}
+        >
           Support the Daily
         </button>
         <select
           name="amount"
-          className="tsd-select"
           onChange={event => {
             setAmount(event.target.value);
+          }}
+          style={{
+            width: 100,
+            marginLeft: 20,
+            height: 40,
+            fontSize: 15,
+            border: `3px solid ${STANFORD_COLORS.CARDINAL_RED}`,
+            verticalAlign: "top",
           }}
         >
           <option value="5">$5</option>

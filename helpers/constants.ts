@@ -7,7 +7,7 @@ export const BREAKPOINTS = {
 
   MAX_WIDTH: {
     // For `max-width`
-    TABLET: 575,
+    TABLET: 699,
     DESKTOP: 1099,
   },
 };
