@@ -42,7 +42,7 @@ export default class AuthorArchivePage extends React.Component<
           flexDirection: "column",
         }}
       >
-        <Text>{initData.meta.name}</Text>
+        <Text>{initData.tsdMeta.name}</Text>
         <ArchivePage
           initData={initData}
           type={ArchivePageType.Author}

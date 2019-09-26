@@ -4,7 +4,7 @@ import { STRINGS } from "./constants";
 import tsdJson from "./tsd-json.json";
 
 export type Base = {
-  meta: {
+  tsdMeta: {
     wpHead?: string; // Elements (scripts, styles, etc.) in `wp_head()`.
     wpFooter?: string; // Elements (scripts etc.) in `wp_footer()`.
   };
@@ -75,13 +75,13 @@ export type ArchivePageData = Base & {
 };
 
 export type CategoryArchivePageData = ArchivePageData & {
-  meta: {
+  tsdMeta: {
     title: string;
   };
 };
 
 export type AuthorArchivePageData = ArchivePageData & {
-  meta: {
+  tsdMeta: {
     name: string;
   };
 };

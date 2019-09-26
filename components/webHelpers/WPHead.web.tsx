@@ -4,8 +4,8 @@ import ReactHtmlParser from "react-html-parser";
 import { BaseProps } from "./baseTypes";
 
 const WPHead: React.ElementType<BaseProps> = ({ base }) => {
-  if (base && base.meta && base.meta.wpHead) {
-    return <Head>{ReactHtmlParser(base.meta.wpHead)}</Head>;
+  if (base && base.tsdMeta && base.tsdMeta.wpHead) {
+    return <Head>{ReactHtmlParser(base.tsdMeta.wpHead)}</Head>;
   } else {
     return <></>;
   }

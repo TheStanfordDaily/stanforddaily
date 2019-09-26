@@ -47,7 +47,7 @@ export default class CategoryArchivePage extends React.Component<
           flexDirection: "column",
         }}
       >
-        <Text>{initData.meta.title}</Text>
+        <Text>{initData.tsdMeta.title}</Text>
         <ArchivePage
           displayCategory={false}
           initData={initData}
