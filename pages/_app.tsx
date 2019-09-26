@@ -174,7 +174,7 @@ const SiteHeader: React.ElementType = (props: any) => {
               <form
                 role="search"
                 method="get"
-                action="https://www.stanforddaily.com/"
+                action="/"
                 style={{
                   display: "flex",
                   marginRight: SECTION_PADDING,
