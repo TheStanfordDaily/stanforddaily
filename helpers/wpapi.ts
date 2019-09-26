@@ -12,6 +12,8 @@ export type Home = {
   artsAndLife: Post[];
   sponsored: Post[];
   moreFromTheDaily: Post[];
+  tsdHead: string; // See `Post.tsdHead`
+  tsdFooter: string; // See `Post.tsdFooter`
 };
 
 export type PostURL = {

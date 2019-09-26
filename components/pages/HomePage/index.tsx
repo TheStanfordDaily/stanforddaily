@@ -4,6 +4,8 @@ import {
   MediaRule,
   isWidthGreaterThanOrEqualTo,
 } from "emotion-native-media-query";
+import Head from "next/head";
+import ReactHtmlParser from "react-html-parser";
 import { BREAKPOINTS } from "helpers/constants";
 import { getHomeAsync, Home } from "helpers/wpapi";
 import Wrapper from "components/Wrapper";
@@ -85,6 +87,7 @@ export default class HomePage extends React.Component<IndexProps, IndexState> {
 
     return (
       <>
+        <Head>{ReactHtmlParser(homePosts.tsdHead)}</Head>
         {Platform.OS === "ios" && <CategoryList />}
         <ScrollView
           contentContainerStyle={{
@@ -184,6 +187,7 @@ export default class HomePage extends React.Component<IndexProps, IndexState> {
           /> */}
           <MoreFromTheDailySection content={homePosts.moreFromTheDaily} />
         </ScrollView>
+        {ReactHtmlParser(homePosts.tsdFooter)}
       </>
     );
   }
