@@ -77,6 +77,7 @@ const HeaderDonationBanner: React.ElementType = ({ currentPageUrl }) => {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
+          textAlign: "center",
         }}
       >
         <DonationForm currentPageUrl={currentPageUrl} bannerLocation="Header" />
