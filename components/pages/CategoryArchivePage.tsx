@@ -3,8 +3,6 @@ import { View, Text } from "react-native";
 import { getCategoryAsync, CategoryArchivePageData } from "helpers/wpapi";
 import Wrapper from "components/Wrapper";
 import { Section } from "components/Section";
-import WPHead from "components/webHelpers/WPHead";
-import WPFooter from "components/webHelpers/WPFooter";
 import ArchivePage, {
   ArchivePageType,
   ArchivePageProps,
@@ -49,7 +47,6 @@ export default class CategoryArchivePage extends React.Component<
           flexDirection: "column",
         }}
       >
-        <WPHead base={initData} />
         <Text>{initData.tsdMeta.title}</Text>
         <ArchivePage
           displayCategory={false}
@@ -60,7 +57,6 @@ export default class CategoryArchivePage extends React.Component<
           }}
           {...this.props}
         />
-        <WPFooter base={initData} />
       </Section>
     );
   }

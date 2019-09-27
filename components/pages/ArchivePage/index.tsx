@@ -3,6 +3,8 @@ import { View, Text } from "react-native";
 import { ArchivePageData } from "helpers/wpapi";
 import LoadingView from "components/Loading";
 import ArticlesView from "components/ArticlesView";
+import WPHead from "components/webHelpers/WPHead";
+import WPFooter from "components/webHelpers/WPFooter";
 
 export enum ArchivePageType {
   Time,
@@ -35,14 +37,18 @@ export default class ArchivePage extends React.Component<
     }
 
     return (
-      <ArticlesView
-        displayCategory={displayCategory}
-        initPosts={initData.posts}
-        getExtraPosts={async pageNumber => {
-          const extraData = await getExtraData(pageNumber);
-          return extraData.posts;
-        }}
-      />
+      <>
+        <WPHead base={initData} />
+        <ArticlesView
+          displayCategory={displayCategory}
+          initPosts={initData.posts}
+          getExtraPosts={async pageNumber => {
+            const extraData = await getExtraData(pageNumber);
+            return extraData.posts;
+          }}
+        />
+        <WPFooter base={initData} />
+      </>
     );
   }
 }
