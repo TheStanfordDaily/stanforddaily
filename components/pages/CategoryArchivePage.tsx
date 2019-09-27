@@ -3,11 +3,7 @@ import { View, Text } from "react-native";
 import { getCategoryAsync, CategoryArchivePageData } from "helpers/wpapi";
 import Wrapper from "components/Wrapper";
 import { Section } from "components/Section";
-import ArchivePage, {
-  ArchivePageType,
-  ArchivePageProps,
-  ArchivePageState,
-} from "./ArchivePage";
+import ArchivePage, { ArchivePageType, ArchivePageState } from "./ArchivePage";
 
 async function _getCategoryData(
   slugs: string[],
@@ -16,7 +12,7 @@ async function _getCategoryData(
   return getCategoryAsync(slugs, pageNumber);
 }
 
-interface CategoryArchivePageProps extends ArchivePageProps {
+interface CategoryArchivePageProps {
   initData: CategoryArchivePageData;
   slugs: string[];
 }

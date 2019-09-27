@@ -86,6 +86,8 @@ export type AuthorArchivePageData = ArchivePageData & {
   };
 };
 
+export type SearchArchivePageData = ArchivePageData & {};
+
 const wp = new WPAPI({
   endpoint: `${STRINGS.WP_URL}/wp-json`,
   routes: tsdJson.routes,
@@ -144,6 +146,16 @@ export async function getAuthorAsync(
   return wpTsdJson
     .author()
     .authorSlug(encodeURIComponent(authorSlug))
+    .pageNumber(pageNumber);
+}
+
+export async function getSearchAsync(
+  keyword: string,
+  pageNumber: number,
+): Promise<SearchArchivePageData> {
+  return wpTsdJson
+    .search()
+    .searchKeyword(encodeURIComponent(keyword))
     .pageNumber(pageNumber);
 }
 

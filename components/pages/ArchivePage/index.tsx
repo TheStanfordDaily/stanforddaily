@@ -7,10 +7,11 @@ import WPHead from "components/webHelpers/WPHead";
 import WPFooter from "components/webHelpers/WPFooter";
 
 export enum ArchivePageType {
-  Time,
+  Time, // TODO
   Author,
   Category,
-  Tag,
+  Tag, // TODO
+  Search,
 }
 
 export interface ArchivePageProps {

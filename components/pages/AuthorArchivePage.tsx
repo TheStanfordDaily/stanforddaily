@@ -3,11 +3,7 @@ import { View, Text } from "react-native";
 import { getAuthorAsync, AuthorArchivePageData } from "helpers/wpapi";
 import Wrapper from "components/Wrapper";
 import { Section } from "components/Section";
-import ArchivePage, {
-  ArchivePageType,
-  ArchivePageProps,
-  ArchivePageState,
-} from "./ArchivePage";
+import ArchivePage, { ArchivePageType, ArchivePageState } from "./ArchivePage";
 
 async function _getAuthorData(
   slug: string,
@@ -16,7 +12,7 @@ async function _getAuthorData(
   return getAuthorAsync(slug, pageNumber);
 }
 
-interface AuthorArchivePageProps extends ArchivePageProps {
+interface AuthorArchivePageProps {
   initData: AuthorArchivePageData;
   slug: string;
 }

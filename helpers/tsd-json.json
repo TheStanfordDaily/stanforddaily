@@ -47,6 +47,11 @@
       "namespace": "tsd/json/v1",
       "methods": ["GET"],
       "endpoints": [{ "methods": ["GET"], "args": [] }]
+    },
+    "/tsd/json/v1/search/(?P<searchKeyword>[\\S]+)/(?P<pageNumber>\\d+)": {
+      "namespace": "tsd/json/v1",
+      "methods": ["GET"],
+      "endpoints": [{ "methods": ["GET"], "args": [] }]
     }
   },
   "_links": { "up": [{ "href": "https://www.stanforddaily.com/wp-json/" }] }
