@@ -20,11 +20,15 @@ export const CategoryLink: React.ElementType<CategoryLinkProps> = ({
         ...style,
       }}
     >
-      <Link href={getNextJsCategoryPath(category.url)} as={category.url}>
-        <a title={category.name} style={{ color: "inherit" }}>
-          {category.name}
-        </a>
-      </Link>
+      {category ? (
+        <Link href={getNextJsCategoryPath(category.url)} as={category.url}>
+          <a title={category.name} style={{ color: "inherit" }}>
+            {category.name}
+          </a>
+        </Link>
+      ) : (
+        "Uncategorized"
+      )}
     </Text>
   );
 };
