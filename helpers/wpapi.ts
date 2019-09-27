@@ -63,6 +63,8 @@ export type Post = Base & {
   tsdAuthors: Author[];
   postExcerpt: string;
   postContent?: string;
+  postType: "post" | "page";
+  commentStatus: string;
   thumbnailInfo?: Thumbnail;
   tsdPrimaryCategory?: Category;
   tagsInput: string[];

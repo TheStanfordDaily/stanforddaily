@@ -49,6 +49,8 @@ const ContentView: React.ElementType<ContentViewProps> = ({
     thumbnailInfo,
     tsdAuthors,
     postContent,
+    postType,
+    commentStatus,
     guid,
   } = post;
   const date = getPostLocalDate(post);
@@ -58,6 +60,8 @@ const ContentView: React.ElementType<ContentViewProps> = ({
     caption: thumbnailCaption = null,
     alt: thumbnailAlt = thumbnailCaption,
   } = thumbnailInfo || {};
+
+  const displayAuthors = postType === "post";
 
   return (
     <SectionStyle>
@@ -144,41 +148,47 @@ const ContentView: React.ElementType<ContentViewProps> = ({
           ) : (
             undefined
           )}
-          <p
-            style={{
-              ...FONTS.AUXILIARY,
-              fontWeight: "bold",
-            }}
-          >
-            <span style={{ textTransform: "none" }}>By</span>{" "}
-            {tsdAuthors.map(author => (
-              <span key={author.id}>{author.displayName}, </span>
-            ))}
-            <span style={{ textTransform: "none" }}>on</span>{" "}
-            {date.format("MMMM D, YYYY")}
-          </p>
+          {displayAuthors && (
+            <p
+              style={{
+                ...FONTS.AUXILIARY,
+                fontWeight: "bold",
+              }}
+            >
+              <span style={{ textTransform: "none" }}>By</span>{" "}
+              {tsdAuthors.map(author => (
+                <span key={author.id}>{author.displayName}, </span>
+              ))}
+              <span style={{ textTransform: "none" }}>on</span>{" "}
+              {date.format("MMMM D, YYYY")}
+            </p>
+          )}
           <div
             id="main-article-text"
             // eslint-disable-next-line react/no-danger
             dangerouslySetInnerHTML={{ __html: postContent }}
           />
         </RView>
-        <footer>
-          {tsdAuthors.map(author => (
-            <div key={author.id}>{author.displayName}</div>
-          ))}
-        </footer>
+        {displayAuthors && (
+          <footer>
+            {tsdAuthors.map(author => (
+              <div key={author.id}>{author.displayName}</div>
+            ))}
+          </footer>
+        )}
       </Article>
-      <div css={{ ...centerContentStyle }}>
-        <DiscussionEmbed
-          shortname={STRINGS.DISQUS_SHORTNAME}
-          config={{
-            url: guid,
-            identifier: `${STRINGS.DISQUS_SHORTNAME}-${postId}`,
-            title: postTitle,
-          }}
-        />
-      </div>
+      {commentStatus === "open" && (
+        <div css={{ ...centerContentStyle }}>
+          <DiscussionEmbed
+            shortname={STRINGS.DISQUS_SHORTNAME}
+            config={{
+              url: guid,
+              identifier: `${STRINGS.DISQUS_SHORTNAME}-${postId}`,
+              title: postTitle,
+            }}
+          />
+        </div>
+      )}
       <WPFooter base={post} />
     </SectionStyle>
   );
