@@ -2,6 +2,7 @@ import React from "react";
 import Router from "next/router";
 import HomePage from "components/pages/HomePage";
 import SearchArchivePage from "components/pages/SearchArchivePage";
+import { getPostByIdAsync, getPostPath } from "helpers/wpapi";
 
 enum PageType {
   SEARCH,
@@ -24,8 +25,10 @@ export default class IndexPage extends React.Component<any, any> {
       const initProps = await SearchArchivePage.getSearchResults(searchKeyword);
       return { ...initProps, pageType: PageType.SEARCH };
     } else if (p) {
+      const post = await getPostByIdAsync(Number(p));
+
       // https://github.com/zeit/next.js/wiki/Redirecting-in-%60getInitialProps%60
-      const redirectLocation = "/about"; // TODO
+      const redirectLocation = getPostPath(post);
       if (res) {
         res.writeHead(301, {
           Location: redirectLocation,

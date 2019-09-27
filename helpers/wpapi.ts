@@ -94,6 +94,10 @@ const wp = new WPAPI({
 });
 const wpTsdJson = wp.namespace("tsd/json/v1");
 
+export async function getPostByIdAsync(id: number): Promise<Post> {
+  return wpTsdJson.postsId().postId(id);
+}
+
 export async function getPostAsync(
   year: string,
   month: string,
