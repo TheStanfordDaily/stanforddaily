@@ -186,6 +186,7 @@ const SiteHeader: React.ElementType = (props: any) => {
                   defaultValue=""
                   name="s"
                   id="s"
+                  required
                   style={{
                     ...inputStyle,
                     fontFamily:
