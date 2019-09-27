@@ -10,43 +10,70 @@ import LogoYoutube from "react-ionicons/lib/LogoYoutube";
 import { BREAKPOINTS, STANFORD_COLORS, FONTS } from "helpers/constants";
 import { SectionStyle } from "components/Section";
 
+export interface SmallSectionProps {
+  url: string;
+  imageUrl: string;
+  header: string;
+  title: string;
+}
+
 export const TopSection: React.ElementType = ({ style }) => {
-  const SmallSection: React.ElementType = (sProps: any) => {
+  const SmallSection: React.ElementType<SmallSectionProps> = ({
+    url,
+    imageUrl,
+    header,
+    title,
+  }) => {
     return (
-      <View
-        style={{
-          marginRight: 30,
-          flexDirection: "row",
-          alignItems: "center",
-        }}
-      >
-        <Image
-          resizeMode="cover"
-          style={{
-            width: 50,
-            height: 50,
-          }}
-          source={{
-            uri:
-              "https://www.stanforddaily.com/wp-content/uploads/2018/10/Stanford_School_of_Medicine_Li_Ka_Shing_Center.jpg",
-          }}
-        />
+      <a href={url} title={title}>
         <View
           style={{
-            marginLeft: 10,
+            marginRight: 30,
+            flexDirection: "row",
+            alignItems: "center",
           }}
         >
-          <View>
-            <Text>Issue #</Text>
-          </View>
-          <View>
-            <Text>The Daily Magazine</Text>
-          </View>
-          <View>
+          <Image
+            resizeMode="cover"
+            style={{
+              width: 50,
+              height: 50,
+            }}
+            source={{
+              uri: imageUrl,
+            }}
+          />
+          <View
+            style={{
+              marginLeft: 10,
+            }}
+          >
+            <View>
+              <Text
+                style={{
+                  ...FONTS.AUXILIARY,
+                  color: STANFORD_COLORS.CARDINAL_DARK_RED,
+                  fontSize: 12,
+                }}
+              >
+                {header}
+              </Text>
+            </View>
+            <View>
+              <Text
+                style={{
+                  fontWeight: "bold",
+                }}
+              >
+                {title}
+              </Text>
+            </View>
+            {/* <View>
             <Text>Subtitle here lorem</Text>
+          </View> */}
           </View>
         </View>
-      </View>
+      </a>
     );
   };
   const LogoIconWithLink: React.ElementType = ({ url, LogoComponent }: any) => (
@@ -82,9 +109,23 @@ export const TopSection: React.ElementType = ({ style }) => {
           }}
         >
           <View style={{ flexDirection: "row", alignItems: "center" }}>
-            <SmallSection />
-            <SmallSection />
-            <SmallSection />
+            <SmallSection
+              url="/category/magazine/"
+              imageUrl="https://www.stanforddaily.com/wp-content/uploads/2019/09/Stanford-Panorama-Red.jpg"
+              header="Volume IV, Issue I"
+              title="The Daily Magazine"
+            />
+            {/* <SmallSection
+              imageUrl="https://www.stanforddaily.com/wp-content/uploads/2018/10/Stanford_School_of_Medicine_Li_Ka_Shing_Center.jpg"
+              header="Issue #"
+              title="The Daily Magazine"
+            /> */}
+            <SmallSection
+              url="/podcasts/"
+              imageUrl="https://d3t3ozftmdmh3i.cloudfront.net/production/podcast_uploaded400/1460559/1460559-1550520909113-dfa4db03769d.jpg"
+              header="Podcast"
+              title="The Daily Brew"
+            />
           </View>
           <View
             style={{
