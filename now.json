@@ -1,0 +1,21 @@
+{
+  "version": 2,
+  "scope": "tsd",
+  "routes": [
+    {
+      "src": "/wp-admin/(.*)",
+      "status": 301,
+      "headers": { "Location": "https://wp.stanforddaily.com/wp-admin/$1" }
+    },
+    {
+      "src": "/wp-content/(.*)",
+      "status": 301,
+      "headers": { "Location": "https://wp.stanforddaily.com/wp-content/$1" }
+    },
+    {
+      "src": "/wp-json/(.*)",
+      "status": 301,
+      "headers": { "Location": "https://wp.stanforddaily.com/wp-json/$1" }
+    }
+  ]
+}
