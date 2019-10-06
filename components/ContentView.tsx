@@ -183,7 +183,7 @@ const ContentView: React.ElementType<ContentViewProps> = ({
             shortname={STRINGS.DISQUS_SHORTNAME}
             config={{
               url: guid,
-              identifier: `${STRINGS.DISQUS_SHORTNAME}-${postId}`,
+              identifier: `${postId} ${guid}`, // From `dsq_identifier_for_post` in Disqus WordPress plugin
               title: postTitle,
             }}
           />
