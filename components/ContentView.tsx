@@ -14,6 +14,7 @@ import { Article, ArticleHeader } from "components/Article";
 import LoadingView from "components/Loading";
 import WPHead from "components/webHelpers/WPHead";
 import WPFooter from "components/webHelpers/WPFooter.web";
+import { AuthorsTextWithLink } from "./pages/HomePage/AuthorView";
 
 interface ContentViewProps {
   post: Post;
@@ -156,9 +157,7 @@ const ContentView: React.ElementType<ContentViewProps> = ({
               }}
             >
               <span style={{ textTransform: "none" }}>By</span>{" "}
-              {tsdAuthors.map(author => (
-                <span key={author.id}>{author.displayName}, </span>
-              ))}
+              <AuthorsTextWithLink authors={tsdAuthors} />{" "}
               <span style={{ textTransform: "none" }}>on</span>{" "}
               {date.format("MMMM D, YYYY")}
             </p>
