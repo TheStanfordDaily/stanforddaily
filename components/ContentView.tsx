@@ -49,6 +49,7 @@ const ContentView: React.ElementType<ContentViewProps> = ({
     postSubtitle,
     thumbnailInfo,
     tsdAuthors,
+    tsdCategories,
     postContent,
     postType,
     commentStatus,
@@ -63,6 +64,14 @@ const ContentView: React.ElementType<ContentViewProps> = ({
   } = thumbnailInfo || {};
 
   const displayAuthors = postType === "post";
+
+  let isSatire = false;
+  if (
+    tsdCategories &&
+    tsdCategories.find(category => category.slug === "satire")
+  ) {
+    isSatire = true;
+  }
 
   return (
     <SectionStyle>
@@ -156,7 +165,9 @@ const ContentView: React.ElementType<ContentViewProps> = ({
                 fontWeight: "bold",
               }}
             >
-              <span style={{ textTransform: "none" }}>By</span>{" "}
+              <span style={{ textTransform: "none" }}>
+                {isSatire ? "Satire by" : "By"}
+              </span>{" "}
               <AuthorsTextWithLink authors={tsdAuthors} />{" "}
               <span style={{ textTransform: "none" }}>on</span>{" "}
               {date.format("MMMM D, YYYY")}

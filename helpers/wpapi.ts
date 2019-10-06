@@ -67,6 +67,7 @@ export type Post = Base & {
   commentStatus: string;
   thumbnailInfo?: Thumbnail;
   tsdPrimaryCategory?: Category;
+  tsdCategories?: Category[];
   tagsInput: string[];
   tsdUrlParameters: PostURL;
   guid: string; // Unique perminlinks (e.g., "https://www.stanforddaily.com/?p=1144743")
