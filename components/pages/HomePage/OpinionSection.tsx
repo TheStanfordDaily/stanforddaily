@@ -7,6 +7,6 @@ export const OpinionSection: React.ElementType = ({
   ...props
 }: SectionProps) => {
   return (
-    <RightListedSection content={content} sectionTitle="Opinion" {...props} />
+    <RightListedSection content={content} sectionTitle="Opinions" {...props} />
   );
 };
