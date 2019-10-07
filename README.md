@@ -2,7 +2,7 @@
 
 # The Stanford Daily
 
-This is the Stanford Daily website & mobile app. Visit the site at https://www.stanforddaily.com/ (not live yet) and download the app at https://app.stanforddaily.com/. Contributions welcome!
+This is the Stanford Daily website & mobile app. Visit the site at https://www.stanforddaily.com/ (not live yet) and download the app at https://app.stanforddaily.com/. Contributions welcome! Hello world
 
 ## Setup
 
@@ -35,4 +35,4 @@ yarn expo build:android --release-channel development
 
 yarn expo publish --release-channel development
 ```
-added
+Hello world!
