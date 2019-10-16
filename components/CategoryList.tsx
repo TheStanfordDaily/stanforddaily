@@ -60,6 +60,13 @@ export const CategoryList: React.ElementType = ({ itemStyle }: any) => {
     },
     {
       type: LinkType.CATEGORY,
+      id: 32279,
+      name: "Satire",
+      slug: "satire",
+      url: "/category/satire/",
+    },
+    {
+      type: LinkType.CATEGORY,
       id: 53462,
       name: "Magazine",
       slug: "magazine",
