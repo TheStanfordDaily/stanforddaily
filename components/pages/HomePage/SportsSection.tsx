@@ -1,7 +1,9 @@
 import React from "react";
+import { Image } from "react-native";
 import styled from "@emotion/native";
 import RView from "emotion-native-media-query";
 import { SectionStyle, SectionWithoutStyle } from "components/Section";
+import Link from "next/link";
 import { MainSection } from "./MainSection";
 import { LeftSection } from "./LeftSection";
 import { DesktopRow } from "./DesktopRow";
@@ -43,7 +45,20 @@ export const SportsSection: React.ElementType = (props: SectionProps) => {
       rStyle={rStyle}
     >
       <SectionStyle style={{ paddingBottom: 0 }}>
-        <SectionTitle>Sports</SectionTitle>
+        <SectionTitle>
+          <Link href="/category/sports/">
+            <Image
+              source={{
+                uri: "/static/sectionHeaders/sports.png",
+              }}
+              accessibilityLabel="Sports"
+              resizeMode="contain"
+              style={{
+                height: 30,
+              }}
+            />
+          </Link>
+        </SectionTitle>
       </SectionStyle>
       <DesktopRow>
         {mainBeforeSide ? (
