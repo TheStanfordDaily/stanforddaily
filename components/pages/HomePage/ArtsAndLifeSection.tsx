@@ -15,8 +15,9 @@ export const ArtsAndLifeSection: React.ElementType = ({
     <RView WebTag={Section} NativeTag={Section} {...props}>
       <SectionStyle
         style={{
+          paddingTop: 0,
           cursor: "pointer",
-          width: 140,
+          width: 170,
           height: 70,
         }}
       >
@@ -29,7 +30,7 @@ export const ArtsAndLifeSection: React.ElementType = ({
               accessibilityLabel="Arts & Life"
               resizeMode="contain"
               style={{
-                height: 30,
+                height: 50,
               }}
             />
           </Link>
