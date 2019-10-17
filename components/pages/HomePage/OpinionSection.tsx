@@ -7,20 +7,6 @@ export const OpinionSection: React.ElementType = ({
   ...props
 }: SectionProps) => {
   return (
-    <div>
-      <RightListedSection
-        content={content}
-        sectionTitle="Opinions"
-        {...props}
-      />
-      <p
-        style={{
-          paddingLeft: 15,
-          paddingBottom: 0,
-        }}
-      >
-        <a href="/category/opinions/">See more Opinions articles</a>
-      </p>
-    </div>
+    <RightListedSection content={content} sectionTitle="Opinions" {...props} />
   );
 };
