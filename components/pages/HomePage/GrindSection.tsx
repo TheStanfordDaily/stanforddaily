@@ -13,6 +13,7 @@ export const GrindSection: React.ElementType = ({
     <RightListedSection
       content={content}
       sectionTitle="The Grind"
+      link="/category/thegrind/"
       innerStyle={{
         backgroundColor: STANFORD_COLORS.CARDINAL_DARK_RED,
         padding: SECTION_PADDING,
