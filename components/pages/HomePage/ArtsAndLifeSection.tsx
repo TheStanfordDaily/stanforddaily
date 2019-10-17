@@ -13,28 +13,28 @@ export const ArtsAndLifeSection: React.ElementType = ({
 }: SectionProps) => {
   return (
     <RView WebTag={Section} NativeTag={Section} {...props}>
-      <SectionStyle>
-        style=
-        {{
+      <SectionStyle
+        style={{
           cursor: "pointer",
           width: 140,
           height: 30,
         }}
+      >
+        <SectionTitle style={{ textAlign: "center" }}>
+          <Link href="/category/arts-life/">
+            <Image
+              source={{
+                uri: "/static/sectionHeaders/artsAndLife.png",
+              }}
+              accessibilityLabel="Arts & Life"
+              resizeMode="contain"
+              style={{
+                height: 30,
+              }}
+            />
+          </Link>
+        </SectionTitle>
       </SectionStyle>
-      <SectionTitle style={{ textAlign: "center" }}>
-        <Link href="/category/arts-life/">
-          <Image
-            source={{
-              uri: "/static/sectionHeaders/artsAndLife.png",
-            }}
-            accessibilityLabel="Arts & Life"
-            resizeMode="contain"
-            style={{
-              height: 30,
-            }}
-          />
-        </Link>
-      </SectionTitle>
       <SideThumbnailArticle post={content[0]} />
       <SideThumbnailArticle post={content[1]} />
       <SideThumbnailArticle post={content[2]} />
