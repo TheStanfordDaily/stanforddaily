@@ -1,7 +1,7 @@
 import React from "react";
 import { Image } from "react-native";
 import RView from "emotion-native-media-query";
-import { Section } from "components/Section";
+import { Section, SectionStyle } from "components/Section";
 import Link from "next/link";
 import { SideThumbnailArticle } from "./SideThumbnailArticle";
 import { SectionTitle } from "./SectionTitle";
@@ -13,6 +13,14 @@ export const ArtsAndLifeSection: React.ElementType = ({
 }: SectionProps) => {
   return (
     <RView WebTag={Section} NativeTag={Section} {...props}>
+      <SectionStyle>
+        style=
+        {{
+          cursor: "pointer",
+          width: 140,
+          height: 30,
+        }}
+      </SectionStyle>
       <SectionTitle style={{ textAlign: "center" }}>
         <Link href="/category/arts-life/">
           <Image
