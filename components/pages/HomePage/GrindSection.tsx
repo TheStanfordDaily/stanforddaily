@@ -1,8 +1,9 @@
 import React from "react";
 import { Image } from "react-native";
 import RView from "emotion-native-media-query";
-import { Section, SectionStyle } from "components/Section";
+import { Section, SectionStyle, SECTION_PADDING } from "components/Section";
 import Link from "next/link";
+import { STANFORD_COLORS, BREAKPOINTS } from "helpers/constants";
 import { SideThumbnailArticle } from "./SideThumbnailArticle";
 import { SectionTitle } from "./SectionTitle";
 import { SectionProps } from "./SectionProps";
@@ -20,6 +21,8 @@ export const GrindSection: React.ElementType = ({
           cursor: "pointer",
           width: 180,
           height: 70,
+          backgroundColor: STANFORD_COLORS.CARDINAL_DARK_RED,
+          padding: SECTION_PADDING,
         }}
       >
         <SectionTitle style={{ textAlign: "center" }}>
@@ -37,6 +40,10 @@ export const GrindSection: React.ElementType = ({
           </Link>
         </SectionTitle>
       </SectionStyle>
+      <SideThumbnailArticle post={content[0]} />
+      <SideThumbnailArticle post={content[1]} />
+      <SideThumbnailArticle post={content[2]} />
+      <SideThumbnailArticle post={content[3]} />
     </RView>
     // <RightListedSection
     //   content={content}
