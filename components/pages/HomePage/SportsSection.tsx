@@ -50,7 +50,7 @@ export const SportsSection: React.ElementType = (props: SectionProps) => {
           paddingLeft: 0,
           cursor: "pointer",
           width: 140,
-          height: 30,
+          height: 50,
         }}
       >
         <SectionTitle>
