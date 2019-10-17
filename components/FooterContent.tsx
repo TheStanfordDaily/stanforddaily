@@ -264,15 +264,14 @@ export const FooterContent: React.ElementType = ({ itemStyle }: any) => {
       name: "The Grind",
       slug: "thegrind",
       url: "/category/thegrind/",
-      children: {
-        satire: {
-          id: 55796,
-          name: "Satire",
-          slug: "satire",
-          url: "/category/thegrind/satire/",
-          children: {},
-        },
-      },
+      children: {},
+    },
+    satire: {
+      id: 55796,
+      name: "Satire",
+      slug: "satire",
+      url: "/category/thegrind/satire/",
+      children: {},
     },
     magazine: {
       id: 53462,
