@@ -17,7 +17,7 @@ export const ArtsAndLifeSection: React.ElementType = ({
         style={{
           cursor: "pointer",
           width: 140,
-          height: 30,
+          height: 50,
         }}
       >
         <SectionTitle style={{ textAlign: "center" }}>
