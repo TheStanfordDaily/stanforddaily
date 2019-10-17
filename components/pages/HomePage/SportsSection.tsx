@@ -44,9 +44,17 @@ export const SportsSection: React.ElementType = (props: SectionProps) => {
       style={style}
       rStyle={rStyle}
     >
-      <SectionStyle style={{ paddingBottom: 0, paddingLeft: 0 }}>
+      <SectionStyle
+        style={{
+          paddingBottom: 0,
+          paddingLeft: 0,
+          cursor: "pointer",
+          width: 140,
+          height: 30,
+        }}
+      >
         <SectionTitle>
-          <Link href="/category/sports/" style={{ cursor: "pointer" }}>
+          <Link href="/category/sports/">
             <Image
               source={{
                 uri: "/static/sectionHeaders/sports.png",
