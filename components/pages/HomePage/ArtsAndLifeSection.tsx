@@ -17,8 +17,8 @@ export const ArtsAndLifeSection: React.ElementType = ({
         style={{
           paddingTop: 0,
           cursor: "pointer",
-          width: 140,
-          height: 50,
+          width: 200,
+          height: 70,
         }}
       >
         <SectionTitle style={{ textAlign: "center" }}>
@@ -30,7 +30,7 @@ export const ArtsAndLifeSection: React.ElementType = ({
               accessibilityLabel="Arts & Life"
               resizeMode="contain"
               style={{
-                height: 50,
+                height: 70,
               }}
             />
           </Link>
