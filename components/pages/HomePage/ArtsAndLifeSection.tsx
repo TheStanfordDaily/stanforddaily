@@ -15,7 +15,6 @@ export const ArtsAndLifeSection: React.ElementType = ({
     <RView WebTag={Section} NativeTag={Section} {...props}>
       <SectionStyle
         style={{
-          position: "absolute",
           paddingTop: 0,
           paddingLeft: 0,
           cursor: "pointer",
