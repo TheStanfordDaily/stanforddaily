@@ -1,8 +1,10 @@
 import React from "react";
-import { MediaRule } from "emotion-native-media-query";
-import { STANFORD_COLORS, BREAKPOINTS } from "helpers/constants";
-import { SECTION_PADDING } from "components/Section";
-import { RightListedSection } from "./RightListedSection";
+import { Image } from "react-native";
+import RView from "emotion-native-media-query";
+import { Section, SectionStyle } from "components/Section";
+import Link from "next/link";
+import { SideThumbnailArticle } from "./SideThumbnailArticle";
+import { SectionTitle } from "./SectionTitle";
 import { SectionProps } from "./SectionProps";
 
 export const GrindSection: React.ElementType = ({
@@ -10,30 +12,56 @@ export const GrindSection: React.ElementType = ({
   ...props
 }: SectionProps) => {
   return (
-    <RightListedSection
-      content={content}
-      sectionTitle="The Grind"
-      innerStyle={{
-        backgroundColor: STANFORD_COLORS.CARDINAL_DARK_RED,
-        padding: SECTION_PADDING,
-      }}
-      innerRStyle={{
-        [MediaRule.MaxWidth]: {
-          [BREAKPOINTS.MAX_WIDTH.TABLET]: {
-            margin: -SECTION_PADDING,
-          },
-        },
-      }}
-      sectionTitleStyle={{
-        color: STANFORD_COLORS.WHITE,
-      }}
-      titleStyle={{
-        color: STANFORD_COLORS.WHITE,
-      }}
-      authorStyle={{
-        color: STANFORD_COLORS.FOG,
-      }}
-      {...props}
-    />
+    <RView WebTag={Section} NativeTag={Section} {...props}>
+      <SectionStyle
+        style={{
+          paddingTop: 0,
+          paddingLeft: 0,
+          cursor: "pointer",
+          width: 180,
+          height: 70,
+        }}
+      >
+        <SectionTitle style={{ textAlign: "center" }}>
+          <Link href="/category/thegrind/">
+            <Image
+              source={{
+                uri: "/static/sectionHeaders/thegrind.png",
+              }}
+              accessibilityLabel="The Grind"
+              resizeMode="contain"
+              style={{
+                height: 70,
+              }}
+            />
+          </Link>
+        </SectionTitle>
+      </SectionStyle>
+    </RView>
+    // <RightListedSection
+    //   content={content}
+    //   sectionTitle="The Grind"
+    //   innerStyle={{
+    //     backgroundColor: STANFORD_COLORS.CARDINAL_DARK_RED,
+    //     padding: SECTION_PADDING,
+    //   }}
+    //   innerRStyle={{
+    //     [MediaRule.MaxWidth]: {
+    //       [BREAKPOINTS.MAX_WIDTH.TABLET]: {
+    //         margin: -SECTION_PADDING,
+    //       },
+    //     },
+    //   }}
+    //   sectionTitleStyle={{
+    //     color: STANFORD_COLORS.WHITE,
+    //   }}
+    //   titleStyle={{
+    //     color: STANFORD_COLORS.WHITE,
+    //   }}
+    //   authorStyle={{
+    //     color: STANFORD_COLORS.FOG,
+    //   }}
+    //   {...props}
+    // />
   );
 };
