@@ -18,7 +18,7 @@ export const ArtsAndLifeSection: React.ElementType = ({
           paddingTop: 0,
           paddingLeft: 0,
           cursor: "pointer",
-          width: 180,
+          width: 160,
           height: 70,
         }}
       >
