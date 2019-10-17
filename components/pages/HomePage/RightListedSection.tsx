@@ -24,7 +24,7 @@ export const RightListedSection: React.ElementType = (props: SectionProps) => {
         {sectionTitle && (
           <SectionTitle
             style={{
-              textAlign: "center",
+              textAlign: "left",
               ...sectionTitleStyle,
             }}
           >
