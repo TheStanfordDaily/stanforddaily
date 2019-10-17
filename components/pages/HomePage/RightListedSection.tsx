@@ -16,7 +16,6 @@ export const RightListedSection: React.ElementType = (props: SectionProps) => {
     titleStyle,
     authorStyle,
     sectionTitleStyle,
-    link,
     ...remainingProps
   } = props;
   return (
