@@ -44,9 +44,7 @@ export const SportsSection: React.ElementType = (props: SectionProps) => {
       style={style}
       rStyle={rStyle}
     >
-      <SectionStyle
-        style={{ paddingBottom: 0, paddingLeft: 0, cursor: "pointer" }}
-      >
+      <SectionStyle style={{ paddingBottom: 0, paddingLeft: 0 }}>
         <SectionTitle>
           <Link href="/category/sports/">
             <Image
@@ -56,6 +54,7 @@ export const SportsSection: React.ElementType = (props: SectionProps) => {
               accessibilityLabel="Sports"
               resizeMode="contain"
               style={{
+                cursor: "pointer",
                 width: 140,
                 height: 30,
               }}
