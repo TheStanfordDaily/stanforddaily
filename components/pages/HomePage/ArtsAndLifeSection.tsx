@@ -16,8 +16,9 @@ export const ArtsAndLifeSection: React.ElementType = ({
       <SectionStyle
         style={{
           paddingTop: 0,
+          paddingLeft: 0,
           cursor: "pointer",
-          width: 200,
+          width: 180,
           height: 70,
         }}
       >
