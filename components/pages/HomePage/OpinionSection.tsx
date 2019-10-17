@@ -15,10 +15,10 @@ export const OpinionSection: React.ElementType = ({
       />
       <p
         style={{
-          paddingLeft: 16,
+          paddingLeft: 15,
         }}
       >
-        <a href="/category/opinions/">See more</a>
+        <a href="/category/opinions/">See more Opinions articles</a>
       </p>
     </div>
   );
