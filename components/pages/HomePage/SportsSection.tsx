@@ -54,7 +54,7 @@ export const SportsSection: React.ElementType = (props: SectionProps) => {
               accessibilityLabel="Sports"
               resizeMode="contain"
               style={{
-                alignItems: "flex-start",
+                left: 0,
                 height: 30,
               }}
             />
