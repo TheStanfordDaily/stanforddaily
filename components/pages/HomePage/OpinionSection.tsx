@@ -16,6 +16,7 @@ export const OpinionSection: React.ElementType = ({
       <p
         style={{
           paddingLeft: 15,
+          paddingBottom: 0,
         }}
       >
         <a href="/category/opinions/">See more Opinions articles</a>
