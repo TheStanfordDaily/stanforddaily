@@ -16,7 +16,6 @@ yarn start
 yarn start --help
 ```
 
-## Release
 
 For the production channel:
 
