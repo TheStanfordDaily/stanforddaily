@@ -21,22 +21,41 @@ const AuthorAndDateView: React.ElementType<AuthorAndDateViewProps> = ({
   dateStyle,
   newLineBetweenAuthorAndDate = false,
 }: AuthorAndDateViewProps) => {
-  return (
-    <Text style={style}>
-      <AuthorView
-        authors={post.tsdAuthors}
-        containerStyle={{ display: "inline-flex" }}
-        style={authorStyle}
-      />
-      {newLineBetweenAuthorAndDate ? `\n` : " • "}
-      <DateView
-        post={post}
-        format={dateFormat}
-        style={dateStyle}
-        containerStyle={{ display: "inline-flex" }}
-      />
-    </Text>
-  );
+  if (newLineBetweenAuthorAndDate) {
+    return (
+      <Text
+        style={{
+          ...style,
+          display: "flex",
+          flexDirection: "column",
+        }}
+      >
+        <AuthorView authors={post.tsdAuthors} style={authorStyle} />
+        <DateView post={post} format={dateFormat} style={dateStyle} />
+      </Text>
+    );
+  } else {
+    return (
+      <Text
+        style={{
+          ...style,
+        }}
+      >
+        <AuthorView
+          authors={post.tsdAuthors}
+          containerStyle={{ display: "inline-flex" }}
+          style={authorStyle}
+        />
+        {" • "}
+        <DateView
+          post={post}
+          format={dateFormat}
+          style={dateStyle}
+          containerStyle={{ display: "inline-flex" }}
+        />
+      </Text>
+    );
+  }
 };
 
 export default AuthorAndDateView;
