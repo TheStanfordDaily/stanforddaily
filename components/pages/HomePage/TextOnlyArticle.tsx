@@ -6,7 +6,7 @@ import { getPostTimeString } from "helpers/wpapi";
 import { SECTION_PADDING } from "components/Section";
 import { Article, ArticleHeader } from "components/Article";
 import { CategoryLink } from "components/CategoryLink";
-import { AuthorView } from "./AuthorView";
+import AuthorAndDateView from "components/AuthorAndDateView";
 import { PostExcerpt } from "./PostExcerpt";
 import { ArticleProps } from "./ArticleProps";
 import { ThumbnailImageWithLink } from "./ThumbnailImageWithLink";
@@ -17,7 +17,7 @@ export const TextOnlyArticle: React.ElementType = ({
   style,
   displayCategory = true,
 }: ArticleProps) => {
-  const { tsdPrimaryCategory, tsdAuthors } = post;
+  const { tsdPrimaryCategory } = post;
   return (
     <Article
       post={post}
@@ -52,16 +52,7 @@ export const TextOnlyArticle: React.ElementType = ({
           <ArticleTitleWithLink post={post} />
         </ArticleHeader>
         <PostExcerpt post={post} />
-        <Text style={{ marginTop: 5 }}>
-          <AuthorView
-            authors={tsdAuthors}
-            containerStyle={{ display: "inline-flex" }}
-          />{" "}
-          •{" "}
-          <Text style={{ ...FONTS.AUXILIARY }}>
-            {getPostTimeString(post, "MMM DD YYYY")}
-          </Text>
-        </Text>
+        <AuthorAndDateView post={post} style={{ marginTop: 5 }} />
       </View>
     </Article>
   );

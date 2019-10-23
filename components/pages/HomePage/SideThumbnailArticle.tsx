@@ -1,7 +1,7 @@
 import React from "react";
 import { View } from "react-native";
 import { Article, ArticleHeader } from "components/Article";
-import { AuthorView } from "./AuthorView";
+import AuthorAndDateView from "components/AuthorAndDateView";
 import { ArticleProps } from "./ArticleProps";
 import { ThumbnailImageWithLink } from "./ThumbnailImageWithLink";
 import { ArticleTitleWithLink } from "./ArticleTitleWithLink";
@@ -9,7 +9,6 @@ import { ArticleTitleWithLink } from "./ArticleTitleWithLink";
 export const SideThumbnailArticle: React.ElementType = ({
   post,
 }: ArticleProps) => {
-  const { tsdAuthors } = post;
   return (
     <Article post={post}>
       <View
@@ -45,7 +44,7 @@ export const SideThumbnailArticle: React.ElementType = ({
               }}
             />
           </ArticleHeader>
-          <AuthorView authors={tsdAuthors} />
+          <AuthorAndDateView post={post} />
         </View>
       </View>
     </Article>
