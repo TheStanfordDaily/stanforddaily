@@ -164,14 +164,17 @@ const ContentView: React.ElementType<ContentViewProps> = ({
               style={{
                 ...FONTS.AUXILIARY,
                 fontWeight: "bold",
+                textTransform: "none",
               }}
             >
-              <span style={{ textTransform: "none" }}>
-                {isSatire ? "Satire by" : "By"}
-              </span>{" "}
-              <AuthorsTextWithLink authors={tsdAuthors} />{" "}
-              <span style={{ textTransform: "none" }}>on</span>{" "}
-              {date.format("MMMM D, YYYY")}
+              <span>{isSatire ? "Satire by" : "By"}</span>{" "}
+              <AuthorsTextWithLink
+                authors={tsdAuthors}
+                aStyle={{
+                  textDecoration: "underline",
+                }}
+              />{" "}
+              <span>on</span> {date.format("MMMM D, YYYY")}
             </p>
           )}
           <div
