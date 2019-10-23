@@ -1,10 +1,43 @@
 import React from "react";
 import { View, Text, TouchableOpacity, Platform } from "react-native";
-import RView from "emotion-native-media-query";
-import { STANFORD_COLORS, FONTS, COLORS } from "helpers/constants";
+import RView, { MediaRule, mergeRStyle } from "emotion-native-media-query";
+import { STANFORD_COLORS, FONTS, COLORS, BREAKPOINTS } from "helpers/constants";
 import { Post } from "helpers/wpapi";
 import { SECTION_PADDING } from "components/Section";
 import { TextOnlyArticle } from "components/pages/HomePage/TextOnlyArticle";
+
+const EachArticleView: React.ElementType = ({
+  children,
+  style,
+  rStyle = {},
+}) => {
+  return (
+    <RView
+      style={{
+        width: "100%",
+        flexGrow: 1,
+        flexShrink: 0,
+        flexBasis: 250,
+        marginLeft: SECTION_PADDING,
+        marginRight: SECTION_PADDING,
+        marginBottom: SECTION_PADDING,
+        ...style,
+      }}
+      rStyle={mergeRStyle(
+        {
+          [MediaRule.MinWidth]: {
+            [BREAKPOINTS.TABLET]: {
+              minHeight: 340,
+            },
+          },
+        },
+        rStyle,
+      )}
+    >
+      {children}
+    </RView>
+  );
+};
 
 interface ArticlesViewProps {
   initPosts: Post[];
@@ -39,10 +72,27 @@ const ArticlesView: React.ElementType<ArticlesViewProps> = ({
       }}
     >
       {initPosts.concat(extraPosts).map(post => (
-        <TextOnlyArticle
-          key={post.id}
-          post={post}
-          displayCategory={displayCategory}
+        <EachArticleView key={post.id}>
+          <TextOnlyArticle post={post} displayCategory={displayCategory} />
+        </EachArticleView>
+      ))}
+      {[...Array(6)].map(value => (
+        // Make sure the last row of articles will not stretch.
+        // https://jsfiddle.net/7yr86aow/3/
+        // It has 6 elements because 1, 2, 3, 4, 6 are all factors of 6.
+        <EachArticleView
+          key={value}
+          style={{
+            height: 0,
+            marginBottom: 0,
+          }}
+          rStyle={{
+            [MediaRule.MinWidth]: {
+              [BREAKPOINTS.TABLET]: {
+                minHeight: 0,
+              },
+            },
+          }}
         />
       ))}
       <LoadMoreTag

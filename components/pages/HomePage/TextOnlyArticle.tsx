@@ -20,69 +20,50 @@ export const TextOnlyArticle: React.ElementType = ({
   const { tsdPrimaryCategory, tsdAuthors } = post;
   const date = getPostLocalDate(post);
   return (
-    <RView
+    <Article
+      post={post}
       style={{
         width: "100%",
-        flexGrow: 1,
-        flexShrink: 0,
-        flexBasis: 250,
-        marginLeft: SECTION_PADDING,
-        marginRight: SECTION_PADDING,
-        marginBottom: SECTION_PADDING,
-      }}
-      rStyle={{
-        [MediaRule.MinWidth]: {
-          [BREAKPOINTS.TABLET]: {
-            minHeight: 340,
-          },
-        },
+        marginTop: 0,
+        marginbottom: 0,
+        ...style,
       }}
     >
-      <Article
-        post={post}
-        style={{
-          width: "100%",
-          marginTop: 0,
-          marginbottom: 0,
-          ...style,
-        }}
-      >
-        {displayCategory && (
-          <View
-            style={{
-              paddingVertical: SECTION_PADDING,
-            }}
-          >
-            <CategoryLink category={tsdPrimaryCategory} />
-          </View>
-        )}
-        <ThumbnailImageWithLink
-          post={post}
-          style={{
-            height: 150,
-          }}
-        />
+      {displayCategory && (
         <View
           style={{
-            paddingBottom: SECTION_PADDING,
+            paddingVertical: SECTION_PADDING,
           }}
         >
-          <ArticleHeader>
-            <ArticleTitleWithLink post={post} />
-          </ArticleHeader>
-          <PostExcerpt post={post} />
-          <Text style={{ marginTop: 5 }}>
-            <AuthorView
-              authors={tsdAuthors}
-              containerStyle={{ display: "inline-flex" }}
-            />{" "}
-            •{" "}
-            <Text style={{ ...FONTS.AUXILIARY }}>
-              {date.format("MMM DD YYYY")}
-            </Text>
-          </Text>
+          <CategoryLink category={tsdPrimaryCategory} />
         </View>
-      </Article>
-    </RView>
+      )}
+      <ThumbnailImageWithLink
+        post={post}
+        style={{
+          height: 150,
+        }}
+      />
+      <View
+        style={{
+          paddingBottom: SECTION_PADDING,
+        }}
+      >
+        <ArticleHeader>
+          <ArticleTitleWithLink post={post} />
+        </ArticleHeader>
+        <PostExcerpt post={post} />
+        <Text style={{ marginTop: 5 }}>
+          <AuthorView
+            authors={tsdAuthors}
+            containerStyle={{ display: "inline-flex" }}
+          />{" "}
+          •{" "}
+          <Text style={{ ...FONTS.AUXILIARY }}>
+            {date.format("MMM DD YYYY")}
+          </Text>
+        </Text>
+      </View>
+    </Article>
   );
 };
