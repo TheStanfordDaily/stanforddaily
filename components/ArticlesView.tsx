@@ -1,7 +1,13 @@
 import React from "react";
 import { View, Text, TouchableOpacity, Platform } from "react-native";
 import RView, { MediaRule, mergeRStyle } from "emotion-native-media-query";
-import { STANFORD_COLORS, FONTS, COLORS, BREAKPOINTS } from "helpers/constants";
+import {
+  STANFORD_COLORS,
+  FONTS,
+  COLORS,
+  BREAKPOINTS,
+  MORE_FROM_DAILY_POST_PER_PAGE,
+} from "helpers/constants";
 import { Post } from "helpers/wpapi";
 import { SECTION_PADDING } from "components/Section";
 import { TextOnlyArticle } from "components/pages/HomePage/TextOnlyArticle";
@@ -55,6 +61,9 @@ const ArticlesView: React.ElementType<ArticlesViewProps> = ({
     1,
   );
   const [loading, setLoading]: [boolean, any] = React.useState(false);
+  const [allLoaded, setAllLoaded]: [boolean, any] = React.useState(
+    initPosts.length < MORE_FROM_DAILY_POST_PER_PAGE,
+  );
 
   const LoadMoreTag = Platform.OS === "web" ? "a" : View;
   let LoadMoreNativeColor = loading ? "black" : COLORS.LINK.DEFAULT;
@@ -100,6 +109,7 @@ const ArticlesView: React.ElementType<ArticlesViewProps> = ({
           width: "100%",
           paddingLeft: SECTION_PADDING / 2,
           paddingRight: SECTION_PADDING / 2,
+          ...(allLoaded ? { display: "none" } : {}),
         }}
       >
         <TouchableOpacity
@@ -113,6 +123,9 @@ const ArticlesView: React.ElementType<ArticlesViewProps> = ({
           onPress={async () => {
             setLoading(true);
             const newPosts = await getExtraPosts(extraPageNumber + 1);
+            if (newPosts.length < MORE_FROM_DAILY_POST_PER_PAGE) {
+              setAllLoaded(true);
+            }
             setExtraPosts(extraPosts.concat(newPosts));
             setExtraPageNumber(extraPageNumber + 1);
             setLoading(false);

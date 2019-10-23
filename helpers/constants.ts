@@ -95,3 +95,6 @@ export const COLORS = {
     HOVER: "black",
   },
 };
+
+// 24 is from `MORE_FROM_DAILY_POST_PER_PAGE` in tsd-json plugin on the server.
+export const MORE_FROM_DAILY_POST_PER_PAGE = 24;
