@@ -16,6 +16,7 @@ import WPHead from "components/webHelpers/WPHead";
 import WPFooter from "components/webHelpers/WPFooter.web";
 import { AuthorsTextWithLink } from "./pages/HomePage/AuthorView";
 import AuthorBox from "./AuthorBox";
+import { CategoryLink } from "./CategoryLink";
 
 interface ContentViewProps {
   post: Post;
@@ -51,6 +52,7 @@ const ContentView: React.ElementType<ContentViewProps> = ({
     thumbnailInfo,
     tsdAuthors,
     tsdCategories,
+    tsdPrimaryCategory,
     postContent,
     postType,
     commentStatus,
@@ -64,7 +66,7 @@ const ContentView: React.ElementType<ContentViewProps> = ({
     alt: thumbnailAlt = thumbnailCaption,
   } = thumbnailInfo || {};
 
-  const displayAuthors = postType === "post";
+  const isPost = postType === "post";
 
   let isSatire = false;
   if (
@@ -79,6 +81,21 @@ const ContentView: React.ElementType<ContentViewProps> = ({
       <WPHead base={post} />
       <Article>
         <ArticleHeader>
+          {isPost && (
+            <div
+              css={{
+                ...centerContentStyle,
+                textAlign: "center",
+              }}
+            >
+              <CategoryLink
+                category={tsdPrimaryCategory}
+                style={{
+                  fontSize: 20,
+                }}
+              />
+            </div>
+          )}
           <h1
             css={{
               ...centerContentStyle,
@@ -159,7 +176,7 @@ const ContentView: React.ElementType<ContentViewProps> = ({
           ) : (
             undefined
           )}
-          {displayAuthors && (
+          {isPost && (
             <p
               style={{
                 ...FONTS.AUXILIARY,
@@ -183,7 +200,7 @@ const ContentView: React.ElementType<ContentViewProps> = ({
             dangerouslySetInnerHTML={{ __html: postContent }}
           />
         </RView>
-        {displayAuthors && (
+        {isPost && (
           <footer css={centerOuterContentStyle} style={{ marginTop: 30 }}>
             {tsdAuthors.map(author => (
               <AuthorBox key={author.id} author={author} />
