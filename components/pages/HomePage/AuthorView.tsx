@@ -6,6 +6,8 @@ import { Author } from "helpers/wpapi";
 
 export const AuthorsTextWithLink: React.ElementType = ({
   authors,
+  linkToAuthor = true,
+  aStyle,
   ...props
 }: {
   authors: Author[];
@@ -17,16 +19,23 @@ export const AuthorsTextWithLink: React.ElementType = ({
       {index > 0 && index === authors.length - 1 && (
         <span style={{ textTransform: "none" }}>and </span>
       )}
-      <Link href="/author/[slug]" as={author.url}>
-        <a
-          title={author.displayName}
-          rel="author"
-          style={{ color: "inherit" }}
-          {...props}
-        >
-          {author.displayName}
-        </a>
-      </Link>
+      {linkToAuthor ? (
+        <Link href="/author/[slug]" as={author.url}>
+          <a
+            title={author.displayName}
+            rel="author"
+            style={{
+              color: "inherit",
+              ...aStyle,
+            }}
+            {...props}
+          >
+            {author.displayName}
+          </a>
+        </Link>
+      ) : (
+        author.displayName
+      )}
     </React.Fragment>
   ));
   return <>{authorsTextWithLink}</>;
@@ -36,6 +45,8 @@ export const AuthorView: React.ElementType = ({
   authors,
   style,
   containerStyle,
+  aStyle,
+  linkToAuthor = true,
   ...props
 }: {
   authors: Author[];
@@ -50,7 +61,12 @@ export const AuthorView: React.ElementType = ({
             ...style,
           }}
         >
-          <AuthorsTextWithLink authors={authors} {...props} />
+          <AuthorsTextWithLink
+            authors={authors}
+            aStyle={aStyle}
+            linkToAuthor={linkToAuthor}
+            {...props}
+          />
         </Text>
       </View>
     );

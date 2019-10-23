@@ -33,6 +33,8 @@ export type Author = {
   displayName: string;
   userNicename: string; // This is user's URL-friendly slug
   url: string;
+  avatarUrl: string;
+  description?: string;
 };
 
 export type Category = {
@@ -85,7 +87,7 @@ export type CategoryArchivePageData = ArchivePageData & {
 
 export type AuthorArchivePageData = ArchivePageData & {
   tsdMeta: {
-    name: string;
+    author: Author;
   };
 };
 

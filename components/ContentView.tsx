@@ -15,6 +15,7 @@ import LoadingView from "components/Loading";
 import WPHead from "components/webHelpers/WPHead";
 import WPFooter from "components/webHelpers/WPFooter.web";
 import { AuthorsTextWithLink } from "./pages/HomePage/AuthorView";
+import AuthorBox from "./AuthorBox";
 
 interface ContentViewProps {
   post: Post;
@@ -180,9 +181,9 @@ const ContentView: React.ElementType<ContentViewProps> = ({
           />
         </RView>
         {displayAuthors && (
-          <footer>
+          <footer css={centerOuterContentStyle} style={{ marginTop: 30 }}>
             {tsdAuthors.map(author => (
-              <div key={author.id}>{author.displayName}</div>
+              <AuthorBox key={author.id} author={author} />
             ))}
           </footer>
         )}
