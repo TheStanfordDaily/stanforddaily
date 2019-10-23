@@ -190,3 +190,13 @@ export function getNextJsCategoryPath(categoryUrl: string): string {
   }
   return nextJsCategoryPath;
 }
+
+export function getPostTimeString(post: Post, format: string): string {
+  const date = getPostLocalDate(post);
+  if (new Date().getTime() - date.toDate().getTime() > 10 * 60 * 60 * 1000) {
+    // If posted >10 hours ago.
+    return date.format(format);
+  } else {
+    return date.fromNow();
+  }
+}

@@ -2,7 +2,7 @@ import React from "react";
 import { Global } from "@emotion/core";
 import { DiscussionEmbed, CommentCount } from "disqus-react";
 import RView from "emotion-native-media-query";
-import { getPostLocalDate, Post } from "helpers/wpapi";
+import { Post, getPostTimeString } from "helpers/wpapi";
 import {
   STRINGS,
   BREAKPOINTS,
@@ -58,7 +58,6 @@ const ContentView: React.ElementType<ContentViewProps> = ({
     commentStatus,
     guid,
   } = post;
-  const date = getPostLocalDate(post);
 
   const {
     urls: { full: thumbnailUrl = null } = {},
@@ -191,7 +190,7 @@ const ContentView: React.ElementType<ContentViewProps> = ({
                   textDecoration: "underline",
                 }}
               />{" "}
-              <span>on</span> {date.format("MMMM D, YYYY")}
+              <span>{getPostTimeString(post, "on MMMM D, YYYY")}</span>
             </p>
           )}
           <div

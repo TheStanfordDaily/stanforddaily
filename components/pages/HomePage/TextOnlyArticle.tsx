@@ -2,7 +2,7 @@ import React from "react";
 import { Text, View } from "react-native";
 import RView, { MediaRule } from "emotion-native-media-query";
 import { BREAKPOINTS, FONTS, STANFORD_COLORS } from "helpers/constants";
-import { getPostLocalDate } from "helpers/wpapi";
+import { getPostTimeString } from "helpers/wpapi";
 import { SECTION_PADDING } from "components/Section";
 import { Article, ArticleHeader } from "components/Article";
 import { CategoryLink } from "components/CategoryLink";
@@ -18,7 +18,6 @@ export const TextOnlyArticle: React.ElementType = ({
   displayCategory = true,
 }: ArticleProps) => {
   const { tsdPrimaryCategory, tsdAuthors } = post;
-  const date = getPostLocalDate(post);
   return (
     <Article
       post={post}
@@ -60,7 +59,7 @@ export const TextOnlyArticle: React.ElementType = ({
           />{" "}
           •{" "}
           <Text style={{ ...FONTS.AUXILIARY }}>
-            {date.format("MMM DD YYYY")}
+            {getPostTimeString(post, "MMM DD YYYY")}
           </Text>
         </Text>
       </View>
