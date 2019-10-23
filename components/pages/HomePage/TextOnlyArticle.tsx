@@ -71,7 +71,7 @@ export const TextOnlyArticle: React.ElementType = ({
             <ArticleTitleWithLink post={post} />
           </ArticleHeader>
           <PostExcerpt post={post} />
-          <Text>
+          <Text style={{ marginTop: 5 }}>
             <AuthorView
               authors={tsdAuthors}
               containerStyle={{ display: "inline-flex" }}
