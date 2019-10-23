@@ -14,7 +14,7 @@ export const DateWithAbbr: React.ElementType<DateWithAbbrProps> = ({
 }) => {
   const date = getPostLocalDate(post);
   return (
-    <abbr title={date.format("LLLL")}>
+    <abbr title={date.format("LLLL")} style={{ textDecoration: "none" }}>
       <time dateTime={date.format()}>{getPostTimeString(date, format)}</time>
     </abbr>
   );
