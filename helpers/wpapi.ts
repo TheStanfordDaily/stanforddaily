@@ -193,10 +193,10 @@ export function getNextJsCategoryPath(categoryUrl: string): string {
 
 export function getPostTimeString(post: Post, format: string): string {
   const date = getPostLocalDate(post);
-  if (new Date().getTime() - date.toDate().getTime() > 10 * 60 * 60 * 1000) {
-    // If posted >10 hours ago.
-    return date.format(format);
-  } else {
+  if (date.isSame(new Date(), "day")) {
     return date.fromNow();
+  } else {
+    // If posted on the same day.
+    return date.format(format);
   }
 }
