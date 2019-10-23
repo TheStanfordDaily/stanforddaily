@@ -2,7 +2,7 @@ import React from "react";
 import { Global } from "@emotion/core";
 import { DiscussionEmbed, CommentCount } from "disqus-react";
 import RView from "emotion-native-media-query";
-import { Post, getPostTimeString } from "helpers/wpapi";
+import { Post } from "helpers/wpapi";
 import {
   STRINGS,
   BREAKPOINTS,
@@ -17,6 +17,7 @@ import WPFooter from "components/webHelpers/WPFooter.web";
 import { AuthorsTextWithLink } from "./pages/HomePage/AuthorView";
 import AuthorBox from "./AuthorBox";
 import { CategoryLink } from "./CategoryLink";
+import { DateWithAbbr } from "./DateView";
 
 interface ContentViewProps {
   post: Post;
@@ -190,7 +191,9 @@ const ContentView: React.ElementType<ContentViewProps> = ({
                   textDecoration: "underline",
                 }}
               />{" "}
-              <span>{getPostTimeString(post, "on MMMM D, YYYY")}</span>
+              <span>
+                <DateWithAbbr post={post} format="on MMMM D, YYYY" />
+              </span>
             </p>
           )}
           <div

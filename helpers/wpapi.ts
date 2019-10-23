@@ -191,12 +191,11 @@ export function getNextJsCategoryPath(categoryUrl: string): string {
   return nextJsCategoryPath;
 }
 
-export function getPostTimeString(post: Post, format: string): string {
-  const date = getPostLocalDate(post);
+export function getPostTimeString(date: moment.Moment, format: string): string {
   if (date.isSame(new Date(), "day")) {
+    // If posted on the same day.
     return date.fromNow();
   } else {
-    // If posted on the same day.
     return date.format(format);
   }
 }
