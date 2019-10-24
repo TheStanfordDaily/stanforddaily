@@ -274,8 +274,10 @@ export default class MyApp extends App {
 
     return (
       <div
+        id="body-main"
         css={{
           width: "100%",
+          backgroundColor: STANFORD_COLORS.FOG,
         }}
       >
         <Global
