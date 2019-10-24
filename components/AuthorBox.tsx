@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, Image } from "react-native";
 import { Author } from "helpers/wpapi";
-import { FONTS, COLORS } from "helpers/constants";
+import { FONTS, COLORS, STANFORD_COLORS } from "helpers/constants";
 import { AuthorView } from "./pages/HomePage/AuthorView";
 
 interface AuthorBoxProps {
@@ -20,9 +20,9 @@ const AuthorBox: React.ElementType<AuthorBoxProps> = ({
         flexDirection: "row",
         paddingHorizontal: 30,
         paddingVertical: 40,
-        backgroundColor: "#f5f5f5",
-        borderWidth: 1,
-        borderColor: "#eaeaea",
+        borderRadius: 5,
+        backgroundColor: STANFORD_COLORS.WHITE,
+        marginBottom: 10,
       }}
     >
       <View>
