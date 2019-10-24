@@ -141,6 +141,7 @@ const SiteHeader: React.ElementType = (props: any) => {
           <HeaderLogo />
         </RView>
         <RView
+          id="tsd-navbar"
           style={{
             order: 2,
             maxWidth: "100vw",
