@@ -57,6 +57,7 @@ const HeaderLogo: React.ElementType = (props: any) => {
           <Link href="/">
             <a
               rel="home"
+              id="tsd-logo"
               style={{
                 display: "flex",
                 alignItems: "center",
