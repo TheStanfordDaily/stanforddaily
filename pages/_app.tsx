@@ -62,11 +62,11 @@ const HeaderLogo: React.ElementType = (props: any) => {
                 alignItems: "center",
                 height: "100%",
               }}
+              title="The Stanford Daily"
             >
               <img
                 src="https://raw.githubusercontent.com/TheStanfordDaily/stanforddaily-graphic-assets/master/DailyLogo/DailyLogo.png"
                 alt="The Stanford Daily"
-                title="The Stanford Daily"
                 css={{
                   height: "auto",
                   width: "auto",
