@@ -83,6 +83,9 @@ const ContentView: React.ElementType<ContentViewProps> = ({
         <Global
           // TODO: CUSTOM LOGO FOR SATIRE (SEE https://stackoverflow.com/a/28710709/2603230)
           styles={{
+            "#body-main": {
+              backgroundColor: STANFORD_COLORS.LIGHT_SANDSTONE,
+            },
             "#tsd-navbar, #site-footer": {
               backgroundColor: STANFORD_COLORS.BLACK,
             },
@@ -161,6 +164,7 @@ const ContentView: React.ElementType<ContentViewProps> = ({
                 ...centerContentStyle,
                 marginBottom: "1em",
                 fontSize: "1.3rem",
+                color: "black",
               },
               figcaption: {
                 ...FONTS.AUXILIARY,
