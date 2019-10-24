@@ -164,7 +164,7 @@ const ContentView: React.ElementType<ContentViewProps> = ({
                 ...centerContentStyle,
                 marginBottom: "1em",
                 fontSize: "1.3rem",
-                color: "black",
+                color: STANFORD_COLORS.BLACK,
               },
               figcaption: {
                 ...FONTS.AUXILIARY,
