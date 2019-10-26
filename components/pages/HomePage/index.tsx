@@ -17,7 +17,6 @@ import { SportsSection } from "./SportsSection";
 import { GrindSection } from "./GrindSection";
 import { OpinionSection } from "./OpinionSection";
 import { ArtsAndLifeSection } from "./ArtsAndLifeSection";
-import { SponsoredSection } from "./SponsoredSection";
 import { MultimediaSection } from "./MultimediaSection";
 import { MoreFromTheDailySection } from "./MoreFromTheDailySection";
 import { DesktopRow } from "./DesktopRow";
