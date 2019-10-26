@@ -31,7 +31,8 @@ export const ArtsAndLifeSection: React.ElementType = ({
               accessibilityLabel="Arts & Life"
               resizeMode="contain"
               style={{
-                height: 70,
+                height: 90,
+                width: 140,
               }}
             />
           </Link>
