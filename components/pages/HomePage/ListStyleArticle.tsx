@@ -13,10 +13,10 @@ export const ListStyleArticle: React.ElementType = ({
   const { tsdAuthors } = post;
   return (
     <Article post={post}>
-      {displayAuthor && <AuthorView authors={tsdAuthors} style={authorStyle} />}
       <ArticleHeader>
         <ArticleTitleWithLink post={post} marginBottomMore style={titleStyle} />
       </ArticleHeader>
+      {displayAuthor && <AuthorView authors={tsdAuthors} style={authorStyle} />}
     </Article>
   );
 };
