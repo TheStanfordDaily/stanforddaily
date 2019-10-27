@@ -146,6 +146,9 @@ export default class HomePage extends React.Component<IndexProps, IndexState> {
               }}
             >
               <OpinionSection
+                style={{
+                  ...getBorderValue("Bottom"),
+                }}
                 content={homePosts.opinions}
                 rStyle={{
                   [MediaRule.MaxWidth]: {
@@ -156,6 +159,9 @@ export default class HomePage extends React.Component<IndexProps, IndexState> {
                 }}
               />
               <GrindSection
+                style={{
+                  ...getBorderValue("Bottom"),
+                }}
                 content={homePosts.theGrind}
                 rStyle={{
                   [MediaRule.MaxWidth]: {
