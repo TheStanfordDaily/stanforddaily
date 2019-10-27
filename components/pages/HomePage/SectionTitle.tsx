@@ -6,7 +6,6 @@ const SectionTitleStyle = styled.Text({
   ...FONTS.SECTION_TITLE,
   color: STANFORD_COLORS.CARDINAL_DARK_RED,
   margin: 0,
-  marginBottom: 15,
 });
 export const SectionTitle =
   Platform.OS === "web"
