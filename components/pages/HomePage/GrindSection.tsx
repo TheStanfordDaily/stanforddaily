@@ -32,7 +32,7 @@ export const GrindSection: React.ElementType = ({
               accessibilityLabel="The Grind"
               resizeMode="contain"
               style={{
-                height: 95,
+                height: 55,
                 width: 120,
               }}
             />
