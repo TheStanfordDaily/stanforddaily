@@ -1,6 +1,7 @@
 import React from "react";
 import RView from "emotion-native-media-query";
 import { Section } from "components/Section";
+import Link from "next/link";
 import { ListStyleArticle } from "./ListStyleArticle";
 import { SectionTitle } from "./SectionTitle";
 import { SectionProps } from "./SectionProps";
@@ -28,7 +29,7 @@ export const RightListedSection: React.ElementType = (props: SectionProps) => {
               ...sectionTitleStyle,
             }}
           >
-            {sectionTitle}
+            <Link href="/category/opinions/">{sectionTitle}</Link>
           </SectionTitle>
         )}
         {content.map(post => (
