@@ -19,7 +19,7 @@ export const FooterContent: React.ElementType = ({ itemStyle }: any) => {
   } = {
     news: {
       id: 3,
-      name: "NEWS",
+      name: "News",
       slug: "news",
       url: "/category/news/",
       children: {
