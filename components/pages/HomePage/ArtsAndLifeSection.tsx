@@ -18,8 +18,8 @@ export const ArtsAndLifeSection: React.ElementType = ({
           paddingTop: 0,
           paddingLeft: 0,
           cursor: "pointer",
-          width: 180,
-          height: 70,
+          width: 120,
+          height: 40,
         }}
       >
         <SectionTitle style={{ textAlign: "center" }}>
@@ -31,7 +31,7 @@ export const ArtsAndLifeSection: React.ElementType = ({
               accessibilityLabel="Arts & Life"
               resizeMode="contain"
               style={{
-                height: 90,
+                height: 30,
                 width: 140,
               }}
             />
