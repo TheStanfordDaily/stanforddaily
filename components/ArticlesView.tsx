@@ -8,14 +8,22 @@ import { TextOnlyArticle } from "components/pages/HomePage/TextOnlyArticle";
 
 interface ArticlesViewProps {
   initPosts: Post[];
-  getExtraPosts: (pageNumber: number) => Promise<Post[]>;
+  getExtraPosts?: (pageNumber: number) => Promise<Post[]>;
   displayCategory?: boolean;
+  displayLoadMore?: boolean;
+  excerptBool?: boolean;
+  dateAuthorBool?: boolean;
+  whiteHeadline?: boolean;
 }
 
 const ArticlesView: React.ElementType<ArticlesViewProps> = ({
   initPosts,
   getExtraPosts,
   displayCategory = true,
+  displayLoadMore = true,
+  excerptBool = true,
+  dateAuthorBool = true,
+  whiteHeadline = false,
 }: ArticlesViewProps) => {
   const [extraPosts, setExtraPosts]: [Post[], any] = React.useState([]);
   const [extraPageNumber, setExtraPageNumber]: [number, any] = React.useState(
@@ -43,6 +51,9 @@ const ArticlesView: React.ElementType<ArticlesViewProps> = ({
           key={post.id}
           post={post}
           displayCategory={displayCategory}
+          displayExcerpt={excerptBool}
+          displayDateAuthor={dateAuthorBool}
+          whiteHeadline={whiteHeadline}
         />
       ))}
       <LoadMoreTag
@@ -50,6 +61,7 @@ const ArticlesView: React.ElementType<ArticlesViewProps> = ({
           width: "100%",
           paddingLeft: SECTION_PADDING / 2,
           paddingRight: SECTION_PADDING / 2,
+          ...(displayLoadMore ? {} : { display: "none" }),
         }}
       >
         <TouchableOpacity
