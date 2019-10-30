@@ -1,7 +1,7 @@
 import styled from "@emotion/native";
 import React from "react";
 import { Platform } from "react-native";
-import { FONTS } from "helpers/constants";
+import { FONTS, STANFORD_COLORS } from "helpers/constants";
 import { Post } from "helpers/wpapi";
 import { LinkToArticle } from "./LinkToArticle";
 
@@ -16,6 +16,7 @@ const ArticleTitle =
 export const ArticleTitleWithLink: React.ElementType = ({
   post,
   marginBottomMore = false,
+  whiteText = false,
   style,
   ...props
 }: {
@@ -36,6 +37,7 @@ export const ArticleTitleWithLink: React.ElementType = ({
   return (
     <ArticleTitle
       style={{
+        color: whiteText ? STANFORD_COLORS.WHITE : STANFORD_COLORS.BLACK,
         ...margin,
         ...style,
       }}
