@@ -18,6 +18,7 @@ import { GrindSection } from "./GrindSection";
 import { OpinionSection } from "./OpinionSection";
 import { ArtsAndLifeSection } from "./ArtsAndLifeSection";
 import { MultimediaSection } from "./MultimediaSection";
+import { SponsoredSection } from "./SponsoredSection";
 import { MoreFromTheDailySection } from "./MoreFromTheDailySection";
 import { DesktopRow } from "./DesktopRow";
 import { Column } from "./Column";
@@ -189,6 +190,7 @@ export default class HomePage extends React.Component<IndexProps, IndexState> {
               ...getBorderValue("Bottom"),
             }}
           /> */}
+          <SponsoredSection content={homePosts.sponsored} />
           <MoreFromTheDailySection content={homePosts.moreFromTheDaily} />
         </ScrollView>
         <WPFooter base={homePosts} />
