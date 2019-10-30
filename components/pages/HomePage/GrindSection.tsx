@@ -19,8 +19,8 @@ export const GrindSection: React.ElementType = ({
           paddingTop: 0,
           paddingLeft: 0,
           cursor: "pointer",
-          width: 180,
-          height: 70,
+          width: 120,
+          height: 40,
         }}
       >
         <SectionTitle style={{ textAlign: "center" }}>
@@ -32,8 +32,8 @@ export const GrindSection: React.ElementType = ({
               accessibilityLabel="The Grind"
               resizeMode="contain"
               style={{
-                height: 55,
-                width: 120,
+                height: 30,
+                width: 105,
               }}
             />
           </Link>
