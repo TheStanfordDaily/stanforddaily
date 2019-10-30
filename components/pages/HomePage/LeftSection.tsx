@@ -3,6 +3,7 @@ import { View } from "react-native";
 import { MediaRule, mergeRStyle } from "emotion-native-media-query";
 import { BREAKPOINTS } from "helpers/constants";
 import { Section } from "components/Section";
+import Link from "next/link";
 import { TopThumbnailArticle } from "./TopThumbnailArticle";
 import { TitleOnlyArticle } from "./TitleOnlyArticle";
 import { Column } from "./Column";
@@ -30,7 +31,11 @@ export const LeftSection: React.ElementType = (props: SectionProps) => {
       )}
     >
       <SectionTag>
-        {sectionTitle && <SectionTitle>{sectionTitle}</SectionTitle>}
+        {sectionTitle && (
+          <SectionTitle>
+            <Link href="/category/news/">{sectionTitle}</Link>
+          </SectionTitle>
+        )}
         <View>
           <TopThumbnailArticle post={content[0]} />
         </View>
