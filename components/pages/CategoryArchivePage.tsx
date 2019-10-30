@@ -43,9 +43,18 @@ export default class CategoryArchivePage extends React.Component<
           flexDirection: "column",
         }}
       >
-        <Text>{initData.tsdMeta.title}</Text>
+        <View style={{ paddingBottom: 15 }}>
+          <Text
+            style={{
+              fontSize: 25,
+            }}
+          >
+            {initData.tsdMeta.title}
+          </Text>
+        </View>
         <ArchivePage
           displayCategory={false}
+          excerptBool={false}
           initData={initData}
           type={ArchivePageType.Category}
           getExtraData={async pageNumber => {
