@@ -5,6 +5,7 @@ import { FONTS, STANFORD_COLORS } from "helpers/constants";
 const SectionTitleStyle = styled.Text({
   ...FONTS.SECTION_TITLE,
   color: STANFORD_COLORS.CARDINAL_DARK_RED,
+  fontSize: 20,
   margin: 0,
 });
 export const SectionTitle =
