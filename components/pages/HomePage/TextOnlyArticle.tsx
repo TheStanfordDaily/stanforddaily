@@ -16,6 +16,9 @@ export const TextOnlyArticle: React.ElementType = ({
   post,
   style,
   displayCategory = true,
+  displayExcerpt = true,
+  displayDateAuthor = true,
+  whiteHeadline = false,
 }: ArticleProps) => {
   const { tsdPrimaryCategory, tsdAuthors } = post;
   const date = getPostLocalDate(post);
@@ -33,7 +36,7 @@ export const TextOnlyArticle: React.ElementType = ({
       rStyle={{
         [MediaRule.MinWidth]: {
           [BREAKPOINTS.TABLET]: {
-            minHeight: 340,
+            minHeight: displayExcerpt ? 340 : 200,
           },
         },
       }}
@@ -53,7 +56,31 @@ export const TextOnlyArticle: React.ElementType = ({
               paddingVertical: SECTION_PADDING,
             }}
           >
-            <CategoryLink category={tsdPrimaryCategory} />
+            <CategoryLink
+              style={{
+                color: whiteHeadline
+                  ? STANFORD_COLORS.WHITE
+                  : STANFORD_COLORS.BLACK,
+              }}
+              category={tsdPrimaryCategory}
+            />
+          </View>
+        )}
+        {!whiteHeadline && (
+          <View
+            style={{
+              paddingVertical: SECTION_PADDING,
+            }}
+          >
+            <Text
+              style={{
+                fontFamily: "IBM Plex Sans Condensed",
+                fontSize: 14,
+                color: STANFORD_COLORS.WHITE,
+              }}
+            >
+              SPONSORED
+            </Text>
           </View>
         )}
         <ThumbnailImageWithLink
@@ -68,19 +95,21 @@ export const TextOnlyArticle: React.ElementType = ({
           }}
         >
           <ArticleHeader>
-            <ArticleTitleWithLink post={post} />
+            <ArticleTitleWithLink post={post} whiteText={!whiteHeadline} />
           </ArticleHeader>
-          <PostExcerpt post={post} />
-          <Text>
-            <AuthorView
-              authors={tsdAuthors}
-              containerStyle={{ display: "inline-flex" }}
-            />{" "}
-            •{" "}
-            <Text style={{ ...FONTS.AUXILIARY }}>
-              {date.format("MMM DD YYYY")}
+          {displayExcerpt && <PostExcerpt post={post} />}
+          {displayDateAuthor && (
+            <Text>
+              <AuthorView
+                authors={tsdAuthors}
+                containerStyle={{ display: "inline-flex" }}
+              />{" "}
+              •{" "}
+              <Text style={{ ...FONTS.AUXILIARY }}>
+                {date.format("MMM DD YYYY")}
+              </Text>
             </Text>
-          </Text>
+          )}
         </View>
       </Article>
     </RView>
