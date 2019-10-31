@@ -18,7 +18,7 @@ export const TextOnlyArticle: React.ElementType = ({
   displayCategory = true,
   displayExcerpt = true,
   displayDateAuthor = true,
-  whiteHeadline = false,
+  textColor = STANFORD_COLORS.BLACK,
 }: ArticleProps) => {
   const { tsdPrimaryCategory, tsdAuthors } = post;
   const date = getPostLocalDate(post);
@@ -57,30 +57,9 @@ export const TextOnlyArticle: React.ElementType = ({
             }}
           >
             <CategoryLink
-              style={{
-                color: whiteHeadline
-                  ? STANFORD_COLORS.WHITE
-                  : STANFORD_COLORS.BLACK,
-              }}
               category={tsdPrimaryCategory}
+              style={{ color: textColor }}
             />
-          </View>
-        )}
-        {!whiteHeadline && (
-          <View
-            style={{
-              paddingVertical: SECTION_PADDING,
-            }}
-          >
-            <Text
-              style={{
-                fontFamily: "IBM Plex Sans Condensed",
-                fontSize: 14,
-                color: STANFORD_COLORS.WHITE,
-              }}
-            >
-              SPONSORED
-            </Text>
           </View>
         )}
         <ThumbnailImageWithLink
@@ -95,11 +74,13 @@ export const TextOnlyArticle: React.ElementType = ({
           }}
         >
           <ArticleHeader>
-            <ArticleTitleWithLink post={post} whiteText={!whiteHeadline} />
+            <ArticleTitleWithLink post={post} style={{ color: textColor }} />
           </ArticleHeader>
-          {displayExcerpt && <PostExcerpt post={post} />}
+          {displayExcerpt && (
+            <PostExcerpt post={post} style={{ color: textColor }} />
+          )}
           {displayDateAuthor && (
-            <Text>
+            <Text style={{ color: textColor }}>
               <AuthorView
                 authors={tsdAuthors}
                 containerStyle={{ display: "inline-flex" }}

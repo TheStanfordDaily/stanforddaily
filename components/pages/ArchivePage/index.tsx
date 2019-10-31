@@ -19,7 +19,7 @@ export interface ArchivePageProps {
   initData: ArchivePageData;
   getExtraData: (pageNumber: number) => Promise<ArchivePageData>;
   displayCategory?: boolean;
-  excerptBool?: boolean;
+  displayExcerpt?: boolean;
 }
 
 export interface ArchivePageState {}
@@ -33,7 +33,12 @@ export default class ArchivePage extends React.Component<
   }
 
   render(): React.ReactNode {
-    const { initData, getExtraData, displayCategory, excerptBool } = this.props;
+    const {
+      initData,
+      getExtraData,
+      displayCategory,
+      displayExcerpt,
+    } = this.props;
     if (!initData) {
       return <LoadingView />;
     }
@@ -43,7 +48,7 @@ export default class ArchivePage extends React.Component<
         <WPHead base={initData} />
         <ArticlesView
           displayCategory={displayCategory}
-          excerptBool={excerptBool}
+          displayExcerpt={displayExcerpt}
           initPosts={initData.posts}
           getExtraPosts={async pageNumber => {
             const extraData = await getExtraData(pageNumber);

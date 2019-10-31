@@ -11,9 +11,9 @@ interface ArticlesViewProps {
   getExtraPosts?: (pageNumber: number) => Promise<Post[]>;
   displayCategory?: boolean;
   displayLoadMore?: boolean;
-  excerptBool?: boolean;
-  dateAuthorBool?: boolean;
-  whiteHeadline?: boolean;
+  displayExcerpt?: boolean;
+  displayDateAuthor?: boolean;
+  textColor?: string;
 }
 
 const ArticlesView: React.ElementType<ArticlesViewProps> = ({
@@ -21,9 +21,9 @@ const ArticlesView: React.ElementType<ArticlesViewProps> = ({
   getExtraPosts,
   displayCategory = true,
   displayLoadMore = true,
-  excerptBool = true,
-  dateAuthorBool = true,
-  whiteHeadline = true,
+  displayExcerpt = true,
+  displayDateAuthor = true,
+  textColor = STANFORD_COLORS.BLACK,
 }: ArticlesViewProps) => {
   const [extraPosts, setExtraPosts]: [Post[], any] = React.useState([]);
   const [extraPageNumber, setExtraPageNumber]: [number, any] = React.useState(
@@ -51,9 +51,9 @@ const ArticlesView: React.ElementType<ArticlesViewProps> = ({
           key={post.id}
           post={post}
           displayCategory={displayCategory}
-          displayExcerpt={excerptBool}
-          displayDateAuthor={dateAuthorBool}
-          whiteHeadline={whiteHeadline}
+          displayExcerpt={displayExcerpt}
+          displayDateAuthor={displayDateAuthor}
+          textColor={textColor}
         />
       ))}
       <LoadMoreTag
