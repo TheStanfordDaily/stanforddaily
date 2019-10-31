@@ -277,7 +277,6 @@ export default class MyApp extends App {
         id="body-main"
         css={{
           width: "100%",
-          backgroundColor: STANFORD_COLORS.FOG,
         }}
       >
         <Global
