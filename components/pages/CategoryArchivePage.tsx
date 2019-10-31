@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Text } from "react-native";
 import { getCategoryAsync, CategoryArchivePageData } from "helpers/wpapi";
+import { FONTS } from "helpers/constants";
 import Wrapper from "components/Wrapper";
 import { Section } from "components/Section";
 import ArchivePage, { ArchivePageType, ArchivePageState } from "./ArchivePage";
@@ -46,6 +47,7 @@ export default class CategoryArchivePage extends React.Component<
         <View style={{ paddingBottom: 15 }}>
           <Text
             style={{
+              ...FONTS.SECTION_TITLE,
               fontSize: 25,
             }}
           >
