@@ -36,7 +36,10 @@ export const TextOnlyArticle: React.ElementType = ({
             paddingVertical: SECTION_PADDING,
           }}
         >
-          <CategoryLink category={tsdPrimaryCategory} />
+          <CategoryLink
+            category={tsdPrimaryCategory}
+            style={{ color: textColor }}
+          />
         </View>
       )}
       <ThumbnailImageWithLink
