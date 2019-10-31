@@ -5,7 +5,7 @@ import ArticlesView from "components/ArticlesView";
 import { SectionTitle } from "./SectionTitle";
 import { SectionProps } from "./SectionProps";
 
-export const MoreFromTheDailySection: React.ElementType = ({
+export const MoreFromTheDailySection: React.ElementType<SectionProps> = ({
   content,
 }: SectionProps) => {
   return (

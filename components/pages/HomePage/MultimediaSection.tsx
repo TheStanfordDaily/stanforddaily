@@ -1,10 +1,12 @@
 import React from "react";
 import { Section } from "components/Section";
-import { SectionTitle } from "./SectionTitle";
+import { SectionTitleWithLink } from "./SectionTitle";
 import { SectionProps } from "./SectionProps";
 
-export const MultimediaSection: React.ElementType = (props: SectionProps) => {
-  const { style } = props;
+export const MultimediaSection: React.ElementType<SectionProps> = ({
+  style,
+  category,
+}: SectionProps) => {
   return (
     <Section
       style={{
@@ -13,7 +15,9 @@ export const MultimediaSection: React.ElementType = (props: SectionProps) => {
         ...style,
       }}
     >
-      <SectionTitle>Video & Photograph</SectionTitle>
+      <SectionTitleWithLink category={category}>
+        Video & Photograph
+      </SectionTitleWithLink>
     </Section>
   );
 };

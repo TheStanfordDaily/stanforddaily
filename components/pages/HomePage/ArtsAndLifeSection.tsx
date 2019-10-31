@@ -1,43 +1,31 @@
 import React from "react";
 import { Image } from "react-native";
 import RView from "emotion-native-media-query";
-import { Section, SectionStyle } from "components/Section";
-import Link from "next/link";
+import { Section } from "components/Section";
 import { SideThumbnailArticle } from "./SideThumbnailArticle";
-import { SectionTitle } from "./SectionTitle";
+import { SectionTitleWithLink } from "./SectionTitle";
 import { SectionProps } from "./SectionProps";
 
 export const ArtsAndLifeSection: React.ElementType = ({
   content,
+  category,
   ...props
 }: SectionProps) => {
   return (
     <RView WebTag={Section} NativeTag={Section} {...props}>
-      <SectionStyle
-        style={{
-          paddingTop: 0,
-          paddingLeft: 0,
-          cursor: "pointer",
-          width: 120,
-          height: 40,
-        }}
-      >
-        <SectionTitle style={{ textAlign: "center" }}>
-          <Link href="/category/arts-life/">
-            <Image
-              source={{
-                uri: "/static/sectionHeaders/artsAndLife.png",
-              }}
-              accessibilityLabel="Arts & Life"
-              resizeMode="contain"
-              style={{
-                height: 30,
-                width: 140,
-              }}
-            />
-          </Link>
-        </SectionTitle>
-      </SectionStyle>
+      <SectionTitleWithLink category={category}>
+        <Image
+          source={{
+            uri: "/static/sectionHeaders/artsAndLife.png",
+          }}
+          accessibilityLabel="Arts & Life"
+          resizeMode="contain"
+          style={{
+            height: 50,
+            width: 150,
+          }}
+        />
+      </SectionTitleWithLink>
       <SideThumbnailArticle post={content[0]} />
       <SideThumbnailArticle post={content[1]} />
       <SideThumbnailArticle post={content[2]} />

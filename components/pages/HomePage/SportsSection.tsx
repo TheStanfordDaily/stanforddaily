@@ -3,15 +3,19 @@ import { Image } from "react-native";
 import styled from "@emotion/native";
 import RView from "emotion-native-media-query";
 import { SectionStyle, SectionWithoutStyle } from "components/Section";
-import Link from "next/link";
 import { MainSection } from "./MainSection";
 import { LeftSection } from "./LeftSection";
 import { DesktopRow } from "./DesktopRow";
-import { SectionTitle } from "./SectionTitle";
+import { SectionTitleWithLink } from "./SectionTitle";
 import { SectionProps } from "./SectionProps";
 
-export const SportsSection: React.ElementType = (props: SectionProps) => {
-  const { content, mainBeforeSide, style, rStyle } = props;
+export const SportsSection: React.ElementType<SectionProps> = ({
+  content,
+  category,
+  mainBeforeSide,
+  style,
+  rStyle,
+}: SectionProps) => {
   const leftContent = content.slice(3);
   const mainContent = content.slice(0, 3);
   const SectionStyleWithoutPaddingTop = styled(SectionStyle)({
@@ -44,30 +48,20 @@ export const SportsSection: React.ElementType = (props: SectionProps) => {
       style={style}
       rStyle={rStyle}
     >
-      <SectionStyle
-        style={{
-          paddingBottom: 0,
-          paddingLeft: 0,
-          cursor: "pointer",
-          width: 140,
-          height: 50,
-        }}
-      >
-        <SectionTitle>
-          <Link href="/category/sports/">
-            <Image
-              source={{
-                uri: "/static/sectionHeaders/sports.png",
-              }}
-              accessibilityLabel="Sports"
-              resizeMode="contain"
-              style={{
-                width: 120,
-                height: 25,
-              }}
-            />
-          </Link>
-        </SectionTitle>
+      <SectionStyle>
+        <SectionTitleWithLink category={category}>
+          <Image
+            source={{
+              uri: "/static/sectionHeaders/sports.png",
+            }}
+            accessibilityLabel="Sports"
+            resizeMode="contain"
+            style={{
+              width: 120,
+              height: 30,
+            }}
+          />
+        </SectionTitleWithLink>
       </SectionStyle>
       <DesktopRow>
         {mainBeforeSide ? (

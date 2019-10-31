@@ -1,36 +1,35 @@
 import React from "react";
 import RView from "emotion-native-media-query";
 import { Section } from "components/Section";
-import Link from "next/link";
 import { ListStyleArticle } from "./ListStyleArticle";
-import { SectionTitle } from "./SectionTitle";
+import { SectionTitleWithLink } from "./SectionTitle";
 import { SectionProps } from "./SectionProps";
 
-export const RightListedSection: React.ElementType = (props: SectionProps) => {
-  const {
-    content,
-    sectionTitle,
-    SectionTag = Section,
-    displayAuthor = true,
-    innerStyle,
-    innerRStyle,
-    titleStyle,
-    authorStyle,
-    sectionTitleStyle,
-    ...remainingProps
-  } = props;
+export const RightListedSection: React.ElementType<SectionProps> = ({
+  content,
+  category,
+  sectionTitle,
+  SectionTag = Section,
+  displayAuthor = true,
+  innerStyle,
+  innerRStyle,
+  titleStyle,
+  authorStyle,
+  sectionTitleStyle,
+  ...remainingProps
+}: SectionProps) => {
   return (
     <RView WebTag={SectionTag} NativeTag={SectionTag} {...remainingProps}>
       <RView style={innerStyle} rStyle={innerRStyle}>
         {sectionTitle && (
-          <SectionTitle
+          <SectionTitleWithLink
             style={{
-              textAlign: "left",
               ...sectionTitleStyle,
             }}
+            category={category}
           >
-            <Link href="/category/opinions/">{sectionTitle}</Link>
-          </SectionTitle>
+            {sectionTitle}
+          </SectionTitleWithLink>
         )}
         {content.map(post => (
           <ListStyleArticle

@@ -4,7 +4,7 @@ import ArticlesView from "components/ArticlesView";
 import { STANFORD_COLORS } from "helpers/constants";
 import { SectionProps } from "./SectionProps";
 
-export const SponsoredSection: React.ElementType = ({
+export const SponsoredSection: React.ElementType<SectionProps> = ({
   content,
 }: SectionProps) => {
   return (

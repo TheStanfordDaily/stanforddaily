@@ -7,11 +7,17 @@ import Link from "next/link";
 import { TopThumbnailArticle } from "./TopThumbnailArticle";
 import { TitleOnlyArticle } from "./TitleOnlyArticle";
 import { Column } from "./Column";
-import { SectionTitle } from "./SectionTitle";
+import { SectionTitleWithLink } from "./SectionTitle";
 import { SectionProps } from "./SectionProps";
 
-export const LeftSection: React.ElementType = (props: SectionProps) => {
-  const { content, sectionTitle, SectionTag = Section, style, rStyle } = props;
+export const LeftSection: React.ElementType<SectionProps> = ({
+  content,
+  category,
+  sectionTitle,
+  SectionTag = Section,
+  style,
+  rStyle,
+}: SectionProps) => {
   return (
     <Column
       style={{
@@ -31,11 +37,7 @@ export const LeftSection: React.ElementType = (props: SectionProps) => {
       )}
     >
       <SectionTag>
-        {sectionTitle && (
-          <SectionTitle>
-            <Link href="/category/news/">{sectionTitle}</Link>
-          </SectionTitle>
-        )}
+        {sectionTitle && <SectionTitleWithLink category={category} />}
         <View>
           <TopThumbnailArticle post={content[0]} />
         </View>
