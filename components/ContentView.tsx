@@ -179,7 +179,13 @@ const ContentView: React.ElementType<ContentViewProps> = ({
             dangerouslySetInnerHTML={{ __html: postContent }}
           />
         </RView>
-        {displayAuthors && <footer>{}</footer>}
+        {displayAuthors && (
+          <footer>
+            {tsdAuthors.map(author => (
+              <div key={author.id}>{author.displayName}</div>
+            ))}
+          </footer>
+        )}
       </Article>
       {commentStatus === "open" && (
         <div css={{ ...centerContentStyle }}>
