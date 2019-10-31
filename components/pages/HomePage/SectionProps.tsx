@@ -1,10 +1,11 @@
 import React from "react";
 import { Style, RStyle } from "emotion-native-media-query";
-import { Post } from "helpers/wpapi";
+import { Post, Category } from "helpers/wpapi";
 // TODO: layout got reset to mobile one when returning from other app on iPad
 export interface SectionProps {
   content: Post[];
-  sectionTitle?: string;
+  category: Category;
+  sectionTitle?: string | JSX.Element;
   SectionTag?: React.ElementType;
   style?: Style;
   rStyle?: RStyle;

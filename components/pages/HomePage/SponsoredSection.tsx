@@ -1,17 +1,27 @@
 import React from "react";
-import { RightListedSection } from "./RightListedSection";
+import { Section } from "components/Section";
+import ArticlesView from "components/ArticlesView";
+import { STANFORD_COLORS } from "helpers/constants";
 import { SectionProps } from "./SectionProps";
 
-export const SponsoredSection: React.ElementType = ({
+export const SponsoredSection: React.ElementType<SectionProps> = ({
   content,
-  ...props
 }: SectionProps) => {
   return (
-    <RightListedSection
-      displayAuthor={false}
-      content={content}
-      sectionTitle="Sponsored Content"
-      {...props}
-    />
+    <Section
+      style={{
+        backgroundColor: STANFORD_COLORS.CARDINAL_RED,
+        flexGrow: 1,
+        flexDirection: "column",
+      }}
+    >
+      <ArticlesView
+        initPosts={content}
+        displayLoadMore={false}
+        displayExcerpt={false}
+        displayDateAuthor={false}
+        textColor={STANFORD_COLORS.WHITE}
+      />
+    </Section>
   );
 };

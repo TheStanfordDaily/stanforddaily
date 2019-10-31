@@ -26,28 +26,35 @@ export const CategoryList: React.ElementType = ({ itemStyle }: any) => {
     {
       type: LinkType.CATEGORY,
       id: 3,
-      name: "NEWS",
+      name: "News",
       slug: "news",
       url: "/category/news/",
     },
     {
       type: LinkType.CATEGORY,
       id: 23,
-      name: "SPORTS",
+      name: "Sports",
       slug: "sports",
       url: "/category/sports/",
     },
+    // {
+    //   type: LinkType.CATEGORY,
+    //   id: 55043,
+    //   name: "SPONSORED",
+    //   slug: "sponsored",
+    //   url: "/category/sponsored/",
+    // },
     {
       type: LinkType.CATEGORY,
       id: 24,
-      name: "OPINIONS",
+      name: "Opinions",
       slug: "opinions",
       url: "/category/opinions/",
     },
     {
       type: LinkType.CATEGORY,
       id: 25,
-      name: "ARTS & LIFE",
+      name: "Arts & Life",
       slug: "arts-life",
       url: "/category/arts-life/",
     },
@@ -57,6 +64,13 @@ export const CategoryList: React.ElementType = ({ itemStyle }: any) => {
       name: "The Grind",
       slug: "thegrind",
       url: "/category/thegrind/",
+    },
+    {
+      type: LinkType.CATEGORY,
+      id: 55796,
+      name: "Satire",
+      slug: "satire",
+      url: "/category/satire/",
     },
     {
       type: LinkType.CATEGORY,
@@ -74,7 +88,7 @@ export const CategoryList: React.ElementType = ({ itemStyle }: any) => {
     },
     {
       type: LinkType.LINK,
-      name: "Podcast",
+      name: "Podcasts",
       url: "/podcasts/",
     } as LinkLink,
   ];

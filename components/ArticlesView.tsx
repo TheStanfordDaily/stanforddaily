@@ -15,6 +15,7 @@ import { TextOnlyArticle } from "components/pages/HomePage/TextOnlyArticle";
 const EachArticleView: React.ElementType = ({
   children,
   style,
+  displayExcerpt,
   rStyle = {},
 }) => {
   return (
@@ -33,7 +34,7 @@ const EachArticleView: React.ElementType = ({
         {
           [MediaRule.MinWidth]: {
             [BREAKPOINTS.TABLET]: {
-              minHeight: 340,
+              minHeight: displayExcerpt ? 340 : 200,
             },
           },
         },
@@ -47,14 +48,22 @@ const EachArticleView: React.ElementType = ({
 
 interface ArticlesViewProps {
   initPosts: Post[];
-  getExtraPosts: (pageNumber: number) => Promise<Post[]>;
+  getExtraPosts?: (pageNumber: number) => Promise<Post[]>;
   displayCategory?: boolean;
+  displayLoadMore?: boolean;
+  displayExcerpt?: boolean;
+  displayDateAuthor?: boolean;
+  textColor?: string;
 }
 
 const ArticlesView: React.ElementType<ArticlesViewProps> = ({
   initPosts,
   getExtraPosts,
   displayCategory = true,
+  displayLoadMore = true,
+  displayExcerpt = true,
+  displayDateAuthor = true,
+  textColor = STANFORD_COLORS.BLACK,
 }: ArticlesViewProps) => {
   const [extraPosts, setExtraPosts]: [Post[], any] = React.useState([]);
   const [extraPageNumber, setExtraPageNumber]: [number, any] = React.useState(
@@ -81,8 +90,14 @@ const ArticlesView: React.ElementType<ArticlesViewProps> = ({
       }}
     >
       {initPosts.concat(extraPosts).map(post => (
-        <EachArticleView key={post.id}>
-          <TextOnlyArticle post={post} displayCategory={displayCategory} />
+        <EachArticleView key={post.id} displayExcerpt={displayExcerpt}>
+          <TextOnlyArticle
+            post={post}
+            displayCategory={displayCategory}
+            displayExcerpt={displayExcerpt}
+            displayDateAuthor={displayDateAuthor}
+            textColor={textColor}
+          />
         </EachArticleView>
       ))}
       {[...Array(6)].map(value => (
@@ -109,7 +124,7 @@ const ArticlesView: React.ElementType<ArticlesViewProps> = ({
           width: "100%",
           paddingLeft: SECTION_PADDING / 2,
           paddingRight: SECTION_PADDING / 2,
-          ...(allLoaded ? { display: "none" } : {}),
+          ...(displayLoadMore || !allLoaded ? {} : { display: "none" }),
         }}
       >
         <TouchableOpacity
@@ -117,7 +132,7 @@ const ArticlesView: React.ElementType<ArticlesViewProps> = ({
             alignItems: "center",
             justifyContent: "center",
             height: 100,
-            backgroundColor: STANFORD_COLORS.WHITE,
+            backgroundColor: STANFORD_COLORS.LIGHT_SANDSTONE,
             borderRadius: 5,
           }}
           disabled={loading}

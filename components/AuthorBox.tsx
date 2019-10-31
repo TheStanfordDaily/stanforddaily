@@ -21,7 +21,7 @@ const AuthorBox: React.ElementType<AuthorBoxProps> = ({
         paddingHorizontal: 30,
         paddingVertical: 40,
         borderRadius: 5,
-        backgroundColor: STANFORD_COLORS.WHITE,
+        backgroundColor: STANFORD_COLORS.LIGHT_SANDSTONE,
         marginBottom: 10,
       }}
     >

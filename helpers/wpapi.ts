@@ -19,6 +19,16 @@ export type Home = Base & {
   artsAndLife: Post[];
   sponsored: Post[];
   moreFromTheDaily: Post[];
+  tsdMeta: {
+    categories: {
+      featured: Category;
+      news: Category;
+      sports: Category;
+      opinions: Category;
+      "arts-life": Category;
+      thegrind: Category;
+    };
+  };
 };
 
 export type PostURL = {

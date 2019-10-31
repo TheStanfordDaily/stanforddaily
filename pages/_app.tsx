@@ -277,7 +277,6 @@ export default class MyApp extends App {
         id="body-main"
         css={{
           width: "100%",
-          backgroundColor: STANFORD_COLORS.FOG,
         }}
       >
         <Global
@@ -306,7 +305,7 @@ export default class MyApp extends App {
         />
         <Head>
           <link
-            href="https://fonts.googleapis.com/css?family=Spectral|Open+Sans|Libre+Baskerville:400,700&display=swap"
+            href="https://fonts.googleapis.com/css?family=PT+Serif&display=swap"
             rel="stylesheet"
           />
           <link href="/static/fonts.css" rel="stylesheet" />

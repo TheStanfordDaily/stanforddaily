@@ -12,10 +12,10 @@ export const ListStyleArticle: React.ElementType = ({
 }: ArticleProps) => {
   return (
     <Article post={post}>
-      {displayAuthor && <AuthorAndDateView post={post} style={authorStyle} />}
       <ArticleHeader>
         <ArticleTitleWithLink post={post} marginBottomMore style={titleStyle} />
       </ArticleHeader>
+      {displayAuthor && <AuthorAndDateView post={post} style={authorStyle} />}
     </Article>
   );
 };

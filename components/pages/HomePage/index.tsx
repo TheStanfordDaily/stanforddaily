@@ -56,6 +56,7 @@ export default class HomePage extends React.Component<IndexProps, IndexState> {
       return (
         <MainSection
           sectionTitle="Featured"
+          category={homePosts.tsdMeta.categories.featured}
           content={homePosts.featured}
           rStyle={{
             [MediaRule.MaxWidth]: {
@@ -72,6 +73,7 @@ export default class HomePage extends React.Component<IndexProps, IndexState> {
       return (
         <LeftSection
           sectionTitle="News"
+          category={homePosts.tsdMeta.categories.news}
           content={homePosts.news}
           rStyle={{
             [MediaRule.MinWidth]: {
@@ -124,6 +126,7 @@ export default class HomePage extends React.Component<IndexProps, IndexState> {
               </DesktopRow>
               <SportsSection
                 content={homePosts.sports}
+                category={homePosts.tsdMeta.categories.sports}
                 mainBeforeSide={featuredBeforeNews}
                 rStyle={{
                   [MediaRule.MaxWidth]: {
@@ -148,26 +151,21 @@ export default class HomePage extends React.Component<IndexProps, IndexState> {
             >
               <OpinionSection
                 content={homePosts.opinions}
-                rStyle={{
-                  [MediaRule.MaxWidth]: {
-                    [BREAKPOINTS.MAX_WIDTH.TABLET]: {
-                      ...getBorderValue("Bottom"),
-                    },
-                  },
+                category={homePosts.tsdMeta.categories.opinions}
+                style={{
+                  ...getBorderValue("Bottom"),
                 }}
               />
               <GrindSection
                 content={homePosts.theGrind}
-                rStyle={{
-                  [MediaRule.MaxWidth]: {
-                    [BREAKPOINTS.MAX_WIDTH.TABLET]: {
-                      ...getBorderValue("Bottom"),
-                    },
-                  },
+                category={homePosts.tsdMeta.categories.thegrind}
+                style={{
+                  ...getBorderValue("Bottom"),
                 }}
               />
               <ArtsAndLifeSection
                 content={homePosts.artsAndLife}
+                category={homePosts.tsdMeta.categories["arts-life"]}
                 rStyle={{
                   [MediaRule.MaxWidth]: {
                     [BREAKPOINTS.MAX_WIDTH.TABLET]: {
@@ -176,7 +174,6 @@ export default class HomePage extends React.Component<IndexProps, IndexState> {
                   },
                 }}
               />
-              <SponsoredSection content={homePosts.sponsored} />
             </Column>
           </DesktopRow>
           {/* <MultimediaSection
@@ -185,7 +182,11 @@ export default class HomePage extends React.Component<IndexProps, IndexState> {
               ...getBorderValue("Bottom"),
             }}
           /> */}
-          <MoreFromTheDailySection content={homePosts.moreFromTheDaily} />
+          <SponsoredSection category={null} content={homePosts.sponsored} />
+          <MoreFromTheDailySection
+            category={null}
+            content={homePosts.moreFromTheDaily}
+          />
         </ScrollView>
         <WPFooter base={homePosts} />
       </>

@@ -6,11 +6,17 @@ import { HeadlineArticle } from "./HeadlineArticle";
 import { TopThumbnailArticle } from "./TopThumbnailArticle";
 import { Column } from "./Column";
 import { DesktopRow } from "./DesktopRow";
-import { SectionTitle } from "./SectionTitle";
+import { SectionTitleWithLink } from "./SectionTitle";
 import { SectionProps } from "./SectionProps";
 
-export const MainSection: React.ElementType = (props: SectionProps) => {
-  const { content, sectionTitle, SectionTag = Section, style, rStyle } = props;
+export const MainSection: React.ElementType<SectionProps> = ({
+  content,
+  category,
+  sectionTitle,
+  SectionTag = Section,
+  style,
+  rStyle,
+}: SectionProps) => {
   return (
     <Column
       style={{
@@ -30,7 +36,7 @@ export const MainSection: React.ElementType = (props: SectionProps) => {
       )}
     >
       <SectionTag>
-        {sectionTitle && <SectionTitle>{sectionTitle}</SectionTitle>}
+        {sectionTitle && <SectionTitleWithLink category={category} />}
         <HeadlineArticle post={content[0]} style={{ marginBottom: 20 }} />
         <DesktopRow>
           <Column

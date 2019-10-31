@@ -5,7 +5,7 @@ import ArticlesView from "components/ArticlesView";
 import { SectionTitle } from "./SectionTitle";
 import { SectionProps } from "./SectionProps";
 
-export const MoreFromTheDailySection: React.ElementType = ({
+export const MoreFromTheDailySection: React.ElementType<SectionProps> = ({
   content,
 }: SectionProps) => {
   return (
@@ -18,6 +18,7 @@ export const MoreFromTheDailySection: React.ElementType = ({
       <SectionTitle>More from The Daily</SectionTitle>
       <ArticlesView
         initPosts={content}
+        displayExcerpt={false}
         getExtraPosts={async pageNumber => {
           return getHomeMoreAsync(pageNumber);
         }}
