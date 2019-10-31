@@ -57,16 +57,17 @@ const HeaderLogo: React.ElementType = (props: any) => {
           <Link href="/">
             <a
               rel="home"
+              id="tsd-logo"
               style={{
                 display: "flex",
                 alignItems: "center",
                 height: "100%",
               }}
+              title="The Stanford Daily"
             >
               <img
                 src="https://raw.githubusercontent.com/TheStanfordDaily/stanforddaily-graphic-assets/master/DailyLogo/DailyLogo.png"
                 alt="The Stanford Daily"
-                title="The Stanford Daily"
                 css={{
                   height: "auto",
                   width: "auto",
@@ -141,6 +142,7 @@ const SiteHeader: React.ElementType = (props: any) => {
           <HeaderLogo />
         </RView>
         <RView
+          id="tsd-navbar"
           style={{
             order: 2,
             maxWidth: "100vw",
@@ -272,8 +274,10 @@ export default class MyApp extends App {
 
     return (
       <div
+        id="body-main"
         css={{
           width: "100%",
+          backgroundColor: STANFORD_COLORS.FOG,
         }}
       >
         <Global

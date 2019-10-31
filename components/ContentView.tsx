@@ -2,7 +2,7 @@ import React from "react";
 import { Global } from "@emotion/core";
 import { DiscussionEmbed, CommentCount } from "disqus-react";
 import RView from "emotion-native-media-query";
-import { getPostLocalDate, Post } from "helpers/wpapi";
+import { Post } from "helpers/wpapi";
 import {
   STRINGS,
   BREAKPOINTS,
@@ -15,6 +15,9 @@ import LoadingView from "components/Loading";
 import WPHead from "components/webHelpers/WPHead";
 import WPFooter from "components/webHelpers/WPFooter.web";
 import { AuthorsTextWithLink } from "./pages/HomePage/AuthorView";
+import AuthorBox from "./AuthorBox";
+import { CategoryLink } from "./CategoryLink";
+import { DateWithAbbr } from "./DateView";
 
 interface ContentViewProps {
   post: Post;
@@ -50,12 +53,12 @@ const ContentView: React.ElementType<ContentViewProps> = ({
     thumbnailInfo,
     tsdAuthors,
     tsdCategories,
+    tsdPrimaryCategory,
     postContent,
     postType,
     commentStatus,
     guid,
   } = post;
-  const date = getPostLocalDate(post);
 
   const {
     urls: { full: thumbnailUrl = null } = {},
@@ -63,7 +66,7 @@ const ContentView: React.ElementType<ContentViewProps> = ({
     alt: thumbnailAlt = thumbnailCaption,
   } = thumbnailInfo || {};
 
-  const displayAuthors = postType === "post";
+  const isPost = postType === "post";
 
   let isSatire = false;
   if (
@@ -76,8 +79,51 @@ const ContentView: React.ElementType<ContentViewProps> = ({
   return (
     <SectionStyle>
       <WPHead base={post} />
+      {isSatire && (
+        <Global
+          // TODO: CUSTOM LOGO FOR SATIRE (SEE https://stackoverflow.com/a/28710709/2603230)
+          styles={{
+            "#body-main": {
+              backgroundColor: STANFORD_COLORS.LIGHT_SANDSTONE,
+            },
+            "#tsd-navbar, #site-footer": {
+              backgroundColor: STANFORD_COLORS.BLACK,
+            },
+            "#tsd-logo img": {
+              display: "none",
+            },
+            "#tsd-logo::after": {
+              content: '" "',
+              position: "absolute",
+              top: 0,
+              right: 0,
+              bottom: 0,
+              left: 0,
+              backgroundImage: "url(/static/soc.jpg)",
+              backgroundSize: "contain",
+              backgroundRepeat: "no-repeat",
+              backgroundPosition: "center",
+            },
+          }}
+        />
+      )}
       <Article>
         <ArticleHeader>
+          {isPost && (
+            <div
+              css={{
+                ...centerContentStyle,
+                textAlign: "center",
+              }}
+            >
+              <CategoryLink
+                category={tsdPrimaryCategory}
+                style={{
+                  fontSize: 20,
+                }}
+              />
+            </div>
+          )}
           <h1
             css={{
               ...centerContentStyle,
@@ -118,6 +164,7 @@ const ContentView: React.ElementType<ContentViewProps> = ({
                 ...centerContentStyle,
                 marginBottom: "1em",
                 fontSize: "1.3rem",
+                color: STANFORD_COLORS.BLACK,
               },
               figcaption: {
                 ...FONTS.AUXILIARY,
@@ -158,19 +205,24 @@ const ContentView: React.ElementType<ContentViewProps> = ({
           ) : (
             undefined
           )}
-          {displayAuthors && (
+          {isPost && (
             <p
               style={{
                 ...FONTS.AUXILIARY,
                 fontWeight: "bold",
+                textTransform: "none",
               }}
             >
-              <span style={{ textTransform: "none" }}>
-                {isSatire ? "Satire by" : "By"}
-              </span>{" "}
-              <AuthorsTextWithLink authors={tsdAuthors} />{" "}
-              <span style={{ textTransform: "none" }}>on</span>{" "}
-              {date.format("MMMM D, YYYY")}
+              <span>{isSatire ? "Satire by" : "By"}</span>{" "}
+              <AuthorsTextWithLink
+                authors={tsdAuthors}
+                aStyle={{
+                  textDecoration: "underline",
+                }}
+              />{" "}
+              <span>
+                <DateWithAbbr post={post} format="on MMMM D, YYYY" />
+              </span>
             </p>
           )}
           <div
@@ -179,10 +231,10 @@ const ContentView: React.ElementType<ContentViewProps> = ({
             dangerouslySetInnerHTML={{ __html: postContent }}
           />
         </RView>
-        {displayAuthors && (
-          <footer>
+        {isPost && (
+          <footer css={centerOuterContentStyle} style={{ marginTop: 30 }}>
             {tsdAuthors.map(author => (
-              <div key={author.id}>{author.displayName}</div>
+              <AuthorBox key={author.id} author={author} />
             ))}
           </footer>
         )}

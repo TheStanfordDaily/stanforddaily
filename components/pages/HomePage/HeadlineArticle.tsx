@@ -1,7 +1,7 @@
 import React from "react";
 import { View } from "react-native";
 import { Article, ArticleHeader } from "components/Article";
-import { AuthorView } from "./AuthorView";
+import AuthorAndDateView from "components/AuthorAndDateView";
 import { PostExcerpt } from "./PostExcerpt";
 import { ArticleSubtitle } from "./ArticleSubtitle";
 import { ArticleProps } from "./ArticleProps";
@@ -12,7 +12,7 @@ export const HeadlineArticle: React.ElementType = ({
   post,
   style,
 }: ArticleProps) => {
-  const { postSubtitle, tsdAuthors } = post;
+  const { postSubtitle } = post;
   return (
     <Article
       post={post}
@@ -41,7 +41,7 @@ export const HeadlineArticle: React.ElementType = ({
       >
         <PostExcerpt post={post} />
       </View>
-      <AuthorView authors={tsdAuthors} />
+      <AuthorAndDateView post={post} />
     </Article>
   );
 };

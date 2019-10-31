@@ -3,6 +3,7 @@ import { View, Text } from "react-native";
 import { getAuthorAsync, AuthorArchivePageData } from "helpers/wpapi";
 import Wrapper from "components/Wrapper";
 import { Section } from "components/Section";
+import AuthorBox from "components/AuthorBox";
 import ArchivePage, { ArchivePageType, ArchivePageState } from "./ArchivePage";
 
 async function _getAuthorData(
@@ -38,7 +39,7 @@ export default class AuthorArchivePage extends React.Component<
           flexDirection: "column",
         }}
       >
-        <Text>{initData.tsdMeta.name}</Text>
+        <AuthorBox author={initData.tsdMeta.author} linkToAuthor={false} />
         <ArchivePage
           initData={initData}
           type={ArchivePageType.Author}

@@ -27,7 +27,7 @@ export const FONTS: any = {
           fontFamily: "'Libre Baskerville', sans-serif",
           fontWeight: "bold",
           fontSize: 15,
-          lineHeight: 1,
+          lineHeight: "1",
         }
       : {
           fontFamily: "Faune-Text_Bold",
@@ -39,7 +39,7 @@ export const FONTS: any = {
           fontFamily: "'Open Sans', sans-serif",
           fontWeight: 900,
           fontSize: 15,
-          lineHeight: 1,
+          lineHeight: "1",
         }
       : {
           fontFamily: "Faune-Display_Black",
@@ -72,6 +72,7 @@ export const STANFORD_COLORS = {
   CARDINAL_DARK_RED: "#820000",
   CARDINAL_BRIGHT_RED: "#B1040E",
   COOL_GREY: "#4D4F53",
+  DRIFTWOOD: "#B6B1A9",
   FOG: "#F4F4F4",
   STONE: "#544948",
   SANDSTONE: "#D2C295",
@@ -84,7 +85,7 @@ export const STANFORD_COLORS = {
   SUN: "#EAAB00",
   CLOUD: "#DAD7CB",
   WHITE: "#FFFFFF",
-  BLACK: "#000000",
+  BLACK: "#2e2d29",
 };
 
 export const COLORS = {
@@ -95,3 +96,6 @@ export const COLORS = {
     HOVER: "black",
   },
 };
+
+// 24 is from `MORE_FROM_DAILY_POST_PER_PAGE` in tsd-json plugin on the server.
+export const MORE_FROM_DAILY_POST_PER_PAGE = 24;

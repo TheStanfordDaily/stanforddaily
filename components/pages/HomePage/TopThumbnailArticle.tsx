@@ -1,6 +1,6 @@
 import React from "react";
 import { Article, ArticleHeader } from "components/Article";
-import { AuthorView } from "./AuthorView";
+import AuthorAndDateView from "components/AuthorAndDateView";
 import { ArticleProps } from "./ArticleProps";
 import { ArticleTitleWithLink } from "./ArticleTitleWithLink";
 import { ThumbnailImageWithLink } from "./ThumbnailImageWithLink";
@@ -8,7 +8,6 @@ import { ThumbnailImageWithLink } from "./ThumbnailImageWithLink";
 export const TopThumbnailArticle: React.ElementType = ({
   post,
 }: ArticleProps) => {
-  const { tsdAuthors } = post;
   return (
     <Article post={post}>
       <ThumbnailImageWithLink
@@ -20,7 +19,7 @@ export const TopThumbnailArticle: React.ElementType = ({
       <ArticleHeader>
         <ArticleTitleWithLink post={post} />
       </ArticleHeader>
-      <AuthorView authors={tsdAuthors} />
+      <AuthorAndDateView post={post} newLineBetweenAuthorAndDate />
     </Article>
   );
 };

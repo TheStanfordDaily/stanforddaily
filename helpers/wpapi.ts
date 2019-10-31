@@ -33,6 +33,8 @@ export type Author = {
   displayName: string;
   userNicename: string; // This is user's URL-friendly slug
   url: string;
+  avatarUrl: string;
+  description?: string;
 };
 
 export type Category = {
@@ -85,7 +87,7 @@ export type CategoryArchivePageData = ArchivePageData & {
 
 export type AuthorArchivePageData = ArchivePageData & {
   tsdMeta: {
-    name: string;
+    author: Author;
   };
 };
 
@@ -115,6 +117,7 @@ export async function getPostAsync(
       .postDay(day)
       // We have to encode it for cases such as https://www.stanforddaily.com/2019/05/09/dont-miss-cap-and-gowns-spring-brunch%ef%bb%bf-featuring-a-guest-from-the-san-francisco-49ers/
       .postSlug(encodeURIComponent(slug))
+      .param("_time", moment().format("MMMM Do YYYY, h:mm a")) // Update every minute
   );
 }
 
@@ -123,17 +126,19 @@ export async function getPageAsync(slug: string): Promise<Post> {
 }
 
 export async function getHomeAsync(): Promise<Home> {
-  return wpTsdJson.home();
+  return wpTsdJson
+    .home()
+    .param("_time", moment().format("MMMM Do YYYY, h:mm a")); // Update every minute
 }
 
 export async function getHomeMoreAsync(
   extraPageNumber: number,
 ): Promise<Post[]> {
-  // TODO: ADD A QUERY TIMESTAMP EXACT TO MINUTE TO MAKE SURE EVERY MINUTE WILL GET A NEW HOME PAGE.
   return wpTsdJson
     .home()
     .more()
-    .extraPageNumber(extraPageNumber);
+    .extraPageNumber(extraPageNumber)
+    .param("_time", moment().format("MMMM Do YYYY, h:mm a")); // Update every minute
 }
 
 export async function getCategoryAsync(
@@ -184,4 +189,13 @@ export function getNextJsCategoryPath(categoryUrl: string): string {
     nextJsCategoryPath += `/[slug${index}]`;
   }
   return nextJsCategoryPath;
+}
+
+export function getPostTimeString(date: moment.Moment, format: string): string {
+  if (date.isSame(new Date(), "day")) {
+    // If posted on the same day.
+    return date.fromNow();
+  } else {
+    return date.format(format);
+  }
 }

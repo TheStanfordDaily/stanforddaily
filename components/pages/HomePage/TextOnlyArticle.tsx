@@ -2,11 +2,10 @@ import React from "react";
 import { Text, View } from "react-native";
 import RView, { MediaRule } from "emotion-native-media-query";
 import { BREAKPOINTS, FONTS, STANFORD_COLORS } from "helpers/constants";
-import { getPostLocalDate } from "helpers/wpapi";
 import { SECTION_PADDING } from "components/Section";
 import { Article, ArticleHeader } from "components/Article";
 import { CategoryLink } from "components/CategoryLink";
-import { AuthorView } from "./AuthorView";
+import AuthorAndDateView from "components/AuthorAndDateView";
 import { PostExcerpt } from "./PostExcerpt";
 import { ArticleProps } from "./ArticleProps";
 import { ThumbnailImageWithLink } from "./ThumbnailImageWithLink";
@@ -20,79 +19,50 @@ export const TextOnlyArticle: React.ElementType = ({
   displayDateAuthor = true,
   textColor = STANFORD_COLORS.BLACK,
 }: ArticleProps) => {
-  const { tsdPrimaryCategory, tsdAuthors } = post;
-  const date = getPostLocalDate(post);
+  const { tsdPrimaryCategory } = post;
   return (
-    <RView
+    <Article
+      post={post}
       style={{
         width: "100%",
-        flexGrow: 1,
-        flexShrink: 0,
-        flexBasis: 250,
-        marginLeft: SECTION_PADDING,
-        marginRight: SECTION_PADDING,
-        marginBottom: SECTION_PADDING,
-      }}
-      rStyle={{
-        [MediaRule.MinWidth]: {
-          [BREAKPOINTS.TABLET]: {
-            minHeight: displayExcerpt ? 340 : 200,
-          },
-        },
+        marginTop: 0,
+        marginbottom: 0,
+        ...style,
       }}
     >
-      <Article
-        post={post}
-        style={{
-          width: "100%",
-          marginTop: 0,
-          marginbottom: 0,
-          ...style,
-        }}
-      >
-        {displayCategory && (
-          <View
-            style={{
-              paddingVertical: SECTION_PADDING,
-            }}
-          >
-            <CategoryLink
-              category={tsdPrimaryCategory}
-              style={{ color: textColor }}
-            />
-          </View>
-        )}
-        <ThumbnailImageWithLink
-          post={post}
-          style={{
-            height: 150,
-          }}
-        />
+      {displayCategory && (
         <View
           style={{
-            paddingBottom: SECTION_PADDING,
+            paddingVertical: SECTION_PADDING,
           }}
         >
-          <ArticleHeader>
-            <ArticleTitleWithLink post={post} style={{ color: textColor }} />
-          </ArticleHeader>
-          {displayExcerpt && (
-            <PostExcerpt post={post} style={{ color: textColor }} />
-          )}
-          {displayDateAuthor && (
-            <Text style={{ color: textColor }}>
-              <AuthorView
-                authors={tsdAuthors}
-                containerStyle={{ display: "inline-flex" }}
-              />{" "}
-              •{" "}
-              <Text style={{ ...FONTS.AUXILIARY }}>
-                {date.format("MMM DD YYYY")}
-              </Text>
-            </Text>
-          )}
+          <CategoryLink category={tsdPrimaryCategory} />
         </View>
-      </Article>
-    </RView>
+      )}
+      <ThumbnailImageWithLink
+        post={post}
+        style={{
+          height: 150,
+        }}
+      />
+      <View
+        style={{
+          paddingBottom: SECTION_PADDING,
+        }}
+      >
+        <ArticleHeader>
+          <ArticleTitleWithLink post={post} style={{ color: textColor }} />
+        </ArticleHeader>
+        {displayExcerpt && (
+          <PostExcerpt post={post} style={{ color: textColor }} />
+        )}
+        {displayDateAuthor && (
+          <AuthorAndDateView
+            post={post}
+            style={{ marginTop: 5, color: textColor }}
+          />
+        )}
+      </View>
+    </Article>
   );
 };
