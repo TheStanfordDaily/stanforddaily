@@ -15,6 +15,7 @@ export interface SmallSectionProps {
   imageUrl: string;
   header: string;
   title: string;
+  newTab?: boolean;
 }
 
 export const TopSection: React.ElementType = ({ style }) => {
@@ -23,9 +24,15 @@ export const TopSection: React.ElementType = ({ style }) => {
     imageUrl,
     header,
     title,
+    newTab,
   }) => {
+    const additionalPropsForA: any = {};
+    if (newTab) {
+      additionalPropsForA.target = "_blank";
+    }
+
     return (
-      <a href={url} title={title}>
+      <a href={url} title={title} {...additionalPropsForA}>
         <View
           style={{
             marginRight: 30,
@@ -114,6 +121,7 @@ export const TopSection: React.ElementType = ({ style }) => {
               imageUrl={LINKS.ISSUU_LOGO}
               header="Newspaper & Magazine"
               title="Read the print issues"
+              newTab
             />
             {/* <SmallSection
               imageUrl="https://www.stanforddaily.com/wp-content/uploads/2018/10/Stanford_School_of_Medicine_Li_Ka_Shing_Center.jpg"
