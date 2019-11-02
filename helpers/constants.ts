@@ -110,4 +110,5 @@ export const LINKS = {
     "https://d3t3ozftmdmh3i.cloudfront.net/production/podcast_uploaded400/1460559/1460559-1550520909113-dfa4db03769d.jpg",
   ISSUU_LOGO:
     "https://www.stanforddaily.com/wp-content/uploads/2019/09/Stanford-Panorama-Red.jpg",
+  ARCHIVES: "https://archives.stanforddaily.com/",
 };
