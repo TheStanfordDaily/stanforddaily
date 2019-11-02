@@ -259,18 +259,11 @@ export const FooterContent: React.ElementType = ({ itemStyle }: any) => {
         },
       },
     },
-    "data-vizzes": {
-      id: 58277,
-      name: "Data Viz",
-      slug: "data-vizzes",
-      url: "/category/data-vizzes/",
-      children: {},
-    },
-    magazine: {
-      id: 53462,
-      name: "Magazine",
-      slug: "magazine",
-      url: "/category/magazine/",
+    thegrind: {
+      id: 32278,
+      name: "The Grind",
+      slug: "thegrind",
+      url: "/category/thegrind/",
       children: {},
     },
     satire: {
@@ -280,11 +273,25 @@ export const FooterContent: React.ElementType = ({ itemStyle }: any) => {
       url: "/category/satire/",
       children: {},
     },
-    thegrind: {
-      id: 32278,
-      name: "The Grind",
-      slug: "thegrind",
-      url: "/category/thegrind/",
+    magazine: {
+      id: 53462,
+      name: "Magazine",
+      slug: "magazine",
+      url: "/category/magazine/",
+      children: {},
+    },
+    "data-vizzes": {
+      id: 58277,
+      name: "Data Viz",
+      slug: "data-vizzes",
+      url: "/category/data-vizzes/",
+      children: {},
+    },
+    podcasts: {
+      id: null,
+      name: "Podcasts",
+      slug: "podcasts",
+      url: "/podcasts/",
       children: {},
     },
   };
