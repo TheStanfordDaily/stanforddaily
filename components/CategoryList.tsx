@@ -72,13 +72,13 @@ export const CategoryList: React.ElementType = ({ itemStyle }: any) => {
       slug: "satire",
       url: "/category/satire/",
     },
-    {
-      type: LinkType.CATEGORY,
-      id: 53462,
-      name: "Magazine",
-      slug: "magazine",
-      url: "/category/magazine/",
-    },
+    // {
+    //   type: LinkType.CATEGORY,
+    //   id: 53462,
+    //   name: "Magazine",
+    //   slug: "magazine",
+    //   url: "/category/magazine/",
+    // },
     {
       type: LinkType.CATEGORY,
       id: 58277,
@@ -86,15 +86,35 @@ export const CategoryList: React.ElementType = ({ itemStyle }: any) => {
       slug: "data-vizzes",
       url: "/category/data-vizzes/",
     },
-    {
-      type: LinkType.LINK,
-      name: "Podcast",
-      url: "/podcasts/",
-    } as LinkLink,
+    // {
+    //   type: LinkType.LINK,
+    //   name: "Podcast",
+    //   url: "/podcasts/",
+    // } as LinkLink,
     {
       type: LinkType.LINK,
       name: "Video",
       url: LINKS.YOUTUBE,
+    } as LinkLink,
+    {
+      type: LinkType.LINK,
+      name: "Yearbook",
+      url: "/yearbook/",
+    } as LinkLink,
+    {
+      type: LinkType.LINK,
+      name: "About Us",
+      url: "/about/",
+    } as LinkLink,
+    {
+      type: LinkType.LINK,
+      name: "Advertising",
+      url: "/advertise/",
+    } as LinkLink,
+    {
+      type: LinkType.LINK,
+      name: "Archives",
+      url: LINKS.ARCHIVES,
     } as LinkLink,
   ];
 
