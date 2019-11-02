@@ -110,10 +110,10 @@ export const TopSection: React.ElementType = ({ style }) => {
         >
           <View style={{ flexDirection: "row", alignItems: "center" }}>
             <SmallSection
-              url="/category/magazine/"
+              url="https://issuu.com/thestanforddaily"
               imageUrl="https://www.stanforddaily.com/wp-content/uploads/2019/09/Stanford-Panorama-Red.jpg"
-              header="Volume IV, Issue I"
-              title="The Daily Magazine"
+              header="Newspaper & Magazine"
+              title="Read the print issues"
             />
             {/* <SmallSection
               imageUrl="https://www.stanforddaily.com/wp-content/uploads/2018/10/Stanford_School_of_Medicine_Li_Ka_Shing_Center.jpg"
