@@ -1,6 +1,6 @@
 import React from "react";
 import { Text, ScrollView } from "react-native";
-import { STANFORD_COLORS, FONTS } from "helpers/constants";
+import { STANFORD_COLORS, FONTS, LINKS } from "helpers/constants";
 import { Category } from "helpers/wpapi";
 import { SECTION_PADDING } from "./Section";
 import { CategoryLink } from "./CategoryLink";
@@ -82,7 +82,7 @@ export const CategoryList: React.ElementType = ({ itemStyle }: any) => {
     {
       type: LinkType.CATEGORY,
       id: 58277,
-      name: "Data Viz",
+      name: "Data",
       slug: "data-vizzes",
       url: "/category/data-vizzes/",
     },
@@ -94,7 +94,7 @@ export const CategoryList: React.ElementType = ({ itemStyle }: any) => {
     {
       type: LinkType.LINK,
       name: "Video",
-      url: "https://www.youtube.com/channel/UCWg3QqUzqxXt6herm5sMjNw",
+      url: LINKS.YOUTUBE,
     } as LinkLink,
   ];
 
