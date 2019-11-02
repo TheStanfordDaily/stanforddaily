@@ -1,7 +1,13 @@
 import React from "react";
+import { Global } from "@emotion/core";
 import { View, Text } from "react-native";
 import { getCategoryAsync, CategoryArchivePageData } from "helpers/wpapi";
-import { FONTS } from "helpers/constants";
+import {
+  STRINGS,
+  BREAKPOINTS,
+  FONTS,
+  STANFORD_COLORS,
+} from "helpers/constants";
 import Wrapper from "components/Wrapper";
 import { Section } from "components/Section";
 import ArchivePage, { ArchivePageType, ArchivePageState } from "./ArchivePage";
@@ -54,6 +60,36 @@ export default class CategoryArchivePage extends React.Component<
             {initData.tsdMeta.title}
           </Text>
         </View>
+        {initData.tsdMeta.title === "Satire" && (
+          <Global
+            // TODO: CUSTOM LOGO FOR SATIRE (SEE https://stackoverflow.com/a/28710709/2603230)
+            styles={{
+              "#body-main": {
+                backgroundColor: STANFORD_COLORS.WHITE,
+              },
+              "#tsd-navbar, #site-footer": {
+                backgroundColor: STANFORD_COLORS.BLACK,
+              },
+              "#tsd-logo img": {
+                display: "none",
+              },
+              "#tsd-logo::after": {
+                content: '" "',
+                position: "absolute",
+                top: 0,
+                right: 0,
+                bottom: 0,
+                left: 0,
+                height: 87.5,
+                width: 1477,
+                backgroundImage: "url(/static/soc.jpg)",
+                backgroundSize: "contain",
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "center",
+              },
+            }}
+          />
+        )}
         <ArchivePage
           displayCategory={false}
           displayExcerpt={false}
