@@ -1,13 +1,7 @@
 import React from "react";
-import { Global } from "@emotion/core";
 import { View, Text } from "react-native";
 import { getCategoryAsync, CategoryArchivePageData } from "helpers/wpapi";
-import {
-  STRINGS,
-  BREAKPOINTS,
-  FONTS,
-  STANFORD_COLORS,
-} from "helpers/constants";
+import { FONTS } from "helpers/constants";
 import Wrapper from "components/Wrapper";
 import { Section } from "components/Section";
 import SatireGlobal from "components/SatireGlobal";
