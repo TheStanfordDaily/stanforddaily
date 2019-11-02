@@ -273,13 +273,13 @@ export const FooterContent: React.ElementType = ({ itemStyle }: any) => {
       url: "/category/satire/",
       children: {},
     },
-    magazine: {
-      id: 53462,
-      name: "Magazine",
-      slug: "magazine",
-      url: "/category/magazine/",
-      children: {},
-    },
+    // magazine: {
+    //   id: 53462,
+    //   name: "Magazine",
+    //   slug: "magazine",
+    //   url: "/category/magazine/",
+    //   children: {},
+    // },
     "data-vizzes": {
       id: 58277,
       name: "Data",
