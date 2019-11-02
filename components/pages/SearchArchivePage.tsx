@@ -36,7 +36,14 @@ export default class SearchArchivePage extends React.Component<
           flexDirection: "column",
         }}
       >
-        <Text>{keyword}</Text>
+        <Text
+          style={{
+            fontFamily: "Open Sans",
+            fontSize: 25,
+          }}
+        >
+          Search results for: {keyword}
+        </Text>
         <ArchivePage
           initData={initData}
           type={ArchivePageType.Search}
