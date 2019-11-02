@@ -99,3 +99,8 @@ export const COLORS = {
 
 // 24 is from `MORE_FROM_DAILY_POST_PER_PAGE` in tsd-json plugin on the server.
 export const MORE_FROM_DAILY_POST_PER_PAGE = 24;
+
+export const LINKS = {
+  YOUTUBE: "https://www.youtube.com/channel/UCWg3QqUzqxXt6herm5sMjNw",
+  ISSUU: "https://issuu.com/thestanforddaily",
+};
