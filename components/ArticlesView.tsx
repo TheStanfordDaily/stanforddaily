@@ -132,7 +132,6 @@ const ArticlesView: React.ElementType<ArticlesViewProps> = ({
             alignItems: "center",
             justifyContent: "center",
             height: 100,
-            backgroundColor: STANFORD_COLORS.LIGHT_SANDSTONE,
             borderRadius: 5,
           }}
           disabled={loading}

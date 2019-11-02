@@ -44,6 +44,13 @@ export const FooterContent: React.ElementType = ({ itemStyle }: any) => {
           url: "/category/news/research-news/",
           children: {},
         },
+        "technology-news": {
+          id: 16821,
+          name: "Science & Tech",
+          slug: "technology-news",
+          url: "/category/news/technology-news/",
+          children: {},
+        },
         "speakers-events-news": {
           id: 4421,
           name: "Speakers & Events",
@@ -63,13 +70,6 @@ export const FooterContent: React.ElementType = ({ itemStyle }: any) => {
           name: "Student Life",
           slug: "student-life-news",
           url: "/category/news/student-life-news/",
-          children: {},
-        },
-        "technology-news": {
-          id: 16821,
-          name: "TECHNOLOGY",
-          slug: "technology-news",
-          url: "/category/news/technology-news/",
           children: {},
         },
         "university-news": {
@@ -137,18 +137,18 @@ export const FooterContent: React.ElementType = ({ itemStyle }: any) => {
           url: "/category/opinions/editorials/",
           children: {},
         },
-        "letters-to-the-editor": {
-          id: 13182,
-          name: "Letters to the Editor",
-          slug: "letters-to-the-editor",
-          url: "/category/opinions/letters-to-the-editor/",
-          children: {},
-        },
         "letters-to-the-community": {
           id: 38657,
           name: "Letters to the Community",
           slug: "letters-to-the-community",
           url: "/category/opinions/letters-to-the-community/",
+          children: {},
+        },
+        "letters-to-the-editor": {
+          id: 13182,
+          name: "Letters to the Editor",
+          slug: "letters-to-the-editor",
+          url: "/category/opinions/letters-to-the-editor/",
           children: {},
         },
         "op-eds": {
@@ -166,18 +166,25 @@ export const FooterContent: React.ElementType = ({ itemStyle }: any) => {
       slug: "arts-life",
       url: "/category/arts-life/",
       children: {
-        culture: {
-          id: 40678,
-          name: "Culture",
-          slug: "culture",
-          url: "/category/arts-life/culture/",
-          children: {},
-        },
         "comedy-intermission": {
           id: 26817,
           name: "Comedy",
           slug: "comedy-intermission",
           url: "/category/arts-life/comedy-intermission/",
+          children: {},
+        },
+        "critics-pick": {
+          id: 26681,
+          name: "Critic's Pick",
+          slug: "critics-pick",
+          url: "/category/arts-life/critics-pick/",
+          children: {},
+        },
+        culture: {
+          id: 40678,
+          name: "Culture",
+          slug: "culture",
+          url: "/category/arts-life/culture/",
           children: {},
         },
         "fashion-intermission": {
@@ -187,18 +194,18 @@ export const FooterContent: React.ElementType = ({ itemStyle }: any) => {
           url: "/category/arts-life/fashion-intermission/",
           children: {},
         },
+        "film-intermission": {
+          id: 23850,
+          name: "Film",
+          slug: "film-intermission",
+          url: "/category/arts-life/film-intermission/",
+          children: {},
+        },
         food: {
           id: 23853,
           name: "Food",
           slug: "food",
           url: "/category/arts-life/food/",
-          children: {},
-        },
-        "visual-arts-intermission": {
-          id: 23867,
-          name: "Visual Arts",
-          slug: "visual-arts-intermission",
-          url: "/category/arts-life/visual-arts-intermission/",
           children: {},
         },
         "music-intermission": {
@@ -215,32 +222,18 @@ export const FooterContent: React.ElementType = ({ itemStyle }: any) => {
           url: "/category/arts-life/reads/",
           children: {},
         },
-        screen: {
-          id: 40640,
-          name: "Screen",
-          slug: "screen",
-          url: "/category/arts-life/screen/",
-          children: {},
-        },
-        "critics-pick": {
-          id: 26681,
-          name: "Critic's Pick",
-          slug: "critics-pick",
-          url: "/category/arts-life/critics-pick/",
-          children: {},
-        },
-        "film-intermission": {
-          id: 23850,
-          name: "Film",
-          slug: "film-intermission",
-          url: "/category/arts-life/film-intermission/",
-          children: {},
-        },
         reviews: {
           id: 40680,
           name: "Reviews",
           slug: "reviews",
           url: "/category/arts-life/reviews/",
+          children: {},
+        },
+        screen: {
+          id: 40640,
+          name: "Screen",
+          slug: "screen",
+          url: "/category/arts-life/screen/",
           children: {},
         },
         "television-intermission": {
@@ -255,6 +248,13 @@ export const FooterContent: React.ElementType = ({ itemStyle }: any) => {
           name: "Theater",
           slug: "theater-intermission",
           url: "/category/arts-life/theater-intermission/",
+          children: {},
+        },
+        "visual-arts-intermission": {
+          id: 23867,
+          name: "Visual Arts",
+          slug: "visual-arts-intermission",
+          url: "/category/arts-life/visual-arts-intermission/",
           children: {},
         },
       },
@@ -285,6 +285,14 @@ export const FooterContent: React.ElementType = ({ itemStyle }: any) => {
       name: "Data Viz",
       slug: "data-vizzes",
       url: "/category/data-vizzes/",
+      children: {},
+    },
+    // TODO: use `LinkLink` type
+    podcasts: {
+      id: null,
+      name: "Podcasts",
+      slug: "podcasts",
+      url: "/podcasts/",
       children: {},
     },
   };

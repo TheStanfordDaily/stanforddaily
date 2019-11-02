@@ -4,6 +4,7 @@ import { getCategoryAsync, CategoryArchivePageData } from "helpers/wpapi";
 import { FONTS } from "helpers/constants";
 import Wrapper from "components/Wrapper";
 import { Section } from "components/Section";
+import SatireGlobal from "components/SatireGlobal";
 import ArchivePage, { ArchivePageType, ArchivePageState } from "./ArchivePage";
 
 async function _getCategoryData(
@@ -54,6 +55,7 @@ export default class CategoryArchivePage extends React.Component<
             {initData.tsdMeta.title}
           </Text>
         </View>
+        {initData.tsdMeta.title === "Satire" && <SatireGlobal />}
         <ArchivePage
           displayCategory={false}
           displayExcerpt={false}
