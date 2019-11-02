@@ -18,4 +18,8 @@ To deploy the project, you would need a [ZEIT Now.sh](https://zeit.co/) project 
 
 4. Wait until you can visit the project on the new website at the main domain.
 
-5. Activate `tsd-headless` theme.
+5. Deploy the website again on Now.sh (by e.g., creating a new commit) if you encountered "404: NOT_FOUND" error.
+
+![](now-sh-404.png)
+
+6. Activate `tsd-headless` theme.
