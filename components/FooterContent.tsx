@@ -290,9 +290,16 @@ export const FooterContent: React.ElementType = ({ itemStyle }: any) => {
     // TODO: use `LinkLink` type
     podcasts: {
       id: null,
-      name: "Podcasts",
+      name: "Podcast",
       slug: "podcasts",
       url: "/podcasts/",
+      children: {},
+    },
+    video: {
+      id: null,
+      name: "Video",
+      slug: "video",
+      url: "https://www.youtube.com/channel/UCWg3QqUzqxXt6herm5sMjNw",
       children: {},
     },
   };
