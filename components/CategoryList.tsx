@@ -88,8 +88,13 @@ export const CategoryList: React.ElementType = ({ itemStyle }: any) => {
     },
     {
       type: LinkType.LINK,
-      name: "Podcasts",
+      name: "Podcast",
       url: "/podcasts/",
+    } as LinkLink,
+    {
+      type: LinkType.LINK,
+      name: "Video",
+      url: "https://www.youtube.com/channel/UCWg3QqUzqxXt6herm5sMjNw",
     } as LinkLink,
   ];
 
