@@ -96,6 +96,31 @@ export const TopSection: React.ElementType = ({ style }) => {
       <LogoComponent className="headerLogoIcon" fontSize="25px" />
     </a>
   );
+
+  const TextButtonWithLink: React.ElementType = ({
+    url,
+    urlFile = "/[year]/",
+    title,
+    tbwlStyle,
+  }: any) => (
+    <Link href={urlFile} as={url}>
+      <a
+        title={title}
+        style={{
+          ...FONTS.AUXILIARY,
+          color: STANFORD_COLORS.CARDINAL_RED,
+          border: `2px ${STANFORD_COLORS.CARDINAL_RED} solid`,
+          fontSize: 14,
+          letterSpacing: 1.5,
+          padding: 8,
+          ...tbwlStyle,
+        }}
+      >
+        {title}
+      </a>
+    </Link>
+  );
+
   return (
     <RView
       style={{ ...style }}
@@ -161,37 +186,14 @@ export const TopSection: React.ElementType = ({ style }) => {
               LogoComponent={LogoInstagram}
             />
             <LogoIconWithLink url={LINKS.YOUTUBE} LogoComponent={LogoYoutube} />
-            <Link href="/tips/">
-              <a
-                title="Tips"
-                style={{
-                  ...FONTS.AUXILIARY,
-                  color: STANFORD_COLORS.WHITE,
-                  backgroundColor: STANFORD_COLORS.CARDINAL_RED,
-                  fontSize: 14,
-                  letterSpacing: 1.5,
-                  padding: 10,
-                  marginRight: 10,
-                }}
-              >
-                Tips
-              </a>
-            </Link>
-            <Link href="/[year]/" as="/email-digests/">
-              <a
-                title="Email Digest"
-                style={{
-                  ...FONTS.AUXILIARY,
-                  color: STANFORD_COLORS.WHITE,
-                  backgroundColor: STANFORD_COLORS.CARDINAL_RED,
-                  fontSize: 14,
-                  letterSpacing: 1.5,
-                  padding: 10,
-                }}
-              >
-                Email Digest
-              </a>
-            </Link>
+            <TextButtonWithLink
+              url="/tips/"
+              title="Send Tips"
+              tbwlStyle={{
+                marginRight: 20,
+              }}
+            />
+            <TextButtonWithLink url="/email-digests/" title="Email Digest" />
           </View>
         </View>
       </SectionStyle>
