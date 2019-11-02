@@ -81,11 +81,7 @@ const ContentView: React.ElementType<ContentViewProps> = ({
       <WPHead base={post} />
       {isSatire && (
         <Global
-          // TODO: CUSTOM LOGO FOR SATIRE (SEE https://stackoverflow.com/a/28710709/2603230)
           styles={{
-            "#body-main": {
-              backgroundColor: STANFORD_COLORS.WHITE,
-            },
             "#tsd-navbar, #site-footer": {
               backgroundColor: STANFORD_COLORS.BLACK,
             },

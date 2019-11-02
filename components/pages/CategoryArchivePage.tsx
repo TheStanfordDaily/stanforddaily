@@ -62,11 +62,8 @@ export default class CategoryArchivePage extends React.Component<
         </View>
         {initData.tsdMeta.title === "Satire" && (
           <Global
-            // TODO: CUSTOM LOGO FOR SATIRE (SEE https://stackoverflow.com/a/28710709/2603230)
+            // TODO: Decompose it
             styles={{
-              "#body-main": {
-                backgroundColor: STANFORD_COLORS.WHITE,
-              },
               "#tsd-navbar, #site-footer": {
                 backgroundColor: STANFORD_COLORS.BLACK,
               },
