@@ -3,7 +3,7 @@ import { View } from "react-native";
 import Link from "next/link";
 import styled from "@emotion/native";
 import RView, { MediaRule } from "emotion-native-media-query";
-import { STANFORD_COLORS, BREAKPOINTS, FONTS } from "helpers/constants";
+import { STANFORD_COLORS, BREAKPOINTS, FONTS, LINKS } from "helpers/constants";
 import { Category } from "helpers/wpapi";
 import { SECTION_PADDING } from "./Section";
 import { CategoryLink } from "./CategoryLink";
@@ -273,16 +273,16 @@ export const FooterContent: React.ElementType = ({ itemStyle }: any) => {
       url: "/category/satire/",
       children: {},
     },
-    magazine: {
-      id: 53462,
-      name: "Magazine",
-      slug: "magazine",
-      url: "/category/magazine/",
-      children: {},
-    },
+    // magazine: {
+    //   id: 53462,
+    //   name: "Magazine",
+    //   slug: "magazine",
+    //   url: "/category/magazine/",
+    //   children: {},
+    // },
     "data-vizzes": {
       id: 58277,
-      name: "Data Viz",
+      name: "Data",
       slug: "data-vizzes",
       url: "/category/data-vizzes/",
       children: {},
@@ -290,9 +290,16 @@ export const FooterContent: React.ElementType = ({ itemStyle }: any) => {
     // TODO: use `LinkLink` type
     podcasts: {
       id: null,
-      name: "Podcasts",
+      name: "Podcast",
       slug: "podcasts",
       url: "/podcasts/",
+      children: {},
+    },
+    video: {
+      id: null,
+      name: "Video",
+      slug: "video",
+      url: LINKS.YOUTUBE,
       children: {},
     },
   };

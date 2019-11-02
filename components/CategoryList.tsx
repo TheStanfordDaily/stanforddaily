@@ -1,6 +1,6 @@
 import React from "react";
 import { Text, ScrollView } from "react-native";
-import { STANFORD_COLORS, FONTS } from "helpers/constants";
+import { STANFORD_COLORS, FONTS, LINKS } from "helpers/constants";
 import { Category } from "helpers/wpapi";
 import { SECTION_PADDING } from "./Section";
 import { CategoryLink } from "./CategoryLink";
@@ -72,24 +72,49 @@ export const CategoryList: React.ElementType = ({ itemStyle }: any) => {
       slug: "satire",
       url: "/category/satire/",
     },
-    {
-      type: LinkType.CATEGORY,
-      id: 53462,
-      name: "Magazine",
-      slug: "magazine",
-      url: "/category/magazine/",
-    },
+    // {
+    //   type: LinkType.CATEGORY,
+    //   id: 53462,
+    //   name: "Magazine",
+    //   slug: "magazine",
+    //   url: "/category/magazine/",
+    // },
     {
       type: LinkType.CATEGORY,
       id: 58277,
-      name: "Data Viz",
+      name: "Data",
       slug: "data-vizzes",
       url: "/category/data-vizzes/",
     },
+    // {
+    //   type: LinkType.LINK,
+    //   name: "Podcast",
+    //   url: "/podcasts/",
+    // } as LinkLink,
     {
       type: LinkType.LINK,
-      name: "Podcasts",
-      url: "/podcasts/",
+      name: "Video",
+      url: LINKS.YOUTUBE,
+    } as LinkLink,
+    {
+      type: LinkType.LINK,
+      name: "Yearbook",
+      url: "/yearbook/",
+    } as LinkLink,
+    {
+      type: LinkType.LINK,
+      name: "About Us",
+      url: "/about/",
+    } as LinkLink,
+    {
+      type: LinkType.LINK,
+      name: "Advertising",
+      url: "/advertise/",
+    } as LinkLink,
+    {
+      type: LinkType.LINK,
+      name: "Archives",
+      url: LINKS.ARCHIVES,
     } as LinkLink,
   ];
 

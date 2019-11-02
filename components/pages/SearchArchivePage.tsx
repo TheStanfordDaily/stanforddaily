@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Text } from "react-native";
 import { getSearchAsync, SearchArchivePageData } from "helpers/wpapi";
+import { FONTS } from "helpers/constants";
 import Wrapper from "components/Wrapper";
 import { Section } from "components/Section";
 import ArchivePage, { ArchivePageType, ArchivePageState } from "./ArchivePage";
@@ -36,7 +37,14 @@ export default class SearchArchivePage extends React.Component<
           flexDirection: "column",
         }}
       >
-        <Text>{keyword}</Text>
+        <Text
+          style={{
+            ...FONTS.SECTION_TITLE,
+            fontSize: 25,
+          }}
+        >
+          Search results for: {keyword}
+        </Text>
         <ArchivePage
           initData={initData}
           type={ArchivePageType.Search}

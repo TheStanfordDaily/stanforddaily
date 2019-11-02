@@ -7,7 +7,7 @@ import LogoFacebook from "react-ionicons/lib/LogoFacebook";
 import LogoTwitter from "react-ionicons/lib/LogoTwitter";
 import LogoInstagram from "react-ionicons/lib/LogoInstagram";
 import LogoYoutube from "react-ionicons/lib/LogoYoutube";
-import { BREAKPOINTS, STANFORD_COLORS, FONTS } from "helpers/constants";
+import { BREAKPOINTS, STANFORD_COLORS, FONTS, LINKS } from "helpers/constants";
 import { SectionStyle } from "components/Section";
 
 export interface SmallSectionProps {
@@ -15,6 +15,7 @@ export interface SmallSectionProps {
   imageUrl: string;
   header: string;
   title: string;
+  newTab?: boolean;
 }
 
 export const TopSection: React.ElementType = ({ style }) => {
@@ -23,9 +24,15 @@ export const TopSection: React.ElementType = ({ style }) => {
     imageUrl,
     header,
     title,
+    newTab,
   }) => {
+    const additionalPropsForA: any = {};
+    if (newTab) {
+      additionalPropsForA.target = "_blank";
+    }
+
     return (
-      <a href={url} title={title}>
+      <a href={url} title={title} {...additionalPropsForA}>
         <View
           style={{
             marginRight: 30,
@@ -89,6 +96,31 @@ export const TopSection: React.ElementType = ({ style }) => {
       <LogoComponent className="headerLogoIcon" fontSize="25px" />
     </a>
   );
+
+  const TextButtonWithLink: React.ElementType = ({
+    url,
+    urlFile = "/[year]/",
+    title,
+    tbwlStyle,
+  }: any) => (
+    <Link href={urlFile} as={url}>
+      <a
+        title={title}
+        style={{
+          ...FONTS.AUXILIARY,
+          color: STANFORD_COLORS.CARDINAL_RED,
+          border: `2px ${STANFORD_COLORS.CARDINAL_RED} solid`,
+          fontSize: 14,
+          letterSpacing: 1.5,
+          padding: 8,
+          ...tbwlStyle,
+        }}
+      >
+        {title}
+      </a>
+    </Link>
+  );
+
   return (
     <RView
       style={{ ...style }}
@@ -110,10 +142,11 @@ export const TopSection: React.ElementType = ({ style }) => {
         >
           <View style={{ flexDirection: "row", alignItems: "center" }}>
             <SmallSection
-              url="/category/magazine/"
-              imageUrl="https://www.stanforddaily.com/wp-content/uploads/2019/09/Stanford-Panorama-Red.jpg"
-              header="Volume IV, Issue I"
-              title="The Daily Magazine"
+              url={LINKS.ISSUU}
+              imageUrl={LINKS.ISSUU_LOGO}
+              header="Newspaper & Magazine"
+              title="Read the print issues"
+              newTab
             />
             {/* <SmallSection
               imageUrl="https://www.stanforddaily.com/wp-content/uploads/2018/10/Stanford_School_of_Medicine_Li_Ka_Shing_Center.jpg"
@@ -122,7 +155,7 @@ export const TopSection: React.ElementType = ({ style }) => {
             /> */}
             <SmallSection
               url="/podcasts/"
-              imageUrl="https://d3t3ozftmdmh3i.cloudfront.net/production/podcast_uploaded400/1460559/1460559-1550520909113-dfa4db03769d.jpg"
+              imageUrl={LINKS.DAILY_BREW_LOGO}
               header="Podcast"
               title="The Daily Brew"
             />
@@ -144,35 +177,23 @@ export const TopSection: React.ElementType = ({ style }) => {
               }}
             />
             <LogoIconWithLink
-              url="https://www.facebook.com/stanforddaily/"
+              url={LINKS.FACEBOOK}
               LogoComponent={LogoFacebook}
             />
+            <LogoIconWithLink url={LINKS.TWITTER} LogoComponent={LogoTwitter} />
             <LogoIconWithLink
-              url="https://twitter.com/StanfordDaily"
-              LogoComponent={LogoTwitter}
-            />
-            <LogoIconWithLink
-              url="https://www.instagram.com/stanforddaily/"
+              url={LINKS.INSTAGRAM}
               LogoComponent={LogoInstagram}
             />
-            <LogoIconWithLink
-              url="https://www.youtube.com/channel/UCWg3QqUzqxXt6herm5sMjNw"
-              LogoComponent={LogoYoutube}
+            <LogoIconWithLink url={LINKS.YOUTUBE} LogoComponent={LogoYoutube} />
+            <TextButtonWithLink
+              url="/tips/"
+              title="Contact Us"
+              tbwlStyle={{
+                marginRight: 15,
+              }}
             />
-            <Link href="/[year]/" as="/email-digests/">
-              <a
-                title="Email Digest"
-                style={{
-                  ...FONTS.AUXILIARY,
-                  color: STANFORD_COLORS.WHITE,
-                  backgroundColor: STANFORD_COLORS.CARDINAL_RED,
-                  letterSpacing: 1.5,
-                  padding: 10,
-                }}
-              >
-                Email Digest
-              </a>
-            </Link>
+            <TextButtonWithLink url="/email-digests/" title="Email Digest" />
           </View>
         </View>
       </SectionStyle>
