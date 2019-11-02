@@ -20,7 +20,6 @@ const SatireGlobal: React.ElementType = () => {
           bottom: 0,
           left: 0,
           height: 87.5,
-          width: 1477,
           backgroundImage: "url(/static/soc.jpg)",
           backgroundSize: "contain",
           backgroundRepeat: "no-repeat",
