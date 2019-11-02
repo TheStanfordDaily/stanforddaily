@@ -111,7 +111,7 @@ export const TopSection: React.ElementType = ({ style }) => {
           <View style={{ flexDirection: "row", alignItems: "center" }}>
             <SmallSection
               url={LINKS.ISSUU}
-              imageUrl="https://www.stanforddaily.com/wp-content/uploads/2019/09/Stanford-Panorama-Red.jpg"
+              imageUrl={LINKS.ISSUU_LOGO}
               header="Newspaper & Magazine"
               title="Read the print issues"
             />
@@ -122,7 +122,7 @@ export const TopSection: React.ElementType = ({ style }) => {
             /> */}
             <SmallSection
               url="/podcasts/"
-              imageUrl="https://d3t3ozftmdmh3i.cloudfront.net/production/podcast_uploaded400/1460559/1460559-1550520909113-dfa4db03769d.jpg"
+              imageUrl={LINKS.DAILY_BREW_LOGO}
               header="Podcast"
               title="The Daily Brew"
             />
@@ -144,15 +144,12 @@ export const TopSection: React.ElementType = ({ style }) => {
               }}
             />
             <LogoIconWithLink
-              url="https://www.facebook.com/stanforddaily/"
+              url={LINKS.FACEBOOK}
               LogoComponent={LogoFacebook}
             />
+            <LogoIconWithLink url={LINKS.TWITTER} LogoComponent={LogoTwitter} />
             <LogoIconWithLink
-              url="https://twitter.com/StanfordDaily"
-              LogoComponent={LogoTwitter}
-            />
-            <LogoIconWithLink
-              url="https://www.instagram.com/stanforddaily/"
+              url={LINKS.INSTAGRAM}
               LogoComponent={LogoInstagram}
             />
             <LogoIconWithLink url={LINKS.YOUTUBE} LogoComponent={LogoYoutube} />
