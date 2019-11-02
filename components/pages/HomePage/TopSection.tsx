@@ -7,7 +7,7 @@ import LogoFacebook from "react-ionicons/lib/LogoFacebook";
 import LogoTwitter from "react-ionicons/lib/LogoTwitter";
 import LogoInstagram from "react-ionicons/lib/LogoInstagram";
 import LogoYoutube from "react-ionicons/lib/LogoYoutube";
-import { BREAKPOINTS, STANFORD_COLORS, FONTS } from "helpers/constants";
+import { BREAKPOINTS, STANFORD_COLORS, FONTS, LINKS } from "helpers/constants";
 import { SectionStyle } from "components/Section";
 
 export interface SmallSectionProps {
@@ -110,7 +110,7 @@ export const TopSection: React.ElementType = ({ style }) => {
         >
           <View style={{ flexDirection: "row", alignItems: "center" }}>
             <SmallSection
-              url="https://issuu.com/thestanforddaily"
+              url={LINKS.ISSUU}
               imageUrl="https://www.stanforddaily.com/wp-content/uploads/2019/09/Stanford-Panorama-Red.jpg"
               header="Newspaper & Magazine"
               title="Read the print issues"
@@ -155,10 +155,7 @@ export const TopSection: React.ElementType = ({ style }) => {
               url="https://www.instagram.com/stanforddaily/"
               LogoComponent={LogoInstagram}
             />
-            <LogoIconWithLink
-              url="https://www.youtube.com/channel/UCWg3QqUzqxXt6herm5sMjNw"
-              LogoComponent={LogoYoutube}
-            />
+            <LogoIconWithLink url={LINKS.YOUTUBE} LogoComponent={LogoYoutube} />
             <Link href="/[year]/" as="/email-digests/">
               <a
                 title="Email Digest"
