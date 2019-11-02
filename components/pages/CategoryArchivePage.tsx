@@ -10,6 +10,7 @@ import {
 } from "helpers/constants";
 import Wrapper from "components/Wrapper";
 import { Section } from "components/Section";
+import SatireGlobal from "components/SatireGlobal";
 import ArchivePage, { ArchivePageType, ArchivePageState } from "./ArchivePage";
 
 async function _getCategoryData(
@@ -60,33 +61,7 @@ export default class CategoryArchivePage extends React.Component<
             {initData.tsdMeta.title}
           </Text>
         </View>
-        {initData.tsdMeta.title === "Satire" && (
-          <Global
-            // TODO: Decompose it
-            styles={{
-              "#tsd-navbar, #site-footer": {
-                backgroundColor: STANFORD_COLORS.BLACK,
-              },
-              "#tsd-logo img": {
-                display: "none",
-              },
-              "#tsd-logo::after": {
-                content: '" "',
-                position: "absolute",
-                top: 0,
-                right: 0,
-                bottom: 0,
-                left: 0,
-                height: 87.5,
-                width: 1477,
-                backgroundImage: "url(/static/soc.jpg)",
-                backgroundSize: "contain",
-                backgroundRepeat: "no-repeat",
-                backgroundPosition: "center",
-              },
-            }}
-          />
-        )}
+        {initData.tsdMeta.title === "Satire" && <SatireGlobal />}
         <ArchivePage
           displayCategory={false}
           displayExcerpt={false}

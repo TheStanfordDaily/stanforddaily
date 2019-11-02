@@ -18,6 +18,7 @@ import { AuthorsTextWithLink } from "./pages/HomePage/AuthorView";
 import AuthorBox from "./AuthorBox";
 import { CategoryLink } from "./CategoryLink";
 import { DateWithAbbr } from "./DateView";
+import SatireGlobal from "./SatireGlobal";
 
 interface ContentViewProps {
   post: Post;
@@ -79,32 +80,7 @@ const ContentView: React.ElementType<ContentViewProps> = ({
   return (
     <SectionStyle>
       <WPHead base={post} />
-      {isSatire && (
-        <Global
-          styles={{
-            "#tsd-navbar, #site-footer": {
-              backgroundColor: STANFORD_COLORS.BLACK,
-            },
-            "#tsd-logo img": {
-              display: "none",
-            },
-            "#tsd-logo::after": {
-              content: '" "',
-              position: "absolute",
-              top: 0,
-              right: 0,
-              bottom: 0,
-              left: 0,
-              height: 87.5,
-              width: 1477,
-              backgroundImage: "url(/static/soc.jpg)",
-              backgroundSize: "contain",
-              backgroundRepeat: "no-repeat",
-              backgroundPosition: "center",
-            },
-          }}
-        />
-      )}
+      {isSatire && <SatireGlobal />}
       <Article>
         <ArticleHeader>
           {isPost && (
