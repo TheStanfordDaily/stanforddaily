@@ -99,6 +99,8 @@ const ContentView: React.ElementType<ContentViewProps> = ({
               right: 0,
               bottom: 0,
               left: 0,
+              height: 87.5,
+              width: 1475,
               backgroundImage: "url(/static/soc.jpg)",
               backgroundSize: "contain",
               backgroundRepeat: "no-repeat",
