@@ -153,6 +153,22 @@ export const TopSection: React.ElementType = ({ style }) => {
               LogoComponent={LogoInstagram}
             />
             <LogoIconWithLink url={LINKS.YOUTUBE} LogoComponent={LogoYoutube} />
+            <Link href="/tips/">
+              <a
+                title="Tips"
+                style={{
+                  ...FONTS.AUXILIARY,
+                  color: STANFORD_COLORS.WHITE,
+                  backgroundColor: STANFORD_COLORS.CARDINAL_RED,
+                  fontSize: 14,
+                  letterSpacing: 1.5,
+                  padding: 10,
+                  marginRight: 10,
+                }}
+              >
+                Tips
+              </a>
+            </Link>
             <Link href="/[year]/" as="/email-digests/">
               <a
                 title="Email Digest"
@@ -160,6 +176,7 @@ export const TopSection: React.ElementType = ({ style }) => {
                   ...FONTS.AUXILIARY,
                   color: STANFORD_COLORS.WHITE,
                   backgroundColor: STANFORD_COLORS.CARDINAL_RED,
+                  fontSize: 14,
                   letterSpacing: 1.5,
                   padding: 10,
                 }}
