@@ -287,6 +287,7 @@ export const FooterContent: React.ElementType = ({ itemStyle }: any) => {
       url: "/category/data-vizzes/",
       children: {},
     },
+    // TODO: use `LinkLink` type
     podcasts: {
       id: null,
       name: "Podcasts",
