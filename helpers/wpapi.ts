@@ -201,6 +201,29 @@ export function getNextJsCategoryPath(categoryUrl: string): string {
   return nextJsCategoryPath;
 }
 
+export type CategorySlugs = {
+  slug1?: string;
+  slug2?: string;
+  slug3?: string;
+  slug4?: string;
+  slug5?: string;
+};
+
+export function splitCategoryToSlugs(category: Category): CategorySlugs {
+  const categorySlugsUrl = category.url.split("/");
+
+  // Remove beginning `"/"`, `"category/"`, and trailing `"/"`
+  categorySlugsUrl.pop();
+  categorySlugsUrl.shift();
+  categorySlugsUrl.shift();
+
+  const results: CategorySlugs = {};
+  for (let index = 0; index < categorySlugsUrl.length; index += 1) {
+    results[`slug${index + 1}`] = categorySlugsUrl[index];
+  }
+  return results;
+}
+
 export function getPostTimeString(date: moment.Moment, format: string): string {
   if (date.isSame(new Date(), "day")) {
     // If posted on the same day.

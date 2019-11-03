@@ -5,6 +5,7 @@ import { FONTS } from "helpers/constants";
 import Wrapper from "components/Wrapper";
 import { Section } from "components/Section";
 import SatireGlobal from "components/SatireGlobal";
+import LoadingView from "components/Loading";
 import ArchivePage, { ArchivePageType, ArchivePageState } from "./ArchivePage";
 
 async function _getCategoryData(
@@ -38,6 +39,10 @@ export default class CategoryArchivePage extends React.Component<
 
   render(): React.ReactNode {
     const { initData, slugs } = this.props;
+    if (!initData) {
+      return <LoadingView />;
+    }
+
     return (
       <Section
         style={{
@@ -72,7 +77,12 @@ export default class CategoryArchivePage extends React.Component<
 }
 
 export function CategoryArchivePageWrapper(props: any): any {
+  const query = props.navigation.state.params;
   return (
-    <Wrapper class={CategoryArchivePage} props={props} getInitialProps={{}} />
+    <Wrapper
+      class={CategoryArchivePage}
+      props={props}
+      getInitialProps={{ query }}
+    />
   );
 }
