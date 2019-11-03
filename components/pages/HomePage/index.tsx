@@ -90,7 +90,9 @@ export default class HomePage extends React.Component<IndexProps, IndexState> {
     return (
       <>
         <WPHead base={homePosts} />
-        {Platform.OS === "ios" && <CategoryList />}
+        {Platform.OS === "ios" && (
+          <CategoryList itemStyle={{ color: "black" }} />
+        )}
         <ScrollView
           contentContainerStyle={{
             flexDirection: "column",
