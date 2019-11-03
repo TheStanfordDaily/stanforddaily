@@ -10,7 +10,7 @@ import Wrapper from "components/Wrapper";
 import { CategoryList } from "components/CategoryList";
 import LoadingView from "components/Loading";
 import WPHead from "components/webHelpers/WPHead";
-import WPFooter from "components/webHelpers/WPFooter.web";
+import WPFooter from "components/webHelpers/WPFooter";
 import { MainSection } from "./MainSection";
 import { LeftSection } from "./LeftSection";
 import { SportsSection } from "./SportsSection";

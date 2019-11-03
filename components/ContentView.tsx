@@ -13,7 +13,7 @@ import { SectionStyle, SECTION_PADDING } from "components/Section";
 import { Article, ArticleHeader } from "components/Article";
 import LoadingView from "components/Loading";
 import WPHead from "components/webHelpers/WPHead";
-import WPFooter from "components/webHelpers/WPFooter.web";
+import WPFooter from "components/webHelpers/WPFooter";
 import { AuthorsTextWithLink } from "./pages/HomePage/AuthorView";
 import AuthorBox from "./AuthorBox";
 import { CategoryLink } from "./CategoryLink";
