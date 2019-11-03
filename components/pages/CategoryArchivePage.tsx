@@ -1,6 +1,11 @@
 import React from "react";
 import { View, Text } from "react-native";
-import { getCategoryAsync, CategoryArchivePageData } from "helpers/wpapi";
+import {
+  getCategoryAsync,
+  CategoryArchivePageData,
+  splitCategoryToSlugs,
+  Category,
+} from "helpers/wpapi";
 import { FONTS } from "helpers/constants";
 import Wrapper from "components/Wrapper";
 import { Section } from "components/Section";
@@ -77,12 +82,16 @@ export default class CategoryArchivePage extends React.Component<
 }
 
 export function CategoryArchivePageWrapper(props: any): any {
-  const query = props.navigation.state.params;
+  const category: Category = props.navigation.state.params;
   return (
     <Wrapper
       class={CategoryArchivePage}
       props={props}
-      getInitialProps={{ query }}
+      getInitialProps={{ query: splitCategoryToSlugs(category) }}
     />
   );
 }
+
+CategoryArchivePageWrapper.navigationOptions = ({ navigation }) => ({
+  title: (navigation.state.params as Category).name || "Category",
+});

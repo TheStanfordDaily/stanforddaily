@@ -2,11 +2,7 @@ import React, { ReactNode } from "react";
 import { Text, TextStyle, Platform, TouchableOpacity } from "react-native";
 import Link from "next/link";
 import { FONTS } from "helpers/constants";
-import {
-  Category,
-  getNextJsCategoryPath,
-  splitCategoryToSlugs,
-} from "helpers/wpapi";
+import { Category, getNextJsCategoryPath } from "helpers/wpapi";
 import { withNavigation } from "helpers/trivial/react-navigation";
 
 interface CategoryLinkProps {
@@ -28,7 +24,7 @@ const _CategoryLink: React.ElementType<CategoryLinkProps> = ({
     return (
       <TouchableOpacity
         onPress={() => {
-          navigation.push("categoryArchive", splitCategoryToSlugs(category));
+          navigation.push("categoryArchive", category);
         }}
       >
         <Text
