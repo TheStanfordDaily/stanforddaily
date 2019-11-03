@@ -1,5 +1,5 @@
 import React from "react";
-import { Text } from "react-native";
+import { Text, Platform } from "react-native";
 import { FONTS } from "helpers/constants";
 import { ArticleProps } from "./ArticleProps";
 
@@ -12,7 +12,7 @@ export const PostExcerpt: React.ElementType = ({
     <Text
       style={{
         ...FONTS.CONTENT,
-        lineHeight: "1.2em",
+        ...(Platform.OS === "web" ? { lineHeight: "1.2em" } : {}),
         ...style,
       }}
     >
