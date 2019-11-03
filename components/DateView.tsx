@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, TextStyle, View, ViewStyle } from "react-native";
+import { Text, TextStyle, View, ViewStyle, Platform } from "react-native";
 import { FONTS } from "helpers/constants";
 import { Post, getPostTimeString, getPostLocalDate } from "helpers/wpapi";
 
@@ -13,6 +13,11 @@ export const DateWithAbbr: React.ElementType<DateWithAbbrProps> = ({
   format,
 }) => {
   const date = getPostLocalDate(post);
+
+  if (Platform.OS !== "web") {
+    return <>{getPostTimeString(date, format)}</>;
+  }
+
   return (
     <abbr title={date.format("LLLL")} style={{ textDecoration: "none" }}>
       <time dateTime={date.format()}>{getPostTimeString(date, format)}</time>
@@ -33,6 +38,19 @@ const DateView: React.ElementType<DateViewProps> = ({
   containerStyle,
   style,
 }: DateViewProps) => {
+  if (Platform.OS !== "web") {
+    return (
+      <Text
+        style={{
+          ...FONTS.AUXILIARY,
+          ...style,
+        }}
+      >
+        <DateWithAbbr post={post} format={format} />
+      </Text>
+    );
+  }
+
   return (
     <View style={containerStyle}>
       <Text
