@@ -30,7 +30,7 @@ export const FONTS: any = {
           lineHeight: "1",
         }
       : {
-          fontFamily: "Faune-Text_Bold",
+          fontFamily: "LibreBaskerville-Bold",
           fontSize: 20,
         },
   SECTION_TITLE:
@@ -52,7 +52,7 @@ export const FONTS: any = {
           lineHeight: "1.875em",
         }
       : {
-          fontFamily: "PublicSans-Regular",
+          fontFamily: "PTSerif-Regular",
         },
   AUXILIARY:
     Platform.OS === "web"
