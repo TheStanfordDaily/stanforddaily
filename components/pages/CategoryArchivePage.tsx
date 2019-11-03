@@ -91,7 +91,7 @@ export function CategoryArchivePageWrapper(props: any): any {
     />
   );
 }
-
+// https://github.com/react-navigation/react-navigation/issues/2379
 CategoryArchivePageWrapper.navigationOptions = ({ navigation }) => ({
   title: (navigation.state.params as Category).name || "Category",
 });
