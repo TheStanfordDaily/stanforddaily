@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, ScrollView } from "react-native";
+import { Text, ScrollView, Platform } from "react-native";
 import { STANFORD_COLORS, FONTS, LINKS } from "helpers/constants";
 import { Category } from "helpers/wpapi";
 import { SECTION_PADDING } from "./Section";
@@ -155,6 +155,10 @@ export const CategoryList: React.ElementType = ({ itemStyle }: any) => {
           );
         } else {
           const link = item as LinkLink;
+          if (Platform.OS !== "web") {
+            // TODO: OPEN PAGE IN WEBVIEW
+            return <></>;
+          }
           return (
             <Text style={actualStyle}>
               <a href={link.url} style={{ color: "inherit" }}>
