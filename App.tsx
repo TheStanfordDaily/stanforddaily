@@ -1,6 +1,8 @@
 import React from "react";
+import { StatusBar } from "react-native";
 import * as Font from "expo-font";
 import { createStackNavigator, createAppContainer } from "react-navigation";
+import { STANFORD_COLORS } from "helpers/constants";
 import { HomePageWrapper } from "components/pages/HomePage";
 import { ArticlePageWrapper } from "components/pages/ArticlePage";
 import { CategoryArchivePageWrapper } from "components/pages/CategoryArchivePage";
@@ -16,6 +18,16 @@ const AppNavigator = createStackNavigator(
   },
   {
     initialRouteName: "home",
+    defaultNavigationOptions: {
+      headerStyle: {
+        backgroundColor: STANFORD_COLORS.CARDINAL_RED,
+      },
+      headerTintColor: STANFORD_COLORS.WHITE,
+      headerTitleStyle: {
+        fontFamily: "LibreBaskerville-Bold",
+        fontWeight: "bold",
+      },
+    },
   },
 );
 
@@ -39,12 +51,16 @@ class App extends React.Component<{}, { fontLoaded: boolean }> {
   }
 
   render(): React.ReactNode {
-    if (this.state.fontLoaded) {
-      return <AppContainer />;
-    } else {
-      // TODO: MAYBE PASS THIS TO APPCONTAINER AND HANDLE IT IN WRAPPER? SO THAT IF WE USE ANIMATION FOR LOADING IT WILL WORK
-      return <LoadingView />;
-    }
+    return (
+      <>
+        <StatusBar barStyle="light-content" />
+        {this.state.fontLoaded ? (
+          <AppContainer />
+        ) : (
+          <LoadingView /> // TODO: MAYBE PASS THIS TO APPCONTAINER AND HANDLE IT IN WRAPPER? SO THAT IF WE USE ANIMATION FOR LOADING IT WILL WORK
+        )}
+      </>
+    );
   }
 }
 
