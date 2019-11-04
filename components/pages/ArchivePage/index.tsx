@@ -1,10 +1,11 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Text, Platform, ScrollView } from "react-native";
 import { ArchivePageData } from "helpers/wpapi";
 import LoadingView from "components/Loading";
 import ArticlesView from "components/ArticlesView";
 import WPHead from "components/webHelpers/WPHead";
 import WPFooter from "components/webHelpers/WPFooter";
+import { SECTION_PADDING } from "components/Section";
 
 export enum ArchivePageType {
   Time, // TODO
@@ -43,18 +44,26 @@ export default class ArchivePage extends React.Component<
       return <LoadingView />;
     }
 
+    const articlesView = (
+      <ArticlesView
+        displayCategory={displayCategory}
+        displayExcerpt={displayExcerpt}
+        initPosts={initData.posts}
+        getExtraPosts={async pageNumber => {
+          const extraData = await getExtraData(pageNumber);
+          return extraData.posts;
+        }}
+      />
+    );
+
+    if (Platform.OS !== "web") {
+      return articlesView;
+    }
+
     return (
       <>
         <WPHead base={initData} />
-        <ArticlesView
-          displayCategory={displayCategory}
-          displayExcerpt={displayExcerpt}
-          initPosts={initData.posts}
-          getExtraPosts={async pageNumber => {
-            const extraData = await getExtraData(pageNumber);
-            return extraData.posts;
-          }}
-        />
+        {articlesView}
         <WPFooter base={initData} />
       </>
     );

@@ -14,6 +14,7 @@ export const BREAKPOINTS = {
 
 export const STRINGS = {
   WP_URL: "https://wp.stanforddaily.com",
+  WEBSITE_URL: "https://beta.stanforddaily.com",
   DISQUS_SHORTNAME: "stanforddaily",
   TSD_APP_USERAGENT: "TheStanfordDailyApp/1.0.0",
   _MAIN_ONLY_QUERY: "_main-only",
@@ -30,7 +31,7 @@ export const FONTS: any = {
           lineHeight: "1",
         }
       : {
-          fontFamily: "Faune-Text_Bold",
+          fontFamily: "LibreBaskerville-Bold",
           fontSize: 20,
         },
   SECTION_TITLE:
@@ -52,7 +53,7 @@ export const FONTS: any = {
           lineHeight: "1.875em",
         }
       : {
-          fontFamily: "PublicSans-Regular",
+          fontFamily: "PTSerif-Regular",
         },
   AUXILIARY:
     Platform.OS === "web"

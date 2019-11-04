@@ -7,10 +7,10 @@ export default function LoadingView(props: any): any {
       style={{
         flex: 1,
         alignItems: "center",
-        backgroundColor: "red",
+        marginTop: 25,
       }}
     >
-      <Text>Loading...</Text>
+      <Text style={{ fontSize: 25 }}>Loading...</Text>
     </View>
   );
 }

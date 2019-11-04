@@ -1,10 +1,16 @@
 import React from "react";
-import { View, Text } from "react-native";
-import { getCategoryAsync, CategoryArchivePageData } from "helpers/wpapi";
+import { View, Text, Platform, ScrollView, SafeAreaView } from "react-native";
+import {
+  getCategoryAsync,
+  CategoryArchivePageData,
+  splitCategoryToSlugs,
+  Category,
+} from "helpers/wpapi";
 import { FONTS } from "helpers/constants";
 import Wrapper from "components/Wrapper";
-import { Section } from "components/Section";
+import { Section, SECTION_PADDING } from "components/Section";
 import SatireGlobal from "components/SatireGlobal";
+import LoadingView from "components/Loading";
 import ArchivePage, { ArchivePageType, ArchivePageState } from "./ArchivePage";
 
 async function _getCategoryData(
@@ -38,6 +44,28 @@ export default class CategoryArchivePage extends React.Component<
 
   render(): React.ReactNode {
     const { initData, slugs } = this.props;
+    if (!initData) {
+      return <LoadingView />;
+    }
+
+    const _archivePage = (
+      <ArchivePage
+        displayCategory={false}
+        displayExcerpt={false}
+        initData={initData}
+        type={ArchivePageType.Category}
+        getExtraData={async pageNumber => {
+          return _getCategoryData(slugs, pageNumber);
+        }}
+        {...this.props}
+      />
+    );
+
+    if (Platform.OS !== "web") {
+      // We do not need header on mobile
+      return <SafeAreaView style={{ flex: 1 }}>{_archivePage}</SafeAreaView>;
+    }
+
     return (
       <Section
         style={{
@@ -56,23 +84,30 @@ export default class CategoryArchivePage extends React.Component<
           </Text>
         </View>
         {initData.tsdMeta.title === "Satire" && <SatireGlobal />}
-        <ArchivePage
-          displayCategory={false}
-          displayExcerpt={false}
-          initData={initData}
-          type={ArchivePageType.Category}
-          getExtraData={async pageNumber => {
-            return _getCategoryData(slugs, pageNumber);
-          }}
-          {...this.props}
-        />
+        {_archivePage}
       </Section>
     );
   }
 }
 
 export function CategoryArchivePageWrapper(props: any): any {
+  const category: Category = props.navigation.state.params;
   return (
-    <Wrapper class={CategoryArchivePage} props={props} getInitialProps={{}} />
+    <ScrollView
+      contentContainerStyle={{
+        flexDirection: "column",
+        margin: SECTION_PADDING,
+      }}
+    >
+      <Wrapper
+        class={CategoryArchivePage}
+        props={props}
+        getInitialProps={{ query: splitCategoryToSlugs(category) }}
+      />
+    </ScrollView>
   );
 }
+// https://github.com/react-navigation/react-navigation/issues/2379
+CategoryArchivePageWrapper.navigationOptions = ({ navigation }) => ({
+  title: (navigation.state.params as Category).name || "Category",
+});

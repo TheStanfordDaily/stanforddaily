@@ -1,5 +1,10 @@
 import React from "react";
-import { ScrollView, RefreshControl, Platform } from "react-native";
+import {
+  ScrollView,
+  RefreshControl,
+  Platform,
+  SafeAreaView,
+} from "react-native";
 import {
   MediaRule,
   isWidthGreaterThanOrEqualTo,
@@ -10,7 +15,7 @@ import Wrapper from "components/Wrapper";
 import { CategoryList } from "components/CategoryList";
 import LoadingView from "components/Loading";
 import WPHead from "components/webHelpers/WPHead";
-import WPFooter from "components/webHelpers/WPFooter.web";
+import WPFooter from "components/webHelpers/WPFooter";
 import { MainSection } from "./MainSection";
 import { LeftSection } from "./LeftSection";
 import { SportsSection } from "./SportsSection";
@@ -88,9 +93,11 @@ export default class HomePage extends React.Component<IndexProps, IndexState> {
     };
 
     return (
-      <>
+      <SafeAreaView style={{ flex: 1 }}>
         <WPHead base={homePosts} />
-        {Platform.OS === "ios" && <CategoryList />}
+        {Platform.OS !== "web" && (
+          <CategoryList itemStyle={{ color: "black" }} />
+        )}
         <ScrollView
           contentContainerStyle={{
             flexDirection: "column",
@@ -189,7 +196,7 @@ export default class HomePage extends React.Component<IndexProps, IndexState> {
           />
         </ScrollView>
         <WPFooter base={homePosts} />
-      </>
+      </SafeAreaView>
     );
   }
 }
@@ -220,5 +227,11 @@ export function HomePageWrapper(props): any {
   );
 }
 HomePageWrapper.navigationOptions = {
-  title: "Home",
+  title: "The Stanford Daily",
+  headerBackTitle: "Home",
+  headerTitleStyle: {
+    fontFamily: "Canterbury",
+    fontSize: 30,
+    fontWeight: undefined, // https://github.com/react-navigation/react-navigation/issues/542#issuecomment-438631938
+  },
 };

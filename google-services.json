@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "166745143282",
+    "firebase_url": "https://stanforddailyapp.firebaseio.com",
+    "project_id": "stanforddailyapp",
+    "storage_bucket": "stanforddailyapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:166745143282:android:bb66ed3a014cf8ef",
+        "android_client_info": {
+          "package_name": "com.Stanford.Daily.App"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "166745143282-ps0hrlil2u41qt7b00rsgelhs4ldft8v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC2KvHZdwuaaG8JNnXcltEfQ_MLE49H_2g"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
