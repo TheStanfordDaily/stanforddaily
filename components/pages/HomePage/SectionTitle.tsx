@@ -41,7 +41,9 @@ export const SectionTitleWithLink: React.ElementType<
   return (
     <CategoryLink category={category}>
       <SectionTitle category={category} style={style}>
-        {children}
+        {Platform.OS === "web"
+          ? children
+          : category.name /* TODO: Currently we are not displaying custom logo for sections. */}
       </SectionTitle>
     </CategoryLink>
   );
