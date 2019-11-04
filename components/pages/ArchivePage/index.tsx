@@ -5,6 +5,7 @@ import LoadingView from "components/Loading";
 import ArticlesView from "components/ArticlesView";
 import WPHead from "components/webHelpers/WPHead";
 import WPFooter from "components/webHelpers/WPFooter";
+import { SECTION_PADDING } from "components/Section";
 
 export enum ArchivePageType {
   Time, // TODO
@@ -60,6 +61,7 @@ export default class ArchivePage extends React.Component<
         <ScrollView
           contentContainerStyle={{
             flexDirection: "column",
+            margin: SECTION_PADDING,
           }}
           style={{
             flex: 1,

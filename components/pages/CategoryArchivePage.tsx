@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Text, Platform } from "react-native";
 import {
   getCategoryAsync,
   CategoryArchivePageData,
@@ -48,6 +48,24 @@ export default class CategoryArchivePage extends React.Component<
       return <LoadingView />;
     }
 
+    const _archivePage = (
+      <ArchivePage
+        displayCategory={false}
+        displayExcerpt={false}
+        initData={initData}
+        type={ArchivePageType.Category}
+        getExtraData={async pageNumber => {
+          return _getCategoryData(slugs, pageNumber);
+        }}
+        {...this.props}
+      />
+    );
+
+    if (Platform.OS !== "web") {
+      // We do not need header on mobile
+      return _archivePage;
+    }
+
     return (
       <Section
         style={{
@@ -66,16 +84,7 @@ export default class CategoryArchivePage extends React.Component<
           </Text>
         </View>
         {initData.tsdMeta.title === "Satire" && <SatireGlobal />}
-        <ArchivePage
-          displayCategory={false}
-          displayExcerpt={false}
-          initData={initData}
-          type={ArchivePageType.Category}
-          getExtraData={async pageNumber => {
-            return _getCategoryData(slugs, pageNumber);
-          }}
-          {...this.props}
-        />
+        {_archivePage}
       </Section>
     );
   }
