@@ -37,7 +37,7 @@ export function ArticlePageWrapper(props: any): any {
     <View style={{ overflow: "hidden", flex: 1, width: "100%" }}>
       <WebView
         source={{
-          uri: `https://beta.stanforddaily.com${getPostPath(post)}?${
+          uri: `${STRINGS.WEBSITE_URL}${getPostPath(post)}?${
             STRINGS._MAIN_ONLY_QUERY
           }`,
         }}
