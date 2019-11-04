@@ -10,6 +10,9 @@
     "orientation": "portrait",
     "primaryColor": "#8C1515",
     "icon": "./assets/icon.png",
+    "androidStatusBar": {
+      "barStyle": "light-content"
+    },
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
