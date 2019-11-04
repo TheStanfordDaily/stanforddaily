@@ -2,7 +2,7 @@ import React from "react";
 import { StatusBar } from "react-native";
 import * as Font from "expo-font";
 import { createStackNavigator, createAppContainer } from "react-navigation";
-import { STANFORD_COLORS } from "helpers/constants";
+import { STANFORD_COLORS, FONTS } from "helpers/constants";
 import { HomePageWrapper } from "components/pages/HomePage";
 import { ArticlePageWrapper } from "components/pages/ArticlePage";
 import { CategoryArchivePageWrapper } from "components/pages/CategoryArchivePage";
@@ -24,8 +24,12 @@ const AppNavigator = createStackNavigator(
       },
       headerTintColor: STANFORD_COLORS.WHITE,
       headerTitleStyle: {
-        fontFamily: "LibreBaskerville-Bold",
+        fontFamily: FONTS.ARTICLE_TITLE.fontFamily,
         fontWeight: "bold",
+      },
+      headerBackTitleStyle: {
+        fontFamily: FONTS.ARTICLE_TITLE.fontFamily,
+        fontSize: 14,
       },
     },
   },
