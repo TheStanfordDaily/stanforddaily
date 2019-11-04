@@ -95,7 +95,7 @@ export default class HomePage extends React.Component<IndexProps, IndexState> {
     return (
       <SafeAreaView style={{ flex: 1 }}>
         <WPHead base={homePosts} />
-        {Platform.OS === "ios" && (
+        {Platform.OS !== "web" && (
           <CategoryList itemStyle={{ color: "black" }} />
         )}
         <ScrollView
