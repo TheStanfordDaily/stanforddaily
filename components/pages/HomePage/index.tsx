@@ -1,5 +1,10 @@
 import React from "react";
-import { ScrollView, RefreshControl, Platform } from "react-native";
+import {
+  ScrollView,
+  RefreshControl,
+  Platform,
+  SafeAreaView,
+} from "react-native";
 import {
   MediaRule,
   isWidthGreaterThanOrEqualTo,
@@ -88,7 +93,7 @@ export default class HomePage extends React.Component<IndexProps, IndexState> {
     };
 
     return (
-      <>
+      <SafeAreaView style={{ flex: 1 }}>
         <WPHead base={homePosts} />
         {Platform.OS === "ios" && (
           <CategoryList itemStyle={{ color: "black" }} />
@@ -191,7 +196,7 @@ export default class HomePage extends React.Component<IndexProps, IndexState> {
           />
         </ScrollView>
         <WPFooter base={homePosts} />
-      </>
+      </SafeAreaView>
     );
   }
 }
