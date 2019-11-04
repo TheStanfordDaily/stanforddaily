@@ -42,7 +42,6 @@ export function ArticlePageWrapper(props: any): any {
           }`,
         }}
         originWhitelist={["*"]}
-        applicationNameForUserAgent={STRINGS.TSD_APP_USERAGENT}
         startInLoadingState
         renderLoading={() => (
           <View
