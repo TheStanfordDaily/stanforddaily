@@ -49,6 +49,7 @@ class App extends React.Component<{}, { fontLoaded: boolean }> {
       "LibreBaskerville-Bold": require("./static/fonts/LibreBaskerville/LibreBaskerville-Bold.ttf"), // eslint-disable-line global-require
       "PTSerif-Regular": require("./static/fonts/PTSerif/PTSerif-Regular.ttf"), // eslint-disable-line global-require
       "IBMPlexSansCondensed-Regular": require("./static/fonts/IBM-Plex-Sans/ttf/IBMPlexSansCondensed-Regular.ttf"), // eslint-disable-line global-require
+      Canterbury: require("./static/fonts/Canterbury/Canterbury.ttf"), // eslint-disable-line global-require
     });
 
     this.setState({ fontLoaded: true });

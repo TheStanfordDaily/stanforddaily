@@ -222,5 +222,10 @@ export function HomePageWrapper(props): any {
   );
 }
 HomePageWrapper.navigationOptions = {
-  title: "Home",
+  title: "The Stanford Daily",
+  headerBackTitle: "Home",
+  headerTitleStyle: {
+    fontFamily: "Canterbury",
+    fontSize: 30,
+  },
 };
