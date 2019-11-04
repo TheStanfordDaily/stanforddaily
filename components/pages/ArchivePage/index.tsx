@@ -57,19 +57,7 @@ export default class ArchivePage extends React.Component<
     );
 
     if (Platform.OS !== "web") {
-      return (
-        <ScrollView
-          contentContainerStyle={{
-            flexDirection: "column",
-            margin: SECTION_PADDING,
-          }}
-          style={{
-            flex: 1,
-          }}
-        >
-          {articlesView}
-        </ScrollView>
-      );
+      return articlesView;
     }
 
     return (

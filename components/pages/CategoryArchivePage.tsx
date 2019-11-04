@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, Platform } from "react-native";
+import { View, Text, Platform, ScrollView, SafeAreaView } from "react-native";
 import {
   getCategoryAsync,
   CategoryArchivePageData,
@@ -8,7 +8,7 @@ import {
 } from "helpers/wpapi";
 import { FONTS } from "helpers/constants";
 import Wrapper from "components/Wrapper";
-import { Section } from "components/Section";
+import { Section, SECTION_PADDING } from "components/Section";
 import SatireGlobal from "components/SatireGlobal";
 import LoadingView from "components/Loading";
 import ArchivePage, { ArchivePageType, ArchivePageState } from "./ArchivePage";
@@ -63,7 +63,7 @@ export default class CategoryArchivePage extends React.Component<
 
     if (Platform.OS !== "web") {
       // We do not need header on mobile
-      return _archivePage;
+      return <SafeAreaView style={{ flex: 1 }}>{_archivePage}</SafeAreaView>;
     }
 
     return (
@@ -93,11 +93,18 @@ export default class CategoryArchivePage extends React.Component<
 export function CategoryArchivePageWrapper(props: any): any {
   const category: Category = props.navigation.state.params;
   return (
-    <Wrapper
-      class={CategoryArchivePage}
-      props={props}
-      getInitialProps={{ query: splitCategoryToSlugs(category) }}
-    />
+    <ScrollView
+      contentContainerStyle={{
+        flexDirection: "column",
+        margin: SECTION_PADDING,
+      }}
+    >
+      <Wrapper
+        class={CategoryArchivePage}
+        props={props}
+        getInitialProps={{ query: splitCategoryToSlugs(category) }}
+      />
+    </ScrollView>
   );
 }
 // https://github.com/react-navigation/react-navigation/issues/2379
