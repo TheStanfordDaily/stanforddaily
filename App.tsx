@@ -25,7 +25,7 @@ const AppNavigator = createStackNavigator(
       headerTintColor: STANFORD_COLORS.WHITE,
       headerTitleStyle: {
         fontFamily: FONTS.ARTICLE_TITLE.fontFamily,
-        fontWeight: "bold",
+        fontWeight: undefined, // https://github.com/react-navigation/react-navigation/issues/542#issuecomment-438631938
       },
       headerBackTitleStyle: {
         fontFamily: FONTS.ARTICLE_TITLE.fontFamily,

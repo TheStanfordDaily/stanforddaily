@@ -232,5 +232,6 @@ HomePageWrapper.navigationOptions = {
   headerTitleStyle: {
     fontFamily: "Canterbury",
     fontSize: 30,
+    fontWeight: undefined, // https://github.com/react-navigation/react-navigation/issues/542#issuecomment-438631938
   },
 };
