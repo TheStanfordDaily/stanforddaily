@@ -177,7 +177,9 @@ const ContentView: React.ElementType<ContentViewProps> = ({
             <figure id="featured-image">
               <img src={thumbnailUrl} alt={thumbnailAlt} />
               {thumbnailCaption ? (
-                <figcaption>{thumbnailCaption}</figcaption>
+                <figcaption style={{ marginBottom: 0 }}>
+                  {thumbnailCaption}
+                </figcaption>
               ) : (
                 undefined
               )}
@@ -191,6 +193,7 @@ const ContentView: React.ElementType<ContentViewProps> = ({
                 ...FONTS.AUXILIARY,
                 fontWeight: "bold",
                 textTransform: "none",
+                marginTop: "1em",
               }}
             >
               <span>{isSatire ? "Satire by" : "By"}</span>{" "}
