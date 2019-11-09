@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, TextStyle } from "react-native";
+import { Text, TextStyle, Platform } from "react-native";
 import { Post } from "helpers/wpapi";
 import { AuthorView } from "./pages/HomePage/AuthorView";
 import DateView from "./DateView";
@@ -22,18 +22,27 @@ const AuthorAndDateView: React.ElementType<AuthorAndDateViewProps> = ({
   newLineBetweenAuthorAndDate = false,
 }: AuthorAndDateViewProps) => {
   if (newLineBetweenAuthorAndDate) {
-    return (
-      <Text
-        style={{
-          ...style,
-          display: "flex",
-          flexDirection: "column",
-        }}
-      >
-        <AuthorView authors={post.tsdAuthors} style={authorStyle} />
-        <DateView post={post} format={dateFormat} style={dateStyle} />
-      </Text>
-    );
+    if (Platform.OS === "web") {
+      return (
+        <Text
+          style={{
+            ...style,
+            display: "flex",
+            flexDirection: "column",
+          }}
+        >
+          <AuthorView authors={post.tsdAuthors} style={authorStyle} />
+          <DateView post={post} format={dateFormat} style={dateStyle} />
+        </Text>
+      );
+    } else {
+      return (
+        <>
+          <AuthorView authors={post.tsdAuthors} style={authorStyle} />
+          <DateView post={post} format={dateFormat} style={dateStyle} />
+        </>
+      );
+    }
   } else {
     return (
       <Text
