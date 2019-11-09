@@ -103,8 +103,11 @@ const ContentView: React.ElementType<ContentViewProps> = ({
               ...centerContentStyle,
               ...FONTS.ARTICLE_TITLE,
               textAlign: "center",
-              fontSize: "2.25rem",
+              fontSize: "2rem",
               lineHeight: "1.5em",
+              [`@media (max-width: ${BREAKPOINTS.TABLET}px)`]: {
+                fontSize: "1.4rem",
+              },
             }}
           >
             {postTitle}
@@ -115,9 +118,12 @@ const ContentView: React.ElementType<ContentViewProps> = ({
                 ...centerContentStyle,
                 ...FONTS.ARTICLE_TITLE,
                 textAlign: "center",
-                fontSize: "1.2rem",
+                fontSize: "1.1rem",
                 lineHeight: "1.4em",
                 color: "gray",
+                [`@media (max-width: ${BREAKPOINTS.TABLET}px)`]: {
+                  fontSize: "1rem",
+                },
               }}
             >
               {postSubtitle}
