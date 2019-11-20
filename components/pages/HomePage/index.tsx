@@ -156,7 +156,7 @@ export default class HomePage extends React.Component<IndexProps, IndexState> {
                 },
               }}
             >
-              <div id="ezoic-pub-ad-placeholder-101"></div>
+              <div id="ezoic-pub-ad-placeholder-101" />
               <OpinionSection
                 content={homePosts.opinions}
                 category={homePosts.tsdMeta.categories.opinions}

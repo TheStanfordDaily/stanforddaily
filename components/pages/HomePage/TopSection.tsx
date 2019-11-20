@@ -1,6 +1,5 @@
 import React from "react";
 import { Text, View, Image } from "react-native";
-import Link from "next/link";
 import { Global } from "@emotion/core";
 import RView, { MediaRule } from "emotion-native-media-query";
 import LogoFacebook from "react-ionicons/lib/LogoFacebook";
@@ -9,6 +8,7 @@ import LogoInstagram from "react-ionicons/lib/LogoInstagram";
 import LogoYoutube from "react-ionicons/lib/LogoYoutube";
 import { BREAKPOINTS, STANFORD_COLORS, FONTS, LINKS } from "helpers/constants";
 import { SectionStyle } from "components/Section";
+import Link from "../../Link";
 
 export interface SmallSectionProps {
   url: string;

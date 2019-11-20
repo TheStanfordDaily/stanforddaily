@@ -1,10 +1,10 @@
 import React from "react";
 import { View } from "react-native";
-import Link from "next/link";
 import styled from "@emotion/native";
 import RView, { MediaRule } from "emotion-native-media-query";
 import { STANFORD_COLORS, BREAKPOINTS, FONTS, LINKS } from "helpers/constants";
 import { Category } from "helpers/wpapi";
+import Link from "./Link";
 import { SECTION_PADDING } from "./Section";
 import { CategoryLink } from "./CategoryLink";
 
