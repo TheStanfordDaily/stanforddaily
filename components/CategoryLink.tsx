@@ -1,9 +1,9 @@
 import React, { ReactNode } from "react";
 import { Text, TextStyle, Platform, TouchableOpacity } from "react-native";
-import Link from "next/link";
 import { FONTS } from "helpers/constants";
 import { Category, getNextJsCategoryPath } from "helpers/wpapi";
 import { withNavigation } from "helpers/trivial/react-navigation";
+import Link from "./Link";
 
 interface CategoryLinkProps {
   category: Category;

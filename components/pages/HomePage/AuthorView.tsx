@@ -1,8 +1,8 @@
 import React from "react";
 import { Text, View, Platform } from "react-native";
-import Link from "next/link";
 import { FONTS } from "helpers/constants";
 import { Author } from "helpers/wpapi";
+import Link from "../../Link";
 
 export const AuthorsTextWithLink: React.ElementType = ({
   authors,

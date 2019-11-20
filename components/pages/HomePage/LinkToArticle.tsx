@@ -1,7 +1,7 @@
 import React from "react";
 import { Platform } from "react-native";
-import Link from "next/link";
 import { getPostPath, Post } from "helpers/wpapi";
+import Link from "../../Link";
 
 export const LinkToArticle: React.ElementType = ({
   post,

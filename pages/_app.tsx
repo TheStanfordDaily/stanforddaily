@@ -1,7 +1,6 @@
 import React from "react";
 import App from "next/app";
 import Head from "next/head";
-import Link from "next/link";
 import { Global, css } from "@emotion/core";
 import RView, { MediaRule } from "emotion-native-media-query";
 import {
@@ -18,6 +17,7 @@ import { TopSection } from "components/pages/HomePage/TopSection";
 import { CategoryList } from "components/CategoryList";
 import { FooterContent } from "components/FooterContent";
 import HeaderDonationBanner from "components/HeaderDonationBanner";
+import Link from "../components/Link";
 
 const containerRStyle = {
   [MediaRule.MinWidth]: {
@@ -54,7 +54,7 @@ const HeaderLogo: React.ElementType = (props: any) => {
             height: "100%",
           }}
         >
-          <Link href="/">
+          <Link href="/" as="/">
             <a
               rel="home"
               id="tsd-logo"

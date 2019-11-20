@@ -3,7 +3,6 @@ import { View } from "react-native";
 import { MediaRule, mergeRStyle } from "emotion-native-media-query";
 import { BREAKPOINTS } from "helpers/constants";
 import { Section } from "components/Section";
-import Link from "next/link";
 import { TopThumbnailArticle } from "./TopThumbnailArticle";
 import { TitleOnlyArticle } from "./TitleOnlyArticle";
 import { Column } from "./Column";
