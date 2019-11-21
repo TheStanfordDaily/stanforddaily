@@ -213,6 +213,7 @@ const ContentView: React.ElementType<ContentViewProps> = ({
             // eslint-disable-next-line react/no-danger
             dangerouslySetInnerHTML={{ __html: postContent }}
           />
+          <div id="dummy-div"></div>
         </RView>
         {isPost && (
           <footer css={centerOuterContentStyle} style={{ marginTop: 30 }}>
