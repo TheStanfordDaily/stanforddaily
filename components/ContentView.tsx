@@ -211,7 +211,7 @@ const ContentView: React.ElementType<ContentViewProps> = ({
           <div
             id="main-article-text"
             // eslint-disable-next-line react/no-danger
-            dangerouslySetInnerHTML={{ __html: postContent }}
+            dangerouslySetInnerHTML={{ __html: "<span style='display:none'>Content: </span>" + postContent }}
           />
           <div id="dummy-div"></div>
         </RView>
