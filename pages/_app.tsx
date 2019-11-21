@@ -95,8 +95,15 @@ const SiteHeader: React.ElementType = (props: any) => {
     background: "0 0",
   };
 
-  return null;
-
+  return (      <RView
+    style={{
+      backgroundColor: "#eee",
+    }}
+  >
+    <RView rStyle={containerRStyle}>
+      <HeaderDonationBanner currentPageUrl={props.router.asPath} />
+    </RView>
+  </RView>);
   return (
     <>
       <RView
