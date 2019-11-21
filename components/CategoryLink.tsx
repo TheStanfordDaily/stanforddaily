@@ -16,7 +16,7 @@ interface CategoryLinkProps {
 
 const _CategoryLink: React.ElementType<CategoryLinkProps> = ({
   category,
-  children = category.name,
+  children = (category && category.name) || "Uncategorized",
   style = {},
   navigation,
 }: CategoryLinkProps) => {
@@ -33,7 +33,7 @@ const _CategoryLink: React.ElementType<CategoryLinkProps> = ({
             ...style,
           }}
         >
-          {category ? children : "Uncategorized"}
+          {children}
         </Text>
       </TouchableOpacity>
     );
@@ -53,7 +53,7 @@ const _CategoryLink: React.ElementType<CategoryLinkProps> = ({
           </a>
         </Link>
       ) : (
-        "Uncategorized"
+        children
       )}
     </Text>
   );
