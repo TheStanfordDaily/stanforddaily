@@ -318,7 +318,7 @@ export default class MyApp extends App {
             }
           `}
         />
-        {includeHeaderAndFooter && (
+        {(includeHeaderAndFooter || router.query._include_header != null) && (
           <SiteHeader id="site-header" router={router} />
         )}
         <Layout>
@@ -326,7 +326,9 @@ export default class MyApp extends App {
             <Component {...pageProps} />
           </main>
         </Layout>
-        {includeHeaderAndFooter && <SiteFooter id="site-footer" />}
+        {(includeHeaderAndFooter || router.query._include_footer != null) && (
+          <SiteFooter id="site-footer" />
+        )}
       </div>
     );
   }
