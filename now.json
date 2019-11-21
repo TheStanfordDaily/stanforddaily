@@ -14,7 +14,10 @@
     },
     {
       "src": "/wp-json/(.*)",
-      "dest": "https://wp.stanforddaily.com/wp-json/$1"
+      "dest": "https://wp.stanforddaily.com/wp-json/$1",
+      "headers": {
+        "Access-Control-Allow-Origin": "https://wp.stanforddaily.com"
+      }
     },
     {
       "src": "/robots.txt",
