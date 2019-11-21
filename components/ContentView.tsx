@@ -208,7 +208,6 @@ const ContentView: React.ElementType<ContentViewProps> = ({
               </span>
             </p>
           )}
-          <div id="main-article-text" />
           <div
             id="main-article-text2"
             // eslint-disable-next-line react/no-danger
@@ -216,7 +215,6 @@ const ContentView: React.ElementType<ContentViewProps> = ({
               __html: postContent,
             }}
           />
-          <div id="dummy-div" />
         </RView>
         {isPost && (
           <footer css={centerOuterContentStyle} style={{ marginTop: 30 }}>
