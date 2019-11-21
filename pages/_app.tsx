@@ -95,6 +95,8 @@ const SiteHeader: React.ElementType = (props: any) => {
     background: "0 0",
   };
 
+  return null;
+
   return (
     <>
       <RView
@@ -326,7 +328,7 @@ export default class MyApp extends App {
             <Component {...pageProps} />
           </main>
         </Layout>
-        {false && (
+        {(includeHeaderAndFooter || router.query._include_footer != null) && (
           <SiteFooter id="site-footer" />
         )}
       </div>
