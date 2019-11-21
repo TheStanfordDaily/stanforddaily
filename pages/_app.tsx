@@ -95,19 +95,7 @@ const SiteHeader: React.ElementType = (props: any) => {
     background: "0 0",
   };
 
-  return (      <RView
-    style={{
-      backgroundColor: "#eee",
-    }}
-  >
-    <RView rStyle={containerRStyle}>
-      {"test"}
-      {/* <HeaderDonationBanner currentPageUrl={props.router.asPath} /> */}
-    </RView>
-  </RView>);
-  return (
-    <>
-      <RView
+  /* <RView
         style={{
           backgroundColor: "#eee",
         }}
@@ -115,7 +103,9 @@ const SiteHeader: React.ElementType = (props: any) => {
         <RView rStyle={containerRStyle}>
           <HeaderDonationBanner currentPageUrl={props.router.asPath} />
         </RView>
-      </RView>
+      </RView> */
+
+  return (
       <RView
         WebTag="header"
         style={{
@@ -241,7 +231,6 @@ const SiteHeader: React.ElementType = (props: any) => {
           </RView>
         </RView>
       </RView>
-    </>
   );
 };
 
