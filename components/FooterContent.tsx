@@ -355,7 +355,7 @@ export const FooterContent: React.ElementType = ({ itemStyle }: any) => {
         {Object.values(categoryList).map(category => {
           return (
             <View
-              key={category.id}
+              key={category.url}
               style={{
                 marginBottom: SECTION_PADDING,
               }}
