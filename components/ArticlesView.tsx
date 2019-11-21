@@ -100,12 +100,13 @@ const ArticlesView: React.ElementType<ArticlesViewProps> = ({
           />
         </EachArticleView>
       ))}
-      {[...Array(6)].map(value => (
+      {[...Array(6)].map((value, index) => (
         // Make sure the last row of articles will not stretch.
         // https://jsfiddle.net/7yr86aow/3/
         // It has 6 elements because 1, 2, 3, 4, 6 are all factors of 6.
         <EachArticleView
-          key={value}
+          // eslint-disable-next-line react/no-array-index-key
+          key={index}
           style={{
             height: 0,
             marginBottom: 0,
