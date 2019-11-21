@@ -20,6 +20,10 @@
     {
       "src": "/robots.txt",
       "dest": "https://wp.stanforddaily.com/robots.txt"
+    },
+    {
+      "src": "/ads.txt",
+      "dest": "https://wp.stanforddaily.com/ads.txt"
     }
   ]
 }
