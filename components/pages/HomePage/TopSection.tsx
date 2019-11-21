@@ -188,7 +188,7 @@ export const TopSection: React.ElementType = ({ style }) => {
             <LogoIconWithLink url={LINKS.YOUTUBE} LogoComponent={LogoYoutube} />
             <TextButtonWithLink
               url="/tips/"
-              title="Contact Us"
+              title="Send Tips"
               tbwlStyle={{
                 marginRight: 15,
               }}
