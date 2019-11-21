@@ -160,7 +160,7 @@ export const CategoryList: React.ElementType = ({ itemStyle }: any) => {
             return <></>;
           }
           return (
-            <Text style={actualStyle}>
+            <Text style={actualStyle} key={link.url}>
               <a href={link.url} style={{ color: "inherit" }}>
                 {link.name}
               </a>
