@@ -101,7 +101,8 @@ const SiteHeader: React.ElementType = (props: any) => {
     }}
   >
     <RView rStyle={containerRStyle}>
-      <HeaderDonationBanner currentPageUrl={props.router.asPath} />
+      {"test"}
+      {/* <HeaderDonationBanner currentPageUrl={props.router.asPath} /> */}
     </RView>
   </RView>);
   return (
