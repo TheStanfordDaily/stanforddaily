@@ -14,8 +14,7 @@
     },
     {
       "src": "/wp-json/(.*)",
-      "status": 301,
-      "headers": { "Location": "https://wp.stanforddaily.com/wp-json/$1" }
+      "dest": "https://wp.stanforddaily.com/wp-json/$1"
     },
     {
       "src": "/robots.txt",
