@@ -38,7 +38,7 @@ export const FONTS: any = {
     Platform.OS === "web"
       ? {
           fontFamily: "'Open Sans', sans-serif",
-          fontWeight: 900,
+          fontWeight: "900",
           fontSize: 15,
           lineHeight: "1",
         }
