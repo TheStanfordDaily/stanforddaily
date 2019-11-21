@@ -209,6 +209,7 @@ const ContentView: React.ElementType<ContentViewProps> = ({
             </p>
           )}
           <div id="main-article-text" />
+          {/* TODO: UNKNOWN WHY THIS IS NECESSARY FOR SOME POST TO SHOW UP: E.G. https://www.stanforddaily.com/2019/11/20/the-disappearance-of-financial-aid-how-stanford-consumes-outside-scholarships-when-need-based-aid-doesnt-fulfill-student-needs/ */}
           <div
             id="main-article-text2"
             // eslint-disable-next-line react/no-danger
