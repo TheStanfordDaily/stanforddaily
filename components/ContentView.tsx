@@ -208,6 +208,7 @@ const ContentView: React.ElementType<ContentViewProps> = ({
               </span>
             </p>
           )}
+          <div id="main-article-text" />
           <div
             id="main-article-text2"
             // eslint-disable-next-line react/no-danger
