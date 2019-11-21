@@ -18,7 +18,6 @@ export default class PagePage extends React.Component<
 > {
   static async getPage(pageSlug: string): Promise<any> {
     const page = await getPageAsync(pageSlug);
-    console.log(page.postTitle);
     return { page };
   }
 

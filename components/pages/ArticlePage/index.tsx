@@ -17,11 +17,8 @@ export default class ArticlePage extends React.Component<
   ArticlePageState
 > {
   static async getInitialProps({ query }): Promise<any> {
-    console.warn(query);
     const { year, month, day, slug } = query;
-    console.warn({ year, month, day, slug });
     const post = await getPostAsync(year, month, day, slug);
-    console.log(post.postTitle);
     return { post };
   }
 
