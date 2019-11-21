@@ -4,7 +4,7 @@ import { BaseProps } from "./baseTypes";
 
 const WPFooter: React.ElementType<BaseProps> = ({ base }) => {
   if (base && base.tsdMeta && base.tsdMeta.wpFooter) {
-    return ReactHtmlParser(base.tsdMeta.wpHead);
+    return ReactHtmlParser(base.tsdMeta.wpFooter);
   } else {
     return <></>;
   }
