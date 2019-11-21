@@ -246,12 +246,12 @@ const SiteFooter: React.ElementType = ({ style, ...props }: any) => {
       {...props}
     >
       <RView rStyle={containerRStyle}>
-        <SectionStyle
-          css={{
-            color: STANFORD_COLORS.WHITE,
-          }}
-        >
-          <FooterContent />
+        <SectionStyle>
+          <FooterContent
+            style={{
+              color: STANFORD_COLORS.WHITE,
+            }}
+          />
         </SectionStyle>
       </RView>
     </footer>

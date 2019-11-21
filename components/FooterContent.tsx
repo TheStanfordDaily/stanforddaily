@@ -12,7 +12,7 @@ type CategoryWithChildren = Category & {
   children: { [slug: string]: CategoryWithChildren };
 };
 
-export const FooterContent: React.ElementType = ({ itemStyle }: any) => {
+export const FooterContent: React.ElementType = ({ style }: any) => {
   // https://www.stanforddaily.com/wp-json/tsd/json/v1/nav
   const categoryList: {
     [slug: string]: CategoryWithChildren;
@@ -333,6 +333,7 @@ export const FooterContent: React.ElementType = ({ itemStyle }: any) => {
 
   return (
     <RView
+      style={style}
       rStyle={{
         [MediaRule.MinWidth]: {
           [BREAKPOINTS.TABLET]: {
