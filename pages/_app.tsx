@@ -95,7 +95,9 @@ const SiteHeader: React.ElementType = (props: any) => {
     background: "0 0",
   };
 
-  /* <RView
+  return (
+    <>
+      <RView
         style={{
           backgroundColor: "#eee",
         }}
@@ -103,9 +105,7 @@ const SiteHeader: React.ElementType = (props: any) => {
         <RView rStyle={containerRStyle}>
           <HeaderDonationBanner currentPageUrl={props.router.asPath} />
         </RView>
-      </RView> */
-
-  return (
+      </RView>
       <RView
         WebTag="header"
         style={{
@@ -231,6 +231,7 @@ const SiteHeader: React.ElementType = (props: any) => {
           </RView>
         </RView>
       </RView>
+    </>
   );
 };
 
@@ -317,7 +318,7 @@ export default class MyApp extends App {
             }
           `}
         />
-        {(includeHeaderAndFooter || router.query._include_header != null) && (
+        {includeHeaderAndFooter && (
           <SiteHeader id="site-header" router={router} />
         )}
         <Layout>
@@ -325,9 +326,7 @@ export default class MyApp extends App {
             <Component {...pageProps} />
           </main>
         </Layout>
-        {(includeHeaderAndFooter || router.query._include_footer != null) && (
-          <SiteFooter id="site-footer" />
-        )}
+        {includeHeaderAndFooter && <SiteFooter id="site-footer" />}
       </div>
     );
   }

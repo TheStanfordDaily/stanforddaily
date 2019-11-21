@@ -137,7 +137,7 @@ const ContentView: React.ElementType<ContentViewProps> = ({
             "#main-article-content": {
               ...FONTS.CONTENT,
               marginTop: SECTION_PADDING,
-              "#main-article-text2": {
+              "#main-article-content-text": {
                 ...centerOuterContentStyle,
               },
               "p, h1, h2, h3, h4, h5, h6, figcaption": {
@@ -208,13 +208,11 @@ const ContentView: React.ElementType<ContentViewProps> = ({
               </span>
             </p>
           )}
-          <div id="main-article-text"></div>
           <div
-            id="main-article-text2"
+            id="main-article-content-text"
             // eslint-disable-next-line react/no-danger
-            dangerouslySetInnerHTML={{ __html: "<span style='display:none'>Content: </span>" + postContent }}
+            dangerouslySetInnerHTML={{ __html: postContent }}
           />
-          <div id="dummy-div"></div>
         </RView>
         {isPost && (
           <footer css={centerOuterContentStyle} style={{ marginTop: 30 }}>
