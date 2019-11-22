@@ -30,7 +30,7 @@ export const ArticleTitleWithLink: React.ElementType = ({
   if (marginBottomMore) {
     margin = {
       marginTop: 5,
-      marginBottom: 10,
+      marginBottom: 0,
     };
   }
   return (
