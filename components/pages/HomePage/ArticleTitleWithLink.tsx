@@ -8,6 +8,7 @@ import { LinkToArticle } from "./LinkToArticle";
 const ArticleTitleStyle = styled.Text({
   ...FONTS.ARTICLE_TITLE,
   margin: 0,
+  lineHeight: "1.4",
 });
 const ArticleTitle =
   Platform.OS === "web"
@@ -30,7 +31,7 @@ export const ArticleTitleWithLink: React.ElementType = ({
   if (marginBottomMore) {
     margin = {
       marginTop: 5,
-      marginBottom: 10,
+      marginBottom: 0,
     };
   }
   return (
