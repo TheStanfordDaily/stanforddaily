@@ -28,7 +28,7 @@ export const FONTS: any = {
           fontFamily: "'Libre Baskerville', sans-serif",
           fontWeight: "bold",
           fontSize: 15,
-          lineHeight: "1.4",
+          lineHeight: "1",
         }
       : {
           fontFamily: "LibreBaskerville-Bold",
