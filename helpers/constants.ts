@@ -60,10 +60,12 @@ export const FONTS: any = {
       ? {
           fontFamily: "'IBM Plex Sans Condensed', sans-serif",
           textTransform: "uppercase",
+          lineHeight: "1.4",
         }
       : {
           fontFamily: "IBMPlexSansCondensed-Regular",
           textTransform: "uppercase",
+          lineHeight: "1.4",
         },
 };
 
