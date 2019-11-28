@@ -10,6 +10,7 @@ enum PageType {
   REDIRECT_TO_POST,
 }
 
+
 export default class IndexPage extends React.Component<any, any> {
   static async getInitialProps(param): Promise<any> {
     const { query, res } = param;
