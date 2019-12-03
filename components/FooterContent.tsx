@@ -302,6 +302,13 @@ export const FooterContent: React.ElementType = ({ style }: any) => {
       url: LINKS.YOUTUBE,
       children: {},
     },
+    cartoons: {
+      id: 41527,
+      name: "Cartoons",
+      slug: "cartoons",
+      url: "/category/opinions/cartoons/",
+      children: {},
+    },
   };
 
   const BottomText = styled.Text({
