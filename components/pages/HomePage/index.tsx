@@ -22,6 +22,7 @@ import { SportsSection } from "./SportsSection";
 import { GrindSection } from "./GrindSection";
 import { OpinionSection } from "./OpinionSection";
 import { ArtsAndLifeSection } from "./ArtsAndLifeSection";
+import { CartoonsSection } from "./CartoonsSection";
 import { SponsoredSection } from "./SponsoredSection";
 import { MultimediaSection } from "./MultimediaSection";
 import { MoreFromTheDailySection } from "./MoreFromTheDailySection";
@@ -173,6 +174,13 @@ export default class HomePage extends React.Component<IndexProps, IndexState> {
               <ArtsAndLifeSection
                 content={homePosts.artsAndLife}
                 category={homePosts.tsdMeta.categories["arts-life"]}
+                style={{
+                  ...getBorderValue("Bottom"),
+                }}
+              />
+              <CartoonsSection
+                content={homePosts.cartoons}
+                category={homePosts.tsdMeta.categories.cartoons}
                 rStyle={{
                   [MediaRule.MaxWidth]: {
                     [BREAKPOINTS.MAX_WIDTH.TABLET]: {
