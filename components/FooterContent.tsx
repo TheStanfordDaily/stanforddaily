@@ -306,7 +306,7 @@ export const FooterContent: React.ElementType = ({ style }: any) => {
       id: 41527,
       name: "Cartoons",
       slug: "cartoons",
-      url: "/category/opinions/cartoons/",
+      url: "/category/cartoons/",
       children: {},
     },
   };
