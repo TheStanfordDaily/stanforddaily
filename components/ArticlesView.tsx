@@ -54,6 +54,7 @@ interface ArticlesViewProps {
   displayExcerpt?: boolean;
   displayDateAuthor?: boolean;
   textColor?: string;
+  noCartoons?: boolean;
 }
 
 const ArticlesView: React.ElementType<ArticlesViewProps> = ({
@@ -64,6 +65,7 @@ const ArticlesView: React.ElementType<ArticlesViewProps> = ({
   displayExcerpt = true,
   displayDateAuthor = true,
   textColor = STANFORD_COLORS.BLACK,
+  noCartoons = true,
 }: ArticlesViewProps) => {
   const [extraPosts, setExtraPosts]: [Post[], any] = React.useState([]);
   const [extraPageNumber, setExtraPageNumber]: [number, any] = React.useState(
@@ -89,17 +91,21 @@ const ArticlesView: React.ElementType<ArticlesViewProps> = ({
         marginRight: -SECTION_PADDING,
       }}
     >
-      {initPosts.concat(extraPosts).map(post => (
-        <EachArticleView key={post.id} displayExcerpt={displayExcerpt}>
-          <TextOnlyArticle
-            post={post}
-            displayCategory={displayCategory}
-            displayExcerpt={displayExcerpt}
-            displayDateAuthor={displayDateAuthor}
-            textColor={textColor}
-          />
-        </EachArticleView>
-      ))}
+      {initPosts.concat(extraPosts).map(
+        post =>
+          ((!noCartoons && post.tsdPrimaryCategory.name !== "Cartoons") ||
+            noCartoons) && (
+            <EachArticleView key={post.id} displayExcerpt={displayExcerpt}>
+              <TextOnlyArticle
+                post={post}
+                displayCategory={displayCategory}
+                displayExcerpt={displayExcerpt}
+                displayDateAuthor={displayDateAuthor}
+                textColor={textColor}
+              />
+            </EachArticleView>
+          ),
+      )}
       {[...Array(6)].map((value, index) => (
         // Make sure the last row of articles will not stretch.
         // https://jsfiddle.net/7yr86aow/3/
