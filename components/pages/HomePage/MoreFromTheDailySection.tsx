@@ -19,7 +19,6 @@ export const MoreFromTheDailySection: React.ElementType<SectionProps> = ({
       <ArticlesView
         initPosts={content}
         displayExcerpt={false}
-        noCartoons={false}
         getExtraPosts={async pageNumber => {
           return getHomeMoreAsync(pageNumber);
         }}
