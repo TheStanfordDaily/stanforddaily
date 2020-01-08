@@ -16,7 +16,6 @@ import { CategoryList } from "components/CategoryList";
 import LoadingView from "components/Loading";
 import WPHead from "components/webHelpers/WPHead";
 import WPFooter from "components/webHelpers/WPFooter";
-import { Helmet } from "react-helmet";
 import { MainSection } from "./MainSection";
 import { LeftSection } from "./LeftSection";
 import { SportsSection } from "./SportsSection";
@@ -25,6 +24,7 @@ import { OpinionSection } from "./OpinionSection";
 import { ArtsAndLifeSection } from "./ArtsAndLifeSection";
 import { CartoonsSection } from "./CartoonsSection";
 import { SponsoredSection } from "./SponsoredSection";
+import { MultimediaSection } from "./MultimediaSection";
 import { MoreFromTheDailySection } from "./MoreFromTheDailySection";
 import { DesktopRow } from "./DesktopRow";
 import { Column } from "./Column";
@@ -96,9 +96,6 @@ export default class HomePage extends React.Component<IndexProps, IndexState> {
     return (
       <SafeAreaView style={{ flex: 1 }}>
         <WPHead base={homePosts} />
-        <Helmet>
-          <title>Home</title>
-        </Helmet>
         {Platform.OS !== "web" && (
           <CategoryList itemStyle={{ color: "black" }} />
         )}
