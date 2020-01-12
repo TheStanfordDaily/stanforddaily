@@ -16,19 +16,20 @@ import { CategoryList } from "components/CategoryList";
 import LoadingView from "components/Loading";
 import WPHead from "components/webHelpers/WPHead";
 import WPFooter from "components/webHelpers/WPFooter";
-import { MainSection } from "./MainSection";
-import { LeftSection } from "./LeftSection";
-import { SportsSection } from "./SportsSection";
-import { GrindSection } from "./GrindSection";
-import { OpinionSection } from "./OpinionSection";
-import { ArtsAndLifeSection } from "./ArtsAndLifeSection";
-import { CartoonsSection } from "./CartoonsSection";
-import { SponsoredSection } from "./SponsoredSection";
-import { MultimediaSection } from "./MultimediaSection";
-import { MoreFromTheDailySection } from "./MoreFromTheDailySection";
-import { DesktopRow } from "./DesktopRow";
-import { Column } from "./Column";
-import { getBorderValue } from "./getBorderValue";
+import Head from "next/head";
+import { MainSection } from "./MainSection.tsx";
+import { LeftSection } from "./LeftSection.tsx";
+import { SportsSection } from "./SportsSection.tsx";
+import { GrindSection } from "./GrindSection.tsx";
+import { OpinionSection } from "./OpinionSection.tsx";
+import { ArtsAndLifeSection } from "./ArtsAndLifeSection.tsx";
+import { CartoonsSection } from "./CartoonsSection.tsx";
+import { SponsoredSection } from "./SponsoredSection.tsx";
+import { MultimediaSection } from "./MultimediaSection.tsx";
+import { MoreFromTheDailySection } from "./MoreFromTheDailySection.tsx";
+import { DesktopRow } from "./DesktopRow.tsx";
+import { Column } from "./Column.tsx";
+import { getBorderValue } from "./getBorderValue.tsx";
 
 interface IndexProps {
   homePosts?: Home;
@@ -94,117 +95,126 @@ export default class HomePage extends React.Component<IndexProps, IndexState> {
     };
 
     return (
-      <SafeAreaView style={{ flex: 1 }}>
-        <WPHead base={homePosts} />
-        {Platform.OS !== "web" && (
-          <CategoryList itemStyle={{ color: "black" }} />
-        )}
-        <ScrollView
-          contentContainerStyle={{
-            flexDirection: "column",
-          }}
-          refreshControl={this.props.refreshControl}
-        >
-          <DesktopRow
-            style={{
-              ...getBorderValue("Bottom"),
+      <div>
+        <Head>
+          <title>Homepage | The Stanford Daily</title>
+          <meta
+            name="viewport"
+            content="initial-scale=1.0, width=device-width"
+          />
+        </Head>
+        <SafeAreaView style={{ flex: 1 }}>
+          <WPHead base={homePosts} />
+          {Platform.OS !== "web" && (
+            <CategoryList itemStyle={{ color: "black" }} />
+          )}
+          <ScrollView
+            contentContainerStyle={{
+              flexDirection: "column",
             }}
+            refreshControl={this.props.refreshControl}
           >
-            <Column
+            <DesktopRow
               style={{
-                flexGrow: 6,
+                ...getBorderValue("Bottom"),
               }}
             >
-              <DesktopRow
+              <Column
                 style={{
-                  ...getBorderValue("Bottom"),
+                  flexGrow: 6,
                 }}
               >
-                {featuredBeforeNews ? (
-                  <>
-                    <FeaturedSection />
-                    <NewsSection />
-                  </>
-                ) : (
-                  <>
-                    <NewsSection />
-                    <FeaturedSection />
-                  </>
-                )}
-              </DesktopRow>
-              <SportsSection
-                content={homePosts.sports}
-                category={homePosts.tsdMeta.categories.sports}
-                mainBeforeSide={featuredBeforeNews}
+                <DesktopRow
+                  style={{
+                    ...getBorderValue("Bottom"),
+                  }}
+                >
+                  {featuredBeforeNews ? (
+                    <>
+                      <FeaturedSection />
+                      <NewsSection />
+                    </>
+                  ) : (
+                    <>
+                      <NewsSection />
+                      <FeaturedSection />
+                    </>
+                  )}
+                </DesktopRow>
+                <SportsSection
+                  content={homePosts.sports}
+                  category={homePosts.tsdMeta.categories.sports}
+                  mainBeforeSide={featuredBeforeNews}
+                  rStyle={{
+                    [MediaRule.MaxWidth]: {
+                      [BREAKPOINTS.MAX_WIDTH.TABLET]: {
+                        ...getBorderValue("Bottom"),
+                      },
+                    },
+                  }}
+                />
+              </Column>
+              <Column
+                style={{
+                  flexGrow: 3,
+                }}
                 rStyle={{
-                  [MediaRule.MaxWidth]: {
-                    [BREAKPOINTS.MAX_WIDTH.TABLET]: {
-                      ...getBorderValue("Bottom"),
+                  [MediaRule.MinWidth]: {
+                    [BREAKPOINTS.TABLET]: {
+                      ...getBorderValue("Left"),
                     },
                   },
                 }}
-              />
-            </Column>
-            <Column
+              >
+                <OpinionSection
+                  content={homePosts.opinions}
+                  category={homePosts.tsdMeta.categories.opinions}
+                  style={{
+                    ...getBorderValue("Bottom"),
+                  }}
+                />
+                <GrindSection
+                  content={homePosts.theGrind}
+                  category={homePosts.tsdMeta.categories.thegrind}
+                  style={{
+                    ...getBorderValue("Bottom"),
+                  }}
+                />
+                <ArtsAndLifeSection
+                  content={homePosts.artsAndLife}
+                  category={homePosts.tsdMeta.categories["arts-life"]}
+                  style={{
+                    ...getBorderValue("Bottom"),
+                  }}
+                />
+                <CartoonsSection
+                  content={homePosts.cartoons}
+                  category={homePosts.tsdMeta.categories.cartoons}
+                  rStyle={{
+                    [MediaRule.MaxWidth]: {
+                      [BREAKPOINTS.MAX_WIDTH.TABLET]: {
+                        ...getBorderValue("Bottom"),
+                      },
+                    },
+                  }}
+                />
+              </Column>
+            </DesktopRow>
+            {/* <MultimediaSection
+              content={[]}
               style={{
-                flexGrow: 3,
+                ...getBorderValue("Bottom"),
               }}
-              rStyle={{
-                [MediaRule.MinWidth]: {
-                  [BREAKPOINTS.TABLET]: {
-                    ...getBorderValue("Left"),
-                  },
-                },
-              }}
-            >
-              <OpinionSection
-                content={homePosts.opinions}
-                category={homePosts.tsdMeta.categories.opinions}
-                style={{
-                  ...getBorderValue("Bottom"),
-                }}
-              />
-              <GrindSection
-                content={homePosts.theGrind}
-                category={homePosts.tsdMeta.categories.thegrind}
-                style={{
-                  ...getBorderValue("Bottom"),
-                }}
-              />
-              <ArtsAndLifeSection
-                content={homePosts.artsAndLife}
-                category={homePosts.tsdMeta.categories["arts-life"]}
-                style={{
-                  ...getBorderValue("Bottom"),
-                }}
-              />
-              <CartoonsSection
-                content={homePosts.cartoons}
-                category={homePosts.tsdMeta.categories.cartoons}
-                rStyle={{
-                  [MediaRule.MaxWidth]: {
-                    [BREAKPOINTS.MAX_WIDTH.TABLET]: {
-                      ...getBorderValue("Bottom"),
-                    },
-                  },
-                }}
-              />
-            </Column>
-          </DesktopRow>
-          {/* <MultimediaSection
-            content={[]}
-            style={{
-              ...getBorderValue("Bottom"),
-            }}
-          /> */}
-          <SponsoredSection category={null} content={homePosts.sponsored} />
-          <MoreFromTheDailySection
-            category={null}
-            content={homePosts.moreFromTheDaily}
-          />
-        </ScrollView>
-        <WPFooter base={homePosts} />
-      </SafeAreaView>
+            /> */}
+            <SponsoredSection category={null} content={homePosts.sponsored} />
+            <MoreFromTheDailySection
+              category={null}
+              content={homePosts.moreFromTheDaily}
+            />
+          </ScrollView>
+          <WPFooter base={homePosts} />
+        </SafeAreaView>
+      </div>
     );
   }
 }
