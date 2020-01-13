@@ -16,7 +16,7 @@ yarn start
 yarn start --help
 ```
 
-## Release
+## Mobile app release
 
 For the production channel:
 
