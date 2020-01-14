@@ -95,7 +95,7 @@ export default class HomePage extends React.Component<IndexProps, IndexState> {
     };
 
     return (
-      <div>
+      <>
         <Head>
           <title>Homepage | The Stanford Daily</title>
           <meta
@@ -214,7 +214,7 @@ export default class HomePage extends React.Component<IndexProps, IndexState> {
           </ScrollView>
           <WPFooter base={homePosts} />
         </SafeAreaView>
-      </div>
+      </>
     );
   }
 }

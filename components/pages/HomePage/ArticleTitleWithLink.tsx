@@ -8,7 +8,7 @@ import { LinkToArticle } from "./LinkToArticle";
 const ArticleTitleStyle = styled.Text({
   ...FONTS.ARTICLE_TITLE,
   margin: 0,
-  lineHeight: "1.4",
+  // lineHeight: "1.4em",
 });
 const ArticleTitle =
   Platform.OS === "web"
