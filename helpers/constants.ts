@@ -14,7 +14,7 @@ export const BREAKPOINTS = {
 
 export const STRINGS = {
   WP_URL: "https://wp.stanforddaily.com",
-  WEBSITE_URL: "https://beta.stanforddaily.com",
+  WEBSITE_URL: "https://www.stanforddaily.com",
   DISQUS_SHORTNAME: "stanforddaily",
   TSD_APP_USERAGENT: "TheStanfordDailyApp/1.0.0",
   _MAIN_ONLY_QUERY: "_main-only",
