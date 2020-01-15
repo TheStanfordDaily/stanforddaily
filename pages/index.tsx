@@ -14,13 +14,6 @@ export default class IndexPage extends React.Component<any, any> {
   static async getInitialProps(param): Promise<any> {
     const { query, res, pathname } = param;
 
-    console.error("PATHNAME", pathname, "PATHNAME");
-    // if (pathname.startsWith("/wp-admin"))
-    res.writeHead(302, {
-      Location: "google.com",
-    });
-    res.end();
-
     const {
       s = null,
       p = null,
