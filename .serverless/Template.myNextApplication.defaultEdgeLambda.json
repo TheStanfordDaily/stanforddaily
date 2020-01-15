@@ -1,6 +1,6 @@
 {
   "name": "hoamx6r-7axbke",
-  "hash": "rvKOcXQEwxeoJFuSMngiBbIMWiPLs0KDNjHmNCnLBcI=",
+  "hash": "FHYdb1B2mDdP/A9QmeopL4qyXUWKCpyaL3sHG9HxSHY=",
   "description": "Default Lambda@Edge for Next CloudFront distribution",
   "memory": 512,
   "timeout": 10,

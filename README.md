@@ -36,7 +36,18 @@ yarn expo build:android --release-channel development
 yarn expo publish --release-channel development
 ```
 
+## Deployment to AWS
+We use [serverless-nextjs-component](https://github.com/danielcondemarin/serverless-next.js/tree/master/packages/serverless-nextjs-component) for deployment. It deploys to a CloudFront distribution.
 
-Deployment to AWS - https://github.com/danielcondemarin/serverless-next.js/tree/master/packages/serverless-nextjs-component
+Setup steps:
 
+```
 npm i -g serverless
+```
+
+Deploy steps:
+
+```
+yarn build
+sls
+```
