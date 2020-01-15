@@ -1,7 +1,7 @@
 myNextApplication:
-    component: serverless-next.js
-    inputs:
-        # domain: "stanforddaily.com" # sub-domain defaults to www
-        build:
-            cmd: expo build-web
-            enabled: false
+  component: serverless-next.js
+  inputs:
+    # domain: "stanforddaily.com" # sub-domain defaults to www
+    build:
+      cmd: expo build-web
+      enabled: false

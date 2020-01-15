@@ -37,6 +37,7 @@ yarn expo publish --release-channel development
 ```
 
 ## Deployment to AWS
+
 We use [serverless-nextjs-component](https://github.com/danielcondemarin/serverless-next.js/tree/master/packages/serverless-nextjs-component) for deployment. It deploys to a CloudFront distribution.
 
 Setup steps:
