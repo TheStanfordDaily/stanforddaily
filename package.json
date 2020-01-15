@@ -77,10 +77,11 @@
   },
   "lint-staged": {
     "*.+(js|jsx|ts|tsx)": [
-      "eslint"
+      "eslint",
+      "prettier --write"
     ],
     "*.+(md|json)": [
-      "prettier --check"
+      "prettier --write"
     ]
   }
 }
