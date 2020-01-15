@@ -28,7 +28,7 @@ export const FONTS: any = {
           fontFamily: "'Libre Baskerville', sans-serif",
           fontWeight: "bold",
           fontSize: 15,
-          lineHeight: 1,
+          lineHeight: "1em",
         }
       : {
           fontFamily: "LibreBaskerville-Bold",
@@ -40,7 +40,7 @@ export const FONTS: any = {
           fontFamily: "'Open Sans', sans-serif",
           fontWeight: "900",
           fontSize: 15,
-          lineHeight: 1,
+          lineHeight: "1em",
         }
       : {
           fontFamily: "Faune-Display_Black",
@@ -50,7 +50,7 @@ export const FONTS: any = {
     Platform.OS === "web"
       ? {
           fontFamily: "'PT Serif', sans-serif",
-          lineHeight: 2,
+          lineHeight: "2em",
         }
       : {
           fontFamily: "PTSerif-Regular",
@@ -60,12 +60,12 @@ export const FONTS: any = {
       ? {
           fontFamily: "'IBM Plex Sans Condensed', sans-serif",
           textTransform: "uppercase",
-          lineHeight: 1,
+          lineHeight: "1em",
         }
       : {
           fontFamily: "IBMPlexSansCondensed-Regular",
           textTransform: "uppercase",
-          lineHeight: 1,
+          lineHeight: "1em",
         },
 };
 
