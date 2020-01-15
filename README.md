@@ -42,9 +42,8 @@ We use [serverless-nextjs-component](https://github.com/danielcondemarin/serverl
 
 Setup steps:
 
-```
-npm i -g serverless
-```
+1. Create a `.env` file with the AWS access key ID and secret access key (you can copy it from `sample.env`).
+1. Run `npm i -g serverless`.
 
 Deploy steps:
 
