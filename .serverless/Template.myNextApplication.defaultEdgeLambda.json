@@ -1,0 +1,17 @@
+{
+  "name": "hoamx6r-7axbke",
+  "hash": "rvKOcXQEwxeoJFuSMngiBbIMWiPLs0KDNjHmNCnLBcI=",
+  "description": "Default Lambda@Edge for Next CloudFront distribution",
+  "memory": 512,
+  "timeout": 10,
+  "code": "/home/epicfaace/tsd/stanford-daily/.serverless_nextjs/default-lambda",
+  "shims": [],
+  "handler": "index.handler",
+  "runtime": "nodejs10.x",
+  "env": {},
+  "role": {
+    "arn": "arn:aws:iam::607998788272:role/hoamx6r-1ir98q9i"
+  },
+  "arn": "arn:aws:lambda:us-east-1:607998788272:function:hoamx6r-7axbke",
+  "region": "us-east-1"
+}

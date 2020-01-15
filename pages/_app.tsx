@@ -267,7 +267,7 @@ const Layout: React.ElementType = (props: any) => {
 export default class MyApp extends App {
   componentDidMount(): void {
     // Initialize GA, track pageviews
-    ReactGA.initialize('UA-5773957-1');
+    ReactGA.initialize("UA-5773957-1");
     ReactGA.pageview(window.location.pathname + window.location.search);
   }
   render(): JSX.Element {

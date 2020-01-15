@@ -11,7 +11,7 @@
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start --web",
+    "web": "expo start --web --dev",
     "eject": "expo eject",
     "build": "EXPO_DEBUG=true yarn expo build:web",
     "now-build": "EXPO_DEBUG=true yarn expo build:web"
@@ -26,6 +26,7 @@
     "expo-font": "~7.0.0",
     "moment": "^2.24.0",
     "next": "^9.0.3",
+    "next-routes": "^1.4.2",
     "next-transpile-modules": "^2.3.1",
     "react": "16.8.3",
     "react-dom": "^16.8.6",
@@ -38,6 +39,8 @@
     "react-native-web": "^0.11.4",
     "react-native-webview": "7.0.5",
     "react-navigation": "^3.11.1",
+    "serverless": "^1.61.1",
+    "serverless-next.js": "^1.8.0",
     "wpapi": "^1.2.1"
   },
   "devDependencies": {

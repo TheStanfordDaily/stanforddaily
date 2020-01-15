@@ -35,3 +35,8 @@ yarn expo build:android --release-channel development
 
 yarn expo publish --release-channel development
 ```
+
+
+Deployment to AWS - https://github.com/danielcondemarin/serverless-next.js/tree/master/packages/serverless-nextjs-component
+
+npm i -g serverless

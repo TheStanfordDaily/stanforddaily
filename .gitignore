@@ -10,3 +10,5 @@ npm-debug.*
 web-build/
 web-report/
 .next
+.serverless_nextjs
+.env

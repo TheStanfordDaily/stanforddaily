@@ -10,10 +10,17 @@ enum PageType {
   REDIRECT_TO_POST,
 }
 
-
 export default class IndexPage extends React.Component<any, any> {
   static async getInitialProps(param): Promise<any> {
-    const { query, res } = param;
+    const { query, res, pathname } = param;
+
+    console.error("PATHNAME", pathname, "PATHNAME");
+    // if (pathname.startsWith("/wp-admin"))
+    res.writeHead(302, {
+      Location: "google.com",
+    });
+    res.end();
+
     const {
       s = null,
       p = null,
@@ -21,6 +28,7 @@ export default class IndexPage extends React.Component<any, any> {
       s?: string;
       p?: string;
     } = query;
+
     if (s) {
       const searchKeyword = s;
       const initProps = await SearchArchivePage.getSearchResults(searchKeyword);

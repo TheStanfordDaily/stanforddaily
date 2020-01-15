@@ -1,0 +1,13 @@
+{
+  "region": "us-east-1",
+  "privateZone": false,
+  "domain": "stanforddaily.com",
+  "subdomains": [
+    {
+      "domain": "www.stanforddaily.com",
+      "distributionId": "EDFWYTZVO3RU9",
+      "url": "https://d3n7kasnn0snk4.cloudfront.net",
+      "type": "awsCloudFront"
+    }
+  ]
+}
