@@ -145,7 +145,7 @@ export const TopSection: React.ElementType = ({ style }) => {
               url={LINKS.ISSUU}
               imageUrl={LINKS.ISSUU_LOGO}
               header="Newspaper & Magazine"
-              title="Read the print issues"
+              title="Read the Print Issues"
               newTab
             />
             {/* <SmallSection
@@ -156,8 +156,8 @@ export const TopSection: React.ElementType = ({ style }) => {
             <SmallSection
               url="/category/podcasts/"
               imageUrl={LINKS.DAILY_BREW_LOGO}
-              header="Podcast"
-              title="The Daily Brew"
+              header="Podcasts"
+              title="The Daily Brew & More"
             />
           </View>
           <View
