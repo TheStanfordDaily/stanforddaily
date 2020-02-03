@@ -11,10 +11,10 @@ This is the Stanford Daily website & mobile app. Visit the site at https://www.s
 yarn
 
 # Start
-yarn start
-# To find more options
-yarn start --help
+yarn web
 ```
+
+Open up http://localhost:19006 in your browser.
 
 ## Mobile app release
 

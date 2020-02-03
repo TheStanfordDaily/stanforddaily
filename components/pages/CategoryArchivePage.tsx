@@ -10,6 +10,7 @@ import { FONTS } from "helpers/constants";
 import Wrapper from "components/Wrapper";
 import { Section, SECTION_PADDING } from "components/Section";
 import SatireGlobal from "components/SatireGlobal";
+import DataVizGlobal from "components/DataVizGlobal";
 import LoadingView from "components/Loading";
 import ArchivePage, { ArchivePageType, ArchivePageState } from "./ArchivePage";
 
@@ -84,6 +85,7 @@ export default class CategoryArchivePage extends React.Component<
           </Text>
         </View>
         {initData.tsdMeta.title === "Satire" && <SatireGlobal />}
+        {initData.tsdMeta.title === "Data Viz" && <DataVizGlobal />}
         {_archivePage}
       </Section>
     );
