@@ -45,7 +45,7 @@ export const TextOnlyArticle: React.ElementType = ({
       <ThumbnailImageWithLink
         post={post}
         style={{
-          height: 150,
+          height: 200,
         }}
       />
       <View
