@@ -13,7 +13,7 @@ export const TopThumbnailArticle: React.ElementType = ({
       <ThumbnailImageWithLink
         post={post}
         style={{
-          height: 152,
+          height: 153.17,
         }}
       />
       <ArticleHeader>
