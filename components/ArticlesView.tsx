@@ -89,20 +89,17 @@ const ArticlesView: React.ElementType<ArticlesViewProps> = ({
         marginRight: -SECTION_PADDING,
       }}
     >
-      {initPosts.concat(extraPosts).map(
-        post =>
-          post.tsdPrimaryCategory.name !== "Retracted" && (
-            <EachArticleView key={post.id} displayExcerpt={displayExcerpt}>
-              <TextOnlyArticle
-                post={post}
-                displayCategory={displayCategory}
-                displayExcerpt={displayExcerpt}
-                displayDateAuthor={displayDateAuthor}
-                textColor={textColor}
-              />
-            </EachArticleView>
-          ),
-      )}
+      {initPosts.concat(extraPosts).map(post => (
+        <EachArticleView key={post.id} displayExcerpt={displayExcerpt}>
+          <TextOnlyArticle
+            post={post}
+            displayCategory={displayCategory}
+            displayExcerpt={displayExcerpt}
+            displayDateAuthor={displayDateAuthor}
+            textColor={textColor}
+          />
+        </EachArticleView>
+      ))}
       {[...Array(6)].map((value, index) => (
         // Make sure the last row of articles will not stretch.
         // https://jsfiddle.net/7yr86aow/3/
