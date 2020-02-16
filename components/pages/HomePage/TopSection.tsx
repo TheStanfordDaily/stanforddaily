@@ -148,6 +148,13 @@ export const TopSection: React.ElementType = ({ style }) => {
               title="Read the Print Issues"
               newTab
             />
+            <SmallSection
+              url="/category/newsletters/"
+              imageUrl={LINKS.NEWSLETTER_LOGO}
+              header="Weekend Roundup Newsletter"
+              title="Catch Up on Our Weekly Emails"
+              newTab
+            />
             {/* <SmallSection
               imageUrl="https://www.stanforddaily.com/wp-content/uploads/2018/10/Stanford_School_of_Medicine_Li_Ka_Shing_Center.jpg"
               header="Issue #"
