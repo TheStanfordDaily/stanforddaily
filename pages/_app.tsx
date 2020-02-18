@@ -11,8 +11,7 @@ import {
   STANFORD_COLORS,
   FONTS,
 } from "helpers/constants";
-import IosSearch from "react-ionicons/lib/IosSearch";
-import { SectionStyle, SECTION_PADDING } from "components/Section";
+import { SectionStyle } from "components/Section";
 import { getBorderValue } from "components/pages/HomePage/getBorderValue";
 import { TopSection } from "components/pages/HomePage/TopSection";
 import { CategoryList } from "components/CategoryList";
@@ -20,11 +19,12 @@ import { FooterContent } from "components/FooterContent";
 import HeaderDonationBanner from "components/HeaderDonationBanner";
 import Link from "../components/Link";
 
-const containerRStyle = {
+const containerRStyle: any = {
   [MediaRule.MinWidth]: {
     0: {
       margin: "0 auto",
       width: "100%",
+      flexWrap: "wrap",
     },
     [BREAKPOINTS.TABLET]: {},
     [BREAKPOINTS.DESKTOP]: {
@@ -36,7 +36,7 @@ const containerRStyle = {
   },
 };
 
-const HeaderLogo: React.ElementType = (props: any) => {
+const HeaderLogo: React.ElementType = () => {
   return (
     <SectionStyle>
       <RView
@@ -85,17 +85,6 @@ const HeaderLogo: React.ElementType = (props: any) => {
 };
 
 const SiteHeader: React.ElementType = (props: any) => {
-  const inputStyle = {
-    display: "inline-flex",
-    color: "#f5f5f5",
-    fontSize: 14,
-    padding: 0,
-    border: 0,
-    outline: 0,
-    boxShadow: "none",
-    background: "0 0",
-  };
-
   return (
     <>
       <RView
@@ -165,49 +154,6 @@ const SiteHeader: React.ElementType = (props: any) => {
             rStyle={containerRStyle}
           >
             <CategoryList itemStyle={{ color: STANFORD_COLORS.WHITE }} />
-            <RView
-              rStyle={{
-                [MediaRule.MaxWidth]: {
-                  [BREAKPOINTS.MAX_WIDTH.DESKTOP]: {
-                    display: "none",
-                  },
-                },
-              }}
-            >
-              <form
-                role="search"
-                method="get"
-                action="/"
-                style={{
-                  display: "flex",
-                  marginRight: SECTION_PADDING,
-                }}
-              >
-                <input
-                  type="search"
-                  placeholder="Search…"
-                  defaultValue=""
-                  name="s"
-                  id="s"
-                  required
-                  style={{
-                    ...inputStyle,
-                    fontFamily:
-                      "Open Sans,Helvetica Neue,Helvetica,Roboto,Arial,sans-serif",
-                  }}
-                />
-                <button
-                  type="submit"
-                  style={{
-                    ...inputStyle,
-                    paddingLeft: 5,
-                    cursor: "pointer",
-                  }}
-                >
-                  <IosSearch color="#f5f5f5" />
-                </button>
-              </form>
-            </RView>
           </RView>
         </RView>
         <RView
@@ -270,6 +216,7 @@ export default class MyApp extends App {
     ReactGA.initialize("UA-5773957-1");
     ReactGA.pageview(window.location.pathname + window.location.search);
   }
+
   render(): JSX.Element {
     const { Component, pageProps, router } = this.props;
 

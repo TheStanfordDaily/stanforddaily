@@ -14,11 +14,46 @@ import { Article, ArticleHeader } from "components/Article";
 import LoadingView from "components/Loading";
 import WPHead from "components/webHelpers/WPHead";
 import WPFooter from "components/webHelpers/WPFooter";
+import styled from "@emotion/styled";
 import { AuthorsTextWithLink } from "./pages/HomePage/AuthorView";
 import AuthorBox from "./AuthorBox";
 import { CategoryLink } from "./CategoryLink";
 import { DateWithAbbr } from "./DateView";
 import SatireGlobal from "./SatireGlobal";
+import ContentViewStyles, {
+  centerOuterContentStyle,
+  centerContentStyle,
+} from "./ContentViewStyles";
+
+const PostTitle = styled.h1({
+  ...centerContentStyle,
+  ...FONTS.ARTICLE_TITLE,
+  textAlign: "center",
+  fontSize: "2rem",
+  lineHeight: "1.5em",
+  [`@media (max-width: ${BREAKPOINTS.TABLET}px)`]: {
+    fontSize: "1.4rem",
+  },
+});
+
+const PostSubtitle = styled.h2({
+  ...centerContentStyle,
+  ...FONTS.ARTICLE_TITLE,
+  textAlign: "center",
+  fontSize: "1.1rem",
+  lineHeight: "1.4em",
+  color: "gray",
+  [`@media (max-width: ${BREAKPOINTS.TABLET}px)`]: {
+    fontSize: "1rem",
+  },
+});
+
+const Byline = styled.p({
+  ...FONTS.AUXILIARY,
+  fontWeight: "bold",
+  textTransform: "none",
+  marginTop: "1em",
+});
 
 interface ContentViewProps {
   post: Post;
@@ -30,22 +65,6 @@ const ContentView: React.ElementType<ContentViewProps> = ({
   if (!post) {
     return <LoadingView />;
   }
-
-  const centerContentStyle = {
-    margin: "0 auto",
-    width: "100%",
-    [`@media (min-width: ${BREAKPOINTS.DESKTOP}px)`]: {
-      width: 600,
-    },
-  };
-
-  const centerOuterContentStyle = {
-    margin: "0 auto",
-    width: "100%",
-    [`@media (min-width: ${BREAKPOINTS.DESKTOP}px)`]: {
-      width: 650,
-    },
-  };
 
   const {
     id: postId,
@@ -69,13 +88,8 @@ const ContentView: React.ElementType<ContentViewProps> = ({
 
   const isPost = postType === "post";
 
-  let isSatire = false;
-  if (
-    tsdCategories &&
-    tsdCategories.find(category => category.slug === "satire")
-  ) {
-    isSatire = true;
-  }
+  const isSatire =
+    tsdCategories && tsdCategories.find(category => category.slug === "satire");
 
   return (
     <SectionStyle>
@@ -98,80 +112,14 @@ const ContentView: React.ElementType<ContentViewProps> = ({
               />
             </div>
           )}
-          <h1
-            css={{
-              ...centerContentStyle,
-              ...FONTS.ARTICLE_TITLE,
-              textAlign: "center",
-              fontSize: "2rem",
-              lineHeight: "1.5em",
-              [`@media (max-width: ${BREAKPOINTS.TABLET}px)`]: {
-                fontSize: "1.4rem",
-              },
-            }}
-          >
-            {postTitle}
-          </h1>
+          <PostTitle>{postTitle}</PostTitle>
           {postSubtitle ? (
-            <h2
-              css={{
-                ...centerContentStyle,
-                ...FONTS.ARTICLE_TITLE,
-                textAlign: "center",
-                fontSize: "1.1rem",
-                lineHeight: "1.4em",
-                color: "gray",
-                [`@media (max-width: ${BREAKPOINTS.TABLET}px)`]: {
-                  fontSize: "1rem",
-                },
-              }}
-            >
-              {postSubtitle}
-            </h2>
+            <PostSubtitle>{postSubtitle}</PostSubtitle>
           ) : (
             undefined
           )}
         </ArticleHeader>
-        <Global
-          styles={{
-            "#main-article-content": {
-              ...FONTS.CONTENT,
-              marginTop: SECTION_PADDING,
-              "#main-article-text2": {
-                ...centerOuterContentStyle,
-              },
-              "p, h1, h2, h3, h4, h5, h6, figcaption": {
-                ...centerContentStyle,
-                marginBottom: "1em",
-                fontSize: "1.3rem",
-                color: STANFORD_COLORS.BLACK,
-              },
-              figcaption: {
-                ...FONTS.AUXILIARY,
-                textTransform: "none",
-                textAlign: "right",
-                marginTop: 5,
-                color: STANFORD_COLORS.COOL_GREY,
-                fontSize: "1.1rem",
-                fontStyle: "italic",
-              },
-              figure: {
-                margin: "0 auto",
-                width: "initial !important",
-                textAlign: "center",
-                img: {
-                  ...centerOuterContentStyle,
-                  maxWidth: "100%",
-                  width: "100%",
-                  height: "auto",
-                },
-                "&#featured-image": {
-                  width: "100% !important",
-                },
-              },
-            },
-          }}
-        />
+        <Global styles={ContentViewStyles} />
         <RView WebTag="main" id="main-article-content">
           {thumbnailUrl ? (
             <figure id="featured-image">
@@ -188,14 +136,7 @@ const ContentView: React.ElementType<ContentViewProps> = ({
             undefined
           )}
           {isPost && (
-            <p
-              style={{
-                ...FONTS.AUXILIARY,
-                fontWeight: "bold",
-                textTransform: "none",
-                marginTop: "1em",
-              }}
-            >
+            <Byline>
               <span>{isSatire ? "Satire by" : "By"}</span>{" "}
               <AuthorsTextWithLink
                 authors={tsdAuthors}
@@ -206,10 +147,10 @@ const ContentView: React.ElementType<ContentViewProps> = ({
               <span>
                 <DateWithAbbr post={post} format="on MMMM D, YYYY" />
               </span>
-            </p>
+            </Byline>
           )}
           <div id="main-article-text" />
-          {/* TODO: UNKNOWN WHY THIS IS NECESSARY FOR SOME POST TO SHOW UP: E.G. https://www.stanforddaily.com/2019/11/20/the-disappearance-of-financial-aid-how-stanford-consumes-outside-scholarships-when-need-based-aid-doesnt-fulfill-student-needs/ */}
+          {/* TODO: UNKNOWN WHY THIS IS NECESSARY FOR SOME POSTS TO SHOW UP: E.G. https://www.stanforddaily.com/2019/11/20/the-disappearance-of-financial-aid-how-stanford-consumes-outside-scholarships-when-need-based-aid-doesnt-fulfill-student-needs/ */}
           <div
             id="main-article-text2"
             // eslint-disable-next-line react/no-danger
