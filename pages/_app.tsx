@@ -270,6 +270,7 @@ export default class MyApp extends App {
     ReactGA.initialize("UA-5773957-1");
     ReactGA.pageview(window.location.pathname + window.location.search);
   }
+
   render(): JSX.Element {
     const { Component, pageProps, router } = this.props;
 

@@ -140,6 +140,9 @@ const ContentView: React.ElementType<ContentViewProps> = ({
               "#main-article-text2": {
                 ...centerOuterContentStyle,
               },
+              a: {
+                textDecoration: "underline",
+              },
               "p, h1, h2, h3, h4, h5, h6, figcaption": {
                 ...centerContentStyle,
                 marginBottom: "1em",
