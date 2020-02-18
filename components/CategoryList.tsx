@@ -4,10 +4,12 @@ import { STANFORD_COLORS, FONTS, LINKS } from "helpers/constants";
 import { Category } from "helpers/wpapi";
 import { SECTION_PADDING } from "./Section";
 import { CategoryLink } from "./CategoryLink";
+import SearchLink from "./SearchLink";
 
 enum LinkType {
   LINK,
   CATEGORY,
+  SEARCH,
 }
 
 type CategoryLink = Category & {
@@ -20,9 +22,14 @@ type LinkLink = {
   url: string;
 };
 
+type SearchLink = {
+  type: LinkType.SEARCH;
+  name: string;
+};
+
 export const CategoryList: React.ElementType = ({ itemStyle }: any) => {
   // https://www.stanforddaily.com/wp-json/tsd/json/v1/nav
-  const categoryLinkList: (CategoryLink | LinkLink)[] = [
+  const categoryLinkList: (CategoryLink | LinkLink | SearchLink)[] = [
     {
       type: LinkType.CATEGORY,
       id: 3,
@@ -116,6 +123,10 @@ export const CategoryList: React.ElementType = ({ itemStyle }: any) => {
       name: "Archives",
       url: LINKS.ARCHIVES,
     } as LinkLink,
+    {
+      type: LinkType.SEARCH,
+      name: "Search",
+    } as SearchLink,
   ];
 
   return (
@@ -125,6 +136,7 @@ export const CategoryList: React.ElementType = ({ itemStyle }: any) => {
       contentContainerStyle={{
         paddingLeft: SECTION_PADDING,
         paddingRight: SECTION_PADDING,
+        margin: "auto",
       }}
     >
       {categoryLinkList.map((item, i) => {
@@ -139,12 +151,14 @@ export const CategoryList: React.ElementType = ({ itemStyle }: any) => {
         const actualStyle = {
           ...FONTS.AUXILIARY,
           color: STANFORD_COLORS.WHITE,
-          marginRight: 30,
+          marginRight: 25,
           paddingTop: SECTION_PADDING,
           paddingBottom: SECTION_PADDING,
           ..._itemStyle,
         };
-        if (item.type === LinkType.CATEGORY) {
+        if (item.type === LinkType.SEARCH) {
+          return <SearchLink />;
+        } else if (item.type === LinkType.CATEGORY) {
           const category = item as CategoryLink;
           return (
             <CategoryLink
