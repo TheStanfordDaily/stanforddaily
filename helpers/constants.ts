@@ -13,7 +13,7 @@ export const BREAKPOINTS = {
 };
 
 export const STRINGS = {
-  WP_URL: "https://wp.stanforddaily.com",
+  WP_URL: "https://www.stanforddaily.com",
   WEBSITE_URL: "https://www.stanforddaily.com",
   DISQUS_SHORTNAME: "stanforddaily",
   TSD_APP_USERAGENT: "TheStanfordDailyApp/1.0.0",

@@ -1,5 +1,6 @@
 import WPAPI from "wpapi";
 import moment from "moment";
+import fetch from "isomorphic-fetch";
 import { STRINGS } from "./constants";
 import tsdJson from "./tsd-json.json";
 
@@ -131,6 +132,53 @@ export async function getPostAsync(
       .postSlug(encodeURIComponent(slug))
       .param("_time", moment().format("MMMM Do YYYY, h:mm a")) // Update every minute
   );
+}
+
+/* Get post from WP API. TODO: migrate other functions
+ * to use the WP API endpoint instead of the custom TSD endpoint.
+ */
+// export async function getPost({ slug = null, id = null }): Promise<Post> {
+//   let req = wp
+//     .posts().embed()
+//     .param("_time", moment().format("MMMM Do YYYY, h:mm a"));
+//   if (id) {
+//     req = req.id(id);
+//   } else {
+//     req = req.slug(encodeURIComponent(slug));
+//   };
+//   return req;
+// }
+
+export async function getRevision({
+  id,
+  rev,
+  type,
+  status,
+  wpnonce,
+}): Promise<Post> {
+  // const wp = new WPAPI({
+  //   endpoint: `${STRINGS.WP_URL}/wp-json`,
+  //   // nonce: wpnonce
+  // });
+  // let req = wp
+  //   .posts()
+  //   .id(id)
+  //   .embed()
+  //   // .auth()
+  //   .param("_time", moment().format("MMMM Do YYYY, h:mm a"))
+  //   .param("_wpnonce", wpnonce)
+  //   .revisions(rev);
+  // console.log({ id, rev, type, status, wpnonce });
+  let postUrl = `${STRINGS.WP_URL}/wp-json/wp/v2/${type}s/${id}/revisions/${rev}?_wpnonce=${wpnonce}`;
+  if (status === "draft") {
+    postUrl = `${STRINGS.WP_URL}/wp-json/wp/v2/${type}s/${rev}?_wpnonce=${wpnonce}`;
+  }
+
+  const response = await fetch(
+    postUrl,
+    { credentials: "include" }, // required for cookie nonce auth
+  ).then(e => e.json());
+  return response;
 }
 
 export async function getPageAsync(slug: string): Promise<Post> {

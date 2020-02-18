@@ -25,6 +25,7 @@
     "emotion-native-media-query": "^0.2.1",
     "expo": "^35.0.0",
     "expo-font": "~7.0.0",
+    "isomorphic-fetch": "^2.2.1",
     "moment": "^2.24.0",
     "next": "^9.0.3",
     "next-routes": "^1.4.2",
