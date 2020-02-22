@@ -1,17 +1,17 @@
 {
-  "name": "hoamx6r-7axbke",
-  "hash": "FHYdb1B2mDdP/A9QmeopL4qyXUWKCpyaL3sHG9HxSHY=",
+  "name": "c2m3cl8-6zgnou9",
+  "hash": "nGGUzfe2eJrw4d61L9+/bKoBHmxyYyC4424C2KRugQA=",
   "description": "Default Lambda@Edge for Next CloudFront distribution",
   "memory": 512,
   "timeout": 10,
-  "code": "/home/epicfaace/tsd/stanford-daily/.serverless_nextjs/default-lambda",
+  "code": "/home/epicfaace/tsd/stanforddaily/.serverless_nextjs/default-lambda",
   "shims": [],
   "handler": "index.handler",
   "runtime": "nodejs10.x",
   "env": {},
   "role": {
-    "arn": "arn:aws:iam::607998788272:role/hoamx6r-1ir98q9i"
+    "arn": "arn:aws:iam::607998788272:role/c2m3cl8-fnpa28r"
   },
-  "arn": "arn:aws:lambda:us-east-1:607998788272:function:hoamx6r-7axbke",
+  "arn": "arn:aws:lambda:us-east-1:607998788272:function:c2m3cl8-6zgnou9",
   "region": "us-east-1"
 }

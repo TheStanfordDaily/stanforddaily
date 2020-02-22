@@ -1,10 +1,7 @@
 {
-  "name": "hoamx6r-1ir98q9i",
-  "arn": "arn:aws:iam::607998788272:role/hoamx6r-1ir98q9i",
-  "service": [
-    "edgelambda.amazonaws.com",
-    "lambda.amazonaws.com"
-  ],
+  "name": "c2m3cl8-fnpa28r",
+  "arn": "arn:aws:iam::607998788272:role/c2m3cl8-fnpa28r",
+  "service": ["edgelambda.amazonaws.com", "lambda.amazonaws.com"],
   "policy": {
     "arn": "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
   },

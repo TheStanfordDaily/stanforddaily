@@ -13473,7 +13473,7 @@ serve-static@1.14.1, serve-static@^1.13.1:
     parseurl "~1.3.3"
     send "0.17.1"
 
-serverless-next.js@^1.8.0:
+serverless-next.js@1.8.0:
   version "1.8.0"
   resolved "https://registry.yarnpkg.com/serverless-next.js/-/serverless-next.js-1.8.0.tgz#1d388cba604220dbc7254eb63f61b64fdfa25099"
   integrity sha512-wIM27QEBcqUdmsNZNKIV+66DndF5MqALva+5Zy4gl4s1etGji2Vre/mkP+AjqCQ7O/sYVOF5v2V1tHcLpP936A==
