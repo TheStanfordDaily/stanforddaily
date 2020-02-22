@@ -164,14 +164,14 @@ export const TopSection: React.ElementType = ({ style }) => {
               url={LINKS.ISSUU}
               imageUrl={LINKS.ISSUU_LOGO}
               header="Newspaper & Magazine"
-              title="Read the Print Issues"
+              title="Read Our Print Issues"
               newTab
             />
             <SmallSection
               url="/category/newsletters/"
               imageUrl={LINKS.NEWSLETTER_LOGO}
               header="Weekend Roundup"
-              title="Read our Weekly Newsletter"
+              title="Read Our Weekly Newsletter"
               newTab
             />
             {/* <SmallSection
@@ -205,7 +205,7 @@ export const TopSection: React.ElementType = ({ style }) => {
                 marginRight: 15,
               }}
             />
-            <TextButtonWithLink url="/email-digests/" title="Email Digest" />
+            <TextButtonWithLink url="/email-digests/" title="Get Our Emails" />
           </ViewRow>
         </View>
       </SectionStyle>
