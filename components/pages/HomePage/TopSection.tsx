@@ -205,7 +205,7 @@ export const TopSection: React.ElementType = ({ style }) => {
                 marginRight: 15,
               }}
             />
-            <TextButtonWithLink url="/email-digests/" title="Email Digest" />
+            <TextButtonWithLink url="/email-digests/" title="Get Our Emails" />
           </ViewRow>
         </View>
       </SectionStyle>
