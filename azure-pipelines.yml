@@ -7,7 +7,7 @@ variables:
 stages:
 - stage: test
   jobs:
-  - job: test_frontend
+  - job: test
     steps:
     - script: |
         yarn install
