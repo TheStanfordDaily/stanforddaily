@@ -1,7 +1,10 @@
 {
   "name": "c2m3cl8-fnpa28r",
   "arn": "arn:aws:iam::607998788272:role/c2m3cl8-fnpa28r",
-  "service": ["edgelambda.amazonaws.com", "lambda.amazonaws.com"],
+  "service": [
+    "edgelambda.amazonaws.com",
+    "lambda.amazonaws.com"
+  ],
   "policy": {
     "arn": "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
   },
