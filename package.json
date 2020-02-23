@@ -14,7 +14,8 @@
     "web": "expo start --web --dev",
     "eject": "expo eject",
     "build": "EXPO_DEBUG=true yarn expo build:web",
-    "now-build": "EXPO_DEBUG=true yarn expo build:web"
+    "now-build": "EXPO_DEBUG=true yarn expo build:web",
+    "deploy": "sls"
   },
   "dependencies": {
     "@emotion/babel-preset-css-prop": "^10.0.14",

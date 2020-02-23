@@ -33,11 +33,10 @@ stages:
     steps:
     - script: |
         yarn install
-        yarn global add sls
         yarn build
       displayName: 'install, build'
     - script: |
-        sls
+        yarn run deploy
       displayName: 'deploy'
       env:
         AWS_ACCESS_KEY_ID: $(AWS_ACCESS_KEY_ID)
