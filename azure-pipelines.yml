@@ -19,6 +19,7 @@ stages:
   condition: eq(variables['Build.SourceBranch'], 'refs/heads/master')
   jobs:
   - job: Deploy
+    steps:
     - script: |
         echo "Nothing yet"
       displayName: 'deploy dev, todo'
