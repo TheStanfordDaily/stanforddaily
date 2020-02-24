@@ -28,7 +28,7 @@ export const FONTS: any = {
           fontFamily: "'Libre Baskerville', sans-serif",
           fontWeight: "bold",
           fontSize: 15,
-          lineHeight: "1em",
+          lineHeight: "normal",
         }
       : {
           fontFamily: "LibreBaskerville-Bold",
@@ -40,7 +40,7 @@ export const FONTS: any = {
           fontFamily: "'Open Sans', sans-serif",
           fontWeight: "900",
           fontSize: 15,
-          lineHeight: "1em",
+          lineHeight: "normal",
         }
       : {
           fontFamily: "Faune-Display_Black",
