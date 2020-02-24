@@ -2,6 +2,8 @@ import React from "react";
 import { View } from "react-native";
 import { Article, ArticleHeader } from "components/Article";
 import AuthorAndDateView from "components/AuthorAndDateView";
+import { BREAKPOINTS } from "helpers/constants";
+import css from "@emotion/css";
 import { PostExcerpt } from "./PostExcerpt";
 import { ArticleSubtitle } from "./ArticleSubtitle";
 import { ArticleProps } from "./ArticleProps";
@@ -22,9 +24,15 @@ export const HeadlineArticle: React.ElementType = ({
     >
       <ThumbnailImageWithLink
         post={post}
-        style={{
-          height: 350,
-        }}
+        css={css`
+          width: 100%;
+          min-height: 200px;
+          height: 50vw;
+          @media (min-width: ${BREAKPOINTS.TABLET}px) {
+            min-height: 200px;
+            height: 20vw;
+          }
+        `}
       />
       <ArticleHeader>
         <ArticleTitleWithLink post={post} style={{ fontSize: 20 }} />

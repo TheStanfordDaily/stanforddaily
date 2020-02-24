@@ -20,6 +20,7 @@
   "dependencies": {
     "@emotion/babel-preset-css-prop": "^10.0.14",
     "@emotion/core": "^10.0.15",
+    "@emotion/css": "^10.0.27",
     "@emotion/native": "^10.0.14",
     "@emotion/styled": "^10.0.27",
     "disqus-react": "^1.0.6",
