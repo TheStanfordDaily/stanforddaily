@@ -110,7 +110,7 @@ export const LINKS = {
   YOUTUBE: "https://www.youtube.com/channel/UCWg3QqUzqxXt6herm5sMjNw",
   ISSUU: "https://issuu.com/thestanforddaily",
   NEWSLETTER_LOGO:
-    "https://wp.stanforddaily.com/wp-content/uploads/2018/10/quadpic-e1581831150620.jpg",
+    "https://wp.stanforddaily.com/wp-content/uploads/2020/02/weekend_roundup_logo-1.jpg",
   DAILY_BREW_LOGO:
     "https://d3t3ozftmdmh3i.cloudfront.net/production/podcast_uploaded400/1460559/1460559-1550520909113-dfa4db03769d.jpg",
   ISSUU_LOGO:
