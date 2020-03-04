@@ -16,6 +16,7 @@ export interface SmallSectionProps {
   header: string;
   title: string;
   newTab?: boolean;
+  className?: string;
 }
 
 export const TopSection: React.ElementType = ({ style }) => {
@@ -25,6 +26,7 @@ export const TopSection: React.ElementType = ({ style }) => {
     header,
     title,
     newTab,
+    className,
   }) => {
     const additionalPropsForA: any = {};
     if (newTab) {
@@ -32,7 +34,12 @@ export const TopSection: React.ElementType = ({ style }) => {
     }
 
     return (
-      <a href={url} title={title} {...additionalPropsForA}>
+      <a
+        className={className}
+        href={url}
+        title={title}
+        {...additionalPropsForA}
+      >
         <View
           style={{
             marginRight: 30,
@@ -142,6 +149,7 @@ export const TopSection: React.ElementType = ({ style }) => {
         >
           <View style={{ flexDirection: "row", alignItems: "center" }}>
             <SmallSection
+              className="small-section-issuu"
               url={LINKS.ISSUU}
               imageUrl={LINKS.ISSUU_LOGO}
               header="Newspaper & Magazine"
@@ -154,6 +162,7 @@ export const TopSection: React.ElementType = ({ style }) => {
               title="The Daily Magazine"
             /> */}
             <SmallSection
+              className="small-section-podcasts"
               url="/category/podcasts/"
               imageUrl={LINKS.DAILY_BREW_LOGO}
               header="Podcasts"

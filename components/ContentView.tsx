@@ -19,6 +19,7 @@ import AuthorBox from "./AuthorBox";
 import { CategoryLink } from "./CategoryLink";
 import { DateWithAbbr } from "./DateView";
 import SatireGlobal from "./SatireGlobal";
+import DataVizGlobal from "./DataVizGlobal";
 
 interface ContentViewProps {
   post: Post;
@@ -77,10 +78,19 @@ const ContentView: React.ElementType<ContentViewProps> = ({
     isSatire = true;
   }
 
+  let isDataViz = false;
+  if (
+    tsdCategories &&
+    tsdCategories.find(category => category.slug === "data-vizzes")
+  ) {
+    isDataViz = true;
+  }
+
   return (
     <SectionStyle>
       <WPHead base={post} />
       {isSatire && <SatireGlobal />}
+      {isDataViz && <DataVizGlobal />}
       <Article>
         <ArticleHeader>
           {isPost && (
