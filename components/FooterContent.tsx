@@ -431,7 +431,7 @@ export const FooterContent: React.ElementType = ({ style }: any) => {
       <View>
         <BottomLine>
           <BottomText style={{ fontWeight: "bold" }}>
-            © 2019 The Stanford Daily Publishing Corporation.
+            © 2020 The Stanford Daily Publishing Corporation.
           </BottomText>
           <BottomText style={{ fontWeight: "bold" }}>
             <Link href="/[year]/" as="/privacy-policy/">
