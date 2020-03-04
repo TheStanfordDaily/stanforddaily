@@ -18,6 +18,9 @@ const globalStyles = {
       fill: STANFORD_COLORS.BLACK,
     },
   },
+  ".small-section-sodp": {
+    display: "none",
+  },
 };
 
 export interface SmallSectionProps {
@@ -163,14 +166,23 @@ export const TopSection: React.ElementType = ({ style }) => {
         >
           <ViewRow style={{ flex: 2 }}>
             <SmallSection
-              className="small-section-issuu"
-              url={LINKS.ISSUU}
+              className="small-section small-section-sodp"
+              url={LINKS.SODP}
               imageUrl={LINKS.ISSUU_LOGO}
+              header="Stanford Open Data Portal"
+              title="Explore Open Data"
+              newTab
+            />
+            <SmallSection
+              className="small-section small-section-issuu"
+              url={LINKS.ISSUU}
+              imageUrl={LINKS.SODP_LOGO}
               header="Newspaper & Magazine"
               title="Read Our Print Issues"
               newTab
             />
             <SmallSection
+              className="small-section small-section-newsletters"
               url="/category/newsletters/"
               imageUrl={LINKS.NEWSLETTER_LOGO}
               header="Weekend Roundup"
@@ -183,7 +195,7 @@ export const TopSection: React.ElementType = ({ style }) => {
               title="The Daily Magazine"
             /> */}
             <SmallSection
-              className="small-section-podcasts"
+              className="small-section small-section-podcasts"
               url="/category/podcasts/"
               imageUrl={LINKS.DAILY_BREW_LOGO}
               header="Podcasts"

@@ -81,7 +81,9 @@ export default class CategoryArchivePage extends React.Component<
               fontSize: 25,
             }}
           >
+            {/* <a className="section-title"  style={{ paddingBottom: 15, display: "block" }}> */}
             {initData.tsdMeta.title}
+            {/* </a> */}
           </Text>
         </View>
         {initData.tsdMeta.title === "Satire" && <SatireGlobal />}

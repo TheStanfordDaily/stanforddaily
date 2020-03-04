@@ -18,22 +18,6 @@ const SatireGlobal: React.ElementType = () => {
           "#tsd-navbar, #site-footer": {
             backgroundColor: COLORS.DATA_RED,
           },
-          "#tsd-logo img": {
-            display: "none",
-          },
-          "#tsd-logo::after": {
-            content: '" "',
-            position: "absolute",
-            top: 0,
-            right: 0,
-            bottom: 0,
-            left: 0,
-            height: 87.5,
-            backgroundImage: "url(/static/DailyIcon.svg)",
-            backgroundSize: "contain",
-            backgroundRepeat: "no-repeat",
-            backgroundPosition: "center",
-          },
           ".tsd-article h2, .tsd-article a, .tsd-article time, #main-article-content": {
             fontFamily: "'Roboto', sans-serif !important",
           },
@@ -42,8 +26,27 @@ const SatireGlobal: React.ElementType = () => {
             borderRadius: "10px",
             padding: "24px",
           },
-          ".small-section-podcasts": {
-            // display: "none"
+          ".small-section": {
+            display: "none",
+          },
+          ".small-section.small-section-sodp, .small-section.small-section-issuu": {
+            display: "block",
+          },
+          ".section-title": {
+            // Remove "Data Viz" title at top
+            display: "none",
+          },
+          "#tsd-logo": {
+            display: "none",
+          },
+          "#tsd-logo-dataviz": {
+            display: "block",
+          },
+          "#tsd-logo-dataviz img": {
+            display: "block",
+          },
+          "#tsd-logo-dataviz div": {
+            fontFamily: "'Roboto', sans-serif !important",
           },
         }}
       />
