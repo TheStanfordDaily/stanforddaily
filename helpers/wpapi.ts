@@ -205,9 +205,17 @@ export async function getCategoryAsync(
   categorySlugs: string[],
   pageNumber: number,
 ): Promise<CategoryArchivePageData> {
+  // Rewrite @94305
+  let slugs = [...categorySlugs];
+  for (let i in slugs) {
+    if (slugs[i] === "@94305" || slugs[i] === "data-vizzes") {
+      slugs[i] = "94305";
+    }
+  }
+
   return wpTsdJson
     .category()
-    .categorySlugs(categorySlugs.map(encodeURIComponent).join("/"))
+    .categorySlugs(slugs.map(encodeURIComponent).join("/"))
     .pageNumber(pageNumber);
 }
 

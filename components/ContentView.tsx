@@ -96,7 +96,7 @@ const ContentView: React.ElementType<ContentViewProps> = ({
   let isDataViz = false;
   if (
     tsdCategories &&
-    tsdCategories.find(category => category.slug === "data-vizzes")
+    tsdCategories.find(category => category.slug === "94305")
   ) {
     isDataViz = true;
   }

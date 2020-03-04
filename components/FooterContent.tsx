@@ -316,11 +316,11 @@ export const FooterContent: React.ElementType = ({ style }: any) => {
     //   url: "/category/magazine/",
     //   children: {},
     // },
-    "data-vizzes": {
+    "@94305": {
       id: 58277,
       name: "Data",
-      slug: "data-vizzes",
-      url: "/category/data-vizzes/",
+      slug: "94305",
+      url: "/category/@94305/",
       children: {},
     },
     // TODO: use `LinkLink` type
