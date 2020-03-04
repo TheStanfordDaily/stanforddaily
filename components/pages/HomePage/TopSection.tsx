@@ -18,6 +18,9 @@ const globalStyles = {
       fill: STANFORD_COLORS.BLACK,
     },
   },
+  ".small-section-sodp": {
+    display: "none",
+  },
 };
 
 export interface SmallSectionProps {
@@ -26,6 +29,7 @@ export interface SmallSectionProps {
   header: string;
   title: string;
   newTab?: boolean;
+  className?: string;
 }
 
 const SmallSection: React.ElementType<SmallSectionProps> = ({
@@ -34,6 +38,7 @@ const SmallSection: React.ElementType<SmallSectionProps> = ({
   header,
   title,
   newTab,
+  className,
 }) => {
   const additionalPropsForA: any = {};
   if (newTab) {
@@ -41,7 +46,7 @@ const SmallSection: React.ElementType<SmallSectionProps> = ({
   }
 
   return (
-    <a href={url} title={title} {...additionalPropsForA}>
+    <a className={className} href={url} title={title} {...additionalPropsForA}>
       <View
         style={{
           marginRight: 30,
@@ -161,6 +166,7 @@ export const TopSection: React.ElementType = ({ style }) => {
         >
           <ViewRow style={{ flex: 2 }}>
             <SmallSection
+              className="small-section small-section-issuu"
               url={LINKS.ISSUU}
               imageUrl={LINKS.ISSUU_LOGO}
               header="Newspaper & Magazine"
@@ -168,6 +174,15 @@ export const TopSection: React.ElementType = ({ style }) => {
               newTab
             />
             <SmallSection
+              className="small-section small-section-sodp"
+              url={LINKS.SODP}
+              imageUrl={LINKS.SODP_LOGO}
+              header="Stanford Open Data Portal"
+              title="Explore Open Data"
+              newTab
+            />
+            <SmallSection
+              className="small-section small-section-newsletters"
               url="/category/newsletters/"
               imageUrl={LINKS.NEWSLETTER_LOGO}
               header="Weekend Roundup"
@@ -180,6 +195,7 @@ export const TopSection: React.ElementType = ({ style }) => {
               title="The Daily Magazine"
             /> */}
             <SmallSection
+              className="small-section small-section-podcasts"
               url="/category/podcasts/"
               imageUrl={LINKS.DAILY_BREW_LOGO}
               header="Podcasts"

@@ -19,10 +19,7 @@
   ],
   "defaults": {
     "ttl": 0,
-    "allowedHttpMethods": [
-      "HEAD",
-      "GET"
-    ],
+    "allowedHttpMethods": ["HEAD", "GET"],
     "forward": {
       "cookies": "all",
       "queryString": true

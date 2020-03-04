@@ -78,6 +78,14 @@ const HeaderLogo: React.ElementType = () => {
               />
             </a>
           </Link>
+          <Link href="/" as="/">
+            <a id="tsd-logo-dataviz">
+              <img
+              // src="/static/DailyIcon.svg"
+              />
+              <div>@94305</div>
+            </a>
+          </Link>
         </h1>
       </RView>
     </SectionStyle>
@@ -236,6 +244,9 @@ export default class MyApp extends App {
           styles={{
             "body, button, input, optgroup, select, textarea": {
               ...FONTS.CONTENT,
+            },
+            "#tsd-logo-dataviz": {
+              display: "none",
             },
             a: {
               color: COLORS.LINK.DEFAULT,

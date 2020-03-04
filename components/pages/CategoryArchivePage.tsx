@@ -10,6 +10,7 @@ import { FONTS } from "helpers/constants";
 import Wrapper from "components/Wrapper";
 import { Section, SECTION_PADDING } from "components/Section";
 import SatireGlobal from "components/SatireGlobal";
+import DataVizGlobal from "components/DataVizGlobal";
 import LoadingView from "components/Loading";
 import ArchivePage, { ArchivePageType, ArchivePageState } from "./ArchivePage";
 
@@ -73,17 +74,23 @@ export default class CategoryArchivePage extends React.Component<
           flexDirection: "column",
         }}
       >
-        <View style={{ paddingBottom: 15 }}>
-          <Text
-            style={{
-              ...FONTS.SECTION_TITLE,
-              fontSize: 25,
-            }}
-          >
-            {initData.tsdMeta.title}
-          </Text>
-        </View>
+        <a
+          className="section-title"
+          style={{ paddingBottom: 15, display: "block" }}
+        >
+          <View style={{ paddingBottom: 15 }}>
+            <Text
+              style={{
+                ...FONTS.SECTION_TITLE,
+                fontSize: 25,
+              }}
+            >
+              {initData.tsdMeta.title}
+            </Text>
+          </View>
+        </a>
         {initData.tsdMeta.title === "Satire" && <SatireGlobal />}
+        {initData.tsdMeta.title === "Data Team" && <DataVizGlobal />}
         {_archivePage}
       </Section>
     );

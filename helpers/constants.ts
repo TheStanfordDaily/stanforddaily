@@ -93,6 +93,7 @@ export const STANFORD_COLORS = {
 
 export const COLORS = {
   BORDER_COLOR: STANFORD_COLORS.CLOUD,
+  DATA_RED: "#2e2d29",
   LINK: {
     DEFAULT: STANFORD_COLORS.CARDINAL_DARK_RED,
     VISITED: STANFORD_COLORS.CARDINAL_DARK_RED,
@@ -115,5 +116,8 @@ export const LINKS = {
     "https://d3t3ozftmdmh3i.cloudfront.net/production/podcast_uploaded400/1460559/1460559-1550520909113-dfa4db03769d.jpg",
   ISSUU_LOGO:
     "https://wp.stanforddaily.com/wp-content/uploads/2020/02/example_paper.png",
+  SODP_LOGO:
+    "https://wp.stanforddaily.com/wp-content/uploads/2020/03/logo.b1da2910.jpg",
   ARCHIVES: "https://archives.stanforddaily.com/",
+  SODP: "https://opendata.stanforddaily.com/",
 };

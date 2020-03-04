@@ -18,7 +18,7 @@ const _Article: React.ElementType = ({
 }) => {
   if (Platform.OS === "web") {
     const ArticleTag = ArticleStyle.withComponent("article");
-    return <ArticleTag {...props} />;
+    return <ArticleTag className="tsd-article" {...props} />;
   } else {
     return (
       <ArticleStyle>
