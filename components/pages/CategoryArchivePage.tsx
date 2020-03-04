@@ -74,20 +74,23 @@ export default class CategoryArchivePage extends React.Component<
           flexDirection: "column",
         }}
       >
-        <View style={{ paddingBottom: 15 }}>
-          <Text
-            style={{
-              ...FONTS.SECTION_TITLE,
-              fontSize: 25,
-            }}
-          >
-            {/* <a className="section-title"  style={{ paddingBottom: 15, display: "block" }}> */}
-            {initData.tsdMeta.title}
-            {/* </a> */}
-          </Text>
-        </View>
+        <a
+          className="section-title"
+          style={{ paddingBottom: 15, display: "block" }}
+        >
+          <View style={{ paddingBottom: 15 }}>
+            <Text
+              style={{
+                ...FONTS.SECTION_TITLE,
+                fontSize: 25,
+              }}
+            >
+              {initData.tsdMeta.title}
+            </Text>
+          </View>
+        </a>
         {initData.tsdMeta.title === "Satire" && <SatireGlobal />}
-        {initData.tsdMeta.title === "Data Viz" && <DataVizGlobal />}
+        {initData.tsdMeta.title === "Data Team" && <DataVizGlobal />}
         {_archivePage}
       </Section>
     );

@@ -23,8 +23,8 @@ const SatireGlobal: React.ElementType = () => {
           },
           ".tsd-article": {
             // backgroundColor: "#fee",
-            borderRadius: "10px",
-            padding: "24px",
+            // borderRadius: "10px",
+            // padding: "24px",
           },
           ".small-section": {
             display: "none",
@@ -34,19 +34,25 @@ const SatireGlobal: React.ElementType = () => {
           },
           ".section-title": {
             // Remove "Data Viz" title at top
-            display: "none",
+            display: "none !important",
           },
-          "#tsd-logo": {
-            display: "none",
-          },
+          // "#tsd-logo": {
+          //   display: "none !important",
+          // },
           "#tsd-logo-dataviz": {
             display: "block",
+            position: "relative",
+            // width: 100,
+            // height: 100
           },
-          "#tsd-logo-dataviz img": {
-            display: "block",
-          },
+          // "#tsd-logo-dataviz img": {
+          //   display: "block",
+          // },
           "#tsd-logo-dataviz div": {
             fontFamily: "'Roboto', sans-serif !important",
+            position: "absolute",
+            top: 0,
+            // right: 0
           },
         }}
       />

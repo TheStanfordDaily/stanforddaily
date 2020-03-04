@@ -166,19 +166,19 @@ export const TopSection: React.ElementType = ({ style }) => {
         >
           <ViewRow style={{ flex: 2 }}>
             <SmallSection
-              className="small-section small-section-sodp"
-              url={LINKS.SODP}
+              className="small-section small-section-issuu"
+              url={LINKS.ISSUU}
               imageUrl={LINKS.ISSUU_LOGO}
-              header="Stanford Open Data Portal"
-              title="Explore Open Data"
+              header="Newspaper & Magazine"
+              title="Read Our Print Issues"
               newTab
             />
             <SmallSection
-              className="small-section small-section-issuu"
-              url={LINKS.ISSUU}
+              className="small-section small-section-sodp"
+              url={LINKS.SODP}
               imageUrl={LINKS.SODP_LOGO}
-              header="Newspaper & Magazine"
-              title="Read Our Print Issues"
+              header="Stanford Open Data Portal"
+              title="Explore Open Data"
               newTab
             />
             <SmallSection

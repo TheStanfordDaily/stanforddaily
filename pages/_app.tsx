@@ -77,11 +77,13 @@ const HeaderLogo: React.ElementType = () => {
                 }}
               />
             </a>
+          </Link>
+          <Link href="/" as="/">
             <a id="tsd-logo-dataviz">
               <img
               // src="/static/DailyIcon.svg"
               />
-              <RView>@94305</RView>
+              <div>@94305</div>
             </a>
           </Link>
         </h1>
