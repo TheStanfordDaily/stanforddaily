@@ -36,12 +36,12 @@ const SatireGlobal: React.ElementType = () => {
             // Remove "Data Viz" title at top
             display: "none !important",
           },
-          // "#tsd-logo": {
-          //   display: "none !important",
-          // },
+          "#tsd-logo": {
+            display: "none !important",
+          },
           "#tsd-logo-dataviz": {
-            display: "block",
-            position: "relative",
+            display: "flex !important",
+            // position: "relative",
             // width: 100,
             // height: 100
           },
