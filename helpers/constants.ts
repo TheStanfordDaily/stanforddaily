@@ -119,5 +119,5 @@ export const LINKS = {
   SODP_LOGO:
     "https://wp.stanforddaily.com/wp-content/uploads/2020/03/logo.b1da2910.jpg",
   ARCHIVES: "https://archives.stanforddaily.com/",
-  SODP: "https://opendata.stanforddaily.com/",
+  SODP: "http://opendata.stanforddaily.com/",
 };
