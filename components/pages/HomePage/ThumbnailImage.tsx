@@ -21,7 +21,6 @@ export const ThumbnailImage: React.ElementType = ({
       resizeMode="cover"
       style={{
         width: "100%",
-        backgroundColor: "#f4f4f4",
         ...style,
       }}
       source={{

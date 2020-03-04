@@ -51,3 +51,7 @@ Deploy steps:
 yarn build
 sls
 ```
+
+## test preview
+
+http://localhost.stanforddaily.com:19006/_preview/1164168/1164213/post/revision/a580830604?_thumbnail_id=1164208

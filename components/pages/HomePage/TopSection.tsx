@@ -8,7 +8,17 @@ import LogoInstagram from "react-ionicons/lib/LogoInstagram";
 import LogoYoutube from "react-ionicons/lib/LogoYoutube";
 import { BREAKPOINTS, STANFORD_COLORS, FONTS, LINKS } from "helpers/constants";
 import { SectionStyle } from "components/Section";
+import styled from "@emotion/styled";
 import Link from "../../Link";
+
+const globalStyles = {
+  ".headerLogoIcon": {
+    fill: STANFORD_COLORS.CARDINAL_RED,
+    "&:hover": {
+      fill: STANFORD_COLORS.BLACK,
+    },
+  },
+};
 
 export interface SmallSectionProps {
   url: string;
@@ -19,115 +29,118 @@ export interface SmallSectionProps {
   className?: string;
 }
 
-export const TopSection: React.ElementType = ({ style }) => {
-  const SmallSection: React.ElementType<SmallSectionProps> = ({
-    url,
-    imageUrl,
-    header,
-    title,
-    newTab,
-    className,
-  }) => {
-    const additionalPropsForA: any = {};
-    if (newTab) {
-      additionalPropsForA.target = "_blank";
-    }
+const SmallSection: React.ElementType<SmallSectionProps> = ({
+  url,
+  imageUrl,
+  header,
+  title,
+  newTab,
+  className,
+}) => {
+  const additionalPropsForA: any = {};
+  if (newTab) {
+    additionalPropsForA.target = "_blank";
+  }
 
-    return (
-      <a
-        className={className}
-        href={url}
-        title={title}
-        {...additionalPropsForA}
-      >
-        <View
-          style={{
-            marginRight: 30,
-            flexDirection: "row",
-            alignItems: "center",
-          }}
-        >
-          <Image
-            resizeMode="cover"
-            style={{
-              width: 50,
-              height: 50,
-            }}
-            source={{
-              uri: imageUrl,
-            }}
-          />
-          <View
-            style={{
-              marginLeft: 10,
-            }}
-          >
-            <View>
-              <Text
-                style={{
-                  ...FONTS.AUXILIARY,
-                  color: STANFORD_COLORS.CARDINAL_DARK_RED,
-                  fontSize: 12,
-                }}
-              >
-                {header}
-              </Text>
-            </View>
-            <View>
-              <Text
-                style={{
-                  fontWeight: "bold",
-                }}
-              >
-                {title}
-              </Text>
-            </View>
-            {/* <View>
-            <Text>Subtitle here lorem</Text>
-          </View> */}
-          </View>
-        </View>
-      </a>
-    );
-  };
-  const LogoIconWithLink: React.ElementType = ({ url, LogoComponent }: any) => (
-    <a
-      href={url}
-      target="_blank"
-      rel="noopener noreferrer"
-      style={{
-        display: "inline-flex",
-        marginRight: 20,
-      }}
-    >
-      <LogoComponent className="headerLogoIcon" fontSize="25px" />
-    </a>
-  );
-
-  const TextButtonWithLink: React.ElementType = ({
-    url,
-    urlFile = "/[year]/",
-    title,
-    tbwlStyle,
-  }: any) => (
-    <Link href={urlFile} as={url}>
-      <a
-        title={title}
+  return (
+    <a className={className} href={url} title={title} {...additionalPropsForA}>
+      <View
         style={{
-          ...FONTS.AUXILIARY,
-          color: STANFORD_COLORS.CARDINAL_RED,
-          border: `2px ${STANFORD_COLORS.CARDINAL_RED} solid`,
-          fontSize: 14,
-          letterSpacing: 1.5,
-          padding: 8,
-          ...tbwlStyle,
+          marginRight: 30,
+          flexDirection: "row",
+          alignItems: "center",
         }}
       >
-        {title}
-      </a>
-    </Link>
+        <Image
+          resizeMode="cover"
+          style={{
+            width: 50,
+            height: 50,
+          }}
+          source={{
+            uri: imageUrl,
+          }}
+        />
+        <View
+          style={{
+            marginLeft: 10,
+          }}
+        >
+          <View>
+            <Text
+              style={{
+                ...FONTS.AUXILIARY,
+                color: STANFORD_COLORS.CARDINAL_DARK_RED,
+                fontSize: 12,
+              }}
+            >
+              {header}
+            </Text>
+          </View>
+          <View>
+            <Text
+              style={{
+                fontWeight: "bold",
+              }}
+            >
+              {title}
+            </Text>
+          </View>
+          {/* <View>
+          <Text>Subtitle here lorem</Text>
+        </View> */}
+        </View>
+      </View>
+    </a>
   );
+};
 
+const LogoIconWithLink: React.ElementType = ({ url, LogoComponent }: any) => (
+  <a
+    href={url}
+    target="_blank"
+    rel="noopener noreferrer"
+    style={{
+      display: "inline-flex",
+      marginRight: 20,
+    }}
+  >
+    <LogoComponent className="headerLogoIcon" fontSize="25px" />
+  </a>
+);
+
+const TextButtonWithLink: React.ElementType = ({
+  url,
+  urlFile = "/[year]/",
+  title,
+  tbwlStyle,
+}: any) => (
+  <Link href={urlFile} as={url}>
+    <a
+      title={title}
+      style={{
+        ...FONTS.AUXILIARY,
+        color: STANFORD_COLORS.CARDINAL_RED,
+        border: `2px ${STANFORD_COLORS.CARDINAL_RED} solid`,
+        fontSize: 14,
+        letterSpacing: 1.5,
+        padding: 8,
+        textAlign: "center",
+        ...tbwlStyle,
+      }}
+    >
+      {title}
+    </a>
+  </Link>
+);
+
+const ViewRow: any = styled(View)({
+  flex: 1,
+  flexDirection: "row",
+  alignItems: "center",
+});
+
+export const TopSection: React.ElementType = ({ style }) => {
   return (
     <RView
       style={{ ...style }}
@@ -144,16 +157,24 @@ export const TopSection: React.ElementType = ({ style }) => {
           style={{
             flexDirection: "row",
             justifyContent: "space-between",
-            flexWrap: "wrap",
+            flexWrap: "nowrap",
+            overflow: "visible",
           }}
         >
-          <View style={{ flexDirection: "row", alignItems: "center" }}>
+          <ViewRow style={{ flex: 2 }}>
             <SmallSection
               className="small-section-issuu"
               url={LINKS.ISSUU}
               imageUrl={LINKS.ISSUU_LOGO}
               header="Newspaper & Magazine"
-              title="Read the Print Issues"
+              title="Read Our Print Issues"
+              newTab
+            />
+            <SmallSection
+              url="/category/newsletters/"
+              imageUrl={LINKS.NEWSLETTER_LOGO}
+              header="Weekend Roundup"
+              title="Read Our Weekly Newsletter"
               newTab
             />
             {/* <SmallSection
@@ -168,23 +189,9 @@ export const TopSection: React.ElementType = ({ style }) => {
               header="Podcasts"
               title="The Daily Brew & More"
             />
-          </View>
-          <View
-            style={{
-              flexDirection: "row",
-              alignItems: "center",
-            }}
-          >
-            <Global
-              styles={{
-                ".headerLogoIcon": {
-                  fill: STANFORD_COLORS.CARDINAL_RED,
-                  "&:hover": {
-                    fill: STANFORD_COLORS.BLACK,
-                  },
-                },
-              }}
-            />
+          </ViewRow>
+          <ViewRow>
+            <Global styles={globalStyles} />
             <LogoIconWithLink
               url={LINKS.FACEBOOK}
               LogoComponent={LogoFacebook}
@@ -202,8 +209,8 @@ export const TopSection: React.ElementType = ({ style }) => {
                 marginRight: 15,
               }}
             />
-            <TextButtonWithLink url="/email-digests/" title="Email Digest" />
-          </View>
+            <TextButtonWithLink url="/email-digests/" title="Get Our Emails" />
+          </ViewRow>
         </View>
       </SectionStyle>
     </RView>

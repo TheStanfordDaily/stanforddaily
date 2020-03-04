@@ -28,7 +28,7 @@ export const FONTS: any = {
           fontFamily: "'Libre Baskerville', sans-serif",
           fontWeight: "bold",
           fontSize: 15,
-          lineHeight: "1em",
+          lineHeight: "normal",
         }
       : {
           fontFamily: "LibreBaskerville-Bold",
@@ -40,7 +40,7 @@ export const FONTS: any = {
           fontFamily: "'Open Sans', sans-serif",
           fontWeight: "900",
           fontSize: 15,
-          lineHeight: "1em",
+          lineHeight: "normal",
         }
       : {
           fontFamily: "Faune-Display_Black",
@@ -110,9 +110,11 @@ export const LINKS = {
   INSTAGRAM: "https://www.instagram.com/stanforddaily/",
   YOUTUBE: "https://www.youtube.com/channel/UCWg3QqUzqxXt6herm5sMjNw",
   ISSUU: "https://issuu.com/thestanforddaily",
+  NEWSLETTER_LOGO:
+    "https://wp.stanforddaily.com/wp-content/uploads/2020/02/weekend_roundup_logo-1.jpg",
   DAILY_BREW_LOGO:
     "https://d3t3ozftmdmh3i.cloudfront.net/production/podcast_uploaded400/1460559/1460559-1550520909113-dfa4db03769d.jpg",
   ISSUU_LOGO:
-    "https://www.stanforddaily.com/wp-content/uploads/2019/09/Stanford-Panorama-Red.jpg",
+    "https://wp.stanforddaily.com/wp-content/uploads/2020/02/example_paper.png",
   ARCHIVES: "https://archives.stanforddaily.com/",
 };

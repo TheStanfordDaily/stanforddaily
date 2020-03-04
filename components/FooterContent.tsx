@@ -250,6 +250,13 @@ export const FooterContent: React.ElementType = ({ style }: any) => {
           url: "/category/arts-life/theater-intermission/",
           children: {},
         },
+        "video-games": {
+          id: 66235,
+          name: "Video Games",
+          slug: "video-games",
+          url: "/category/arts-life/video-games/",
+          children: {},
+        },
         "visual-arts-intermission": {
           id: 23867,
           name: "Visual Arts",
@@ -264,7 +271,36 @@ export const FooterContent: React.ElementType = ({ style }: any) => {
       name: "The Grind",
       slug: "thegrind",
       url: "/category/thegrind/",
-      children: {},
+      children: {
+        "social-life": {
+          id: 66231,
+          name: "Social Life",
+          slug: "social-life",
+          url: "/category/thegrind/social-life/",
+          children: {},
+        },
+        "campus-quirks": {
+          id: 66225,
+          name: "Campus Quirks",
+          slug: "campus-quirks",
+          url: "/category/thegrind/campus-quirks/",
+          children: {},
+        },
+        "reflections-advice": {
+          id: 66227,
+          name: "Reflections & Advice",
+          slug: "reflections-advice",
+          url: "/category/thegrind/reflections-advice/",
+          children: {},
+        },
+        "classes-declassified": {
+          id: 66232,
+          name: "Classes Declassified",
+          slug: "classes-declassified",
+          url: "/category/thegrind/classes-declassified/",
+          children: {},
+        },
+      },
     },
     satire: {
       id: 55796,

@@ -14,16 +14,20 @@
     "web": "expo start --web --dev",
     "eject": "expo eject",
     "build": "EXPO_DEBUG=true yarn expo build:web",
-    "now-build": "EXPO_DEBUG=true yarn expo build:web"
+    "now-build": "EXPO_DEBUG=true yarn expo build:web",
+    "deploy": "sls"
   },
   "dependencies": {
     "@emotion/babel-preset-css-prop": "^10.0.14",
     "@emotion/core": "^10.0.15",
+    "@emotion/css": "^10.0.27",
     "@emotion/native": "^10.0.14",
+    "@emotion/styled": "^10.0.27",
     "disqus-react": "^1.0.6",
     "emotion-native-media-query": "^0.2.1",
     "expo": "^35.0.0",
     "expo-font": "~7.0.0",
+    "isomorphic-fetch": "^2.2.1",
     "moment": "^2.24.0",
     "next": "^9.0.3",
     "next-routes": "^1.4.2",
@@ -40,7 +44,7 @@
     "react-native-webview": "7.0.5",
     "react-navigation": "^3.11.1",
     "serverless": "^1.61.1",
-    "serverless-next.js": "^1.8.0",
+    "serverless-next.js": "1.8.0",
     "wpapi": "^1.2.1"
   },
   "devDependencies": {
@@ -77,7 +81,6 @@
   },
   "lint-staged": {
     "*.+(js|jsx|ts|tsx)": [
-      "eslint --fix",
       "prettier --write",
       "git add"
     ],

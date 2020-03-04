@@ -1,11 +1,11 @@
 {
-  "id": "EDFWYTZVO3RU9",
-  "arn": "arn:aws:cloudfront::607998788272:distribution/EDFWYTZVO3RU9",
-  "url": "https://d3n7kasnn0snk4.cloudfront.net",
+  "id": "E31H9RANCOIMM",
+  "arn": "arn:aws:cloudfront::607998788272:distribution/E31H9RANCOIMM",
+  "url": "https://d3uak7r5z7qp0p.cloudfront.net",
   "region": "us-east-1",
   "origins": [
     {
-      "url": "http://hoamx6r-49ud0w.s3.amazonaws.com",
+      "url": "http://c2m3cl8-rgtj8lk.s3.amazonaws.com",
       "private": true,
       "pathPatterns": {
         "_next/*": {
@@ -19,16 +19,13 @@
   ],
   "defaults": {
     "ttl": 0,
-    "allowedHttpMethods": [
-      "HEAD",
-      "GET"
-    ],
+    "allowedHttpMethods": ["HEAD", "GET"],
     "forward": {
       "cookies": "all",
       "queryString": true
     },
     "lambda@edge": {
-      "origin-request": "arn:aws:lambda:us-east-1:607998788272:function:hoamx6r-7axbke:4"
+      "origin-request": "arn:aws:lambda:us-east-1:607998788272:function:c2m3cl8-6zgnou9:14"
     }
   }
 }

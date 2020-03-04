@@ -26,6 +26,8 @@ export const AuthorsTextWithLink: React.ElementType = ({
             rel="author"
             style={{
               color: "inherit",
+              marginTop: ".5em",
+              display: "inline-block",
               ...aStyle,
             }}
             {...props}
