@@ -57,6 +57,8 @@ export type Category = {
   url: string;
 };
 
+export type Tag = string;
+
 export type Thumbnail = {
   urls: {
     full?: string;
@@ -93,6 +95,12 @@ export type ArchivePageData = Base & {
 };
 
 export type CategoryArchivePageData = ArchivePageData & {
+  tsdMeta: {
+    title: string;
+  };
+};
+
+export type TagArchivePageData = ArchivePageData & {
   tsdMeta: {
     title: string;
   };
@@ -219,6 +227,17 @@ export async function getCategoryAsync(
     .pageNumber(pageNumber);
 }
 
+export async function getTagAsync(
+  slugs,
+  pageNumber,
+): Promise<TagArchivePageData> {
+  console.log(slugs);
+  return wpTsdJson
+    .tag()
+    .tagSlugs(slugs.map(encodeURIComponent).join("/"))
+    .pageNumber(pageNumber);
+}
+
 export async function getAuthorAsync(
   authorSlug: string,
   pageNumber: number,
@@ -280,6 +299,10 @@ export function splitCategoryToSlugs(category: Category): CategorySlugs {
     results[`slug${index + 1}`] = categorySlugsUrl[index];
   }
   return results;
+}
+
+export function splitTagToSlugs(tag) {
+  return [tag];
 }
 
 export function getPostTimeString(date: moment.Moment, format: string): string {
