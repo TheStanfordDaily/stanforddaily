@@ -93,11 +93,11 @@ export const CategoryList: React.ElementType = ({ itemStyle }: any) => {
       slug: "94305",
       url: "/category/@94305/",
     },
-    // {
-    //   type: LinkType.LINK,
-    //   name: "Podcast",
-    //   url: "/podcasts/",
-    // } as LinkLink,
+    {
+      type: LinkType.LINK,
+      name: "Podcasts",
+      url: "/category/podcasts/",
+    } as LinkLink,
     {
       type: LinkType.LINK,
       name: "Video",

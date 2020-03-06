@@ -194,12 +194,19 @@ export const TopSection: React.ElementType = ({ style }) => {
               header="Issue #"
               title="The Daily Magazine"
             /> */}
-            <SmallSection
+            {/* <SmallSection
               className="small-section small-section-podcasts"
               url="/category/podcasts/"
               imageUrl={LINKS.DAILY_BREW_LOGO}
               header="Podcasts"
               title="The Daily Brew & More"
+            /> */}
+            <SmallSection
+              className="small-section small-section-coronavirus"
+              url="/tag/coronavirus/"
+              imageUrl={LINKS.CORONAVIRUS_LOGO}
+              header="Coronavirus"
+              title="Latest Coverage"
             />
           </ViewRow>
           <ViewRow>
