@@ -174,14 +174,6 @@ export const TopSection: React.ElementType = ({ style }) => {
               newTab
             />
             <SmallSection
-              className="small-section small-section-sodp"
-              url={LINKS.SODP}
-              imageUrl={LINKS.SODP_LOGO}
-              header="Stanford Open Data Portal"
-              title="Explore Open Data"
-              newTab
-            />
-            <SmallSection
               className="small-section small-section-newsletters"
               url="/category/newsletters/"
               imageUrl={LINKS.NEWSLETTER_LOGO}
