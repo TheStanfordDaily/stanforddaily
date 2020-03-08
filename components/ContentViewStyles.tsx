@@ -32,10 +32,16 @@ export default {
     a: {
       textDecoration: "underline",
     },
-    "p, h1, h2, h3, h4, h5, h6, figcaption": {
+    "p, h1, h3, h4, h5, h6, figcaption": {
       ...centerContentStyle,
       marginBottom: "1em",
       fontSize: "1.3rem",
+      color: STANFORD_COLORS.BLACK,
+    },
+    h2: {
+      ...centerContentStyle,
+      marginBottom: "1em",
+      fontSize: "1.6rem",
       color: STANFORD_COLORS.BLACK,
     },
     figcaption: {
