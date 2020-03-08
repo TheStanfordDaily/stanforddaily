@@ -90,14 +90,14 @@ export const CategoryList: React.ElementType = ({ itemStyle }: any) => {
       type: LinkType.CATEGORY,
       id: 58277,
       name: "Data",
-      slug: "data-vizzes",
-      url: "/category/data-vizzes/",
+      slug: "94305",
+      url: "/category/@94305/",
     },
-    // {
-    //   type: LinkType.LINK,
-    //   name: "Podcast",
-    //   url: "/podcasts/",
-    // } as LinkLink,
+    {
+      type: LinkType.LINK,
+      name: "Podcasts",
+      url: "/category/podcasts/",
+    } as LinkLink,
     {
       type: LinkType.LINK,
       name: "Video",

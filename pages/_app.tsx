@@ -3,6 +3,7 @@ import App from "next/app";
 import Head from "next/head";
 import ReactGA from "react-ga";
 import { Global, css } from "@emotion/core";
+import { View } from "react-native";
 import RView, { MediaRule } from "emotion-native-media-query";
 import {
   STRINGS,
@@ -38,7 +39,7 @@ const containerRStyle: any = {
 
 const HeaderLogo: React.ElementType = () => {
   return (
-    <SectionStyle>
+    <View style={{ paddingTop: 15, paddingBottom: 15 }}>
       <RView
         style={{
           height: 60,
@@ -78,9 +79,29 @@ const HeaderLogo: React.ElementType = () => {
               />
             </a>
           </Link>
+          <Link href="/" as="/">
+            <a
+              id="tsd-logo-dataviz"
+              style={{
+                display: "none",
+                alignItems: "center",
+                height: "100%",
+              }}
+            >
+              <img
+                src="/static/94305-logo.png"
+                alt="The Stanford Daily"
+                css={{
+                  height: "auto",
+                  width: "120%",
+                  maxWidth: "100vw",
+                }}
+              />
+            </a>
+          </Link>
         </h1>
       </RView>
-    </SectionStyle>
+    </View>
   );
 };
 
@@ -236,6 +257,9 @@ export default class MyApp extends App {
           styles={{
             "body, button, input, optgroup, select, textarea": {
               ...FONTS.CONTENT,
+            },
+            "#tsd-logo-dataviz": {
+              display: "none",
             },
             a: {
               color: COLORS.LINK.DEFAULT,

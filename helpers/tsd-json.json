@@ -48,6 +48,11 @@
       "methods": ["GET"],
       "endpoints": [{ "methods": ["GET"], "args": [] }]
     },
+    "/tsd/json/v1/tag/(?P<tagSlugs>[\\S]+)/(?P<pageNumber>\\d+)": {
+      "namespace": "tsd/json/v1",
+      "methods": ["GET"],
+      "endpoints": [{ "methods": ["GET"], "args": [] }]
+    },
     "/tsd/json/v1/author/(?P<authorSlug>[\\w-]+)/(?P<pageNumber>\\d+)": {
       "namespace": "tsd/json/v1",
       "methods": ["GET"],

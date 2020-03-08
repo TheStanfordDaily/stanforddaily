@@ -1,0 +1,43 @@
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables: 
+- group: 'tsd-deployment'
+
+stages:
+- stage: test
+  jobs:
+  - job: test
+    steps:
+    - script: |
+        yarn install
+        yarn build
+      displayName: 'install, build'
+
+- stage: deploy_dev
+  dependsOn: test
+  condition: eq(variables['Build.SourceBranch'], 'refs/heads/master')
+  jobs:
+  - job: Deploy
+    steps:
+    - script: |
+        echo "Nothing yet"
+      displayName: 'deploy dev, todo'
+
+- stage: deploy_prod
+  dependsOn: deploy_dev
+  # condition: and(startsWith(variables['Build.SourceBranch'], 'refs/tags/'), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+  condition: eq(variables['Build.SourceBranch'], 'refs/heads/master')
+  jobs:
+  - job: Deploy
+    steps:
+    - script: |
+        yarn install
+        yarn build
+      displayName: 'install, build'
+    - script: |
+        yarn run deploy
+      displayName: 'deploy'
+      env:
+        AWS_ACCESS_KEY_ID: $(AWS_ACCESS_KEY_ID)
+        AWS_SECRET_ACCESS_KEY: $(AWS_SECRET_ACCESS_KEY)

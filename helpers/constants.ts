@@ -28,7 +28,7 @@ export const FONTS: any = {
           fontFamily: "'Libre Baskerville', sans-serif",
           fontWeight: "bold",
           fontSize: 15,
-          lineHeight: "1em",
+          lineHeight: "normal",
         }
       : {
           fontFamily: "LibreBaskerville-Bold",
@@ -40,7 +40,7 @@ export const FONTS: any = {
           fontFamily: "'Open Sans', sans-serif",
           fontWeight: "900",
           fontSize: 15,
-          lineHeight: "1em",
+          lineHeight: "normal",
         }
       : {
           fontFamily: "Faune-Display_Black",
@@ -93,6 +93,7 @@ export const STANFORD_COLORS = {
 
 export const COLORS = {
   BORDER_COLOR: STANFORD_COLORS.CLOUD,
+  DATA_RED: "#2e2d29",
   LINK: {
     DEFAULT: STANFORD_COLORS.CARDINAL_DARK_RED,
     VISITED: STANFORD_COLORS.CARDINAL_DARK_RED,
@@ -113,7 +114,12 @@ export const LINKS = {
     "https://wp.stanforddaily.com/wp-content/uploads/2020/02/weekend_roundup_logo-1.jpg",
   DAILY_BREW_LOGO:
     "https://d3t3ozftmdmh3i.cloudfront.net/production/podcast_uploaded400/1460559/1460559-1550520909113-dfa4db03769d.jpg",
+  CORONAVIRUS_LOGO:
+    "https://wp.stanforddaily.com/wp-content/uploads/2020/01/NEW.013120.coronavirus.png",
   ISSUU_LOGO:
     "https://wp.stanforddaily.com/wp-content/uploads/2020/02/example_paper.png",
+  SODP_LOGO:
+    "https://wp.stanforddaily.com/wp-content/uploads/2020/03/logo.b1da2910.jpg",
   ARCHIVES: "https://archives.stanforddaily.com/",
+  SODP: "http://opendata.stanforddaily.com/",
 };

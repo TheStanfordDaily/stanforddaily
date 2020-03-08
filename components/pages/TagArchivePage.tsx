@@ -1,10 +1,10 @@
 import React from "react";
 import { View, Text, Platform, ScrollView, SafeAreaView } from "react-native";
 import {
-  getCategoryAsync,
-  CategoryArchivePageData,
-  splitCategoryToSlugs,
-  Category,
+  getTagAsync,
+  TagArchivePageData,
+  splitTagToSlugs,
+  Tag,
 } from "helpers/wpapi";
 import { FONTS } from "helpers/constants";
 import Wrapper from "components/Wrapper";
@@ -14,15 +14,15 @@ import DataVizGlobal from "components/DataVizGlobal";
 import LoadingView from "components/Loading";
 import ArchivePage, { ArchivePageType, ArchivePageState } from "./ArchivePage";
 
-async function _getCategoryData(
+async function _getTagData(
   slugs: string[],
   pageNumber: number,
-): Promise<CategoryArchivePageData> {
-  return getCategoryAsync(slugs, pageNumber);
+): Promise<TagArchivePageData> {
+  return getTagAsync(slugs, pageNumber);
 }
 
-interface CategoryArchivePageProps {
-  initData: CategoryArchivePageData;
+interface TagArchivePageProps {
+  initData: TagArchivePageData;
   slugs: string[];
 }
 
@@ -31,16 +31,16 @@ function _getSlugs(query: any): string[] {
   return [slug1, slug2, slug3, slug4, slug5].filter(Boolean);
 }
 
-export default class CategoryArchivePage extends React.Component<
-  CategoryArchivePageProps,
+export default class TagArchivePage extends React.Component<
+  TagArchivePageProps,
   ArchivePageState
 > {
   static async getInitialProps(param): Promise<any> {
     const { query } = param;
     const slugs = _getSlugs(query);
-    const categoryData = await _getCategoryData(slugs, 1);
+    const tagData = await _getTagData(slugs, 1);
 
-    return { initData: categoryData, slugs };
+    return { initData: tagData, slugs };
   }
 
   render(): React.ReactNode {
@@ -54,9 +54,9 @@ export default class CategoryArchivePage extends React.Component<
         displayCategory={false}
         displayExcerpt={false}
         initData={initData}
-        type={ArchivePageType.Category}
+        type={ArchivePageType.Tag}
         getExtraData={async pageNumber => {
-          return _getCategoryData(slugs, pageNumber);
+          return _getTagData(slugs, pageNumber);
         }}
         {...this.props}
       />
@@ -97,8 +97,8 @@ export default class CategoryArchivePage extends React.Component<
   }
 }
 
-export function CategoryArchivePageWrapper(props: any): any {
-  const category: Category = props.navigation.state.params;
+export function TagArchivePageWrapper(props: any): any {
+  const tag: Tag = props.navigation.state.params;
   return (
     <ScrollView
       contentContainerStyle={{
@@ -107,14 +107,14 @@ export function CategoryArchivePageWrapper(props: any): any {
       }}
     >
       <Wrapper
-        class={CategoryArchivePage}
+        class={TagArchivePage}
         props={props}
-        getInitialProps={{ query: splitCategoryToSlugs(category) }}
+        getInitialProps={{ query: splitTagToSlugs(tag) }}
       />
     </ScrollView>
   );
 }
 // https://github.com/react-navigation/react-navigation/issues/2379
-CategoryArchivePageWrapper.navigationOptions = ({ navigation }) => ({
-  title: (navigation.state.params as Category).name || "Category",
+TagArchivePageWrapper.navigationOptions = ({ navigation }) => ({
+  //   title: (navigation.state.params as Tag).name || "Tag",
 });
