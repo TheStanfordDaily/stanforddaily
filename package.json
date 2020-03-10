@@ -8,7 +8,7 @@
   },
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
-    "start": "expo start",
+    "start": "npm run web",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web --dev",

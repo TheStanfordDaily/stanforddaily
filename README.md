@@ -11,7 +11,7 @@ This is the Stanford Daily website & mobile app. Visit the site at https://www.s
 yarn
 
 # Start
-yarn web
+yarn start
 ```
 
 Open up http://localhost:19006 in your browser.
