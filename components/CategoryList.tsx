@@ -31,6 +31,10 @@ export const CategoryList: React.ElementType = ({ itemStyle }: any) => {
   // https://www.stanforddaily.com/wp-json/tsd/json/v1/nav
   const categoryLinkList: (CategoryLink | LinkLink | SearchLink)[] = [
     {
+      type: LinkType.SEARCH,
+      name: "Search",
+    } as SearchLink,
+    {
       type: LinkType.CATEGORY,
       id: 3,
       name: "News",
@@ -123,10 +127,6 @@ export const CategoryList: React.ElementType = ({ itemStyle }: any) => {
       name: "Archives",
       url: LINKS.ARCHIVES,
     } as LinkLink,
-    {
-      type: LinkType.SEARCH,
-      name: "Search",
-    } as SearchLink,
   ];
 
   return (

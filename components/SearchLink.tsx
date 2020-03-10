@@ -30,13 +30,8 @@ const SearchInput = styled(
 
 export default () => (
   <RView
-    rStyle={{
-      [MediaRule.MaxWidth]: {
-        [BREAKPOINTS.MAX_WIDTH.DESKTOP]: {
-          // padding: "5px",
-          // margin: "auto"
-        },
-      },
+    style={{
+      marginRight: 20,
     }}
   >
     <form
