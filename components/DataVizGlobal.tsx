@@ -41,18 +41,12 @@ const SatireGlobal: React.ElementType = () => {
           },
           "#tsd-logo-dataviz": {
             display: "flex !important",
-            // position: "relative",
-            // width: 100,
-            // height: 100
+            marginLeft: -15,
           },
-          // "#tsd-logo-dataviz img": {
-          //   display: "block",
-          // },
           "#tsd-logo-dataviz div": {
             fontFamily: "'Roboto', sans-serif !important",
             position: "absolute",
             top: 0,
-            // right: 0
           },
         }}
       />
