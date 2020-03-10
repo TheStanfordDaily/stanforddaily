@@ -178,25 +178,10 @@ const SiteHeader: React.ElementType = (props: any) => {
           </RView>
         </RView>
         <RView
-          style={{
-            order: 3,
-          }}
-          rStyle={{
-            [MediaRule.MinWidth]: {
-              [BREAKPOINTS.DESKTOP]: {
-                ...getBorderValue("Top"),
-              },
-            },
-            [MediaRule.MaxWidth]: {
-              [BREAKPOINTS.MAX_WIDTH.TABLET]: {
-                display: "none",
-              },
-            },
-          }}
+          style={{ order: 3, overflow: "hidden", ...getBorderValue("Top") }}
+          rStyle={containerRStyle}
         >
-          <RView rStyle={containerRStyle}>
-            <TopSection />
-          </RView>
+          <TopSection />
         </RView>
       </RView>
     </>
