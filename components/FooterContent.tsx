@@ -7,6 +7,7 @@ import { Category } from "helpers/wpapi";
 import Link from "./Link";
 import { SECTION_PADDING } from "./Section";
 import { CategoryLink } from "./CategoryLink";
+import css from "@emotion/css";
 
 type CategoryWithChildren = Category & {
   children: { [slug: string]: CategoryWithChildren };
@@ -377,6 +378,11 @@ export const FooterContent: React.ElementType = ({ style }: any) => {
   return (
     <RView
       style={style}
+      css={css`
+        a {
+          line-height: 1.5em;
+        }
+      `}
       rStyle={{
         [MediaRule.MinWidth]: {
           [BREAKPOINTS.TABLET]: {
