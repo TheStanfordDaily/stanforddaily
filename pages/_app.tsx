@@ -39,7 +39,7 @@ const containerRStyle: any = {
 
 const HeaderLogo: React.ElementType = () => {
   return (
-    <View style={{ paddingTop: 15, paddingBottom: 15 }}>
+    <View style={{ padding: 15 }}>
       <RView
         style={{
           height: 60,
@@ -277,6 +277,16 @@ export default class MyApp extends App {
           styles={css`
             body {
               overflow: initial;
+            }
+            .visible-mobile {
+              @media (min-width: ${BREAKPOINTS.TABLET}px) {
+                display: none;
+              }
+            }
+            .hidden-mobile {
+              @media (max-width: ${BREAKPOINTS.MAX_WIDTH.TABLET}px) {
+                display: none;
+              }
             }
           `}
         />
