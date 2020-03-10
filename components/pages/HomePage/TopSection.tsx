@@ -144,26 +144,8 @@ const TextButtonWithLink: React.ElementType = ({
       {!mobileTitle && title}
       {mobileTitle && (
         <>
-          <span
-            css={css`
-              display: none;
-              @media (min-width: ${BREAKPOINTS.TABLET}px) {
-                display: inline;
-              }
-            `}
-          >
-            {title}
-          </span>
-          <span
-            css={css`
-              display: inline;
-              @media (min-width: ${BREAKPOINTS.TABLET}px) {
-                display: none;
-              }
-            `}
-          >
-            {mobileTitle}
-          </span>
+          <span className="hidden-mobile">{title}</span>
+          <span className="visible-mobile">{mobileTitle}</span>
         </>
       )}
     </a>
