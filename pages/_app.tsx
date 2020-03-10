@@ -130,9 +130,9 @@ const SiteHeader: React.ElementType = (props: any) => {
           },
           [MediaRule.MaxWidth]: {
             [BREAKPOINTS.MAX_WIDTH.TABLET]: {
-              position: "sticky",
-              top: 0,
-              zIndex: 999,
+              // position: "sticky",
+              // top: 0,
+              // zIndex: 999,
             },
           },
         }}
