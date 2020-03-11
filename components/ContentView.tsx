@@ -160,6 +160,9 @@ const ContentView: React.ElementType<ContentViewProps> = ({
               </span>
             </Byline>
           )}
+          <div style={{ margin: "auto" }}>
+            <broadstreet-zone zone-id="78246"></broadstreet-zone>
+          </div>
           <div id="main-article-text" />
           {/* TODO: UNKNOWN WHY THIS IS NECESSARY FOR SOME POSTS TO SHOW UP: E.G. https://www.stanforddaily.com/2019/11/20/the-disappearance-of-financial-aid-how-stanford-consumes-outside-scholarships-when-need-based-aid-doesnt-fulfill-student-needs/ */}
           <div
