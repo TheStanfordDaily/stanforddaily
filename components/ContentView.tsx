@@ -1,14 +1,11 @@
 import React from "react";
 import { Global } from "@emotion/core";
+import css from "@emotion/css";
 import { DiscussionEmbed, CommentCount } from "disqus-react";
 import RView from "emotion-native-media-query";
 import { Post } from "helpers/wpapi";
-import {
-  STRINGS,
-  BREAKPOINTS,
-  FONTS,
-  STANFORD_COLORS,
-} from "helpers/constants";
+import { View } from "react-native";
+import { STRINGS, BREAKPOINTS, FONTS } from "helpers/constants";
 import { SectionStyle, SECTION_PADDING } from "components/Section";
 import { Article, ArticleHeader } from "components/Article";
 import LoadingView from "components/Loading";
@@ -106,78 +103,97 @@ const ContentView: React.ElementType<ContentViewProps> = ({
       <WPHead base={post} />
       {isSatire && <SatireGlobal />}
       {isDataViz && <DataVizGlobal />}
-      <Article>
-        <ArticleHeader>
-          {isPost && (
+      <View
+        css={css`
+          display: flex;
+          flex-direction: row;
+        `}
+      >
+        <Article
+          css={css`
+            flex: 1;
+          `}
+        >
+          <ArticleHeader>
+            {isPost && (
+              <div
+                css={{
+                  ...centerContentStyle,
+                  textAlign: "center",
+                }}
+              >
+                <CategoryLink
+                  category={tsdPrimaryCategory}
+                  style={{
+                    fontSize: 20,
+                  }}
+                />
+              </div>
+            )}
+            <PostTitle>{postTitle}</PostTitle>
+            {postSubtitle ? (
+              <PostSubtitle>{postSubtitle}</PostSubtitle>
+            ) : (
+              undefined
+            )}
+          </ArticleHeader>
+          <Global styles={ContentViewStyles} />
+          <RView WebTag="main" id="main-article-content">
+            {thumbnailUrl ? (
+              <figure id="featured-image">
+                <img src={thumbnailUrl} alt={thumbnailAlt} />
+                {thumbnailCaption ? (
+                  <figcaption style={{ marginBottom: 0 }}>
+                    {thumbnailCaption}
+                  </figcaption>
+                ) : (
+                  undefined
+                )}
+              </figure>
+            ) : (
+              undefined
+            )}
+            {isPost && (
+              <Byline>
+                <span>{isSatire ? "Satire by" : "By"}</span>{" "}
+                <AuthorsTextWithLink
+                  authors={tsdAuthors}
+                  aStyle={{
+                    textDecoration: "underline",
+                  }}
+                />{" "}
+                <span>
+                  <DateWithAbbr post={post} format="on MMMM D, YYYY" />
+                </span>
+              </Byline>
+            )}
+            <div id="main-article-text" />
+            {/* TODO: UNKNOWN WHY THIS IS NECESSARY FOR SOME POSTS TO SHOW UP: E.G. https://www.stanforddaily.com/2019/11/20/the-disappearance-of-financial-aid-how-stanford-consumes-outside-scholarships-when-need-based-aid-doesnt-fulfill-student-needs/ */}
             <div
-              css={{
-                ...centerContentStyle,
-                textAlign: "center",
+              id="main-article-text2"
+              // eslint-disable-next-line react/no-danger
+              dangerouslySetInnerHTML={{
+                __html: postContent,
               }}
-            >
-              <CategoryLink
-                category={tsdPrimaryCategory}
-                style={{
-                  fontSize: 20,
-                }}
-              />
-            </div>
-          )}
-          <PostTitle>{postTitle}</PostTitle>
-          {postSubtitle ? (
-            <PostSubtitle>{postSubtitle}</PostSubtitle>
-          ) : (
-            undefined
-          )}
-        </ArticleHeader>
-        <Global styles={ContentViewStyles} />
-        <RView WebTag="main" id="main-article-content">
-          {thumbnailUrl ? (
-            <figure id="featured-image">
-              <img src={thumbnailUrl} alt={thumbnailAlt} />
-              {thumbnailCaption ? (
-                <figcaption style={{ marginBottom: 0 }}>
-                  {thumbnailCaption}
-                </figcaption>
-              ) : (
-                undefined
-              )}
-            </figure>
-          ) : (
-            undefined
-          )}
+            />
+          </RView>
           {isPost && (
-            <Byline>
-              <span>{isSatire ? "Satire by" : "By"}</span>{" "}
-              <AuthorsTextWithLink
-                authors={tsdAuthors}
-                aStyle={{
-                  textDecoration: "underline",
-                }}
-              />{" "}
-              <span>
-                <DateWithAbbr post={post} format="on MMMM D, YYYY" />
-              </span>
-            </Byline>
+            <footer css={centerOuterContentStyle} style={{ marginTop: 30 }}>
+              {tsdAuthors.map(author => (
+                <AuthorBox key={author.id} author={author} />
+              ))}
+            </footer>
           )}
-          <div id="main-article-text" />
-          {/* TODO: UNKNOWN WHY THIS IS NECESSARY FOR SOME POSTS TO SHOW UP: E.G. https://www.stanforddaily.com/2019/11/20/the-disappearance-of-financial-aid-how-stanford-consumes-outside-scholarships-when-need-based-aid-doesnt-fulfill-student-needs/ */}
-          <div
-            id="main-article-text2"
-            // eslint-disable-next-line react/no-danger
-            dangerouslySetInnerHTML={{
-              __html: postContent,
-            }}
-          />
-        </RView>
-        {isPost && (
-          <footer css={centerOuterContentStyle} style={{ marginTop: 30 }}>
-            {tsdAuthors.map(author => (
-              <AuthorBox key={author.id} author={author} />
-            ))}
-          </footer>
-        )}
-      </Article>
+        </Article>
+        <View
+          css={css`
+            flex: 1;
+            min-width: 100px;
+          `}
+        >
+          <span>test</span>
+        </View>
+      </View>
       {commentStatus === "open" && (
         <div css={{ ...centerContentStyle }}>
           <DiscussionEmbed
