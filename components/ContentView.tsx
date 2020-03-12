@@ -160,7 +160,7 @@ const ContentView: React.ElementType<ContentViewProps> = ({
               </span>
             </Byline>
           )}
-          <div style={{ margin: "auto" }}>
+          <div style={{ margin: "auto", maxWidth: "90vw" }}>
             <broadstreet-zone zone-id="78246"></broadstreet-zone>
           </div>
           <div id="main-article-text" />
