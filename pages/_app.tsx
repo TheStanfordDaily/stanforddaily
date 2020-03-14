@@ -228,10 +228,12 @@ export default class MyApp extends App {
     ReactGA.initialize("UA-5773957-1");
     ReactGA.pageview(window.location.pathname + window.location.search);
 
-    window.broadstreet = window.broadstreet || { run: [] };
-    window.broadstreet.run.push(function() {
-      window.broadstreet.watch({ networkId: 5607 });
-    });
+    if (Math.random() < 0.1) {
+      window.broadstreet = window.broadstreet || { run: [] };
+      window.broadstreet.run.push(function() {
+        window.broadstreet.watch({ networkId: 5607 });
+      });
+    }
   }
 
   render(): JSX.Element {
