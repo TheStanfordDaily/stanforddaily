@@ -20,12 +20,6 @@ import { FooterContent } from "components/FooterContent";
 import HeaderDonationBanner from "components/HeaderDonationBanner";
 import Link from "../components/Link";
 
-declare global {
-  interface Window {
-    broadstreet: any;
-  }
-}
-
 const containerRStyle: any = {
   [MediaRule.MinWidth]: {
     0: {
@@ -227,13 +221,6 @@ export default class MyApp extends App {
     // Initialize GA, track pageviews
     ReactGA.initialize("UA-5773957-1");
     ReactGA.pageview(window.location.pathname + window.location.search);
-
-    if (Math.random() < 0.1) {
-      window.broadstreet = window.broadstreet || { run: [] };
-      window.broadstreet.run.push(function() {
-        window.broadstreet.watch({ networkId: 5607 });
-      });
-    }
   }
 
   render(): JSX.Element {
@@ -312,11 +299,6 @@ export default class MyApp extends App {
           </main>
         </Layout>
         {includeHeaderAndFooter && <SiteFooter id="site-footer" />}
-
-        <script
-          src="https://cdn.broadstreetads.com/init-2.min.js"
-          async
-        ></script>
       </div>
     );
   }
