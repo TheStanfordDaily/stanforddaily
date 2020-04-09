@@ -284,6 +284,7 @@ export default class MyApp extends App {
             rel="stylesheet"
           />
           <link href="/static/fonts.css" rel="stylesheet" />
+          <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
         </Head>
         {/* `body` `overflow: initial` is added in order for `position: "sticky"` below to work. */}
         <Global
