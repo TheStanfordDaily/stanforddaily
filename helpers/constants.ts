@@ -115,7 +115,7 @@ export const LINKS = {
   DAILY_BREW_LOGO:
     "https://d3t3ozftmdmh3i.cloudfront.net/production/podcast_uploaded400/1460559/1460559-1550520909113-dfa4db03769d.jpg",
   CORONAVIRUS_LOGO:
-    "https://wp.stanforddaily.com/wp-content/uploads/2020/01/NEW.013120.coronavirus.png",
+    "https://wp.stanforddaily.com/wp-content/uploads/2020/01/NEW.013120.coronavirus-e1586436562445.png",
   ISSUU_LOGO:
     "https://wp.stanforddaily.com/wp-content/uploads/2020/02/example_paper.png",
   SODP_LOGO:
