@@ -114,7 +114,7 @@ const SiteHeader: React.ElementType = (props: any) => {
         }}
       >
         <RView rStyle={containerRStyle}>
-          <a href="http://apply.stanforddaily.com">
+          {/* <a href="http://apply.stanforddaily.com">
             <img
               src="https://wp.stanforddaily.com/wp-content/uploads/2020/04/apply_for_the_daily.jpg"
               style={{
@@ -126,7 +126,7 @@ const SiteHeader: React.ElementType = (props: any) => {
                 marginBottom: 20,
               }}
             />
-          </a>
+          </a> */}
           <HeaderDonationBanner currentPageUrl={props.router.asPath} />
         </RView>
       </RView>
