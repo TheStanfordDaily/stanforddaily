@@ -8,10 +8,10 @@
   },
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
-    "start": "npm run web",
+    "start": "next dev",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start --web --dev",
+    "web": "next dev",
     "eject": "expo eject",
     "build": "next build",
     "now-build": "EXPO_DEBUG=true yarn expo build:web",
