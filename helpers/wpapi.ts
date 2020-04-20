@@ -1,5 +1,6 @@
 import WPAPI from "wpapi";
 import moment from "moment";
+import "moment-timezone";
 import fetch from "isomorphic-fetch";
 import { STRINGS } from "./constants";
 import tsdJson from "./tsd-json.json";
@@ -259,7 +260,7 @@ export async function getSearchAsync(
 }
 
 export function getPostLocalDate(post: Post): moment.Moment {
-  const date = moment.utc(post.postDateGmt);
+  const date = moment.utc(post.postDateGmt).tz("America/Los_Angeles");
   return date;
 }
 
