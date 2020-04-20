@@ -291,6 +291,7 @@ export default class MyApp extends App {
           styles={css`
             body {
               overflow: initial;
+              font-size: 0.8em;
             }
             .visible-mobile {
               @media (min-width: ${BREAKPOINTS.TABLET}px) {
