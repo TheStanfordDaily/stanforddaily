@@ -289,6 +289,9 @@ export default class MyApp extends App {
         {/* `body` `overflow: initial` is added in order for `position: "sticky"` below to work. */}
         <Global
           styles={css`
+            html {
+              font-size: 0.8em;
+            }
             body {
               overflow: initial;
             }
