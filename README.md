@@ -14,7 +14,7 @@ yarn
 yarn start
 ```
 
-Open up http://localhost:19006 in your browser.
+Open up http://localhost:3000 in your browser.
 
 ## Mobile app release
 

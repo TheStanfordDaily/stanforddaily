@@ -1,14 +1,25 @@
+# custom files
 node_modules/**/*
-.expo/*
-npm-debug.*
+.serverless_nextjs
+.env
+
+# @generated: @expo/next-adapter@2.0.33
+/.expo/*
+# Expo Web
+/web-build/*
+# Expo Native
 *.jks
 *.p8
 *.p12
 *.key
 *.mobileprovision
 *.orig.*
-web-build/
-web-report/
-.next
-.serverless_nextjs
-.env
+# Next.js
+/.next/*
+/out/
+# Next.js production
+/build/
+# Next.js dependencies
+/.pnp
+.pnp.js
+# @end @expo/next-adapter

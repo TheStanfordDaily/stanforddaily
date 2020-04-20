@@ -7,6 +7,7 @@ module.exports = function(api) {
       ["babel-preset-expo"],
       isWeb && ["@emotion/babel-preset-css-prop"],
     ].filter(Boolean),
+    // presets: ['@expo/next-adapter/babel'],
     plugins: [
       !isWeb && ["emotion"],
       !isDev && ["transform-remove-console"],
