@@ -206,7 +206,7 @@ export default class HomePage extends React.Component<IndexProps, IndexState> {
                 ...getBorderValue("Bottom"),
               }}
             /> */}
-            <SponsoredSection category={null} content={homePosts.sponsored} />
+            {/* <SponsoredSection category={null} content={homePosts.sponsored} /> */}
             <MoreFromTheDailySection
               category={null}
               content={homePosts.moreFromTheDaily}
