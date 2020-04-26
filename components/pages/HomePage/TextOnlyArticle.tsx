@@ -25,8 +25,6 @@ export const TextOnlyArticle: React.ElementType = ({
       post={post}
       style={{
         width: "100%",
-        marginTop: 0,
-        marginbottom: 0,
         ...style,
       }}
     >
