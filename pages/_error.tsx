@@ -1,3 +1,15 @@
-import Redirect from "./_redirect";
+import React from "react";
+import { STRINGS } from "../helpers/constants";
 
-export default Redirect;
+const Page = () => {
+  return null;
+};
+
+Page.getInitialProps = async ({ asPath, res }) => {
+  res.writeHead(302, {
+    Location: STRINGS.WEBSITE_URL,
+  });
+  res.end();
+};
+
+export default Page;
