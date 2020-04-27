@@ -5,3 +5,8 @@ myNextApplication:
     build:
       cmd: expo build-web
       enabled: false
+    cloudfront:
+      comment: "Stanford Daily website"
+      defaults:
+        ttl: 60
+        compress: true
