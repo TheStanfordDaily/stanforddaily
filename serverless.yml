@@ -1,5 +1,5 @@
 myNextApplication:
-  component: serverless-next.js
+  component: serverless-next.js@1.8.0
   inputs:
     # domain: "stanforddaily.com" # sub-domain defaults to www
     build:
