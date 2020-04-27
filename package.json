@@ -48,7 +48,7 @@
     "react-native-webview": "8.1.1",
     "react-navigation": "^3.11.1",
     "serverless": "^1.61.1",
-    "serverless-next.js": "1.8.0",
+    "serverless-next.js": "^1.10.0",
     "wpapi": "^1.2.1"
   },
   "devDependencies": {

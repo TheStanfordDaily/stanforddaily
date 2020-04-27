@@ -3277,6 +3277,15 @@
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-0.7.0.tgz#9a06f4f137ee84d7df0460c1fdb1135ffa6c50fd"
   integrity sha512-ONhaKPIufzzrlNbqtWFFd+jlnemX6lJAgq9ZeiZtS7I1PIf/la7CW4m83rTXRnVnsMbW2k56pGYu7AUFJD9Pow==
 
+"@sls-next/lambda-at-edge@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@sls-next/lambda-at-edge/-/lambda-at-edge-1.1.0.tgz#ff8a718f54192ab4099d3665ac6d21cede5ceb80"
+  integrity sha512-lsG7+vbT6s1jir/QdFvBNzH2S0K1zBxihaplLOe/cpcR6YW58wWvjlXjuK2nchSMgE9umfcKgi6isBgwl7IUlQ==
+  dependencies:
+    execa "^4.0.0"
+    fs-extra "^9.0.0"
+    path-to-regexp "^6.1.0"
+
 "@szmarczak/http-timer@^1.1.2":
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/@szmarczak/http-timer/-/http-timer-1.1.2.tgz#b1665e2c461a2cd92f4c1bbf50d5454de0d4b421"
@@ -7765,18 +7774,18 @@ execa@^2.0.3:
     signal-exit "^3.0.2"
     strip-final-newline "^2.0.0"
 
-execa@^2.0.4:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/execa/-/execa-2.1.0.tgz#e5d3ecd837d2a60ec50f3da78fd39767747bbe99"
-  integrity sha512-Y/URAVapfbYy2Xp/gb6A0E7iR8xeqOCXsuuaoMn7A5PzrXUK84E1gyiEfq0wQd/GHA6GsoHWwhNq8anb0mleIw==
+execa@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/execa/-/execa-4.0.0.tgz#7f37d6ec17f09e6b8fc53288611695b6d12b9daf"
+  integrity sha512-JbDUxwV3BoT5ZVXQrSVbAiaXhXUkIwvbhPIwZ0N13kX+5yCzOhUNdocxB/UQRuYOHRYYwAxKYwJYc0T4D12pDA==
   dependencies:
     cross-spawn "^7.0.0"
     get-stream "^5.0.0"
+    human-signals "^1.1.1"
     is-stream "^2.0.0"
     merge-stream "^2.0.0"
-    npm-run-path "^3.0.0"
+    npm-run-path "^4.0.0"
     onetime "^5.1.0"
-    p-finally "^2.0.0"
     signal-exit "^3.0.2"
     strip-final-newline "^2.0.0"
 
@@ -9756,6 +9765,11 @@ https-proxy-agent@^5.0.0:
   dependencies:
     agent-base "6"
     debug "4"
+
+human-signals@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/human-signals/-/human-signals-1.1.1.tgz#c5b1cd14f50aeae09ab6c59fe63ba3395fe4dfa3"
+  integrity sha512-SEQu7vl8KjNL2eoGBLF3+wAjpsNfA9XMlXAYj/3EdaNfAlxKthD1xjEQfGOUhllCGGJVNY34bRr6lPINhNjyZw==
 
 humanize-ms@^1.2.1:
   version "1.2.1"
@@ -12380,10 +12394,10 @@ neo-async@^2.5.0, neo-async@^2.6.1:
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.1.tgz#ac27ada66167fa8849a6addd837f6b189ad2081c"
   integrity sha512-iyam8fBuCUpWeKPGpaNMetEocMt364qkCsfL9JuhjXX6dRnguRVOfk2GZaDpPjcOKiiXCPINZC1GczQ7iTq3Zw==
 
-next-aws-lambda@^2.3.2:
-  version "2.3.4"
-  resolved "https://registry.yarnpkg.com/next-aws-lambda/-/next-aws-lambda-2.3.4.tgz#b1877d5c61b096874ee205139a3b8c527166c772"
-  integrity sha512-WhqBDntQihQr4IVxWUYyAcbxaw79No3+be4je6/opefSl2fnBwfPh0amh5nsnMoONEZlW0G6uZpgxoNgyHljlA==
+next-aws-cloudfront@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/next-aws-cloudfront/-/next-aws-cloudfront-1.1.0.tgz#5f413c2144b6ee86d3b70c632802e39af41ae021"
+  integrity sha512-wqwefYlaOScqofWWN/ZLH/xqskNRCWGqarWBQB8cLuaPDaE4gl8oka26pzALbJOGM33EjZDmWoGGZvdKfiq6Kg==
 
 next-compose-plugins@^2.2.0:
   version "2.2.0"
@@ -12819,6 +12833,13 @@ npm-run-path@^3.0.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/npm-run-path/-/npm-run-path-3.1.0.tgz#7f91be317f6a466efed3c9f2980ad8a4ee8b0fa5"
   integrity sha512-Dbl4A/VfiVGLgQv29URL9xshU8XDY1GeLy+fsaZ1AA8JDSfjvr5P5+pzRbWqRSBxk6/DW7MIh8lTM/PaGnP2kg==
+  dependencies:
+    path-key "^3.0.0"
+
+npm-run-path@^4.0.0:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/npm-run-path/-/npm-run-path-4.0.1.tgz#b7ecd1e5ed53da8e37a55e1c2269e0b97ed748ea"
+  integrity sha512-S48WzZW777zhNIrn7gxOlISNAqi9ZC/uQFnRdbeIHhZhCA6UqpkOT8T1G7BvfdgP4Er8gF4sUbaS0i7QvIfCWw==
   dependencies:
     path-key "^3.0.0"
 
@@ -13597,10 +13618,10 @@ path-to-regexp@^2.1.0:
   resolved "https://registry.yarnpkg.com/path-to-regexp/-/path-to-regexp-2.4.0.tgz#35ce7f333d5616f1c1e1bfe266c3aba2e5b2e704"
   integrity sha512-G6zHoVqC6GGTQkZwF4lkuEyMbVOjoBKAEybQUypI1WTkqinCOrq2x6U2+phkJ1XsEMTy4LjtwPI7HW+NVrRR2w==
 
-path-to-regexp@^3.0.0:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/path-to-regexp/-/path-to-regexp-3.2.0.tgz#fa7877ecbc495c601907562222453c43cc204a5f"
-  integrity sha512-jczvQbCUS7XmS7o+y1aEO9OBVFeZBQ1MDSEqmO7xSoPgOPoowY/SxLpZ6Vh97/8qHZOteiCKb7gkG9gA2ZUxJA==
+path-to-regexp@^6.1.0:
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/path-to-regexp/-/path-to-regexp-6.1.0.tgz#0b18f88b7a0ce0bfae6a25990c909ab86f512427"
+  integrity sha512-h9DqehX3zZZDCEm+xbfU0ZmwCGFCAAraPJWMXJ4+v32NjZJilVg3k1TcKsRgIb8IQ/izZSaydDc1OhJCZvs2Dw==
 
 path-type@^2.0.0:
   version "2.0.0"
@@ -15726,20 +15747,19 @@ serve-static@1.14.1, serve-static@^1.13.1:
     parseurl "~1.3.3"
     send "0.17.1"
 
-serverless-next.js@1.8.0:
-  version "1.8.0"
-  resolved "https://registry.yarnpkg.com/serverless-next.js/-/serverless-next.js-1.8.0.tgz#1d388cba604220dbc7254eb63f61b64fdfa25099"
-  integrity sha512-wIM27QEBcqUdmsNZNKIV+66DndF5MqALva+5Zy4gl4s1etGji2Vre/mkP+AjqCQ7O/sYVOF5v2V1tHcLpP936A==
+serverless-next.js@^1.10.0:
+  version "1.10.0"
+  resolved "https://registry.yarnpkg.com/serverless-next.js/-/serverless-next.js-1.10.0.tgz#55f2b04ce2d5c48e75f3302b962f199b34810d8f"
+  integrity sha512-Q6/Rq4daF1QyZzbHJ9sC6+vASLggsv3e0atCNCzPdlKD+Ce7iIJWrgmrLP6WU/fa0OsUltg2Lf/lLc7eTwyVHg==
   dependencies:
     "@serverless/aws-cloudfront" "^5.0.0"
     "@serverless/aws-lambda" "^3.0.0"
     "@serverless/aws-s3" "^4.2.0"
     "@serverless/core" "^1.0.0"
     "@serverless/domain" "^6.1.0"
-    execa "^2.0.4"
+    "@sls-next/lambda-at-edge" "^1.1.0"
     fs-extra "^8.1.0"
-    next-aws-lambda "^2.3.2"
-    path-to-regexp "^3.0.0"
+    next-aws-cloudfront "^1.1.0"
 
 serverless@^1.61.1:
   version "1.61.1"

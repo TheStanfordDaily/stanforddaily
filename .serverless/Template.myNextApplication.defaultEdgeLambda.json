@@ -1,10 +1,10 @@
 {
   "name": "c2m3cl8-6zgnou9",
-  "hash": "u9W+fX0Dupee4T4sb97Vl/rTkjrFkormuJKcW2cXov0=",
+  "hash": "e9vaOoBrJzFbbGpiva5O2oaleNarxBAmJZUeMaF/2xQ=",
   "description": "Default Lambda@Edge for Next CloudFront distribution",
-  "memory": 512,
+  "memory": 1024,
   "timeout": 10,
-  "code": "/home/epicfaace/tsd/stanforddaily/.serverless_nextjs/default-lambda",
+  "code": "/Users/epicfaace/tsd/stanforddaily/.serverless_nextjs/default-lambda",
   "shims": [],
   "handler": "index.handler",
   "runtime": "nodejs10.x",

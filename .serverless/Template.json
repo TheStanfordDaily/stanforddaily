@@ -1,5 +1,5 @@
 {
   "components": {
-    "myNextApplication": "/home/epicfaace/.serverless/components/registry/npm/serverless-next.js@1.9.2/node_modules/serverless-next.js"
+    "myNextApplication": "/Users/epicfaace/.serverless/components/registry/npm/serverless-next.js@1.10.0/node_modules/serverless-next.js"
   }
 }
