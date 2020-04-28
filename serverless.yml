@@ -3,11 +3,12 @@ myNextApplication:
   inputs:
     memory: 1024
     # domain: "stanforddaily.com" # sub-domain defaults to www
-    build:
-      cmd: expo build-web
-      enabled: false
     cloudfront:
       comment: "Stanford Daily website"
       defaults:
         ttl: 60
         compress: true
+        forward:
+          headers: 'none'
+          cookies: 'none'
+          queryString: false
