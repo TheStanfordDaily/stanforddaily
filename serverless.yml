@@ -11,4 +11,5 @@ myNextApplication:
         forward:
           headers: 'none'
           cookies: 'none'
-          queryString: false
+          queryString: true
+          queryStringCacheKeys: ['s']
