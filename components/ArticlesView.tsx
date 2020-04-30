@@ -11,20 +11,21 @@ import {
 import { Post } from "helpers/wpapi";
 import { SECTION_PADDING } from "components/Section";
 import { TextOnlyArticle } from "components/pages/HomePage/TextOnlyArticle";
+import { HeadlineArticle } from "./pages/HomePage/HeadlineArticle";
 
 const EachArticleView: React.ElementType = ({
   children,
   style,
-  displayExcerpt,
   rStyle = {},
+  large = false,
 }) => {
   return (
     <RView
       style={{
         width: "100%",
-        flexGrow: 1,
+        flexGrow: large ? 4 : 1,
         flexShrink: 0,
-        flexBasis: 250,
+        flexBasis: large ? "50%" : 250,
         marginLeft: SECTION_PADDING,
         marginRight: SECTION_PADDING,
         marginBottom: SECTION_PADDING,
@@ -34,7 +35,7 @@ const EachArticleView: React.ElementType = ({
         {
           [MediaRule.MinWidth]: {
             [BREAKPOINTS.TABLET]: {
-              minHeight: displayExcerpt ? 340 : 200,
+              minHeight: large ? 400 : 200,
             },
           },
         },
@@ -89,15 +90,19 @@ const ArticlesView: React.ElementType<ArticlesViewProps> = ({
         marginRight: -SECTION_PADDING,
       }}
     >
-      {initPosts.concat(extraPosts).map(post => (
-        <EachArticleView key={post.id} displayExcerpt={displayExcerpt}>
-          <TextOnlyArticle
-            post={post}
-            displayCategory={displayCategory}
-            displayExcerpt={displayExcerpt}
-            displayDateAuthor={displayDateAuthor}
-            textColor={textColor}
-          />
+      {initPosts.concat(extraPosts).map((post, i) => (
+        <EachArticleView key={post.id} large={i === 0 ? true : false}>
+          {i === 0 ? (
+            <HeadlineArticle post={post} />
+          ) : (
+            <TextOnlyArticle
+              post={post}
+              displayCategory={displayCategory}
+              displayExcerpt={displayExcerpt}
+              displayDateAuthor={displayDateAuthor}
+              textColor={textColor}
+            />
+          )}
         </EachArticleView>
       ))}
       {[...Array(6)].map((value, index) => (
