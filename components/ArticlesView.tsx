@@ -55,6 +55,10 @@ interface ArticlesViewProps {
   displayExcerpt?: boolean;
   displayDateAuthor?: boolean;
   textColor?: string;
+
+  // Whether the first article is enlarged / "featured". Currently
+  // enabled only on category pages.
+  enlargeFirstArticle?: boolean;
 }
 
 const ArticlesView: React.ElementType<ArticlesViewProps> = ({
@@ -65,6 +69,7 @@ const ArticlesView: React.ElementType<ArticlesViewProps> = ({
   displayExcerpt = true,
   displayDateAuthor = true,
   textColor = STANFORD_COLORS.BLACK,
+  enlargeFirstArticle = false,
 }: ArticlesViewProps) => {
   const [extraPosts, setExtraPosts]: [Post[], any] = React.useState([]);
   const [extraPageNumber, setExtraPageNumber]: [number, any] = React.useState(
@@ -91,8 +96,11 @@ const ArticlesView: React.ElementType<ArticlesViewProps> = ({
       }}
     >
       {initPosts.concat(extraPosts).map((post, i) => (
-        <EachArticleView key={post.id} large={i === 0 ? true : false}>
-          {i === 0 ? (
+        <EachArticleView
+          key={post.id}
+          large={enlargeFirstArticle && i === 0 ? true : false}
+        >
+          {enlargeFirstArticle && i === 0 ? (
             <HeadlineArticle post={post} />
           ) : (
             <TextOnlyArticle

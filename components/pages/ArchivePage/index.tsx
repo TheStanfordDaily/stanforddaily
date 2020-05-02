@@ -21,6 +21,10 @@ export interface ArchivePageProps {
   getExtraData: (pageNumber: number) => Promise<ArchivePageData>;
   displayCategory?: boolean;
   displayExcerpt?: boolean;
+
+  // Whether the first article is enlarged / "featured". Currently
+  // enabled only on category pages.
+  enlargeFirstArticle?: boolean;
 }
 
 export interface ArchivePageState {}
@@ -29,6 +33,10 @@ export default class ArchivePage extends React.Component<
   ArchivePageProps,
   ArchivePageState
 > {
+  static defaultProps = {
+    enlargeFirstArticle: true,
+  };
+
   static async getInitialProps(param): Promise<any> {
     return {};
   }
@@ -39,6 +47,7 @@ export default class ArchivePage extends React.Component<
       getExtraData,
       displayCategory,
       displayExcerpt,
+      enlargeFirstArticle,
     } = this.props;
     if (!initData) {
       return <LoadingView />;
@@ -49,6 +58,7 @@ export default class ArchivePage extends React.Component<
         displayCategory={displayCategory}
         displayExcerpt={displayExcerpt}
         initPosts={initData.posts}
+        enlargeFirstArticle={enlargeFirstArticle}
         getExtraPosts={async pageNumber => {
           const extraData = await getExtraData(pageNumber);
           return extraData.posts;

@@ -51,6 +51,7 @@ export default class SearchArchivePage extends React.Component<
           getExtraData={async pageNumber => {
             return _getSearchData(keyword, pageNumber);
           }}
+          enlargeFirstArticle={false}
           {...this.props}
         />
       </Section>
