@@ -54,6 +54,7 @@ interface ArticlesViewProps {
   displayLoadMore?: boolean;
   displayExcerpt?: boolean;
   displayDateAuthor?: boolean;
+  hideCategory?: boolean;
   textColor?: string;
 
   // Whether the first article is enlarged / "featured". Currently
@@ -68,6 +69,7 @@ const ArticlesView: React.ElementType<ArticlesViewProps> = ({
   displayLoadMore = true,
   displayExcerpt = true,
   displayDateAuthor = true,
+  hideCategory = false,
   textColor = STANFORD_COLORS.BLACK,
   enlargeFirstArticle = false,
 }: ArticlesViewProps) => {
@@ -105,7 +107,7 @@ const ArticlesView: React.ElementType<ArticlesViewProps> = ({
           ) : (
             <TextOnlyArticle
               post={post}
-              displayCategory={displayCategory}
+              displayCategory={hideCategory ? false : displayCategory}
               displayExcerpt={displayExcerpt}
               displayDateAuthor={displayDateAuthor}
               textColor={textColor}
