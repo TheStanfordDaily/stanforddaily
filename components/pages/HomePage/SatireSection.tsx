@@ -17,7 +17,7 @@ export const SatireSection: React.ElementType<SectionProps> = ({
       }}
     >
       <SectionTitleColorBackground>Satire</SectionTitleColorBackground>
-      <br></br>
+      <br />
       <ArticlesView
         initPosts={content}
         displayLoadMore={false}
