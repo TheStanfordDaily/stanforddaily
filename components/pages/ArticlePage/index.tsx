@@ -5,6 +5,7 @@ import { getPostAsync, getPostPath, Post } from "helpers/wpapi";
 import { STRINGS } from "helpers/constants";
 import LoadingView from "components/Loading";
 import ContentView from "components/ContentView";
+import DonationForm from "components/DonationForm";
 
 interface ArticlePageProps {
   post?: Post;

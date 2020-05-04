@@ -10,7 +10,7 @@ import {
   isWidthGreaterThanOrEqualTo,
 } from "emotion-native-media-query";
 import { BREAKPOINTS } from "helpers/constants";
-import { getHomeAsync, Home } from "helpers/wpapi";
+import { getHomeAsync, Home, getCategoryAsync } from "helpers/wpapi";
 import Wrapper from "components/Wrapper";
 import { CategoryList } from "components/CategoryList";
 import LoadingView from "components/Loading";
@@ -24,6 +24,7 @@ import { GrindSection } from "./GrindSection";
 import { OpinionSection } from "./OpinionSection";
 import { ArtsAndLifeSection } from "./ArtsAndLifeSection";
 import { CartoonsSection } from "./CartoonsSection";
+import { SatireSection } from "./SatireSection";
 import { SponsoredSection } from "./SponsoredSection";
 import { MultimediaSection } from "./MultimediaSection";
 import { MoreFromTheDailySection } from "./MoreFromTheDailySection";
@@ -33,6 +34,7 @@ import { getBorderValue } from "./getBorderValue";
 
 interface IndexProps {
   homePosts?: Home;
+  Post;
   navigation?: any;
   refreshControl?: any;
 }
@@ -206,7 +208,10 @@ export default class HomePage extends React.Component<IndexProps, IndexState> {
                 ...getBorderValue("Bottom"),
               }}
             /> */}
-            {/* <SponsoredSection category={null} content={homePosts.sponsored} /> */}
+            <SatireSection
+              category={homePosts.tsdMeta.categories.satire}
+              content={homePosts.satire}
+            />
             <MoreFromTheDailySection
               category={null}
               content={homePosts.moreFromTheDaily}

@@ -12,10 +12,24 @@ const SectionTitleStyle = styled.Text({
   margin: 0,
   textTransform: "none",
 });
+
+const SectionTitleStyleColorBackground = styled.Text({
+  ...FONTS.SECTION_TITLE,
+  color: STANFORD_COLORS.WHITE,
+  fontSize: 20,
+  margin: 0,
+  textTransform: "none",
+});
+
 const SectionTitleElement =
   Platform.OS === "web"
     ? SectionTitleStyle.withComponent("h1")
     : SectionTitleStyle;
+
+const SectionTitleElementColorBackground =
+  Platform.OS === "web"
+    ? SectionTitleStyleColorBackground.withComponent("h1")
+    : SectionTitleStyleColorBackground;
 
 type SectionTitleProps = {
   category?: Category;
@@ -29,6 +43,16 @@ export const SectionTitle: React.ElementType<SectionTitleProps> = ({
   children = category.name,
 }: SectionTitleProps) => {
   return <SectionTitleElement style={style}>{children}</SectionTitleElement>;
+};
+
+export const SectionTitleColorBackground: React.ElementType<
+  SectionTitleProps
+> = ({ category, style, children = category.name }: SectionTitleProps) => {
+  return (
+    <SectionTitleElementColorBackground style={style}>
+      {children}
+    </SectionTitleElementColorBackground>
+  );
 };
 
 type SectionTitleWithLinkProps = SectionTitleProps & {
