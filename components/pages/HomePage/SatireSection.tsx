@@ -17,12 +17,12 @@ export const SatireSection: React.ElementType<SectionProps> = ({
       }}
     >
       <SectionTitleColorBackground>Satire</SectionTitleColorBackground>
-      <br></br>
+
       <ArticlesView
         initPosts={content}
         displayLoadMore={false}
         displayExcerpt={false}
-        displayDateAuthor={false}
+        displayDateAuthor={true}
         hideCategory={true}
         textColor={STANFORD_COLORS.WHITE}
       />
