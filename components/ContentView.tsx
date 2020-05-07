@@ -21,6 +21,8 @@ import { CategoryLink } from "./CategoryLink";
 import { DateWithAbbr } from "./DateView";
 import SatireGlobal from "./SatireGlobal";
 import DataVizGlobal from "./DataVizGlobal";
+import DonationForm from "./DonationForm";
+import FooterDonationBanner from "components/FooterDonationBanner";
 
 import ContentViewStyles, {
   centerOuterContentStyle,
@@ -172,6 +174,9 @@ const ContentView: React.ElementType<ContentViewProps> = ({
         </RView>
         {isPost && (
           <footer css={centerOuterContentStyle} style={{ marginTop: 30 }}>
+            <FooterDonationBanner
+              currentPageUrl={"https://www.stanforddaily.com"}
+            />
             {tsdAuthors.map(author => (
               <AuthorBox key={author.id} author={author} />
             ))}
