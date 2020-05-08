@@ -1,7 +1,7 @@
 import WPAPI from "wpapi";
 import moment from "moment";
 import "moment-timezone";
-import fetch from "isomorphic-fetch";
+import fetch from "cross-fetch";
 import { STRINGS } from "./constants";
 import tsdJson from "./tsd-json.json";
 
