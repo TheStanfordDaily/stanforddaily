@@ -107,10 +107,15 @@ export const CategoryList: React.ElementType = ({ itemStyle }: any) => {
       name: "Video",
       url: LINKS.YOUTUBE,
     } as LinkLink,
+    // {
+    //   type: LinkType.LINK,
+    //   name: "Yearbook",
+    //   url: "/yearbook/",
+    // } as LinkLink,
     {
       type: LinkType.LINK,
-      name: "Yearbook",
-      url: "/yearbook/",
+      name: "Voting Members",
+      url: "/voting-members/",
     } as LinkLink,
     {
       type: LinkType.LINK,
