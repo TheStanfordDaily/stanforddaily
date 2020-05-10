@@ -213,8 +213,8 @@ export const TopSection: React.ElementType = ({ style }) => {
             className="small-section small-section-newsletters"
             url="/high-school-programs/"
             imageUrl={LINKS.NEWSLETTER_LOGO}
-            header="Summer Programs"
-            title="Offered for high school students nationally"
+            header="Summer Programs | APPLY NOW"
+            title="For high school students nationally"
             newTab
           />
           {/* <SmallSection
