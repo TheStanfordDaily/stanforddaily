@@ -22,7 +22,7 @@ export const SatireSection: React.ElementType<SectionProps> = ({
         initPosts={content}
         displayLoadMore={false}
         displayExcerpt={false}
-        displayDateAuthor={false}
+        displayDateAuthor={true}
         hideCategory={true}
         textColor={STANFORD_COLORS.WHITE}
       />
