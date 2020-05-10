@@ -201,12 +201,20 @@ export const TopSection: React.ElementType = ({ style }) => {
             title="Explore Open Data"
             newTab
           />
-          <SmallSection
+          {/*<SmallSection
             className="small-section small-section-newsletters"
             url="/category/newsletters/"
             imageUrl={LINKS.NEWSLETTER_LOGO}
             header="Weekend Roundup"
             title="Read Our Weekly Newsletter"
+            newTab
+          />*/}
+          <SmallSection
+            className="small-section small-section-newsletters"
+            url="/high-school-programs/"
+            imageUrl={LINKS.NEWSLETTER_LOGO}
+            header="Summer Programs"
+            title="Offered for high school students nationally"
             newTab
           />
           {/* <SmallSection
