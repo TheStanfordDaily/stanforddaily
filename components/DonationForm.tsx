@@ -10,7 +10,7 @@ const DonationForm: React.ElementType = ({
     boolean,
     (boolean) => void,
   ] = React.useState(false);
-  const [amount, setAmount]: [string, (string) => void] = React.useState("5");
+  const [amount, setAmount]: [string, (string) => void] = React.useState("50");
 
   const recurringForm = React.createRef<HTMLFormElement>();
 
