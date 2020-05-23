@@ -134,12 +134,13 @@ const SiteHeader: React.ElementType = (props: any) => {
             <img
               src="https://wp.stanforddaily.com/wp-content/uploads/2020/05/reader-survey-5-12-20.jpg"
               style={{
-                maxHeight: 80,
+                maxHeight: 100,
                 objectFit: "contain",
-                width: "80%",
+                width: "100%",
                 display: "block",
                 margin: "auto",
                 marginBottom: 0,
+                marginTop: 0,
                 // backgroundColor: "#8C1515"
               }}
             />
