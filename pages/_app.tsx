@@ -127,6 +127,23 @@ const SiteHeader: React.ElementType = (props: any) => {
               }}
             />
           </a> */}
+          <a
+            target="_blank"
+            href="https://docs.google.com/forms/d/e/1FAIpQLScPzcqoZYTfUx5hPIe56Ils1gKn0ibO27ugWmiJVMKADdgdpA/viewform"
+          >
+            <img
+              src="https://wp.stanforddaily.com/wp-content/uploads/2020/05/reader-survey-5-12-20.jpg"
+              style={{
+                maxHeight: 80,
+                objectFit: "contain",
+                width: "80%",
+                display: "block",
+                margin: "auto",
+                marginBottom: 0,
+                // backgroundColor: "#8C1515"
+              }}
+            />
+          </a>
           <HeaderDonationBanner currentPageUrl={props.router.asPath} />
         </RView>
       </RView>
