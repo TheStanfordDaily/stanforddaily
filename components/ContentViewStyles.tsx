@@ -47,7 +47,7 @@ export default {
     li: {
       ...centerContentStyle,
       marginBottom: "1em",
-      fontSize: "1.6rem",
+      fontSize: "1.3rem",
       color: STANFORD_COLORS.BLACK,
     },
     figcaption: {
