@@ -44,6 +44,12 @@ export default {
       fontSize: "1.6rem",
       color: STANFORD_COLORS.BLACK,
     },
+    li: {
+      ...centerContentStyle,
+      marginBottom: "1em",
+      fontSize: "1.6rem",
+      color: STANFORD_COLORS.BLACK,
+    },
     figcaption: {
       ...FONTS.AUXILIARY,
       textTransform: "none",
