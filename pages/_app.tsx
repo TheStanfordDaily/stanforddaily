@@ -113,7 +113,16 @@ const SiteHeader: React.ElementType = (props: any) => {
           backgroundColor: "#eee",
         }}
       >
-        <RView rStyle={containerRStyle}>
+        <RView
+          style={{
+            margin: "0 !important",
+            maxWidth: "none !important",
+          }}
+          rStyle={{
+            ...containerRStyle,
+          }}
+        >
+          {/* Apply banner */}
           {/* <a href="http://apply.stanforddaily.com">
             <img
               src="https://wp.stanforddaily.com/wp-content/uploads/2020/04/apply_for_the_daily.jpg"
@@ -127,7 +136,8 @@ const SiteHeader: React.ElementType = (props: any) => {
               }}
             />
           </a> */}
-          <a
+          {/* Readers survey */}
+          {/* <a
             target="_blank"
             href="https://docs.google.com/forms/d/e/1FAIpQLScPzcqoZYTfUx5hPIe56Ils1gKn0ibO27ugWmiJVMKADdgdpA/viewform"
           >
@@ -144,8 +154,24 @@ const SiteHeader: React.ElementType = (props: any) => {
                 // backgroundColor: "#8C1515"
               }}
             />
-          </a>
-          <HeaderDonationBanner currentPageUrl={props.router.asPath} />
+          </a> */}
+          <div
+            style={{
+              backgroundColor: "black",
+              width: "100%",
+              color: "white",
+              padding: "15px 0",
+              textAlign: "center",
+              fontSize: "200%",
+              ...FONTS.SECTION_TITLE,
+            }}
+          >
+            The Daily stands in solidarity with the Black community.{" "}
+            <a style={{ color: "#F5BBBB" }} href="https://www.stanforddaily.com/2020/06/03/in-solidarity-with-the-black-community-a-letter-from-the-editors/">
+              Read our editors&rsquo; statement.
+            </a>
+          </div>
+          {/* <HeaderDonationBanner currentPageUrl={props.router.asPath} /> */}
         </RView>
       </RView>
       <RView
