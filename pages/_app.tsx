@@ -167,8 +167,8 @@ const SiteHeader: React.ElementType = (props: any) => {
             }}
           >
             The Daily stands in solidarity with the Black community.{" "}
-            <a style={{ color: "#F5BBBB" }} href="#">
-              Read our editorial board&rsquo;s statement.
+            <a style={{ color: "#F5BBBB" }} href="https://www.stanforddaily.com/2020/06/03/in-solidarity-with-the-black-community-a-letter-from-the-editors/">
+              Read our editors&rsquo; statement.
             </a>
           </div>
           {/* <HeaderDonationBanner currentPageUrl={props.router.asPath} /> */}
