@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, View, Image } from "react-native";
+import { Text, View } from "react-native";
 import { Global } from "@emotion/core";
 import css from "@emotion/css";
 import LogoFacebook from "react-ionicons/lib/LogoFacebook";
@@ -54,14 +54,12 @@ const SmallSection: React.ElementType<SmallSectionProps> = ({
           alignItems: "center",
         }}
       >
-        <Image
-          resizeMode="cover"
+        <img
+          src={imageUrl}
           style={{
             width: 50,
             height: 50,
-          }}
-          source={{
-            uri: imageUrl,
+            objectFit: "cover",
           }}
         />
         <View

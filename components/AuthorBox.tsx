@@ -26,10 +26,8 @@ const AuthorBox: React.ElementType<AuthorBoxProps> = ({
       }}
     >
       <View>
-        <Image
-          source={{
-            uri: avatarUrl,
-          }}
+        <img
+          src={avatarUrl}
           style={{
             width: 100,
             height: 100,
