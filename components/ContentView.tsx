@@ -1,6 +1,5 @@
 import React from "react";
 import { Global } from "@emotion/core";
-import { DiscussionEmbed, CommentCount } from "disqus-react";
 import RView from "emotion-native-media-query";
 import { Post } from "helpers/wpapi";
 import {
@@ -184,16 +183,44 @@ const ContentView: React.ElementType<ContentViewProps> = ({
         )}
       </Article>
       {commentStatus === "open" && (
-        <div css={{ ...centerContentStyle }}>
-          <DiscussionEmbed
-            shortname={STRINGS.DISQUS_SHORTNAME}
-            config={{
-              url: guid,
-              identifier: `${postId} ${guid}`, // From `dsq_identifier_for_post` in Disqus WordPress plugin
-              title: postTitle,
-            }}
-          />
-        </div>
+        <React.Fragment>
+          <div css={{ ...centerContentStyle }}>
+            {/* We have to embed disqus this way (and not through disqus-react) because disqus-react requires
+            Next JS's javascript code to be running -- and we had to turn off the Next JS javascript code
+            on article pages in order to fix some integration issues with Ezoic.
+        */}
+            <div id="disqus_thread"></div>
+            <div
+              dangerouslySetInnerHTML={{
+                __html: `
+            <script id="tsd-disqus-data" type="application/json">${JSON.stringify(
+              {
+                url: guid,
+                identifier: `${postId} ${guid}`, // From `dsq_identifier_for_post` in Disqus WordPress plugin
+              },
+            )}</script>
+            <script>
+            var disqus_config = function () {
+                var disqus_data = JSON.parse(document.getElementById("tsd-disqus-data").innerHTML);
+                this.page.url = disqus_data.url;
+                this.page.identifier = disqus_data.identifier;
+            };
+            (function() {
+                var d = document, s = d.createElement('script');
+                
+                // IMPORTANT: Replace EXAMPLE with your forum shortname!
+                s.src = 'https://stanforddaily.disqus.com/embed.js';
+                
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+          </script>
+          `,
+              }}
+            />
+            />
+          </div>
+        </React.Fragment>
       )}
       <WPFooter base={post} />
     </SectionStyle>
