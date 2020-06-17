@@ -100,14 +100,6 @@ export default class HomePage extends React.Component<IndexProps, IndexState> {
       <>
         <Head>
           <title>Homepage | The Stanford Daily</title>
-          {/* Temporarily fix Ezoic issue with ubergrids */}
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `if (typeof processGoogleToken === "undefined") {
-              window.processGoogleToken = function() {};
-            }`,
-            }}
-          />
           <meta
             name="viewport"
             content="initial-scale=1.0, width=device-width"
