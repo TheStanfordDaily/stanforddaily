@@ -249,7 +249,7 @@ export function HomePageWrapper(props): any {
   );
 }
 HomePageWrapper.navigationOptions = {
-  title: "Thea Stanford Daily",
+  title: "The Stanford Daily",
   headerBackTitle: "Home",
   headerTitleStyle: {
     fontFamily: "Canterbury",
