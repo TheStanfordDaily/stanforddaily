@@ -218,7 +218,6 @@ const ContentView: React.ElementType<ContentViewProps> = ({
           `,
               }}
             />
-            />
           </div>
         </React.Fragment>
       )}
