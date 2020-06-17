@@ -10,7 +10,7 @@ const WPHead: React.ElementType<BaseProps> = ({ base }) => {
       <Head>
         {ReactHtmlParser(
           base.tsdMeta.wpHead.replace(
-            "Untitled | The Stanford Daily",
+            /Untitled \| The Stanford Daily/g,
             "Homepage | The Stanford Daily",
           ),
         )}
