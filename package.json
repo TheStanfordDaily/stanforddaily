@@ -4,7 +4,7 @@
   "private": false,
   "repository": {
     "type": "git",
-    "url": "https://github.com/TheStanfordDaily/stanford-daily.git"
+    "url": "https://github.com/TheStanfordDaily/stanforddaily.git"
   },
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
