@@ -99,7 +99,6 @@ export default class HomePage extends React.Component<IndexProps, IndexState> {
     return (
       <>
         <Head>
-          <title>Homepage | The Stanford Daily</title>
           <meta
             name="viewport"
             content="initial-scale=1.0, width=device-width"
@@ -250,7 +249,7 @@ export function HomePageWrapper(props): any {
   );
 }
 HomePageWrapper.navigationOptions = {
-  title: "The Stanford Daily",
+  title: "Thea Stanford Daily",
   headerBackTitle: "Home",
   headerTitleStyle: {
     fontFamily: "Canterbury",
