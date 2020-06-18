@@ -1,7 +1,6 @@
 import React from "react";
 import App from "next/app";
 import Head from "next/head";
-import ReactGA from "react-ga";
 import { Global, css } from "@emotion/core";
 import { View } from "react-native";
 import RView, { MediaRule } from "emotion-native-media-query";
@@ -167,7 +166,10 @@ const SiteHeader: React.ElementType = (props: any) => {
             }}
           >
             The Daily stands in solidarity with the Black community.{" "}
-            <a style={{ color: "#F5BBBB" }} href="https://www.stanforddaily.com/2020/06/03/in-solidarity-with-the-black-community-a-letter-from-the-editors/">
+            <a
+              style={{ color: "#F5BBBB" }}
+              href="https://www.stanforddaily.com/2020/06/03/in-solidarity-with-the-black-community-a-letter-from-the-editors/"
+            >
               Read our editors&rsquo; statement.
             </a>
           </div>
@@ -274,12 +276,6 @@ const Layout: React.ElementType = (props: any) => {
 };
 
 export default class MyApp extends App {
-  componentDidMount(): void {
-    // Initialize GA, track pageviews
-    ReactGA.initialize("UA-5773957-1");
-    ReactGA.pageview(window.location.pathname + window.location.search);
-  }
-
   render(): JSX.Element {
     const { Component, pageProps, router } = this.props;
 
@@ -329,6 +325,25 @@ export default class MyApp extends App {
           />
           <link href="/static/fonts.css" rel="stylesheet" />
           <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+          {/* We have to embed Google Analytics this way (and not through react-ga) because react-ga requires
+            Next JS's javascript code to be running -- and we had to turn off the Next JS javascript code
+            on article pages in order to fix some integration issues with Ezoic.
+          */}
+          <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=UA-5773957-1"
+          ></script>
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-5773957-1');
+          `,
+            }}
+          />
         </Head>
         {/* `body` `overflow: initial` is added in order for `position: "sticky"` below to work. */}
         <Global
