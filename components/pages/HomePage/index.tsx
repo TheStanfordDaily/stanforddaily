@@ -103,6 +103,10 @@ export default class HomePage extends React.Component<IndexProps, IndexState> {
             name="viewport"
             content="initial-scale=1.0, width=device-width"
           />
+          <meta 
+            name=“google-site-verification” 
+            content=“5fBNolbnrZduiYkDSYG5iutUURDYGiO7RP8Y0xzrr6Q” 
+          />
         </Head>
         <SafeAreaView style={{ flex: 1 }}>
           <WPHead base={homePosts} />
