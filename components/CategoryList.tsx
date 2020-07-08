@@ -114,8 +114,8 @@ export const CategoryList: React.ElementType = ({ itemStyle }: any) => {
     // } as LinkLink,
     {
       type: LinkType.LINK,
-      name: "Voting Members",
-      url: "/voting-members/",
+      name: "Cartoons",
+      url: "/category/cartoons/",
     } as LinkLink,
     {
       type: LinkType.LINK,
