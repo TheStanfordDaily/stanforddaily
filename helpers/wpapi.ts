@@ -93,29 +93,23 @@ export type Post = Base & {
   guid: string; // Unique perminlinks (e.g., "https://www.stanforddaily.com/?p=1144743")
 };
 
-export type ArchivePageData = Base & {
+export type ArticleListPageData = Base & {
   posts: Post[];
 };
 
-export type CategoryArchivePageData = ArchivePageData & {
+export type CategoryArticleListPageData = ArticleListPageData & {
   tsdMeta: {
     title: string;
   };
 };
 
-export type TagArchivePageData = ArchivePageData & {
-  tsdMeta: {
-    title: string;
-  };
-};
-
-export type AuthorArchivePageData = ArchivePageData & {
+export type AuthorArticleListPageData = ArticleListPageData & {
   tsdMeta: {
     author: Author;
   };
 };
 
-export type SearchArchivePageData = ArchivePageData & {};
+export type SearchArticleListPageData = ArticleListPageData & {};
 
 const wp = new WPAPI({
   endpoint: `${STRINGS.WP_URL}/wp-json`,
@@ -215,15 +209,7 @@ export async function getHomeMoreAsync(
 export async function getCategoryAsync(
   categorySlugs: string[],
   pageNumber: number,
-): Promise<CategoryArchivePageData> {
-  // Rewrite @94305
-  let slugs = [...categorySlugs];
-  for (let i in slugs) {
-    if (slugs[i] === "@94305" || slugs[i] === "data-vizzes") {
-      slugs[i] = "94305";
-    }
-  }
-
+): Promise<CategoryArticleListPageData> {
   return wpTsdJson
     .category()
     .categorySlugs(slugs.map(encodeURIComponent).join("/"))
@@ -233,7 +219,7 @@ export async function getCategoryAsync(
 export async function getTagAsync(
   slugs,
   pageNumber,
-): Promise<TagArchivePageData> {
+): Promise<TagArticlePageData> {
   console.log(slugs);
   return wpTsdJson
     .tag()
@@ -244,7 +230,7 @@ export async function getTagAsync(
 export async function getAuthorAsync(
   authorSlug: string,
   pageNumber: number,
-): Promise<AuthorArchivePageData> {
+): Promise<AuthorArticleListPageData> {
   return wpTsdJson
     .author()
     .authorSlug(encodeURIComponent(authorSlug))
@@ -254,7 +240,7 @@ export async function getAuthorAsync(
 export async function getSearchAsync(
   keyword: string,
   pageNumber: number,
-): Promise<SearchArchivePageData> {
+): Promise<SearchArticleListPageData> {
   return wpTsdJson
     .search()
     .searchKeyword(encodeURIComponent(keyword))

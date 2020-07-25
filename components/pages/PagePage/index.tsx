@@ -1,9 +1,5 @@
 import React from "react";
-import { View } from "react-native";
-import { WebView } from "react-native-webview";
 import { getPageAsync, Post } from "helpers/wpapi";
-import { STRINGS } from "helpers/constants";
-import LoadingView from "components/Loading";
 import ContentView from "components/ContentView";
 
 interface PagePageProps {

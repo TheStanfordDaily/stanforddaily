@@ -24,7 +24,7 @@ const _CategoryLink: React.ElementType<CategoryLinkProps> = ({
     return (
       <TouchableOpacity
         onPress={() => {
-          navigation.push("categoryArchive", category);
+          navigation.push("categoryArticleList", category);
         }}
       >
         <Text
