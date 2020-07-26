@@ -13,6 +13,9 @@ type CategoryWithChildren = Category & {
   children: { [slug: string]: CategoryWithChildren };
 };
 
+// List of links that appears at bottom of any page on the site;
+// note the difference between this list and PrimaryTopBarLinks;
+// make sure to change links in desired place(s) when updating
 export const FooterContent: React.ElementType = ({ style }: any) => {
   // https://www.stanforddaily.com/wp-json/tsd/json/v1/nav
   const categoryList: {
@@ -437,7 +440,7 @@ export const FooterContent: React.ElementType = ({ style }: any) => {
       <View>
         <BottomLine>
           <BottomText style={{ fontWeight: "bold" }}>
-            © 2020 The Stanford Daily Publishing Corporation.
+            © 2020 The Stanford Daily Publishing Corporation
           </BottomText>
           <BottomText style={{ fontWeight: "bold" }}>
             <Link href="/[year]/" as="/privacy-policy/">
@@ -448,10 +451,18 @@ export const FooterContent: React.ElementType = ({ style }: any) => {
             |{" "}
             <a
               style={bottomLinkStyle}
-              href="https://app.stanforddaily.com"
-              title="Mobile App"
+              href="https://apps.apple.com/us/app/stanford-daily/id1341270063"
+              title="iOS App"
             >
-              Mobile App
+              iOS App
+            </a>{" "}
+            |{" "}
+            <a
+              style={bottomLinkStyle}
+              href="https://play.google.com/store/apps/details?id=com.Stanford.Daily.App&hl=en_US"
+              title="Google Play App"
+            >
+              Google Play App
             </a>
           </BottomText>
         </BottomLine>
