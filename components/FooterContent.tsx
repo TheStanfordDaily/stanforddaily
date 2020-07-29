@@ -14,7 +14,7 @@ type CategoryWithChildren = Category & {
 };
 
 // List of links that appears at bottom of any page on the site;
-// note the difference between this list and PrimaryTopBarLinks;
+// note the difference between this component and TopBarLinks;
 // make sure to change links in desired place(s) when updating
 export const FooterContent: React.ElementType = ({ style }: any) => {
   // https://www.stanforddaily.com/wp-json/tsd/json/v1/nav
