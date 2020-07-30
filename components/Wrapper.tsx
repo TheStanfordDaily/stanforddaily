@@ -1,16 +1,21 @@
 // This helps us to make Next.js's `getInitialProps` a consistent behavior for the native app.
 import React from "react";
 
+// Describes requirement of various properties of specific types
+// https://www.typescriptlang.org/docs/handbook/interfaces.html
 interface WrapperProps {
   class: any;
   getInitialProps?: any;
   props?: any;
 }
 
+// Describes requirement of various properties of specific types
+// https://www.typescriptlang.org/docs/handbook/interfaces.html
 interface WrapperState {
   initProp: any;
 }
 
+// Used in ArticleList pages and in compisition of HomepageWrapper
 export default class Wrapper extends React.Component<
   WrapperProps,
   WrapperState

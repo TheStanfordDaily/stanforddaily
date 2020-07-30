@@ -5,6 +5,8 @@ import ArticlesView from "components/ArticlesView";
 import { SectionTitle } from "./SectionTitle";
 import { SectionProps } from "./SectionProps";
 
+// Compiles posts from various sections for display at bottom of homepage,
+// similarly to how posts are displayed on the various ArticleList pages
 export const MoreFromTheDailySection: React.ElementType<SectionProps> = ({
   content,
 }: SectionProps) => {

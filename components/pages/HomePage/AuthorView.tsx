@@ -4,6 +4,7 @@ import { FONTS } from "helpers/constants";
 import { Author } from "helpers/wpapi";
 import Link from "../../Link";
 
+// Used for byine within a post, NOT on homepage, ArticleList pages, etc.
 export const AuthorsTextWithLink: React.ElementType = ({
   authors,
   linkToAuthor = true,
@@ -43,6 +44,7 @@ export const AuthorsTextWithLink: React.ElementType = ({
   return <>{authorsTextWithLink}</>;
 };
 
+// Used in AuthorBox and AuthorAndDateView
 export const AuthorView: React.ElementType = ({
   authors,
   style,

@@ -2,6 +2,7 @@ import React from "react";
 import RView, { MediaRule, mergeRStyle } from "emotion-native-media-query";
 import { BREAKPOINTS } from "helpers/constants";
 
+// Used in LeftSection and MainSection
 export const Column: React.ElementType = (props: any) => {
   const { style = {}, rStyle = {}, ...remainingProps } = props;
   const resultStyle = {

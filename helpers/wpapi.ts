@@ -103,6 +103,12 @@ export type CategoryArticleListPageData = ArticleListPageData & {
   };
 };
 
+export type TagArticleListPageData = ArticleListPageData & {
+  tsdMeta: {
+    title: string;
+  };
+};
+
 export type AuthorArticleListPageData = ArticleListPageData & {
   tsdMeta: {
     author: Author;
@@ -210,6 +216,14 @@ export async function getCategoryAsync(
   categorySlugs: string[],
   pageNumber: number,
 ): Promise<CategoryArticleListPageData> {
+  // Rewrite @94305
+  let slugs = [...categorySlugs];
+  for (let i in slugs) {
+    if (slugs[i] === "@94305" || slugs[i] === "data-vizzes") {
+      slugs[i] = "94305";
+    }
+  }
+
   return wpTsdJson
     .category()
     .categorySlugs(slugs.map(encodeURIComponent).join("/"))
@@ -219,7 +233,7 @@ export async function getCategoryAsync(
 export async function getTagAsync(
   slugs,
   pageNumber,
-): Promise<TagArticlePageData> {
+): Promise<TagArticleListPageData> {
   console.log(slugs);
   return wpTsdJson
     .tag()

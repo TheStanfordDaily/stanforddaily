@@ -10,6 +10,8 @@ import { ArticleProps } from "./ArticleProps";
 import { ArticleTitleWithLink } from "./ArticleTitleWithLink";
 import { ThumbnailImageWithLink } from "./ThumbnailImageWithLink";
 
+// Used for the articles with excerpts and sized-up photos displayed
+// on the ArticleList pages and (for News and Sports) on the homepage
 export const HeadlineArticle: React.ElementType = ({
   post,
   style,

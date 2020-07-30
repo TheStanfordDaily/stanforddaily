@@ -23,6 +23,8 @@ const globalStyles = {
   },
 };
 
+// Describes requirement of various properties of specific types
+// https://www.typescriptlang.org/docs/handbook/interfaces.html
 export interface SmallSectionProps {
   url: string;
   imageUrl: string;
@@ -32,6 +34,8 @@ export interface SmallSectionProps {
   className?: string;
 }
 
+// Each of these consists of an image and link to some Daily material;
+// they are the leftmost three elements of the top section (below nav bar)
 const SmallSection: React.ElementType<SmallSectionProps> = ({
   url,
   imageUrl,
@@ -104,6 +108,7 @@ const SmallSection: React.ElementType<SmallSectionProps> = ({
   );
 };
 
+// For the social media accounts on the right side of the top section (below nav bar)
 const LogoIconWithLink: React.ElementType = ({ url, LogoComponent }: any) => (
   <a
     href={url}
@@ -118,6 +123,8 @@ const LogoIconWithLink: React.ElementType = ({ url, LogoComponent }: any) => (
   </a>
 );
 
+// For the "SEND TIPS" and "GET OUR EMAILS" buttons
+// on the rightmost side of the top section (below nav bar)
 const TextButtonWithLink: React.ElementType = ({
   url,
   urlFile = "/[year]/",
@@ -163,6 +170,8 @@ const ViewRow: any = styled(View)({
   },
 });
 
+// Component located immediately below Stanford Daily logo
+// and nav bar on every page of the website
 export const TopSection: React.ElementType = ({ style }) => {
   return (
     <SectionStyle style={{ paddingTop: 10, paddingBottom: 10 }}>

@@ -2,13 +2,8 @@ import React from "react";
 import { Global } from "@emotion/core";
 import RView from "emotion-native-media-query";
 import { Post } from "helpers/wpapi";
-import {
-  STRINGS,
-  BREAKPOINTS,
-  FONTS,
-  STANFORD_COLORS,
-} from "helpers/constants";
-import { SectionStyle, SECTION_PADDING } from "components/Section";
+import { BREAKPOINTS, FONTS } from "helpers/constants";
+import { SectionStyle } from "components/Section";
 import { Article, ArticleHeader } from "components/Article";
 import LoadingView from "components/Loading";
 import WPHead from "components/webHelpers/WPHead";
@@ -20,7 +15,6 @@ import { CategoryLink } from "./CategoryLink";
 import { DateWithAbbr } from "./DateView";
 import SatireGlobal from "./SatireGlobal";
 import DataVizGlobal from "./DataVizGlobal";
-import DonationForm from "./DonationForm";
 import FooterDonationBanner from "components/FooterDonationBanner";
 
 import ContentViewStyles, {
@@ -28,6 +22,7 @@ import ContentViewStyles, {
   centerContentStyle,
 } from "./ContentViewStyles";
 
+// PostTitle is headline if post is an article
 const PostTitle = styled.h1({
   ...centerContentStyle,
   ...FONTS.ARTICLE_TITLE,
@@ -39,6 +34,7 @@ const PostTitle = styled.h1({
   },
 });
 
+// PostSubtitle is subheadline if post is an article
 const PostSubtitle = styled.h2({
   ...centerContentStyle,
   ...FONTS.ARTICLE_TITLE,
@@ -51,6 +47,7 @@ const PostSubtitle = styled.h2({
   },
 });
 
+// e.g. "By Firstname Lastname on July 25, 2020"
 const Byline = styled.p({
   ...FONTS.AUXILIARY,
   fontWeight: "bold",
@@ -58,10 +55,13 @@ const Byline = styled.p({
   marginTop: "1em",
 });
 
+// Describes requirement of various properties of specific types
+// https://www.typescriptlang.org/docs/handbook/interfaces.html
 interface ContentViewProps {
   post: Post;
 }
 
+// Component containing body of post and other relevant information
 const ContentView: React.ElementType<ContentViewProps> = ({
   post,
 }: ContentViewProps) => {
@@ -75,11 +75,11 @@ const ContentView: React.ElementType<ContentViewProps> = ({
     postSubtitle,
     thumbnailInfo,
     tsdAuthors,
-    tsdCategories,
-    tsdPrimaryCategory,
+    tsdCategories, // e.g. News
+    tsdPrimaryCategory, // for articles with more than one, selected in WordPress
     postContent,
     postType,
-    commentStatus,
+    commentStatus, // determines whether Disqus appears below article
     guid,
   } = post;
 
@@ -91,10 +91,10 @@ const ContentView: React.ElementType<ContentViewProps> = ({
 
   const isPost = postType === "post";
 
-  const isSatire =
+  const isSatire = // Need to know this so we can put "Satire by" in byline and do satire styling
     tsdCategories && tsdCategories.find(category => category.slug === "satire");
 
-  let isDataViz = false;
+  let isDataViz = false; // Also need to know whether to apply special styling for data coverage
   if (
     tsdCategories &&
     tsdCategories.find(category => category.slug === "94305")
@@ -171,7 +171,7 @@ const ContentView: React.ElementType<ContentViewProps> = ({
             }}
           />
         </RView>
-        {isPost && (
+        {isPost && ( // For article/content posts, we want donation box and author box at bottom
           <footer css={centerOuterContentStyle} style={{ marginTop: 30 }}>
             <FooterDonationBanner
               currentPageUrl={"https://www.stanforddaily.com"}
