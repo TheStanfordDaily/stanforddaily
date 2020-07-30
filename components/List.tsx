@@ -1,6 +1,7 @@
 import React from "react";
 import { Text, FlatList, Platform } from "react-native";
 
+// Not currently used in other files
 const OrderedListWrapper: React.ElementType = ({
   data,
   renderItem,
@@ -31,6 +32,7 @@ const OrderedListWrapper: React.ElementType = ({
   }
 };
 
+// Not currently used in other files
 export const OrderedList: React.ElementType = (props: any) => {
   return <OrderedListWrapper {...props} />;
 };

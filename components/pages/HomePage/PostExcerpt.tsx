@@ -3,6 +3,9 @@ import { Text, Platform } from "react-native";
 import { FONTS } from "helpers/constants";
 import { ArticleProps } from "./ArticleProps";
 
+// Used to show excerpts for articles with up-sized images
+// on the homepage and ArticleList pages, as well as for
+// all other posts on the AuthorArticleList pages
 export const PostExcerpt: React.ElementType = ({
   post,
   style,

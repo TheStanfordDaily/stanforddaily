@@ -6,6 +6,7 @@ import { SideThumbnailArticle } from "./SideThumbnailArticle";
 import { SectionTitleWithLink } from "./SectionTitle";
 import { SectionProps } from "./SectionProps";
 
+// Appears on right-hand side of homepage
 export const ArtsAndLifeSection: React.ElementType = ({
   content,
   category,

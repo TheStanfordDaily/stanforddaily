@@ -1,3 +1,3 @@
-import TimeArchivePage from "components/pages/TimeArchivePage";
+import TimeArticleListPage from "components/pages/TimeArticleListPage";
 
-export default TimeArchivePage;
+export default TimeArticleListPage;

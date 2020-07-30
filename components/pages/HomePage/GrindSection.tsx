@@ -3,6 +3,7 @@ import { Image } from "react-native";
 import { SectionProps } from "./SectionProps";
 import { RightListedSection } from "./RightListedSection";
 
+// Appears on right-hand side of homepage
 export const GrindSection: React.ElementType = ({
   content,
   category,

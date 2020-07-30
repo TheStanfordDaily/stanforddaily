@@ -2,6 +2,7 @@ import React from "react";
 import { View, Platform } from "react-native";
 import styled from "@emotion/native";
 
+// Used in HeadlineArticle component
 const ArticleSubtitleStyle = styled.Text({
   fontSize: 17,
   margin: 0,

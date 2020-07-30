@@ -7,6 +7,8 @@ import { ArticleProps } from "./ArticleProps";
 import { ArticleTitleWithLink } from "./ArticleTitleWithLink";
 import { ThumbnailImageWithLink } from "./ThumbnailImageWithLink";
 
+// For the top two articles on the leftmost side of the
+// News and Sports sections on the homepage
 export const TopThumbnailArticle: React.ElementType = ({
   post,
 }: ArticleProps) => {

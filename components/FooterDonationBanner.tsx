@@ -54,6 +54,7 @@ const TextButtonWithLink: React.ElementType = ({
   </Link>
 );
 
+// Used in donation box at bottom of posts
 const FooterDonationBanner: React.ElementType = ({ currentPageUrl }) => {
   return (
     <div

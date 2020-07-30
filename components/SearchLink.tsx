@@ -1,5 +1,5 @@
-import RView, { MediaRule } from "emotion-native-media-query";
-import { BREAKPOINTS, FONTS } from "helpers/constants";
+import RView from "emotion-native-media-query";
+import { FONTS } from "helpers/constants";
 import React from "react";
 
 import styled from "@emotion/styled";
