@@ -209,11 +209,11 @@ export const TopSection: React.ElementType = ({ style }) => {
             newTab
           />
           <SmallSection
-            className="small-section small-section-newsletters"
-            url="/category/newsletters/"
+            className="small-section small-section-high-school-programs"
+            url="/high-school-programs"
             imageUrl={LINKS.NEWSLETTER_LOGO}
-            header="Weekend Roundup"
-            title="Read Our Weekly Newsletter"
+            header="Fall Workshops (all remote)"
+            title="Programs for High Schoolers"
             newTab
           />
           {/* <SmallSection
@@ -237,11 +237,11 @@ export const TopSection: React.ElementType = ({ style }) => {
               title="The Daily Brew & More"
             /> */}
           <SmallSection
-            className="small-section small-section-coronavirus"
-            url="/tag/coronavirus/"
-            imageUrl={LINKS.CORONAVIRUS_LOGO}
-            header="Coronavirus"
-            title="Latest Coverage"
+            className="small-section small-section-adopt-a-small-business"
+            url="/adopt-a-small-business-with-stanford-daily-advertising"
+            imageUrl={LINKS.ADOPT_A_BUSINESS_LOGO}
+            header="Stanford Daily Advertising"
+            title="Adopt a Small Business"
           />
         </ViewRow>
         <ViewRow>
