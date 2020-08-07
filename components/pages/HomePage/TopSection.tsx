@@ -10,6 +10,7 @@ import { BREAKPOINTS, STANFORD_COLORS, FONTS, LINKS } from "helpers/constants";
 import { SectionStyle } from "components/Section";
 import styled from "@emotion/styled";
 import Link from "../../Link";
+import { Platform } from "react-native";
 
 const globalStyles = {
   ".headerLogoIcon": {
@@ -29,7 +30,9 @@ export interface SmallSectionProps {
   url: string;
   imageUrl: string;
   header: string;
+  mobile_header?: string;
   title: string;
+  mobile_title?: string;
   newTab?: boolean;
   className?: string;
 }
@@ -40,7 +43,9 @@ const SmallSection: React.ElementType<SmallSectionProps> = ({
   url,
   imageUrl,
   header,
+  mobile_header,
   title,
+  mobile_title,
   newTab,
   className,
 }) => {
@@ -80,11 +85,27 @@ const SmallSection: React.ElementType<SmallSectionProps> = ({
               }}
               css={css`
                 @media (max-width: ${BREAKPOINTS.MAX_WIDTH.TABLET}px) {
+                  display: none;
                   font-weight: bold;
                 }
               `}
             >
               {header}
+            </Text>
+            <Text
+              style={{
+                ...FONTS.AUXILIARY,
+                color: STANFORD_COLORS.CARDINAL_DARK_RED,
+                fontSize: 12,
+              }}
+              css={css`
+                @media (max-width: ${!BREAKPOINTS.MAX_WIDTH.TABLET}px) {
+                  display: none;
+                  font-weight: bold;
+                }
+              `}
+            >
+              {mobile_header}
             </Text>
           </View>
           <View>
@@ -97,6 +118,16 @@ const SmallSection: React.ElementType<SmallSectionProps> = ({
               `}
             >
               {title}
+            </Text>
+            <Text
+              css={css`
+                font-weight: bold;
+                @media (max-width: ${!BREAKPOINTS.MAX_WIDTH.TABLET}px) {
+                  display: none;
+                }
+              `}
+            >
+              {mobile_title}
             </Text>
           </View>
           {/* <View>
@@ -207,13 +238,20 @@ export const TopSection: React.ElementType = ({ style }) => {
             header="Stanford Open Data Portal"
             title="Explore Open Data"
             newTab
+            css={css`
+              @media (max-width: ${BREAKPOINTS.MAX_WIDTH.TABLET}px) {
+                display: none;
+              }
+            `}
           />
           <SmallSection
             className="small-section small-section-high-school-programs"
             url="/high-school-programs"
             imageUrl={LINKS.NEWSLETTER_LOGO}
             header="Fall Workshops (all remote)"
+            mobile_header="High Schoolers"
             title="Programs for High Schoolers"
+            mobile_title="Fall Workshops"
             newTab
           />
           {/* <SmallSection
@@ -241,7 +279,9 @@ export const TopSection: React.ElementType = ({ style }) => {
             url="/adopt-a-small-business-with-stanford-daily-advertising"
             imageUrl={LINKS.ADOPT_A_BUSINESS_LOGO}
             header="Stanford Daily Advertising"
+            mobile_header="Adopt a"
             title="Adopt a Small Business"
+            mobile_title="Business"
           />
         </ViewRow>
         <ViewRow>
