@@ -82,16 +82,15 @@ const SmallSection: React.ElementType<SmallSectionProps> = ({
                 color: STANFORD_COLORS.CARDINAL_DARK_RED,
                 fontSize: 12,
               }}
-              css={css`
-                @media (max-width: ${BREAKPOINTS.MAX_WIDTH.TABLET}px) {
-                  display: none;
-                  font-weight: bold;
-                }
-              `}
+              // css={css`
+              //   @media (max-width: ${BREAKPOINTS.MAX_WIDTH.TABLET}px) {
+              //     font-weight: bold;
+              //   }
+              // `}
             >
               {header}
             </Text>
-            <Text
+            {/* <Text
               style={{
                 ...FONTS.AUXILIARY,
                 color: STANFORD_COLORS.CARDINAL_DARK_RED,
@@ -105,20 +104,20 @@ const SmallSection: React.ElementType<SmallSectionProps> = ({
               `}
             >
               {mobile_header}
-            </Text>
+            </Text> */}
           </View>
           <View>
             <Text
               css={css`
                 font-weight: bold;
                 @media (max-width: ${BREAKPOINTS.MAX_WIDTH.TABLET}px) {
-                  display: none;
+                  font-weight: bold;
                 }
               `}
             >
               {title}
             </Text>
-            <Text
+            {/* <Text
               css={css`
                 font-weight: bold;
                 @media (max-width: ${!BREAKPOINTS.MAX_WIDTH.TABLET}px) {
@@ -127,7 +126,7 @@ const SmallSection: React.ElementType<SmallSectionProps> = ({
               `}
             >
               {mobile_title}
-            </Text>
+            </Text> */}
           </View>
           {/* <View>
           <Text>Subtitle here lorem</Text>
@@ -247,10 +246,10 @@ export const TopSection: React.ElementType = ({ style }) => {
             className="small-section small-section-high-school-programs"
             url="/high-school-programs"
             imageUrl={LINKS.NEWSLETTER_LOGO}
-            header="Fall Workshops (all remote)"
-            mobile_header="High Schoolers"
-            title="Programs for High Schoolers"
-            mobile_title="Fall Workshops"
+            header="High Schoolers" //"Fall Workshops (all remote)"
+            // mobile_header="High Schoolers"
+            title="Fall Workshops" //"Programs for High Schoolers"
+            // mobile_title="Fall Workshops"
             newTab
           />
           {/* <SmallSection
@@ -277,10 +276,10 @@ export const TopSection: React.ElementType = ({ style }) => {
             className="small-section small-section-adopt-a-small-business"
             url="/adopt-a-small-business-with-stanford-daily-advertising"
             imageUrl={LINKS.ADOPT_A_BUSINESS_LOGO}
-            header="Stanford Daily Advertising"
-            mobile_header="Adopt a"
-            title="Adopt a Small Business"
-            mobile_title="Business"
+            header="Adopt a" //"Stanford Daily Advertising"
+            //mobile_header="Adopt a"
+            title="Business" //"Adopt a Small Business"
+            //mobile_title="Business"
           />
         </ViewRow>
         <ViewRow>
