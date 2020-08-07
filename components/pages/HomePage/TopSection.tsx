@@ -23,20 +23,28 @@ const globalStyles = {
   },
 };
 
+// Describes requirement of various properties of specific types
+// https://www.typescriptlang.org/docs/handbook/interfaces.html
 export interface SmallSectionProps {
   url: string;
   imageUrl: string;
   header: string;
+  mobile_header?: string;
   title: string;
+  mobile_title?: string;
   newTab?: boolean;
   className?: string;
 }
 
+// Each of these consists of an image and link to some Daily material;
+// they are the leftmost three elements of the top section (below nav bar)
 const SmallSection: React.ElementType<SmallSectionProps> = ({
   url,
   imageUrl,
   header,
+  mobile_header,
   title,
+  mobile_title,
   newTab,
   className,
 }) => {
@@ -76,11 +84,27 @@ const SmallSection: React.ElementType<SmallSectionProps> = ({
               }}
               css={css`
                 @media (max-width: ${BREAKPOINTS.MAX_WIDTH.TABLET}px) {
+                  display: none;
                   font-weight: bold;
                 }
               `}
             >
               {header}
+            </Text>
+            <Text
+              style={{
+                ...FONTS.AUXILIARY,
+                color: STANFORD_COLORS.CARDINAL_DARK_RED,
+                fontSize: 12,
+              }}
+              css={css`
+                @media (max-width: ${!BREAKPOINTS.MAX_WIDTH.TABLET}px) {
+                  display: none;
+                  font-weight: bold;
+                }
+              `}
+            >
+              {mobile_header}
             </Text>
           </View>
           <View>
@@ -94,6 +118,16 @@ const SmallSection: React.ElementType<SmallSectionProps> = ({
             >
               {title}
             </Text>
+            <Text
+              css={css`
+                font-weight: bold;
+                @media (max-width: ${!BREAKPOINTS.MAX_WIDTH.TABLET}px) {
+                  display: none;
+                }
+              `}
+            >
+              {mobile_title}
+            </Text>
           </View>
           {/* <View>
           <Text>Subtitle here lorem</Text>
@@ -104,6 +138,7 @@ const SmallSection: React.ElementType<SmallSectionProps> = ({
   );
 };
 
+// For the social media accounts on the right side of the top section (below nav bar)
 const LogoIconWithLink: React.ElementType = ({ url, LogoComponent }: any) => (
   <a
     href={url}
@@ -118,6 +153,8 @@ const LogoIconWithLink: React.ElementType = ({ url, LogoComponent }: any) => (
   </a>
 );
 
+// For the "SEND TIPS" and "GET OUR EMAILS" buttons
+// on the rightmost side of the top section (below nav bar)
 const TextButtonWithLink: React.ElementType = ({
   url,
   urlFile = "/[year]/",
@@ -163,6 +200,8 @@ const ViewRow: any = styled(View)({
   },
 });
 
+// Component located immediately below Stanford Daily logo
+// and nav bar on every page of the website
 export const TopSection: React.ElementType = ({ style }) => {
   return (
     <SectionStyle style={{ paddingTop: 10, paddingBottom: 10 }}>
@@ -198,13 +237,20 @@ export const TopSection: React.ElementType = ({ style }) => {
             header="Stanford Open Data Portal"
             title="Explore Open Data"
             newTab
+            css={css`
+              @media (max-width: ${BREAKPOINTS.MAX_WIDTH.TABLET}px) {
+                display: none;
+              }
+            `}
           />
           <SmallSection
-            className="small-section small-section-newsletters"
-            url="/category/newsletters/"
+            className="small-section small-section-high-school-programs"
+            url="/high-school-programs"
             imageUrl={LINKS.NEWSLETTER_LOGO}
-            header="Weekend Roundup"
-            title="Read Our Weekly Newsletter"
+            header="Fall Workshops (all remote)"
+            mobile_header="High Schoolers"
+            title="Programs for High Schoolers"
+            mobile_title="Fall Workshops"
             newTab
           />
           {/* <SmallSection
@@ -228,11 +274,13 @@ export const TopSection: React.ElementType = ({ style }) => {
               title="The Daily Brew & More"
             /> */}
           <SmallSection
-            className="small-section small-section-coronavirus"
-            url="/tag/coronavirus/"
-            imageUrl={LINKS.CORONAVIRUS_LOGO}
-            header="Coronavirus"
-            title="Latest Coverage"
+            className="small-section small-section-adopt-a-small-business"
+            url="/adopt-a-small-business-with-stanford-daily-advertising"
+            imageUrl={LINKS.ADOPT_A_BUSINESS_LOGO}
+            header="Stanford Daily Advertising"
+            mobile_header="Adopt a"
+            title="Adopt a Small Business"
+            mobile_title="Business"
           />
         </ViewRow>
         <ViewRow>
