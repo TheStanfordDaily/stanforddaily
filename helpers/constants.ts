@@ -114,6 +114,8 @@ export const LINKS = {
     "https://wp.stanforddaily.com/wp-content/uploads/2020/02/weekend_roundup_logo-1.jpg",
   DAILY_BREW_LOGO:
     "https://d3t3ozftmdmh3i.cloudfront.net/production/podcast_uploaded400/1460559/1460559-1550520909113-dfa4db03769d.jpg",
+  ADOPT_A_BUSINESS_LOGO:
+    "https://wp.stanforddaily.com/wp-content/uploads/2020/08/Advertising-icon.png",
   CORONAVIRUS_LOGO:
     "https://wp.stanforddaily.com/wp-content/uploads/2020/01/NEW.013120.coronavirus-e1586436562445.png",
   ISSUU_LOGO:

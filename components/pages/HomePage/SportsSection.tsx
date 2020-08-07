@@ -9,6 +9,7 @@ import { DesktopRow } from "./DesktopRow";
 import { SectionTitleWithLink } from "./SectionTitle";
 import { SectionProps } from "./SectionProps";
 
+// Appears on left-hand side of homepage
 export const SportsSection: React.ElementType<SectionProps> = ({
   content,
   category,

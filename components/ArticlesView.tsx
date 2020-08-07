@@ -13,6 +13,7 @@ import { SECTION_PADDING } from "components/Section";
 import { TextOnlyArticle } from "components/pages/HomePage/TextOnlyArticle";
 import { HeadlineArticle } from "./pages/HomePage/HeadlineArticle";
 
+// View for each post in article list; see below for usage
 const EachArticleView: React.ElementType = ({
   children,
   style,
@@ -47,6 +48,8 @@ const EachArticleView: React.ElementType = ({
   );
 };
 
+// Describes requirement of various properties of specific types
+// https://www.typescriptlang.org/docs/handbook/interfaces.html
 interface ArticlesViewProps {
   initPosts: Post[];
   getExtraPosts?: (pageNumber: number) => Promise<Post[]>;
@@ -57,11 +60,13 @@ interface ArticlesViewProps {
   hideCategory?: boolean;
   textColor?: string;
 
-  // Whether the first article is enlarged / "featured". Currently
-  // enabled only on category pages.
+  // Tells whether the first article is enlarged / "featured" (true)
+  // or not (false); currently enabled only on category pages
   enlargeFirstArticle?: boolean;
 }
 
+// Component containing list of posts in ArticleList pages
+// and in MoreFromTheDailySection on homepage
 const ArticlesView: React.ElementType<ArticlesViewProps> = ({
   initPosts,
   getExtraPosts,
@@ -101,6 +106,8 @@ const ArticlesView: React.ElementType<ArticlesViewProps> = ({
         <EachArticleView
           key={post.id}
           large={enlargeFirstArticle && i === 0 ? true : false}
+          // currently done for every ArticleListPage;
+          // e.g. https://www.stanforddaily.com/category/news/
         >
           {enlargeFirstArticle && i === 0 ? (
             <HeadlineArticle post={post} />
@@ -116,9 +123,9 @@ const ArticlesView: React.ElementType<ArticlesViewProps> = ({
         </EachArticleView>
       ))}
       {[...Array(6)].map((value, index) => (
-        // Make sure the last row of articles will not stretch.
+        // Makes sure the last row of articles will not stretch
         // https://jsfiddle.net/7yr86aow/3/
-        // It has 6 elements because 1, 2, 3, 4, 6 are all factors of 6.
+        // Has 6 elements because 1, 2, 3 and 6 are all factors of 6
         <EachArticleView
           // eslint-disable-next-line react/no-array-index-key
           key={index}
@@ -135,6 +142,11 @@ const ArticlesView: React.ElementType<ArticlesViewProps> = ({
           }}
         />
       ))}
+
+      {/* Button found at bottom of article list; if not all posts
+          available are currently shown, pressing the button will
+          lengthen the article list to show more posts, until the
+          page is refreshed or the user navigates to another page */}
       <LoadMoreTag
         style={{
           width: "100%",

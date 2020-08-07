@@ -37,6 +37,8 @@ type SectionTitleProps = {
   style?: any;
 };
 
+// Used in MoreFromTheDailySection on homepage,
+// and in SectionTitleWithLink defined below
 export const SectionTitle: React.ElementType<SectionTitleProps> = ({
   category,
   style,
@@ -59,6 +61,8 @@ type SectionTitleWithLinkProps = SectionTitleProps & {
   category: Category;
 };
 
+// What we end up seeing for each section on the homepage,
+// except in the MoreFromTheDaily section
 export const SectionTitleWithLink: React.ElementType<
   SectionTitleWithLinkProps
 > = ({ category, style, children }: SectionTitleWithLinkProps) => {

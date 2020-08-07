@@ -27,7 +27,9 @@ type SearchLink = {
   name: string;
 };
 
-export const CategoryList: React.ElementType = ({ itemStyle }: any) => {
+// The list of links that appear in the top bar, NOT the footer,
+// in order of display from left to right
+export const TopBarLinks: React.ElementType = ({ itemStyle }: any) => {
   // https://www.stanforddaily.com/wp-json/tsd/json/v1/nav
   const categoryLinkList: (CategoryLink | LinkLink | SearchLink)[] = [
     {

@@ -9,6 +9,8 @@ import { Column } from "./Column";
 import { SectionTitleWithLink } from "./SectionTitle";
 import { SectionProps } from "./SectionProps";
 
+// Component containing News and Sports articles on left-hand
+// side of homepage (component is used two separate times)
 export const LeftSection: React.ElementType<SectionProps> = ({
   content,
   category,

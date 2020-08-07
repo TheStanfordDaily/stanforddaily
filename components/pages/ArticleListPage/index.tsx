@@ -1,13 +1,12 @@
 import React from "react";
-import { View, Text, Platform, ScrollView } from "react-native";
-import { ArchivePageData } from "helpers/wpapi";
+import { Platform } from "react-native";
+import { ArticleListPageData } from "helpers/wpapi";
 import LoadingView from "components/Loading";
 import ArticlesView from "components/ArticlesView";
 import WPHead from "components/webHelpers/WPHead";
 import WPFooter from "components/webHelpers/WPFooter";
-import { SECTION_PADDING } from "components/Section";
 
-export enum ArchivePageType {
+export enum ArticleListPageType {
   Time, // TODO
   Author,
   Category,
@@ -15,28 +14,20 @@ export enum ArchivePageType {
   Search,
 }
 
-export interface ArchivePageProps {
-  type: ArchivePageType;
-  initData: ArchivePageData;
-  getExtraData: (pageNumber: number) => Promise<ArchivePageData>;
+export interface ArticleListPageProps {
+  type: ArticleListPageType;
+  initData: ArticleListPageData;
+  getExtraData: (pageNumber: number) => Promise<ArticleListPageData>;
   displayCategory?: boolean;
   displayExcerpt?: boolean;
-
-  // Whether the first article is enlarged / "featured". Currently
-  // enabled only on category pages.
-  enlargeFirstArticle?: boolean;
 }
 
-export interface ArchivePageState {}
+export interface ArticleListPageState {}
 
-export default class ArchivePage extends React.Component<
-  ArchivePageProps,
-  ArchivePageState
+export default class ArticleListPage extends React.Component<
+  ArticleListPageProps,
+  ArticleListPageState
 > {
-  static defaultProps = {
-    enlargeFirstArticle: true,
-  };
-
   static async getInitialProps(param): Promise<any> {
     return {};
   }
@@ -47,7 +38,6 @@ export default class ArchivePage extends React.Component<
       getExtraData,
       displayCategory,
       displayExcerpt,
-      enlargeFirstArticle,
     } = this.props;
     if (!initData) {
       return <LoadingView />;
@@ -58,7 +48,6 @@ export default class ArchivePage extends React.Component<
         displayCategory={displayCategory}
         displayExcerpt={displayExcerpt}
         initPosts={initData.posts}
-        enlargeFirstArticle={enlargeFirstArticle}
         getExtraPosts={async pageNumber => {
           const extraData = await getExtraData(pageNumber);
           return extraData.posts;

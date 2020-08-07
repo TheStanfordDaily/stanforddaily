@@ -9,6 +9,7 @@ export const ArticleStyle = styled.View({
   marginBottom: 5,
 });
 
+// Not currently in use
 const _Article: React.ElementType = ({
   post,
   ...props

@@ -5,6 +5,7 @@ import { ListStyleArticle } from "./ListStyleArticle";
 import { SectionTitleWithLink } from "./SectionTitle";
 import { SectionProps } from "./SectionProps";
 
+// Used for Grind and Opinions
 export const RightListedSection: React.ElementType<SectionProps> = ({
   content,
   category,

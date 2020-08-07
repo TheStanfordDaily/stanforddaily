@@ -1,7 +1,6 @@
 import React from "react";
-import { Text, View } from "react-native";
-import RView, { MediaRule } from "emotion-native-media-query";
-import { BREAKPOINTS, FONTS, STANFORD_COLORS } from "helpers/constants";
+import { View } from "react-native";
+import { STANFORD_COLORS } from "helpers/constants";
 import { SECTION_PADDING } from "components/Section";
 import { Article, ArticleHeader } from "components/Article";
 import { CategoryLink } from "components/CategoryLink";
@@ -11,6 +10,8 @@ import { ArticleProps } from "./ArticleProps";
 import { ThumbnailImageWithLink } from "./ThumbnailImageWithLink";
 import { ArticleTitleWithLink } from "./ArticleTitleWithLink";
 
+// Component for articles that appear in ArticleView components,
+// such as in Satire, MoreFromTheDaily and ArticleList pages
 export const TextOnlyArticle: React.ElementType = ({
   post,
   style,

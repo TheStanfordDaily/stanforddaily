@@ -9,6 +9,8 @@ import { DesktopRow } from "./DesktopRow";
 import { SectionTitleWithLink } from "./SectionTitle";
 import { SectionProps } from "./SectionProps";
 
+// Currently used for the Featured section on homepage and for
+// the center three posts in the Sports section on homepage
 export const MainSection: React.ElementType<SectionProps> = ({
   content,
   category,

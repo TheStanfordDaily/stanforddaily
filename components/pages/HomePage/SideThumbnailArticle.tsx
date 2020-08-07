@@ -6,6 +6,7 @@ import { ArticleProps } from "./ArticleProps";
 import { ThumbnailImageWithLink } from "./ThumbnailImageWithLink";
 import { ArticleTitleWithLink } from "./ArticleTitleWithLink";
 
+// Currently used only for ArtsAndLifeSection on homepage
 export const SideThumbnailArticle: React.ElementType = ({
   post,
 }: ArticleProps) => {
