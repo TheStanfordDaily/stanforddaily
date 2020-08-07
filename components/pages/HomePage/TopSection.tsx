@@ -29,7 +29,9 @@ export interface SmallSectionProps {
   url: string;
   imageUrl: string;
   header: string;
+  //mobile_header?: string;
   title: string;
+  //mobile_title?: string;
   newTab?: boolean;
   className?: string;
 }
@@ -40,7 +42,9 @@ const SmallSection: React.ElementType<SmallSectionProps> = ({
   url,
   imageUrl,
   header,
+  //mobile_header,
   title,
+  //mobile_title,
   newTab,
   className,
 }) => {
@@ -78,26 +82,51 @@ const SmallSection: React.ElementType<SmallSectionProps> = ({
                 color: STANFORD_COLORS.CARDINAL_DARK_RED,
                 fontSize: 12,
               }}
+              // css={css`
+              //   @media (max-width: ${BREAKPOINTS.MAX_WIDTH.TABLET}px) {
+              //     font-weight: bold;
+              //   }
+              // `}
+            >
+              {header}
+            </Text>
+            {/* <Text
+              style={{
+                ...FONTS.AUXILIARY,
+                color: STANFORD_COLORS.CARDINAL_DARK_RED,
+                fontSize: 12,
+              }}
               css={css`
-                @media (max-width: ${BREAKPOINTS.MAX_WIDTH.TABLET}px) {
+                @media (max-width: ${!BREAKPOINTS.MAX_WIDTH.TABLET}px) {
+                  display: none;
                   font-weight: bold;
                 }
               `}
             >
-              {header}
-            </Text>
+              {mobile_header}
+            </Text> */}
           </View>
           <View>
             <Text
               css={css`
                 font-weight: bold;
                 @media (max-width: ${BREAKPOINTS.MAX_WIDTH.TABLET}px) {
-                  display: none;
+                  font-weight: bold;
                 }
               `}
             >
               {title}
             </Text>
+            {/* <Text
+              css={css`
+                font-weight: bold;
+                @media (max-width: ${!BREAKPOINTS.MAX_WIDTH.TABLET}px) {
+                  display: none;
+                }
+              `}
+            >
+              {mobile_title}
+            </Text> */}
           </View>
           {/* <View>
           <Text>Subtitle here lorem</Text>
@@ -207,13 +236,20 @@ export const TopSection: React.ElementType = ({ style }) => {
             header="Stanford Open Data Portal"
             title="Explore Open Data"
             newTab
+            css={css`
+              @media (max-width: ${BREAKPOINTS.MAX_WIDTH.TABLET}px) {
+                display: none;
+              }
+            `}
           />
           <SmallSection
             className="small-section small-section-high-school-programs"
             url="/high-school-programs"
             imageUrl={LINKS.NEWSLETTER_LOGO}
-            header="Fall Workshops (all remote)"
-            title="Programs for High Schoolers"
+            header="High Schoolers" //"Fall Workshops (all remote)"
+            // mobile_header="High Schoolers"
+            title="Fall Workshops" //"Programs for High Schoolers"
+            // mobile_title="Fall Workshops"
             newTab
           />
           {/* <SmallSection
@@ -240,8 +276,10 @@ export const TopSection: React.ElementType = ({ style }) => {
             className="small-section small-section-adopt-a-small-business"
             url="/adopt-a-small-business-with-stanford-daily-advertising"
             imageUrl={LINKS.ADOPT_A_BUSINESS_LOGO}
-            header="Stanford Daily Advertising"
-            title="Adopt a Small Business"
+            header="Adopt a" //"Stanford Daily Advertising"
+            //mobile_header="Adopt a"
+            title="Business" //"Adopt a Small Business"
+            //mobile_title="Business"
           />
         </ViewRow>
         <ViewRow>
