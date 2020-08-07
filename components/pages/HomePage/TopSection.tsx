@@ -29,9 +29,9 @@ export interface SmallSectionProps {
   url: string;
   imageUrl: string;
   header: string;
-  mobile_header?: string;
+  //mobile_header?: string;
   title: string;
-  mobile_title?: string;
+  //mobile_title?: string;
   newTab?: boolean;
   className?: string;
 }
@@ -42,9 +42,9 @@ const SmallSection: React.ElementType<SmallSectionProps> = ({
   url,
   imageUrl,
   header,
-  mobile_header,
+  //mobile_header,
   title,
-  mobile_title,
+  //mobile_title,
   newTab,
   className,
 }) => {
