@@ -1,4 +1,3 @@
-import React from "react";
 import { View, Platform } from "react-native";
 import styled from "@emotion/native";
 

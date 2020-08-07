@@ -3,6 +3,8 @@ import { Platform } from "react-native";
 import { getPostPath, Post } from "helpers/wpapi";
 import Link from "../../Link";
 
+// Used in ArticleTitleWithLink and ThumbnailImageWithLink components,
+// and wrapped around cartoon displayed in CartoonsSection on homepage
 export const LinkToArticle: React.ElementType = ({
   post,
   children,

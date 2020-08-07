@@ -1,7 +1,7 @@
 import React from "react";
 import RView, { MediaRule } from "emotion-native-media-query";
 import MdPaper from "react-ionicons/lib/MdPaper";
-import { STANFORD_COLORS, BREAKPOINTS } from "helpers/constants";
+import { BREAKPOINTS } from "helpers/constants";
 import { SECTION_PADDING } from "components/Section";
 import DonationForm from "./DonationForm";
 import css from "@emotion/css";

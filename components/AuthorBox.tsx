@@ -1,19 +1,24 @@
 import React from "react";
-import { View, Text, Image } from "react-native";
+import { View, Text } from "react-native";
 import { Author } from "helpers/wpapi";
 import { FONTS, COLORS, STANFORD_COLORS } from "helpers/constants";
 import { AuthorView } from "./pages/HomePage/AuthorView";
 
+// Describes requirement of having author property that is
+// an Author and linkToAuthor property that is a boolean
+// https://www.typescriptlang.org/docs/handbook/interfaces.html
 interface AuthorBoxProps {
   author: Author;
   linkToAuthor?: boolean;
 }
 
+// Box containing author name, profile picture and bio at bottom of
+// a post; author name links to their ArticleListPage
 const AuthorBox: React.ElementType<AuthorBoxProps> = ({
   author,
   linkToAuthor = true,
 }: AuthorBoxProps) => {
-  const { displayName, description, avatarUrl } = author;
+  const { description, avatarUrl } = author;
   return (
     <View
       style={{

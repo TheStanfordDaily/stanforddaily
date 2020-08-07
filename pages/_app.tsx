@@ -14,9 +14,8 @@ import {
 import { SectionStyle } from "components/Section";
 import { getBorderValue } from "components/pages/HomePage/getBorderValue";
 import { TopSection } from "components/pages/HomePage/TopSection";
-import { CategoryList } from "components/CategoryList";
+import { TopBarLinks } from "components/TopBarLinks";
 import { FooterContent } from "components/FooterContent";
-import HeaderDonationBanner from "components/HeaderDonationBanner";
 import Link from "../components/Link";
 
 const containerRStyle: any = {
@@ -104,6 +103,7 @@ const HeaderLogo: React.ElementType = () => {
   );
 };
 
+// Content from top of site to bottom of top section; same on every page
 const SiteHeader: React.ElementType = (props: any) => {
   return (
     <>
@@ -233,7 +233,7 @@ const SiteHeader: React.ElementType = (props: any) => {
             }}
             rStyle={containerRStyle}
           >
-            <CategoryList itemStyle={{ color: STANFORD_COLORS.WHITE }} />
+            <TopBarLinks itemStyle={{ color: STANFORD_COLORS.WHITE }} />
           </RView>
         </RView>
         <RView
@@ -247,6 +247,7 @@ const SiteHeader: React.ElementType = (props: any) => {
   );
 };
 
+// Footer content that appears on every page
 const SiteFooter: React.ElementType = ({ style, ...props }: any) => {
   // TODO: ADD FONTS CREDIT
   return (
@@ -275,6 +276,7 @@ const Layout: React.ElementType = (props: any) => {
   return <RView rStyle={containerRStyle}>{children}</RView>;
 };
 
+// Everything
 export default class MyApp extends App {
   render(): JSX.Element {
     const { Component, pageProps, router } = this.props;
@@ -344,6 +346,8 @@ export default class MyApp extends App {
           `,
             }}
           />
+
+          {/* Content that appears on site pages */}
         </Head>
         {/* `body` `overflow: initial` is added in order for `position: "sticky"` below to work. */}
         <Global

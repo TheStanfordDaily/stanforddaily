@@ -4,6 +4,8 @@ import AuthorAndDateView from "components/AuthorAndDateView";
 import { ArticleProps } from "./ArticleProps";
 import { ArticleTitleWithLink } from "./ArticleTitleWithLink";
 
+// Used for bottom two articles in left-most portion
+// of News and Sports sections on homepage
 export const TitleOnlyArticle: React.ElementType = ({ post }: ArticleProps) => {
   return (
     <Article post={post}>
