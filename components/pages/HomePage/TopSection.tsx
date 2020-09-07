@@ -243,12 +243,12 @@ export const TopSection: React.ElementType = ({ style }) => {
             `}
           />
           <SmallSection
-            className="small-section small-section-high-school-programs"
-            url="/high-school-programs"
+            className="small-section small-section-join"
+            url={LINKS.JOIN_US}
             imageUrl={LINKS.NEWSLETTER_LOGO}
-            header="High Schoolers" //"Fall Workshops (all remote)"
+            header="Join The Daily" //"Fall Workshops (all remote)"
             // mobile_header="High Schoolers"
-            title="Fall Workshops" //"Programs for High Schoolers"
+            title="All Students Welcome" //"Programs for High Schoolers"
             // mobile_title="Fall Workshops"
             newTab
           />
