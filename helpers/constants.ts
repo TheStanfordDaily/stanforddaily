@@ -124,4 +124,5 @@ export const LINKS = {
     "https://wp.stanforddaily.com/wp-content/uploads/2020/03/logo.b1da2910.jpg",
   ARCHIVES: "https://archives.stanforddaily.com/",
   SODP: "http://opendata.stanforddaily.com/",
+  JOIN_US: "http://apply.stanforddaily.com",
 };
