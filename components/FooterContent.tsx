@@ -451,7 +451,7 @@ export const FooterContent: React.ElementType = ({ style }: any) => {
             |{" "}
             <a
               style={bottomLinkStyle}
-              href="https://apps.apple.com/us/app/stanford-daily/id1341270063"
+              href="https://apps.apple.com/us/app/stanford-daily/id1341270063" // add to constants
               title="iOS App"
             >
               iOS App
