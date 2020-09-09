@@ -154,7 +154,7 @@ const SiteHeader: React.ElementType = (props: any) => {
               }}
             />
           </a> */}
-          <div
+          {/* <div
             style={{
               backgroundColor: "black",
               width: "100%",
@@ -172,7 +172,7 @@ const SiteHeader: React.ElementType = (props: any) => {
             >
               Read our editors&rsquo; statement.
             </a>
-          </div>
+          </div> */}
           {/* <HeaderDonationBanner currentPageUrl={props.router.asPath} /> */}
         </RView>
       </RView>
