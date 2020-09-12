@@ -154,7 +154,7 @@ const SiteHeader: React.ElementType = (props: any) => {
               }}
             />
           </a> */}
-          <a href="https://www.stanforddaily.com/2020/06/03/in-solidarity-with-the-black-community-a-letter-from-the-editors/">
+          <a href="http://apply.stanforddaily.com/">
           <div
             style={{
               backgroundColor: "#54100b",
