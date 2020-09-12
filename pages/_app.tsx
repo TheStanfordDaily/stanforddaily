@@ -134,7 +134,7 @@ const SiteHeader: React.ElementType = (props: any) => {
                 marginBottom: 20,
               }}
             />
-          </a> */}
+            </a>*/}
           {/* Readers survey */}
           {/* <a
             target="_blank"
@@ -154,9 +154,10 @@ const SiteHeader: React.ElementType = (props: any) => {
               }}
             />
           </a> */}
-          {/* <div
+          <a href="https://www.stanforddaily.com/2020/06/03/in-solidarity-with-the-black-community-a-letter-from-the-editors/">
+          <div
             style={{
-              backgroundColor: "black",
+              backgroundColor: "#54100b",
               width: "100%",
               color: "white",
               padding: "15px 0",
@@ -165,14 +166,14 @@ const SiteHeader: React.ElementType = (props: any) => {
               ...FONTS.SECTION_TITLE,
             }}
           >
-            The Daily stands in solidarity with the Black community.{" "}
-            <a
-              style={{ color: "#F5BBBB" }}
-              href="https://www.stanforddaily.com/2020/06/03/in-solidarity-with-the-black-community-a-letter-from-the-editors/"
+            We're recruiting! All students are welcome, regardless of background and time commitment.{' '}
+            <span
+              style={{ color: "#FF9999" }}
             >
-              Read our editors&rsquo; statement.
-            </a>
-          </div> */}
+              Click to learn more and sign up by Sept. 18.
+            </span>
+          </div>
+          </a>
           {/* <HeaderDonationBanner currentPageUrl={props.router.asPath} /> */}
         </RView>
       </RView>
