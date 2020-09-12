@@ -166,7 +166,7 @@ const SiteHeader: React.ElementType = (props: any) => {
               ...FONTS.SECTION_TITLE,
             }}
           >
-            We're recruiting! All students are welcome, regardless of background and time commitment.{' '}
+            We're recruiting! All students are welcome, regardless of experience and time commitment.{' '}
             <span
               style={{ color: "#FF9999" }}
             >
