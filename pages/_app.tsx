@@ -170,7 +170,7 @@ const SiteHeader: React.ElementType = (props: any) => {
             <span
               style={{ color: "#FF9999" }}
             >
-              Click to learn more and sign up by Sept. 18.
+              Click to learn more and sign up now!
             </span>
           </div>
           </a>
