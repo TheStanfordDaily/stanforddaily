@@ -66,7 +66,7 @@ const HeaderLogo: React.ElementType = () => {
               title="The Stanford Daily"
             >
               <img
-                src="https://raw.githubusercontent.com/TheStanfordDaily/stanforddaily-graphic-assets/master/DailyLogo/DailyLogo.png"
+                src="https://raw.githubusercontent.com/TheStanfordDaily/stanforddaily-graphic-assets/main/DailyLogo/DailyLogo.png"
                 alt="The Stanford Daily"
                 css={{
                   height: "auto",
