@@ -272,7 +272,7 @@ export const TopSection: React.ElementType = ({ style }) => {
               header="Podcasts"
               title="The Daily Brew & More"
             /> */}
-          <SmallSection
+          { /* <SmallSection
             className="small-section small-section-adopt-a-small-business"
             url="/adopt-a-small-business-with-stanford-daily-advertising"
             imageUrl={LINKS.ADOPT_A_BUSINESS_LOGO}
@@ -280,6 +280,13 @@ export const TopSection: React.ElementType = ({ style }) => {
             //mobile_header="Adopt a"
             title="Business" //"Adopt a Small Business"
             //mobile_title="Business"
+          /> */}
+          <SmallSection
+            className="small-section small-section-newsletters"
+            url="/high-school-programs/"
+            imageUrl={LINKS.ADOPT_A_BUSINESS_LOGO}
+            header="Winter Workshop | APPLY NOW"
+            title="For high schoolers"
           />
         </ViewRow>
         <ViewRow>
