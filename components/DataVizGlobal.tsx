@@ -2,8 +2,9 @@ import React from "react";
 import Head from "next/head";
 
 import { Global } from "@emotion/core";
-import { STANFORD_COLORS, COLORS } from "helpers/constants";
+import { COLORS } from "helpers/constants";
 
+// Mentions satire here cause it also has unique styling done similarly
 const SatireGlobal: React.ElementType = () => {
   return (
     <>

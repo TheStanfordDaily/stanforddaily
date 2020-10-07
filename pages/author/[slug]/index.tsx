@@ -1,3 +1,3 @@
-import AuthorArchivePage from "components/pages/AuthorArchivePage";
+import AuthorArticleListPage from "components/pages/AuthorArticleListPage";
 
-export default AuthorArchivePage;
+export default AuthorArticleListPage;

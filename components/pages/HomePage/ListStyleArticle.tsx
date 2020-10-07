@@ -4,6 +4,8 @@ import AuthorAndDateView from "components/AuthorAndDateView";
 import { ArticleProps } from "./ArticleProps";
 import { ArticleTitleWithLink } from "./ArticleTitleWithLink";
 
+// Component used for articles in Grind and Opinions sections
+// on homepage, not used for A&L (which has its own component)
 export const ListStyleArticle: React.ElementType = ({
   post,
   displayAuthor = true,

@@ -20,7 +20,6 @@
   "defaults": {
     "ttl": 60,
     "allowedHttpMethods": ["HEAD", "GET"],
-    "compress": true,
     "forward": {
       "cookies": "none",
       "queryString": false,

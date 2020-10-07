@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, Platform, ScrollView, SafeAreaView } from "react-native";
 import {
   getCategoryAsync,
-  CategoryArchivePageData,
+  CategoryArticleListPageData,
   splitCategoryToSlugs,
   Category,
 } from "helpers/wpapi";
@@ -10,19 +10,21 @@ import { FONTS } from "helpers/constants";
 import Wrapper from "components/Wrapper";
 import { Section, SECTION_PADDING } from "components/Section";
 import SatireGlobal from "components/SatireGlobal";
-import DataVizGlobal from "components/DataVizGlobal";
 import LoadingView from "components/Loading";
-import ArchivePage, { ArchivePageType, ArchivePageState } from "./ArchivePage";
+import ArticleListPage, {
+  ArticleListPageType,
+  ArticleListPageState,
+} from "./ArticleListPage";
 
 async function _getCategoryData(
   slugs: string[],
   pageNumber: number,
-): Promise<CategoryArchivePageData> {
+): Promise<CategoryArticleListPageData> {
   return getCategoryAsync(slugs, pageNumber);
 }
 
-interface CategoryArchivePageProps {
-  initData: CategoryArchivePageData;
+interface CategoryArticleListPageProps {
+  initData: CategoryArticleListPageData;
   slugs: string[];
 }
 
@@ -31,9 +33,9 @@ function _getSlugs(query: any): string[] {
   return [slug1, slug2, slug3, slug4, slug5].filter(Boolean);
 }
 
-export default class CategoryArchivePage extends React.Component<
-  CategoryArchivePageProps,
-  ArchivePageState
+export default class CategoryArticleListPage extends React.Component<
+  CategoryArticleListPageProps,
+  ArticleListPageState
 > {
   static async getInitialProps(param): Promise<any> {
     const { query } = param;
@@ -49,12 +51,12 @@ export default class CategoryArchivePage extends React.Component<
       return <LoadingView />;
     }
 
-    const _archivePage = (
-      <ArchivePage
+    const _articleListPage = (
+      <ArticleListPage
         displayCategory={false}
         displayExcerpt={false}
         initData={initData}
-        type={ArchivePageType.Category}
+        type={ArticleListPageType.Category}
         getExtraData={async pageNumber => {
           return _getCategoryData(slugs, pageNumber);
         }}
@@ -64,7 +66,9 @@ export default class CategoryArchivePage extends React.Component<
 
     if (Platform.OS !== "web") {
       // We do not need header on mobile
-      return <SafeAreaView style={{ flex: 1 }}>{_archivePage}</SafeAreaView>;
+      return (
+        <SafeAreaView style={{ flex: 1 }}>{_articleListPage}</SafeAreaView>
+      );
     }
 
     return (
@@ -74,30 +78,24 @@ export default class CategoryArchivePage extends React.Component<
           flexDirection: "column",
         }}
       >
-        <a
-          className="section-title"
-          style={{ paddingBottom: 15, display: "block" }}
-        >
-          <View style={{ paddingBottom: 15 }}>
-            <Text
-              style={{
-                ...FONTS.SECTION_TITLE,
-                fontSize: 25,
-              }}
-            >
-              {initData.tsdMeta.title}
-            </Text>
-          </View>
-        </a>
+        <View style={{ paddingBottom: 15 }}>
+          <Text
+            style={{
+              ...FONTS.SECTION_TITLE,
+              fontSize: 25,
+            }}
+          >
+            {initData.tsdMeta.title}
+          </Text>
+        </View>
         {initData.tsdMeta.title === "Satire" && <SatireGlobal />}
-        {initData.tsdMeta.title === "Data Team" && <DataVizGlobal />}
-        {_archivePage}
+        {_articleListPage}
       </Section>
     );
   }
 }
 
-export function CategoryArchivePageWrapper(props: any): any {
+export function CategoryArticleListPageWrapper(props: any): any {
   const category: Category = props.navigation.state.params;
   return (
     <ScrollView
@@ -107,7 +105,7 @@ export function CategoryArchivePageWrapper(props: any): any {
       }}
     >
       <Wrapper
-        class={CategoryArchivePage}
+        class={CategoryArticleListPage}
         props={props}
         getInitialProps={{ query: splitCategoryToSlugs(category) }}
       />
@@ -115,6 +113,6 @@ export function CategoryArchivePageWrapper(props: any): any {
   );
 }
 // https://github.com/react-navigation/react-navigation/issues/2379
-CategoryArchivePageWrapper.navigationOptions = ({ navigation }) => ({
+CategoryArticleListPageWrapper.navigationOptions = ({ navigation }) => ({
   title: (navigation.state.params as Category).name || "Category",
 });
