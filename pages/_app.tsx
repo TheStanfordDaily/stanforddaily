@@ -16,6 +16,7 @@ import { getBorderValue } from "components/pages/HomePage/getBorderValue";
 import { TopSection } from "components/pages/HomePage/TopSection";
 import { TopBarLinks } from "components/TopBarLinks";
 import { FooterContent } from "components/FooterContent";
+import DonationForm from "components/DonationForm";
 import Link from "../components/Link";
 
 const containerRStyle: any = {
@@ -154,27 +155,11 @@ const SiteHeader: React.ElementType = (props: any) => {
               }}
             />
           </a> */}
-          <a href="http://apply.stanforddaily.com/">
-          <div
-            style={{
-              backgroundColor: "#54100b",
-              width: "100%",
-              color: "white",
-              padding: "15px 0",
-              textAlign: "center",
-              fontSize: "200%",
-              ...FONTS.SECTION_TITLE,
-            }}
-          >
-            We're recruiting! All students are welcome, regardless of experience and time commitment.{' '}
-            <span
-              style={{ color: "#FF9999" }}
-            >
-              Click to learn more and sign up now!
-            </span>
-          </div>
-          </a>
-          {/* <HeaderDonationBanner currentPageUrl={props.router.asPath} /> */}
+          <DonationForm
+            currentPageUrl={STRINGS.WEBSITE_URL}
+            bannerLocation={"Banner"}
+            large={false}
+          />
         </RView>
       </RView>
       <RView
