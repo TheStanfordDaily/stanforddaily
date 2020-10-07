@@ -16,6 +16,7 @@ import { getBorderValue } from "components/pages/HomePage/getBorderValue";
 import { TopSection } from "components/pages/HomePage/TopSection";
 import { CategoryList } from "components/CategoryList";
 import { FooterContent } from "components/FooterContent";
+import DonationForm from "components/DonationForm";
 import HeaderDonationBanner from "components/HeaderDonationBanner";
 import Link from "../components/Link";
 
@@ -154,25 +155,11 @@ const SiteHeader: React.ElementType = (props: any) => {
               }}
             />
           </a> */}
-          <div
-            style={{
-              backgroundColor: "black",
-              width: "100%",
-              color: "white",
-              padding: "15px 0",
-              textAlign: "center",
-              fontSize: "200%",
-              ...FONTS.SECTION_TITLE,
-            }}
-          >
-            The Daily stands in solidarity with the Black community.{" "}
-            <a
-              style={{ color: "#F5BBBB" }}
-              href="https://www.stanforddaily.com/2020/06/03/in-solidarity-with-the-black-community-a-letter-from-the-editors/"
-            >
-              Read our editors&rsquo; statement.
-            </a>
-          </div>
+          <DonationForm
+            currentPageUrl={STRINGS.WEBSITE_URL}
+            bannerLocation={"Banner"}
+            large={false}
+          />
           {/* <HeaderDonationBanner currentPageUrl={props.router.asPath} /> */}
         </RView>
       </RView>
