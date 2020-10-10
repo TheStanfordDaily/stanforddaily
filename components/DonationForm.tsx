@@ -1,5 +1,6 @@
 import React from "react";
-import { FONTS, STANFORD_COLORS } from "helpers/constants";
+import { FONTS, STANFORD_COLORS, BREAKPOINTS } from "helpers/constants";
+import css from "@emotion/css";
 
 // Donation form that appears on homepage (not currently enabled)
 // and at the end of posts on the site
@@ -74,10 +75,12 @@ const DonationForm: React.ElementType = ({
           }}
         >
           {" "}
-          {/* Options to appear in dropdown as ordered below, with $50 selected to start */}
+          {/* Options to appear in dropdown as ordered below, with none selected to start */}
+          <option value="">Select amount</option>
           <option value="50">$50</option>
+          <option value="100">$100</option>
           <option value="200">$200</option>
-          <option value="1000">$1,000</option>
+          <option value="500">$500</option>
           <option value="">Other</option>
         </select>
 
@@ -98,7 +101,7 @@ const DonationForm: React.ElementType = ({
                 setIsRecurring(!isRecurring);
               }}
             />
-            Make my donation a monthly donation.
+            Make a monthly donation.
           </label>
         </div>
 
@@ -178,6 +181,22 @@ const DonationForm: React.ElementType = ({
               <span style={{ color: "#FF9999" }}>
                 Support our student journalism today.
               </span>
+              <span
+                css={css`
+                  @media (max-width: ${BREAKPOINTS.MAX_WIDTH.TABLET}px) {
+                    display: none;
+                  }
+                `}
+                style={{
+                  borderRight: "2px solid #FF9999",
+                  paddingTop: "0.8vw",
+                  paddingBottom: "0.8vw",
+                  paddingLeft: 12.5,
+                  [`@media (max-width: ${BREAKPOINTS.MAX_WIDTH.TABLET}`]: {
+                    display: "none",
+                  },
+                }}
+              ></span>
             </button>
             <select
               name="amount"
@@ -185,15 +204,16 @@ const DonationForm: React.ElementType = ({
                 setAmount(event.target.value);
               }}
               style={{
-                width: 100,
-                marginLeft: 10,
-                marginRight: 10,
+                width: 125,
+                marginLeft: 8,
+                marginRight: 8,
                 height: 30,
                 fontSize: 15,
                 border: `3px solid ${STANFORD_COLORS.CARDINAL_RED}`,
-                verticalAlign: "top",
+                verticalAlign: "center",
               }}
             >
+              <option value="">Select amount</option>
               <option value="50">$50</option>
               <option value="100">$100</option>
               <option value="200">$200</option>
@@ -218,8 +238,31 @@ const DonationForm: React.ElementType = ({
                   setIsRecurring(!isRecurring);
                 }}
               />
-              Make your donation monthly.
+              Make a monthly donation.
             </label>
+            <button
+              type="submit"
+              name="submit"
+              style={{
+                ...FONTS.AUXILIARY,
+                border: `2px solid ${STANFORD_COLORS.CARDINAL_RED}`,
+                borderRadius: 0,
+                backgroundColor: "#FF9999",
+                color: "white",
+                marginLeft: 10,
+                marginRight: 10,
+                lineHeight: "30px",
+                height: 40,
+                display: "inlineBlock",
+                cursor: "pointer",
+                fontSize: 15,
+                fontWeight: 700,
+                letterSpacing: 1,
+                outline: 0,
+              }}
+            >
+              Donate
+            </button>
           </div>
 
           <img
