@@ -1,26 +1,28 @@
 import React from "react";
-import { View, Text } from "react-native";
-import { getAuthorAsync, AuthorArchivePageData } from "helpers/wpapi";
+import { getAuthorAsync, AuthorArticleListPageData } from "helpers/wpapi";
 import Wrapper from "components/Wrapper";
 import { Section } from "components/Section";
 import AuthorBox from "components/AuthorBox";
-import ArchivePage, { ArchivePageType, ArchivePageState } from "./ArchivePage";
+import ArticleListPage, {
+  ArticleListPageType,
+  ArticleListPageState,
+} from "./ArticleListPage";
 
 async function _getAuthorData(
   slug: string,
   pageNumber: number,
-): Promise<AuthorArchivePageData> {
+): Promise<AuthorArticleListPageData> {
   return getAuthorAsync(slug, pageNumber);
 }
 
-interface AuthorArchivePageProps {
-  initData: AuthorArchivePageData;
+interface AuthorArticleListPageProps {
+  initData: AuthorArticleListPageData;
   slug: string;
 }
 
-export default class AuthorArchivePage extends React.Component<
-  AuthorArchivePageProps,
-  ArchivePageState
+export default class AuthorArticleListPage extends React.Component<
+  AuthorArticleListPageProps,
+  ArticleListPageState
 > {
   static async getInitialProps(param): Promise<any> {
     const { query } = param;
@@ -40,9 +42,9 @@ export default class AuthorArchivePage extends React.Component<
         }}
       >
         <AuthorBox author={initData.tsdMeta.author} linkToAuthor={false} />
-        <ArchivePage
+        <ArticleListPage
           initData={initData}
-          type={ArchivePageType.Author}
+          type={ArticleListPageType.Author}
           getExtraData={async pageNumber => {
             return _getAuthorData(slug, pageNumber);
           }}
@@ -53,8 +55,8 @@ export default class AuthorArchivePage extends React.Component<
   }
 }
 
-export function AuthorArchivePageWrapper(props: any): any {
+export function AuthorArticleListPageWrapper(props: any): any {
   return (
-    <Wrapper class={AuthorArchivePage} props={props} getInitialProps={{}} />
+    <Wrapper class={AuthorArticleListPage} props={props} getInitialProps={{}} />
   );
 }

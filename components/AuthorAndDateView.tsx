@@ -4,6 +4,8 @@ import { Post } from "helpers/wpapi";
 import { AuthorView } from "./pages/HomePage/AuthorView";
 import DateView from "./DateView";
 
+// Describes requirement of various properties of specific types
+// https://www.typescriptlang.org/docs/handbook/interfaces.html
 interface AuthorAndDateViewProps {
   post: Post;
   style?: TextStyle;
@@ -13,6 +15,8 @@ interface AuthorAndDateViewProps {
   newLineBetweenAuthorAndDate?: boolean;
 }
 
+// Author name(s) and date of publication for article shown on the
+// home page and on article list pages
 const AuthorAndDateView: React.ElementType<AuthorAndDateViewProps> = ({
   post,
   style,
@@ -22,6 +26,9 @@ const AuthorAndDateView: React.ElementType<AuthorAndDateViewProps> = ({
   newLineBetweenAuthorAndDate = false,
 }: AuthorAndDateViewProps) => {
   if (newLineBetweenAuthorAndDate) {
+    // Format name(s)/date like this:
+    // FIRSTNAME LASTNAME
+    // JUL 25 2020
     if (Platform.OS === "web") {
       return (
         <Text
@@ -44,6 +51,7 @@ const AuthorAndDateView: React.ElementType<AuthorAndDateViewProps> = ({
       );
     }
   } else {
+    // Format name(s)/date like this: FIRSTNAME LASTNAME • JUL 25 2020
     return (
       <Text
         style={{

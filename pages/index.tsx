@@ -1,7 +1,7 @@
 import React from "react";
 import Router from "next/router";
 import HomePage from "components/pages/HomePage";
-import SearchArchivePage from "components/pages/SearchArchivePage";
+import SearchArticleListPage from "components/pages/SearchArticleListPage";
 import { getPostByIdAsync, getPostPath } from "helpers/wpapi";
 
 enum PageType {
@@ -24,7 +24,9 @@ export default class IndexPage extends React.Component<any, any> {
 
     if (s) {
       const searchKeyword = s;
-      const initProps = await SearchArchivePage.getSearchResults(searchKeyword);
+      const initProps = await SearchArticleListPage.getSearchResults(
+        searchKeyword,
+      );
       return { ...initProps, pageType: PageType.SEARCH };
     } else if (p) {
       const post = await getPostByIdAsync(Number(p));
@@ -53,7 +55,7 @@ export default class IndexPage extends React.Component<any, any> {
         return <HomePage {...(restProps as any)} />;
 
       case PageType.SEARCH:
-        return <SearchArchivePage {...(restProps as any)} />;
+        return <SearchArticleListPage {...(restProps as any)} />;
 
       default:
         return <></>;

@@ -2,6 +2,9 @@ import React from "react";
 import { FONTS, STANFORD_COLORS, BREAKPOINTS } from "helpers/constants";
 import css from "@emotion/css";
 
+// Donation form that appears on homepage (not currently enabled)
+// and at the end of posts on the site
+
 // https://developer.paypal.com/docs/classic/paypal-payments-standard/integration-guide/Appx_websitestandard_htmlvariables/#recurring-payment-variables
 const DonationForm: React.ElementType = ({
   bannerLocation,
@@ -71,6 +74,8 @@ const DonationForm: React.ElementType = ({
             verticalAlign: "top",
           }}
         >
+          {" "}
+          {/* Options to appear in dropdown as ordered below, with none selected to start */}
           <option value="">Select amount</option>
           <option value="50">$50</option>
           <option value="100">$100</option>

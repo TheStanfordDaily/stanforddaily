@@ -3,7 +3,7 @@ import { Section } from "components/Section";
 import ArticlesView from "components/ArticlesView";
 import { STANFORD_COLORS } from "helpers/constants";
 import { SectionProps } from "./SectionProps";
-import { SectionTitle, SectionTitleColorBackground } from "./SectionTitle";
+import { SectionTitleColorBackground } from "./SectionTitle";
 
 export const SatireSection: React.ElementType<SectionProps> = ({
   content,

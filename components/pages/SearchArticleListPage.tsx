@@ -1,28 +1,31 @@
 import React from "react";
-import { View, Text } from "react-native";
-import { getSearchAsync, SearchArchivePageData } from "helpers/wpapi";
+import { Text } from "react-native";
+import { getSearchAsync, SearchArticleListPageData } from "helpers/wpapi";
 import { FONTS } from "helpers/constants";
 import Wrapper from "components/Wrapper";
 import { Section } from "components/Section";
-import ArchivePage, { ArchivePageType, ArchivePageState } from "./ArchivePage";
+import ArticleListPage, {
+  ArticleListPageType,
+  ArticleListPageState,
+} from "./ArticleListPage";
 
 async function _getSearchData(
   keyword: string,
   pageNumber: number,
-): Promise<SearchArchivePageData> {
+): Promise<SearchArticleListPageData> {
   return getSearchAsync(keyword, pageNumber);
 }
 
-interface SearchArchivePageProps {
-  initData: SearchArchivePageData;
+interface SearchArticleListPageProps {
+  initData: SearchArticleListPageData;
   keyword: string;
 }
 
-export default class SearchArchivePage extends React.Component<
-  SearchArchivePageProps,
-  ArchivePageState
+export default class SearchArticleListPage extends React.Component<
+  SearchArticleListPageProps,
+  ArticleListPageState
 > {
-  static async getSearchResults(keyword): Promise<SearchArchivePageProps> {
+  static async getSearchResults(keyword): Promise<SearchArticleListPageProps> {
     const authorData = await _getSearchData(keyword, 1);
 
     return { initData: authorData, keyword };
@@ -45,13 +48,12 @@ export default class SearchArchivePage extends React.Component<
         >
           Search results for: {keyword}
         </Text>
-        <ArchivePage
+        <ArticleListPage
           initData={initData}
-          type={ArchivePageType.Search}
+          type={ArticleListPageType.Search}
           getExtraData={async pageNumber => {
             return _getSearchData(keyword, pageNumber);
           }}
-          enlargeFirstArticle={false}
           {...this.props}
         />
       </Section>
@@ -59,8 +61,8 @@ export default class SearchArchivePage extends React.Component<
   }
 }
 
-export function SearchArchivePageWrapper(props: any): any {
+export function SearchArticleListPageWrapper(props: any): any {
   return (
-    <Wrapper class={SearchArchivePage} props={props} getInitialProps={{}} />
+    <Wrapper class={SearchArticleListPage} props={props} getInitialProps={{}} />
   );
 }

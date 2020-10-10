@@ -10,10 +10,13 @@ const ArticleTitleStyle = styled.Text({
   margin: 0,
   // lineHeight: "1.4em",
 });
+
 const ArticleTitle =
   Platform.OS === "web"
     ? ArticleTitleStyle.withComponent("h2")
     : ArticleTitleStyle;
+
+// Used in composition of other article display components
 export const ArticleTitleWithLink: React.ElementType = ({
   post,
   marginBottomMore = false,

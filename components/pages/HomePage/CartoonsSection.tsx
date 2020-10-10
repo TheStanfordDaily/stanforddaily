@@ -6,6 +6,7 @@ import { SectionTitleWithLink } from "./SectionTitle";
 import { SectionProps } from "./SectionProps";
 import { LinkToArticle } from "./LinkToArticle";
 
+// Appears on right-hand side of homepage
 export const CartoonsSection: React.ElementType = ({
   content,
   category,

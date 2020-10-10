@@ -3,6 +3,7 @@ import { Section } from "components/Section";
 import { SectionTitleWithLink } from "./SectionTitle";
 import { SectionProps } from "./SectionProps";
 
+// Currently unused
 export const MultimediaSection: React.ElementType<SectionProps> = ({
   style,
   category,

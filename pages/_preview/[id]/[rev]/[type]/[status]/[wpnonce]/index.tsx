@@ -1,15 +1,16 @@
 import React from "react";
-import { View } from "react-native";
-import { WebView } from "react-native-webview";
-import { getRevision, getPostPath, Post } from "helpers/wpapi";
-import { STRINGS } from "helpers/constants";
+import { getRevision } from "helpers/wpapi";
 import LoadingView from "components/Loading";
 import ContentView from "components/ContentView";
 
+// Describes requirement of various properties of specific types
+// https://www.typescriptlang.org/docs/handbook/interfaces.html 
 interface ArticlePageProps {
   query: any;
 }
 
+// Describes requirement of various properties of specific types
+// https://www.typescriptlang.org/docs/handbook/interfaces.html 
 interface ArticlePageState {
   post?: any;
 }

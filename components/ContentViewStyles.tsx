@@ -1,10 +1,5 @@
-import {
-  STRINGS,
-  BREAKPOINTS,
-  FONTS,
-  STANFORD_COLORS,
-} from "helpers/constants";
-import { SectionStyle, SECTION_PADDING } from "components/Section";
+import { BREAKPOINTS, FONTS, STANFORD_COLORS } from "helpers/constants";
+import { SECTION_PADDING } from "components/Section";
 
 export const centerContentStyle = {
   margin: "0 auto",
