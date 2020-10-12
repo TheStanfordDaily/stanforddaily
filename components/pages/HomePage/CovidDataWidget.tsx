@@ -75,7 +75,7 @@ export const CovidDataWidget: React.ElementType = () => {
             className=" tracking-box"
             style={{
               width: "30%",
-              height: "17vh",
+              height: "18vh",
               backgroundColor: "#fef2f1",
               textAlign: "center",
               paddingTop: "2%",
@@ -108,7 +108,7 @@ export const CovidDataWidget: React.ElementType = () => {
             className=" tracking-box"
             style={{
               width: "30%",
-              height: "17vh",
+              height: "18vh",
               backgroundColor: "#fef2f1",
               textAlign: "center",
               paddingTop: "2%",
@@ -141,7 +141,7 @@ export const CovidDataWidget: React.ElementType = () => {
             className=" tracking-box"
             style={{
               width: "30%",
-              height: "17vh",
+              height: "18vh",
               backgroundColor: "#fef2f1",
               textAlign: "center",
               paddingTop: "2%",
