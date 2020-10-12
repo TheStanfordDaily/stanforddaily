@@ -43,9 +43,9 @@ export const CovidDataWidget: React.ElementType = () => {
           }}
         >
           <a
-            title="Opinions"
+            title="COVID-19"
             style={{ color: "inherit" }}
-            href="/category/opinions/"
+            href="https://www.stanforddaily.com/2020/10/11/tracking-covid-19-at-stanford/"
           >
             <h1
               style={{
