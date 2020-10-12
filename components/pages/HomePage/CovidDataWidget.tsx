@@ -180,7 +180,7 @@ export const CovidDataWidget: React.ElementType = () => {
           lineHeight: "normal",
         }}
       >
-        Results are from Stanford's surveillance testing program. Arrows
+        Results are from Stanford's surveillance testing and other Stanford-affiliated programs. Arrows
         indicate whether last week's counts trended up or down from the previous
         week.
       </div>
