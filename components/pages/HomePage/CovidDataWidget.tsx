@@ -201,9 +201,9 @@ export const CovidDataWidget: React.ElementType = () => {
         >
           {" "}
           <a
-            title=" Letter to the community: Welcoming VP Chris Middleton to the ASSU exec team"
+            title="Tracking COVID-19 at Stanford"
             style={{ color: "inherit" }}
-            href="stanforddaily.com"
+            href="https://www.stanforddaily.com/2020/10/11/tracking-covid-19-at-stanford/"
           >
             Tracking COVID-19 at Stanford
           </a>
