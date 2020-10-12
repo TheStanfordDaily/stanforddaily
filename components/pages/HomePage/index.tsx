@@ -29,7 +29,7 @@ import { MoreFromTheDailySection } from "./MoreFromTheDailySection";
 import { DesktopRow } from "./DesktopRow";
 import { Column } from "./Column";
 import { getBorderValue } from "./getBorderValue";
-import { CovidDataWidget } from "components/pages/HomePage/CovidDataWidget.tsx";
+import { CovidDataWidget } from "components/pages/HomePage/CovidDataWidget";
 
 interface IndexProps {
   homePosts?: Home;
