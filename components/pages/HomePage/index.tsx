@@ -29,6 +29,7 @@ import { MoreFromTheDailySection } from "./MoreFromTheDailySection";
 import { DesktopRow } from "./DesktopRow";
 import { Column } from "./Column";
 import { getBorderValue } from "./getBorderValue";
+import { CovidDataWidget } from "components/pages/HomePage/CovidDataWidget.tsx";
 
 interface IndexProps {
   homePosts?: Home;
@@ -165,6 +166,7 @@ export default class HomePage extends React.Component<IndexProps, IndexState> {
                   },
                 }}
               >
+                <CovidDataWidget />
                 <OpinionSection
                   content={homePosts.opinions}
                   category={homePosts.tsdMeta.categories.opinions}
