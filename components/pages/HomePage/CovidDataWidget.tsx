@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 
-//Replace these two with your own!
-const SHEET_ID = "1darMs2BhXBjSRcuQYi33dKzIAgUSenZjYF9ZrRjqNiY";
-const ACCESS_TOKEN = "AIzaSyAh_wwePZswl21zxnjGaiBM0Q-yQ8miOgE";
+// const SHEET_ID = "1darMs2BhXBjSRcuQYi33dKzIAgUSenZjYF9ZrRjqNiY";
+// const ACCESS_TOKEN = "AIzaSyAh_wwePZswl21zxnjGaiBM0Q-yQ8miOgE";
 
 export const CovidDataWidget: React.ElementType = () => {
-  const [stats, setStats] = useState(null);
+  // const [stats, setStats] = useState(null);
 
   // async function getSheetValues() {
   //     const request = await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/B22:B23?key=${ACCESS_TOKEN}`,
