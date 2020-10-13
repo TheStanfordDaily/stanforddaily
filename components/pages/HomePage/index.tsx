@@ -141,7 +141,7 @@ export default class HomePage extends React.Component<IndexProps, IndexState> {
                     </>
                   )}
                 </DesktopRow>
-                <CovidDataWidget mobile={true} />
+                { /* <CovidDataWidget mobile={true} /> */ }
                 <SportsSection
                   content={homePosts.sports}
                   category={homePosts.tsdMeta.categories.sports}
