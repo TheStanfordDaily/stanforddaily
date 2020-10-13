@@ -5,7 +5,7 @@ import css from "@emotion/css";
 // const SHEET_ID = "1darMs2BhXBjSRcuQYi33dKzIAgUSenZjYF9ZrRjqNiY";
 // const ACCESS_TOKEN = "AIzaSyAh_wwePZswl21zxnjGaiBM0Q-yQ8miOgE";
 
-export const CovidDataWidget: React.ElementType = () => {
+export const CovidDataWidget: React.ElementType = ({ mobile = false }) => {
   // const [stats, setStats] = useState(null);
 
   // async function getSheetValues() {
