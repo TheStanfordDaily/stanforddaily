@@ -2,12 +2,11 @@ import React, { useEffect, useState } from "react";
 import { BREAKPOINTS } from "helpers/constants";
 import css from "@emotion/css";
 
-//Replace these two with your own!
-const SHEET_ID = "1darMs2BhXBjSRcuQYi33dKzIAgUSenZjYF9ZrRjqNiY";
-const ACCESS_TOKEN = "AIzaSyAh_wwePZswl21zxnjGaiBM0Q-yQ8miOgE";
+// const SHEET_ID = "1darMs2BhXBjSRcuQYi33dKzIAgUSenZjYF9ZrRjqNiY";
+// const ACCESS_TOKEN = "AIzaSyAh_wwePZswl21zxnjGaiBM0Q-yQ8miOgE";
 
-export const CovidDataWidget: React.ElementType = ({ mobile = false }) => {
-  const [stats, setStats] = useState(null);
+export const CovidDataWidget: React.ElementType = () => {
+  // const [stats, setStats] = useState(null);
 
   // async function getSheetValues() {
   //     const request = await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/B22:B23?key=${ACCESS_TOKEN}`,
@@ -62,9 +61,9 @@ export const CovidDataWidget: React.ElementType = ({ mobile = false }) => {
           }}
         >
           <a
-            title="Opinions"
+            title="COVID-19"
             style={{ color: "inherit" }}
-            href="/category/opinions/"
+            href="https://www.stanforddaily.com/2020/10/11/tracking-covid-19-at-stanford/"
           >
             <h1
               style={{
@@ -94,7 +93,7 @@ export const CovidDataWidget: React.ElementType = ({ mobile = false }) => {
             className=" tracking-box"
             style={{
               width: "30%",
-              height: "17vh",
+              height: "18vh",
               backgroundColor: "#fef2f1",
               textAlign: "center",
               paddingTop: "2%",
@@ -130,7 +129,7 @@ export const CovidDataWidget: React.ElementType = ({ mobile = false }) => {
             className=" tracking-box"
             style={{
               width: "30%",
-              height: "17vh",
+              height: "18vh",
               backgroundColor: "#fef2f1",
               textAlign: "center",
               paddingTop: "2%",
@@ -166,7 +165,7 @@ export const CovidDataWidget: React.ElementType = ({ mobile = false }) => {
             className=" tracking-box"
             style={{
               width: "30%",
-              height: "17vh",
+              height: "18vh",
               backgroundColor: "#fef2f1",
               textAlign: "center",
               paddingTop: "2%",
@@ -182,7 +181,7 @@ export const CovidDataWidget: React.ElementType = ({ mobile = false }) => {
                 alignItems: "center",
               }}
             >
-              Total tests administered
+              Tests administered
             </div>
             <div>
               <strong style={{ fontSize: "3vh" }}>33,479</strong>
@@ -208,7 +207,7 @@ export const CovidDataWidget: React.ElementType = ({ mobile = false }) => {
           lineHeight: "normal",
         }}
       >
-        Results are from Stanford's surveillance testing program. Arrows
+        Results are from Stanford's surveillance testing and other Stanford-affiliated programs. Arrows
         indicate whether last week's counts trended up or down from the previous
         week.
       </div>
