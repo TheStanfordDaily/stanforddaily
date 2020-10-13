@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
+import { BREAKPOINTS } from "helpers/constants";
+import css from "@emotion/css";
 
 //Replace these two with your own!
 const SHEET_ID = "1darMs2BhXBjSRcuQYi33dKzIAgUSenZjYF9ZrRjqNiY";
 const ACCESS_TOKEN = "AIzaSyAh_wwePZswl21zxnjGaiBM0Q-yQ8miOgE";
 
-export const CovidDataWidget: React.ElementType = () => {
+export const CovidDataWidget: React.ElementType = ({ mobile = false }) => {
   const [stats, setStats] = useState(null);
 
   // async function getSheetValues() {
@@ -32,7 +34,23 @@ export const CovidDataWidget: React.ElementType = () => {
   // }, []);
 
   return (
-    <section className="css-cliv5m" style={{ padding: "15px" }}>
+    <section
+      className="css-cliv5m"
+      style={{ padding: "15px" }}
+      css={
+        mobile
+          ? css`
+              @media (min-width: ${BREAKPOINTS.TABLET}px) {
+                display: none;
+              }
+            `
+          : css`
+              @media (max-width: ${BREAKPOINTS.MAX_WIDTH.TABLET}px) {
+                display: none;
+              }
+            `
+      }
+    >
       <div className="css-6jlpjt">
         <div
           dir="auto"
@@ -76,7 +94,7 @@ export const CovidDataWidget: React.ElementType = () => {
             className=" tracking-box"
             style={{
               width: "30%",
-              height: "16.5vh",
+              height: "17vh",
               backgroundColor: "#fef2f1",
               textAlign: "center",
               paddingTop: "2%",
@@ -87,6 +105,9 @@ export const CovidDataWidget: React.ElementType = () => {
                 fontSize: "1.75vh",
                 lineHeight: "normal",
                 paddingBottom: "1vh",
+                height: "45%",
+                display: "flex",
+                alignItems: "center",
               }}
             >
               Undergrad and grad student positives
@@ -109,7 +130,7 @@ export const CovidDataWidget: React.ElementType = () => {
             className=" tracking-box"
             style={{
               width: "30%",
-              height: "16.5vh",
+              height: "17vh",
               backgroundColor: "#fef2f1",
               textAlign: "center",
               paddingTop: "2%",
@@ -117,6 +138,9 @@ export const CovidDataWidget: React.ElementType = () => {
           >
             <div
               style={{
+                height: "45%",
+                display: "flex",
+                alignItems: "center",
                 fontSize: "1.75vh",
                 lineHeight: "normal",
                 paddingBottom: "1vh",
@@ -142,7 +166,7 @@ export const CovidDataWidget: React.ElementType = () => {
             className=" tracking-box"
             style={{
               width: "30%",
-              height: "16.5vh",
+              height: "17vh",
               backgroundColor: "#fef2f1",
               textAlign: "center",
               paddingTop: "2%",
@@ -153,6 +177,9 @@ export const CovidDataWidget: React.ElementType = () => {
                 fontSize: "1.75vh",
                 lineHeight: "normal",
                 paddingBottom: "1vh",
+                height: "45%",
+                display: "flex",
+                alignItems: "center",
               }}
             >
               Total tests administered
