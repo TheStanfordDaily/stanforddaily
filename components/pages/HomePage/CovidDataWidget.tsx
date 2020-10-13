@@ -184,7 +184,7 @@ export const CovidDataWidget: React.ElementType = ({ mobile = false }) => {
               Tests administered
             </div>
             <div>
-              <strong style={{ fontSize: "3vh" }}>40,151</strong>
+              <strong style={{ fontSize: "3vh" }}>40,264</strong>
             </div>
             <div style={{ fontSize: "1.75vh", lineHeight: "normal" }}>
               <span>
