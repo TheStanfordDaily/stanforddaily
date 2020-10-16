@@ -109,7 +109,7 @@ export const CovidDataWidget: React.ElementType = ({ mobile = false }) => {
                 alignItems: "center",
               }}
             >
-              Undergrad and grad student positives
+              Undergrads and grad students
             </div>
             <div>
               <strong style={{ fontSize: "3vh" }}>
@@ -145,7 +145,7 @@ export const CovidDataWidget: React.ElementType = ({ mobile = false }) => {
                 paddingBottom: "1vh",
               }}
             >
-              Faculty, staff and postdocs positives
+              Faculty, staff and postdocs
             </div>
             <div>
               <strong style={{ fontSize: "3vh" }}>
@@ -181,16 +181,16 @@ export const CovidDataWidget: React.ElementType = ({ mobile = false }) => {
                 alignItems: "center",
               }}
             >
-              Tests administered
+              Stanford Health Care workers
             </div>
             <div>
-              <strong style={{ fontSize: "3vh" }}>40,264</strong>
+              <strong style={{ fontSize: "3vh" }}>463</strong>
             </div>
             <div style={{ fontSize: "1.75vh", lineHeight: "normal" }}>
               <span>
                 Last week
                 <br />
-                +6,672
+                +16
               </span>{" "}
               <span style={{ color: "#585858" }}>▲</span>
             </div>
@@ -207,7 +207,7 @@ export const CovidDataWidget: React.ElementType = ({ mobile = false }) => {
           lineHeight: "normal",
         }}
       >
-        Results are from Stanford's surveillance testing and other Stanford-affiliated programs. Arrows
+        Numbers indicate positive test results among each cohort. For cohorts excluding Stanford Health Care workers, results are from Stanford's surveillance testing and other Stanford-affiliated programs. Arrows
         indicate whether last week's counts trended up or down from the previous
         week.
       </div>
