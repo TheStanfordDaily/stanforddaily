@@ -4,10 +4,13 @@ import {
   RefreshControl,
   Platform,
   SafeAreaView,
+  Image,
+  View,
 } from "react-native";
 import {
   MediaRule,
   isWidthGreaterThanOrEqualTo,
+  mergeRStyle,
 } from "emotion-native-media-query";
 import { BREAKPOINTS } from "helpers/constants";
 import { getHomeAsync, Home } from "helpers/wpapi";
@@ -19,17 +22,20 @@ import WPFooter from "components/webHelpers/WPFooter";
 import Head from "next/head";
 import { MainSection } from "./MainSection";
 import { LeftSection } from "./LeftSection";
-import { SportsSection } from "./SportsSection";
 import { GrindSection } from "./GrindSection";
 import { OpinionSection } from "./OpinionSection";
-import { ArtsAndLifeSection } from "./ArtsAndLifeSection";
 import { CartoonsSection } from "./CartoonsSection";
 import { SatireSection } from "./SatireSection";
 import { MoreFromTheDailySection } from "./MoreFromTheDailySection";
 import { DesktopRow } from "./DesktopRow";
 import { Column } from "./Column";
 import { getBorderValue } from "./getBorderValue";
-import { CovidDataWidget } from "components/pages/HomePage/CovidDataWidget";
+import { CovidDataWidget } from "./CovidDataWidget";
+import { SectionProps } from "./SectionProps";
+import { SectionStyle, Section } from "components/Section";
+import { SectionTitleWithLink } from "./SectionTitle";
+import { TopThumbnailArticle } from "./TopThumbnailArticle";
+import { TitleOnlyArticle } from "./TitleOnlyArticle";
 
 interface IndexProps {
   homePosts?: Home;
@@ -94,6 +100,83 @@ export default class HomePage extends React.Component<IndexProps, IndexState> {
         />
       );
     };
+    const ArtsAndLifeSection: React.ElementType = (nsProps: any) => {
+      return (
+        <Column
+          style={{
+            flexGrow: 3,
+            order: 2,
+          }}
+          rStyle={mergeRStyle(
+            {
+              [MediaRule.MinWidth]: {
+                [BREAKPOINTS.TABLET]: {
+                  order: 1,
+                },
+              },
+            },
+            {
+              [MediaRule.MinWidth]: {
+                [BREAKPOINTS.TABLET]: {
+                  ...getBorderValue("Right"),
+                },
+              },
+            },
+          )}
+        >
+          <SectionStyle>
+            <SectionTitleWithLink
+              category={homePosts.tsdMeta.categories["arts-life"]}
+            >
+              <Image
+                source={{
+                  uri: "/static/sectionHeaders/artsAndLife.png",
+                }}
+                accessibilityLabel="Arts & Life"
+                resizeMode="contain"
+                style={{
+                  width: 120,
+                  height: 30,
+                }}
+              />
+            </SectionTitleWithLink>
+          </SectionStyle>
+          <div style={{ marginTop: -25 }}>
+            <Section>
+              <View>
+                <TopThumbnailArticle post={homePosts.artsAndLife[0]} />
+              </View>
+              <View>
+                <TopThumbnailArticle post={homePosts.artsAndLife[1]} />
+              </View>
+              <View>
+                <TitleOnlyArticle post={homePosts.artsAndLife[2]} />
+              </View>
+              <View>
+                <TitleOnlyArticle post={homePosts.artsAndLife[3]} />
+              </View>
+            </Section>
+          </div>
+        </Column>
+      );
+    };
+    const MainSportsSection: React.ElementType = (msProps: SectionProps) => {
+      return (
+        <MainSection
+          content={homePosts.sports}
+          category={homePosts.tsdMeta.categories.sports}
+          sectionTitle="Sports"
+          rStyle={{
+            [MediaRule.MaxWidth]: {
+              [BREAKPOINTS.MAX_WIDTH.TABLET]: {
+                ...getBorderValue("Bottom"),
+              },
+            },
+          }}
+          {...msProps}
+        />
+      );
+    };
 
     return (
       <>
@@ -141,19 +224,15 @@ export default class HomePage extends React.Component<IndexProps, IndexState> {
                     </>
                   )}
                 </DesktopRow>
-                { /* <CovidDataWidget mobile={true} /> */ }
-                <SportsSection
-                  content={homePosts.sports}
-                  category={homePosts.tsdMeta.categories.sports}
-                  mainBeforeSide={featuredBeforeNews}
-                  rStyle={{
-                    [MediaRule.MaxWidth]: {
-                      [BREAKPOINTS.MAX_WIDTH.TABLET]: {
-                        ...getBorderValue("Bottom"),
-                      },
-                    },
+                {/* <CovidDataWidget mobile={true} /> */}
+                <DesktopRow
+                  style={{
+                    ...getBorderValue("Bottom"),
                   }}
-                />
+                >
+                  <ArtsAndLifeSection />
+                  <MainSportsSection />
+                </DesktopRow>
               </Column>
               <Column
                 style={{
@@ -178,13 +257,6 @@ export default class HomePage extends React.Component<IndexProps, IndexState> {
                 <GrindSection
                   content={homePosts.theGrind}
                   category={homePosts.tsdMeta.categories.thegrind}
-                  style={{
-                    ...getBorderValue("Bottom"),
-                  }}
-                />
-                <ArtsAndLifeSection
-                  content={homePosts.artsAndLife}
-                  category={homePosts.tsdMeta.categories["arts-life"]}
                   style={{
                     ...getBorderValue("Bottom"),
                   }}
