@@ -59,6 +59,9 @@ interface ArticlesViewProps {
   displayDateAuthor?: boolean;
   hideCategory?: boolean;
   textColor?: string;
+  noDates?: boolean;
+  isSatire?: boolean;
+  isSatire2?: boolean;
 
   // Tells whether the first article is enlarged / "featured" (true)
   // or not (false); currently enabled only on category pages
@@ -77,6 +80,9 @@ const ArticlesView: React.ElementType<ArticlesViewProps> = ({
   hideCategory = false,
   textColor = STANFORD_COLORS.BLACK,
   enlargeFirstArticle = false,
+  noDates,
+  isSatire = false,
+  isSatire2 = false,
 }: ArticlesViewProps) => {
   const [extraPosts, setExtraPosts]: [Post[], any] = React.useState([]);
   const [extraPageNumber, setExtraPageNumber]: [number, any] = React.useState(
@@ -118,6 +124,8 @@ const ArticlesView: React.ElementType<ArticlesViewProps> = ({
               displayExcerpt={displayExcerpt}
               displayDateAuthor={displayDateAuthor}
               textColor={textColor}
+              noDate={noDates}
+              isSatire2={isSatire2}
             />
           )}
         </EachArticleView>

@@ -280,6 +280,9 @@ export default class HomePage extends React.Component<IndexProps, IndexState> {
                 ...getBorderValue("Bottom"),
               }}
             /> */}
+            {console.log(homePosts)}
+            {console.log("What?")}
+            {console.log(homePosts.tsdMeta.categories.cartoons)}
             <SatireSection
               category={homePosts.tsdMeta.categories.satire}
               content={homePosts.satire}

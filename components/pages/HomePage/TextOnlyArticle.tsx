@@ -19,6 +19,9 @@ export const TextOnlyArticle: React.ElementType = ({
   displayExcerpt = true,
   displayDateAuthor = true,
   textColor = STANFORD_COLORS.BLACK,
+  noDate = false,
+  isSatire = false,
+  isSatire2 = false,
 }: ArticleProps) => {
   const { tsdPrimaryCategory } = post;
   return (
@@ -36,8 +39,10 @@ export const TextOnlyArticle: React.ElementType = ({
           }}
         >
           <CategoryLink
-            category={tsdPrimaryCategory}
+            category={isSatire ? null : tsdPrimaryCategory}
             style={{ color: textColor }}
+            isSatire={isSatire}
+            isSatire2={isSatire2}
           />
         </View>
       )}
@@ -53,7 +58,11 @@ export const TextOnlyArticle: React.ElementType = ({
         }}
       >
         <ArticleHeader>
-          <ArticleTitleWithLink post={post} style={{ color: textColor }} />
+          <ArticleTitleWithLink
+            post={post}
+            marginBottomMore
+            style={{ color: textColor }}
+          />
         </ArticleHeader>
         {displayExcerpt && (
           <PostExcerpt post={post} style={{ color: textColor }} />
@@ -61,7 +70,8 @@ export const TextOnlyArticle: React.ElementType = ({
         {displayDateAuthor && (
           <AuthorAndDateView
             post={post}
-            style={{ marginTop: 5, color: textColor }}
+            style={{ color: textColor }}
+            noDate={noDate}
           />
         )}
       </View>

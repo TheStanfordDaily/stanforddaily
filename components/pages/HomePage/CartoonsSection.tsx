@@ -21,7 +21,19 @@ export const CartoonsSection: React.ElementType = ({
   ) {
     return (
       <RView WebTag={Section} NativeTag={Section} {...props}>
-        <SectionTitleWithLink category={category} />
+        <SectionTitleWithLink category={category}>
+          <Image
+            source={{
+              uri: "/static/sectionHeaders/cartoons.png",
+            }}
+            accessibilityLabel="Cartoons"
+            resizeMode="contain"
+            style={{
+              width: 200,
+              height: 65,
+            }}
+          />
+        </SectionTitleWithLink>
         <LinkToArticle post={content[0]}>
           <Image
             source={{
@@ -31,7 +43,6 @@ export const CartoonsSection: React.ElementType = ({
             style={{
               width: "100%",
               height: 400,
-              marginTop: 20,
             }}
           />
         </LinkToArticle>

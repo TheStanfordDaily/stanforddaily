@@ -51,7 +51,7 @@ export const HeadlineArticle: React.ElementType = ({
       >
         <PostExcerpt post={post} />
       </View>
-      <AuthorAndDateView post={post} />
+      <AuthorAndDateView post={post} noDate />
     </Article>
   );
 };

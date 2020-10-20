@@ -11,6 +11,8 @@ interface CategoryLinkProps {
   category: Category;
   children?: ReactNode;
   style?: TextStyle;
+  isSatire?: Boolean;
+  isSatire2?: Boolean;
 
   // See "helpers/trivial/react-navigation"
   navigation?: any;
@@ -24,6 +26,8 @@ const _CategoryLink: React.ElementType<CategoryLinkProps> = ({
   children = (category && category.name) || "Uncategorized",
   style = {},
   navigation,
+  isSatire = false,
+  isSatire2 = false,
 }: CategoryLinkProps) => {
   if (Platform.OS !== "web") {
     return (
@@ -51,10 +55,20 @@ const _CategoryLink: React.ElementType<CategoryLinkProps> = ({
         ...style,
       }}
     >
-      {category ? (
-        <Link href={getNextJsCategoryPath(category.url)} as={category.url}>
-          <a title={category.name} style={{ color: "inherit" }}>
-            {children}
+      {category || isSatire || isSatire2 ? (
+        <Link
+          href={
+            isSatire || isSatire2
+              ? "/category/satire/"
+              : getNextJsCategoryPath(category.url)
+          }
+          as={isSatire || isSatire2 ? "/category/satire/" : category.url}
+        >
+          <a
+            title={isSatire || isSatire2 ? "Satire" : category.name}
+            style={{ color: "inherit" }}
+          >
+            {isSatire2 ? "Satire" : children}
           </a>
         </Link>
       ) : (

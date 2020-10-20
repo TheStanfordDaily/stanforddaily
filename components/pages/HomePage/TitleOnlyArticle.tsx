@@ -10,9 +10,9 @@ export const TitleOnlyArticle: React.ElementType = ({ post }: ArticleProps) => {
   return (
     <Article post={post}>
       <ArticleHeader>
-        <ArticleTitleWithLink post={post} />
+        <ArticleTitleWithLink marginBottomMore post={post} />
       </ArticleHeader>
-      <AuthorAndDateView post={post} newLineBetweenAuthorAndDate />
+      <AuthorAndDateView post={post} noDate />
     </Article>
   );
 };
