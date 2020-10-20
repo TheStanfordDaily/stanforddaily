@@ -35,6 +35,7 @@ type SectionTitleProps = {
   category?: Category;
   children?: ReactNode;
   style?: any;
+  isSatire?: Boolean;
 };
 
 // Used in MoreFromTheDailySection on homepage,
@@ -65,9 +66,14 @@ type SectionTitleWithLinkProps = SectionTitleProps & {
 // except in the MoreFromTheDaily section
 export const SectionTitleWithLink: React.ElementType<
   SectionTitleWithLinkProps
-> = ({ category, style, children }: SectionTitleWithLinkProps) => {
+> = ({
+  category,
+  style,
+  children,
+  isSatire = false,
+}: SectionTitleWithLinkProps) => {
   return (
-    <CategoryLink category={category}>
+    <CategoryLink category={category} isSatire={isSatire}>
       <SectionTitle category={category} style={style}>
         {Platform.OS === "web"
           ? children

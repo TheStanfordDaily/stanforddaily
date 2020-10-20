@@ -13,6 +13,7 @@ interface AuthorAndDateViewProps {
   dateFormat?: string;
   dateStyle?: TextStyle;
   newLineBetweenAuthorAndDate?: boolean;
+  noDate?: boolean;
 }
 
 // Author name(s) and date of publication for article shown on the
@@ -24,8 +25,9 @@ const AuthorAndDateView: React.ElementType<AuthorAndDateViewProps> = ({
   dateFormat,
   dateStyle,
   newLineBetweenAuthorAndDate = false,
+  noDate = false,
 }: AuthorAndDateViewProps) => {
-  if (newLineBetweenAuthorAndDate) {
+  if (!noDate && newLineBetweenAuthorAndDate) {
     // Format name(s)/date like this:
     // FIRSTNAME LASTNAME
     // JUL 25 2020
@@ -50,7 +52,7 @@ const AuthorAndDateView: React.ElementType<AuthorAndDateViewProps> = ({
         </>
       );
     }
-  } else {
+  } else if (!noDate) {
     // Format name(s)/date like this: FIRSTNAME LASTNAME • JUL 25 2020
     return (
       <Text
@@ -69,6 +71,20 @@ const AuthorAndDateView: React.ElementType<AuthorAndDateViewProps> = ({
           format={dateFormat}
           style={dateStyle}
           containerStyle={{ display: "inline-flex" }}
+        />
+      </Text>
+    );
+  } else {
+    return (
+      <Text
+        style={{
+          ...style,
+        }}
+      >
+        <AuthorView
+          authors={post.tsdAuthors}
+          containerStyle={{ display: "inline-flex" }}
+          style={authorStyle}
         />
       </Text>
     );

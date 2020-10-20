@@ -80,6 +80,30 @@ export const CovidDataWidget: React.ElementType = ({ mobile = false }) => {
             </h1>
           </a>
         </div>
+        <div style={{ textAlign: "center" }}>
+          {" "}
+          <h2
+            style={{
+              fontFamily: "Libre Baskerville, sans-serif",
+              fontWeight: "bold",
+              fontSize: "15px",
+              lineHeight: "normal",
+              margin: 0,
+              marginTop: "5px",
+              marginBottom: "5px",
+              textAlign: "center",
+            }}
+          >
+            {" "}
+            <a
+              title="Tracking COVID-19 at Stanford"
+              style={{ color: "inherit" }}
+              href="https://www.stanforddaily.com/2020/10/11/tracking-covid-19-at-stanford/"
+            >
+              Tracking COVID-19 at Stanford
+            </a>
+          </h2>
+        </div>
         <div
           className=" tracking-boxes"
           style={{
@@ -113,16 +137,16 @@ export const CovidDataWidget: React.ElementType = ({ mobile = false }) => {
             </div>
             <div>
               <strong style={{ fontSize: "3vh" }}>
-                33<strong></strong>
+                42<strong></strong>
               </strong>
             </div>
             <div style={{ fontSize: "1.75vh", lineHeight: "normal" }}>
               <span>
                 Last week
                 <br />
-                +0
+                +9
               </span>{" "}
-              <span style={{ color: "#585858" }}>▼</span>
+              <span style={{ color: "#585858" }}>▲</span>
             </div>
           </div>
           <div
@@ -149,16 +173,16 @@ export const CovidDataWidget: React.ElementType = ({ mobile = false }) => {
             </div>
             <div>
               <strong style={{ fontSize: "3vh" }}>
-                7<strong></strong>
+                6<strong></strong>
               </strong>
             </div>
             <div style={{ fontSize: "1.75vh", lineHeight: "normal" }}>
               <span>
                 Last week
                 <br />
-                +1
+                +0
               </span>{" "}
-              <span style={{ color: "#585858" }}>▲</span>
+              <span style={{ color: "#585858" }}>▼</span>
             </div>
           </div>
           <div
@@ -207,33 +231,11 @@ export const CovidDataWidget: React.ElementType = ({ mobile = false }) => {
           lineHeight: "normal",
         }}
       >
-        Numbers indicate positive test results among each cohort. For cohorts excluding Stanford Health Care workers, results are from Stanford's surveillance testing and other Stanford-affiliated programs. Arrows
-        indicate whether last week's counts trended up or down from the previous
-        week.
-      </div>
-      <div style={{ textAlign: "center" }}>
-        {" "}
-        <h2
-          style={{
-            fontFamily: "Libre Baskerville, sans-serif",
-            fontWeight: "bold",
-            fontSize: "15px",
-            lineHeight: "normal",
-            margin: 0,
-            marginTop: "5px",
-            marginBottom: "5px",
-            textAlign: "center",
-          }}
-        >
-          {" "}
-          <a
-            title="Tracking COVID-19 at Stanford"
-            style={{ color: "inherit" }}
-            href="https://www.stanforddaily.com/2020/10/11/tracking-covid-19-at-stanford/"
-          >
-            Tracking COVID-19 at Stanford
-          </a>
-        </h2>
+        Numbers indicate positive test results among each cohort. For cohorts
+        excluding Stanford Health Care workers, results are from Stanford's
+        surveillance testing and other Stanford-affiliated programs. Arrow
+        indicates whether last week's increase was greater or less than that of
+        the prior week.
       </div>
     </section>
   );

@@ -1,30 +1,43 @@
 import React from "react";
+import { Image } from "react-native";
 import { Section } from "components/Section";
 import ArticlesView from "components/ArticlesView";
-import { STANFORD_COLORS } from "helpers/constants";
 import { SectionProps } from "./SectionProps";
-import { SectionTitleColorBackground } from "./SectionTitle";
+import { SectionTitleWithLink } from "./SectionTitle";
 
 export const SatireSection: React.ElementType<SectionProps> = ({
+  category,
   content,
 }: SectionProps) => {
   return (
     <Section
       style={{
-        backgroundColor: STANFORD_COLORS.CARDINAL_RED,
+        backgroundColor: "#fef2f1",
         flexGrow: 1,
         flexDirection: "column",
       }}
     >
-      <SectionTitleColorBackground>Satire</SectionTitleColorBackground>
-      <br />
+      <SectionTitleWithLink category={category} isSatire={true}>
+        <Image
+          source={{
+            uri: "/static/soc-no-background.png",
+          }}
+          accessibilityLabel="Satire"
+          resizeMode="contain"
+          style={{
+            height: 75,
+            width: 300,
+            marginBottom: -20,
+          }}
+        />
+      </SectionTitleWithLink>
       <ArticlesView
         initPosts={content}
         displayLoadMore={false}
         displayExcerpt={false}
         displayDateAuthor={true}
-        hideCategory={true}
-        textColor={STANFORD_COLORS.WHITE}
+        noDates={true}
+        isSatire2={true}
       />
     </Section>
   );

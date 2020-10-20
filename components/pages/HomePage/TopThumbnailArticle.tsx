@@ -27,9 +27,9 @@ export const TopThumbnailArticle: React.ElementType = ({
         `}
       />
       <ArticleHeader>
-        <ArticleTitleWithLink post={post} />
+        <ArticleTitleWithLink marginBottomMore post={post} />
       </ArticleHeader>
-      <AuthorAndDateView post={post} newLineBetweenAuthorAndDate />
+      <AuthorAndDateView post={post} noDate />
     </Article>
   );
 };

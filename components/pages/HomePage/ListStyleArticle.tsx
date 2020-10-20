@@ -17,7 +17,9 @@ export const ListStyleArticle: React.ElementType = ({
       <ArticleHeader>
         <ArticleTitleWithLink post={post} marginBottomMore style={titleStyle} />
       </ArticleHeader>
-      {displayAuthor && <AuthorAndDateView post={post} style={authorStyle} />}
+      {displayAuthor && (
+        <AuthorAndDateView post={post} style={authorStyle} noDate />
+      )}
     </Article>
   );
 };
