@@ -231,11 +231,7 @@ export const CovidDataWidget: React.ElementType = ({ mobile = false }) => {
           lineHeight: "normal",
         }}
       >
-        Numbers indicate positive test results among each cohort. For cohorts
-        excluding Stanford Health Care workers, results are from Stanford's
-        surveillance testing and other Stanford-affiliated programs. Arrow
-        indicates whether last week's increase was greater or less than that of
-        the prior week.
+        Cumulative positive test results. Arrows indicate whether last week’s new positives are greater or less than new positives the previous week.
       </div>
     </section>
   );
