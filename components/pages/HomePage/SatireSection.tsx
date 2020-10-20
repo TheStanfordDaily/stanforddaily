@@ -12,7 +12,7 @@ export const SatireSection: React.ElementType<SectionProps> = ({
   return (
     <Section
       style={{
-        backgroundColor: "#fcf2fb",
+        backgroundColor: "#fef2f1",
         flexGrow: 1,
         flexDirection: "column",
       }}
