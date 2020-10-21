@@ -349,6 +349,30 @@ export const FooterContent: React.ElementType = ({ style }: any) => {
       url: "/category/cartoons/",
       children: {},
     },
+    aboutUs: {
+      id: null,
+      name: "About us",
+      url: "/about/",
+      children: {},
+    },
+    alumni: {
+      id: null,
+      name: "Alumni",
+      url: "https://alumni.stanforddaily.com/",
+      children: {},
+    },
+    advertise: {
+      id: null,
+      name: "Advertise",
+      url: "/advertise/",
+      children: {},
+    },
+    archives: {
+      id: null,
+      name: "Archives",
+      url: "https://archives.stanforddaily.com/",
+      children: {},
+    },
   };
 
   const BottomText = styled.Text({
