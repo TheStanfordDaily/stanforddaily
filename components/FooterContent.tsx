@@ -352,24 +352,28 @@ export const FooterContent: React.ElementType = ({ style }: any) => {
     aboutUs: {
       id: null,
       name: "About us",
+      slug: "about-us",
       url: "/about/",
       children: {},
     },
     alumni: {
       id: null,
       name: "Alumni",
+      slug: "alumni",
       url: "https://alumni.stanforddaily.com/",
       children: {},
     },
     advertise: {
       id: null,
       name: "Advertise",
+      slug: "advertise",
       url: "/advertise/",
       children: {},
     },
     archives: {
       id: null,
       name: "Archives",
+      slug: "archives",
       url: "https://archives.stanforddaily.com/",
       children: {},
     },
