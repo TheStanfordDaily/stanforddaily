@@ -29,8 +29,8 @@ export const CartoonsSection: React.ElementType = ({
             accessibilityLabel="Cartoons"
             resizeMode="contain"
             style={{
-              width: 200,
-              height: 65,
+              width: 180,
+              height: 60,
             }}
           />
         </SectionTitleWithLink>

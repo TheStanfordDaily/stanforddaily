@@ -23,6 +23,7 @@ export const GrindSection: React.ElementType = ({
           style={{
             height: 30,
             width: 105,
+            marginBottom: -5,
           }}
         />
       }
