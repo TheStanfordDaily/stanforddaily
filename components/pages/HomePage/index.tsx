@@ -32,10 +32,11 @@ import { Column } from "./Column";
 import { getBorderValue } from "./getBorderValue";
 import { CovidDataWidget } from "./CovidDataWidget";
 import { SectionProps } from "./SectionProps";
-import { SectionStyle, Section } from "components/Section";
+import { SectionStyle, Section, SECTION_PADDING } from "components/Section";
 import { SectionTitleWithLink } from "./SectionTitle";
 import { TopThumbnailArticle } from "./TopThumbnailArticle";
 import { TitleOnlyArticle } from "./TitleOnlyArticle";
+import { HeadlineArticle } from "./HeadlineArticle";
 
 interface IndexProps {
   homePosts?: Home;
@@ -141,7 +142,7 @@ export default class HomePage extends React.Component<IndexProps, IndexState> {
               />
             </SectionTitleWithLink>
           </SectionStyle>
-          <div style={{ marginTop: -25 }}>
+          <div style={{ marginTop: -35 }}>
             <Section>
               <View>
                 <TopThumbnailArticle post={homePosts.artsAndLife[0]} />
@@ -161,20 +162,73 @@ export default class HomePage extends React.Component<IndexProps, IndexState> {
       );
     };
     const MainSportsSection: React.ElementType = (msProps: SectionProps) => {
+      const content = homePosts.sports;
       return (
-        <MainSection
-          content={homePosts.sports}
-          category={homePosts.tsdMeta.categories.sports}
-          sectionTitle="Sports"
-          rStyle={{
-            [MediaRule.MaxWidth]: {
-              [BREAKPOINTS.MAX_WIDTH.TABLET]: {
-                ...getBorderValue("Bottom"),
+        <Column
+          style={{
+            flexGrow: 7,
+            order: 1,
+          }}
+          rStyle={mergeRStyle(
+            {
+              [MediaRule.MinWidth]: {
+                [BREAKPOINTS.TABLET]: {
+                  order: 2,
+                },
               },
             },
-          }}
-          {...msProps}
-        />
+            {
+              [MediaRule.MaxWidth]: {
+                [BREAKPOINTS.MAX_WIDTH.TABLET]: {
+                  ...getBorderValue("Bottom"),
+                },
+              },
+            },
+          )}
+        >
+          <Section>
+            <SectionTitleWithLink
+              category={homePosts.tsdMeta.categories.sports}
+            >
+              <Image
+                source={{
+                  uri: "/static/sectionHeaders/sports.png",
+                }}
+                accessibilityLabel="Sports"
+                resizeMode="contain"
+                style={{
+                  width: 100,
+                  height: 25,
+                }}
+              />
+            </SectionTitleWithLink>
+            <HeadlineArticle post={content[0]} style={{ marginBottom: 20 }} />
+            <DesktopRow>
+              <Column
+                rStyle={{
+                  [MediaRule.MinWidth]: {
+                    [BREAKPOINTS.TABLET]: {
+                      paddingRight: SECTION_PADDING / 2,
+                    },
+                  },
+                }}
+              >
+                <TopThumbnailArticle post={content[1]} />
+              </Column>
+              <Column
+                rStyle={{
+                  [MediaRule.MinWidth]: {
+                    [BREAKPOINTS.TABLET]: {
+                      paddingLeft: SECTION_PADDING / 2,
+                    },
+                  },
+                }}
+              >
+                <TopThumbnailArticle post={content[2]} />
+              </Column>
+            </DesktopRow>
+          </Section>
+        </Column>
       );
     };
 
@@ -280,9 +334,6 @@ export default class HomePage extends React.Component<IndexProps, IndexState> {
                 ...getBorderValue("Bottom"),
               }}
             /> */}
-            {console.log(homePosts)}
-            {console.log("What?")}
-            {console.log(homePosts.tsdMeta.categories.cartoons)}
             <SatireSection
               category={homePosts.tsdMeta.categories.satire}
               content={homePosts.satire}

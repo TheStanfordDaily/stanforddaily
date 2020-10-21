@@ -126,6 +126,11 @@ export const TopBarLinks: React.ElementType = ({ itemStyle }: any) => {
     } as LinkLink,
     {
       type: LinkType.LINK,
+      name: "Alumni",
+      url: "https://alumni.stanforddaily.com/",
+    } as LinkLink,
+    {
+      type: LinkType.LINK,
       name: "Advertising",
       url: "/advertise/",
     } as LinkLink,
