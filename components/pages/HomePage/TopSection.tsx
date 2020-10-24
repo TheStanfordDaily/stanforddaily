@@ -203,7 +203,14 @@ const ViewRow: any = styled(View)({
 // and nav bar on every page of the website
 export const TopSection: React.ElementType = ({ style }) => {
   return (
-    <SectionStyle style={{ paddingTop: 10, paddingBottom: 10 }}>
+    <SectionStyle
+      style={{ paddingTop: 10, paddingBottom: 10 }}
+      css={css`
+        @media print {
+          display: none;
+        }
+      `}
+    >
       <View
         css={css`
           flex-direction: row;
@@ -272,7 +279,7 @@ export const TopSection: React.ElementType = ({ style }) => {
               header="Podcasts"
               title="The Daily Brew & More"
             /> */}
-          { /* <SmallSection
+          {/* <SmallSection
             className="small-section small-section-adopt-a-small-business"
             url="/adopt-a-small-business-with-stanford-daily-advertising"
             imageUrl={LINKS.ADOPT_A_BUSINESS_LOGO}

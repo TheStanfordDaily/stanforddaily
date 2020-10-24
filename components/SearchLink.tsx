@@ -1,6 +1,7 @@
 import RView from "emotion-native-media-query";
 import { FONTS } from "helpers/constants";
 import React from "react";
+import css from "@emotion/css";
 
 import styled from "@emotion/styled";
 import IosSearch from "react-ionicons/lib/IosSearch";
@@ -33,6 +34,11 @@ export default () => (
     style={{
       marginRight: 20,
     }}
+    css={css`
+      @media print {
+        display: none;
+      }
+    `}
   >
     <form
       role="search"
