@@ -4,6 +4,7 @@ import { FONTS } from "helpers/constants";
 import { Category, getNextJsCategoryPath } from "helpers/wpapi";
 import { withNavigation } from "helpers/trivial/react-navigation";
 import Link from "./Link";
+import css from "@emotion/css";
 
 // Describes requirement of various properties of specific types
 // https://www.typescriptlang.org/docs/handbook/interfaces.html
@@ -54,6 +55,11 @@ const _CategoryLink: React.ElementType<CategoryLinkProps> = ({
         ...FONTS.AUXILIARY,
         ...style,
       }}
+      css={css`
+        @media print {
+          display: none;
+        }
+      `}
     >
       {category || isSatire || isSatire2 ? (
         <Link

@@ -101,7 +101,7 @@ const DonationForm: React.ElementType = ({
                 setIsRecurring(!isRecurring);
               }}
             />
-            Make a monthly donation.
+            Make a monthly donation. Awesome!
           </label>
         </div>
 
@@ -149,7 +149,13 @@ const DonationForm: React.ElementType = ({
         <input type="hidden" name="item_name" value="Stanford Daily Donation" />
         <input type="hidden" name="item_number" value={notes} />
         <input type="hidden" name="currency_code" value="USD" />
-        <div>
+        <div
+          css={css`
+            @media print {
+              display: none;
+            }
+          `}
+        >
           <div
             style={{
               backgroundColor: "#54100b",
@@ -238,7 +244,7 @@ const DonationForm: React.ElementType = ({
                   setIsRecurring(!isRecurring);
                 }}
               />
-              Make a monthly donation.
+              Make a monthly donation. Awesome!
             </label>
             <button
               type="submit"

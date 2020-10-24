@@ -7,6 +7,7 @@ import LogoInstagram from "react-ionicons/lib/LogoInstagram";
 import LogoYoutube from "react-ionicons/lib/LogoYoutube";
 import { LINKS, FONTS, STANFORD_COLORS } from "helpers/constants";
 import Link from "components/Link";
+import css from "@emotion/css";
 
 const LogoIconWithLink: React.ElementType = ({ url, LogoComponent }: any) => (
   <a
@@ -68,6 +69,11 @@ const FooterDonationBanner: React.ElementType = ({ currentPageUrl }) => {
         marginTop: SECTION_PADDING,
         marginBottom: SECTION_PADDING,
       }}
+      css={css`
+        @media print {
+          display: none;
+        }
+      `}
     >
       <h3
         style={{

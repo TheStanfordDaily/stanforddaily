@@ -3,6 +3,7 @@ import { View, Text } from "react-native";
 import { Author } from "helpers/wpapi";
 import { FONTS, COLORS, STANFORD_COLORS } from "helpers/constants";
 import { AuthorView } from "./pages/HomePage/AuthorView";
+import css from "@emotion/css";
 
 // Describes requirement of having author property that is
 // an Author and linkToAuthor property that is a boolean
@@ -29,6 +30,11 @@ const AuthorBox: React.ElementType<AuthorBoxProps> = ({
         backgroundColor: STANFORD_COLORS.LIGHT_SANDSTONE,
         marginBottom: 10,
       }}
+      css={css`
+        @media print {
+          display: none;
+        }
+      `}
     >
       <View>
         <img

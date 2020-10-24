@@ -413,6 +413,9 @@ export const FooterContent: React.ElementType = ({ style }: any) => {
         a {
           line-height: 1.5em;
         }
+        @media print {
+          display: none;
+        }
       `}
       rStyle={{
         [MediaRule.MinWidth]: {
