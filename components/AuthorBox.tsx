@@ -38,7 +38,12 @@ const AuthorBox: React.ElementType<AuthorBoxProps> = ({
     >
       <View>
         <img
-          src={avatarUrl}
+          src={
+            avatarUrl ===
+            "https://www.stanforddaily.com/wp-content/themes/thestanforddaily/img/placeholder-avatar.png"
+              ? "/static/cardinal-red-daily-s-logo.png"
+              : avatarUrl
+          }
           style={{
             width: 100,
             height: 100,
