@@ -68,5 +68,8 @@ export default {
         width: "100% !important",
       },
     },
+    blockquote: {
+      // CSS styles go here!
+    },
   },
 };
