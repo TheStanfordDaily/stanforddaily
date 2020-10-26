@@ -1,5 +1,7 @@
 import { BREAKPOINTS, FONTS, STANFORD_COLORS } from "helpers/constants";
 import { SECTION_PADDING } from "components/Section";
+import "./blockquote.css";
+/*Not sure if I imported correctly*/
 
 export const centerContentStyle = {
   margin: "0 auto",
@@ -69,7 +71,13 @@ export default {
       },
     },
     blockquote: {
-      // CSS styles go here!
+      margin: "0",
+      display: "block",
+      width: "170px",
+      fontSize: "1.6rem",
+      textAlign: "left",
+      lineHeight: "1.5em",
+      color: "#666",
     },
   },
 };

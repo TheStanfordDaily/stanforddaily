@@ -1,0 +1,37 @@
+/*
+Template:
+
+<blockquote class = "[side: right/left] [style: right-line, left-line, quote]> 
+	<p>text”</p>
+</blockquote>  
+*/
+
+.right {
+	float: right;
+	padding: 0 0 0 10px;
+	margin: 0 0 10px 10px;
+}
+
+.left {
+	float: left;
+	padding: 0 10px 0 0;
+	margin: 0 10px 10px 0;
+}
+
+.right-line {
+	border-left: 3px solid #820000;
+}
+
+.left-line {
+	border-right: 3px solid #820000;
+}
+
+.quote {
+	background: url(./assets/pullquote.gif) top left no-repeat;
+	/*Not sure if I imported correctly*/ 
+}
+
+.quote p:first-letter {
+	font-size: 2em;
+	font-weight: bold;
+}
