@@ -110,6 +110,8 @@ export const LINKS = {
   INSTAGRAM: "https://www.instagram.com/stanforddaily/",
   YOUTUBE: "https://www.youtube.com/channel/UCWg3QqUzqxXt6herm5sMjNw",
   ISSUU: "https://issuu.com/thestanforddaily",
+  THE_DAILY_BREW_SPOTIFY:
+    "https://open.spotify.com/show/2ty8gvAnvYP31X8TUrFwoj?si=cZWDWKp2SiOotNh4ZqG0xg",
   NEWSLETTER_LOGO:
     "https://wp.stanforddaily.com/wp-content/uploads/2020/02/weekend_roundup_logo-1.jpg",
   DAILY_BREW_LOGO:
