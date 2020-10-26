@@ -214,7 +214,7 @@ export const CovidDataWidget: React.ElementType = ({ mobile = false }) => {
               <span>
                 Last week
                 <br />
-                +10
+                +7
               </span>{" "}
               <span style={{ color: "#585858" }}>▼</span>
             </div>
