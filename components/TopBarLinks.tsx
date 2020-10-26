@@ -103,7 +103,7 @@ export const TopBarLinks: React.ElementType = ({ itemStyle }: any) => {
     {
       type: LinkType.LINK,
       name: "Podcasts",
-      url: "/category/podcasts/",
+      url: LINKS.THE_DAILY_BREW_SPOTIFY,
     } as LinkLink,
     {
       type: LinkType.LINK,

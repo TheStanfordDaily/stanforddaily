@@ -332,7 +332,7 @@ export const FooterContent: React.ElementType = ({ style }: any) => {
       id: null,
       name: "Podcasts",
       slug: "podcasts",
-      url: "/category/podcasts/",
+      url: LINKS.THE_DAILY_BREW_SPOTIFY,
       children: {},
     },
     video: {
