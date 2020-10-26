@@ -142,7 +142,7 @@ export const CovidDataWidget: React.ElementType = ({ mobile = false }) => {
             </div>
             <div style={{ fontSize: "1.75vh", lineHeight: "normal" }}>
               <span>
-                Last week
+                2 weeks ago
                 <br />
                 +9
               </span>{" "}
@@ -178,7 +178,7 @@ export const CovidDataWidget: React.ElementType = ({ mobile = false }) => {
             </div>
             <div style={{ fontSize: "1.75vh", lineHeight: "normal" }}>
               <span>
-                Last week
+                2 weeks ago
                 <br />
                 +0
               </span>{" "}
@@ -231,7 +231,7 @@ export const CovidDataWidget: React.ElementType = ({ mobile = false }) => {
           lineHeight: "normal",
         }}
       >
-        Cumulative positive test results. Arrows indicate whether last week’s new positives are greater or less than new positives the previous week.
+        Cumulative positive test results. Arrows indicate whether the stated week’s new positives are greater or less than new positives the previous week.
       </div>
     </section>
   );
