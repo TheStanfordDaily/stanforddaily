@@ -58,7 +58,7 @@ export const FONTS: any = {
   AUXILIARY:
     Platform.OS === "web"
       ? {
-          fontFamily: "'IBM Plex Sans Condensed', sans-serif",
+          fontFamily: "Segoe UI, Roboto,Ubuntu, Helvetica Neue, sans-serif",
           textTransform: "uppercase",
           lineHeight: "1em",
         }
