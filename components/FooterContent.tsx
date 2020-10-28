@@ -521,7 +521,10 @@ export const FooterContent: React.ElementType = ({ style }: any) => {
             </a>
           </BottomText>
           <BottomText style={{ textTransform: "none" }}>
-            Support The Stanford Daily when you shop on{" "}
+            <a style={bottomLinkStyle} href="/donate/" title="Donate">
+              Donate
+            </a>{" "}
+            and support The Daily when you shop on{" "}
             <a
               style={bottomLinkStyle}
               href="https://smile.amazon.com/"
