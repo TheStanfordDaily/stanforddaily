@@ -166,14 +166,28 @@ const TextButtonWithLink: React.ElementType = ({
       title={title}
       style={{
         ...FONTS.AUXILIARY,
-        color: STANFORD_COLORS.CARDINAL_RED,
         border: `2px ${STANFORD_COLORS.CARDINAL_RED} solid`,
-        fontSize: 14,
-        letterSpacing: 1.5,
+        fontSize: 15,
+        letterSpacing: 1,
+        fontWeight: 700,
+        borderRadius: 0,
+        outline: 0,
         padding: 8,
+        cursor: "pointer",
         textAlign: "center",
+        textDecoration: "none",
         ...tbwlStyle,
       }}
+      css={css`
+        color: #8c1515;
+        &:hover {
+          color: white !important;
+          background-color: #8c1515 !important;
+        }
+        &:visited {
+          color: #8c1515;
+        }
+      `}
     >
       {!mobileTitle && title}
       {mobileTitle && (
