@@ -2,12 +2,12 @@ import { Platform } from "react-native";
 
 export const BREAKPOINTS = {
   // For `min-width`
-  TABLET: 700,
+  TABLET: 768,
   DESKTOP: 1100,
 
   MAX_WIDTH: {
     // For `max-width`
-    TABLET: 699,
+    TABLET: 767,
     DESKTOP: 1099,
   },
 };
