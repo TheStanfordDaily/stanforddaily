@@ -56,6 +56,7 @@ const DonationForm: React.ElementType = ({
           color: white;
           &:hover {
             background-color: #54100b !important;
+            color: white !important;
           }
           &:visited {
             color: white;
