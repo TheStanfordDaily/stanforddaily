@@ -97,7 +97,6 @@ export const PodcastWidget: React.ElementType = ({ mobile = false }) => {
           width="100%"
           height="232"
           frameBorder="0"
-          allowTransparency="true"
           allow="encrypted-media"
         />
 
