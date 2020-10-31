@@ -91,17 +91,7 @@ const FooterDonationBanner: React.ElementType = ({ currentPageUrl }) => {
           marginTop: 2,
           fontSize: 20,
         }}
-      >
-        While you're here...
-      </h3>
-      <p>
-        We're a student-run organization committed to providing hands-on
-        experience in journalism, digital media and business for the next
-        generation of reporters. Your support makes a difference in helping give
-        staff members from all backgrounds the opportunity to develop important
-        professional skills and conduct meaningful reporting. All contributions
-        are tax-deductible.
-      </p>
+      ></h3>
 
       <DonationForm currentPageUrl={currentPageUrl} bannerLocation="Footer" />
       <br></br>
@@ -110,6 +100,25 @@ const FooterDonationBanner: React.ElementType = ({ currentPageUrl }) => {
         title="Get Our Emails"
         mobileTitle="Get Our Emails"
       />
+      <br></br>
+      <TextButtonWithLink
+        href="/tips/"
+        title="Submit Your Ideas"
+        mobileTitle="Submit your Ideas"
+      />
+      <br></br>
+      <TextButtonWithLink
+        url="https://stanforddaily.com/join"
+        title="Apply to the Stanford Daily"
+        mobileTitle="Apply to the Stanford Daily"
+      />
+      <br></br>
+      <TextButtonWithLink
+        href="/submitting-to-the-daily/"
+        title="Non-Member Submitting Work"
+        mobileTitle="Non-Member Submitting Work"
+      />
+
       <div>
         <br></br>
         <LogoIconWithLink url={LINKS.FACEBOOK} LogoComponent={LogoFacebook} />
