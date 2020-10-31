@@ -37,6 +37,7 @@ import { SectionTitleWithLink } from "./SectionTitle";
 import { TopThumbnailArticle } from "./TopThumbnailArticle";
 import { TitleOnlyArticle } from "./TitleOnlyArticle";
 import { HeadlineArticle } from "./HeadlineArticle";
+import { PodcastWidget } from "./PodcastWidget";
 
 interface IndexProps {
   homePosts?: Home;
@@ -315,6 +316,7 @@ export default class HomePage extends React.Component<IndexProps, IndexState> {
                     ...getBorderValue("Bottom"),
                   }}
                 />
+                <PodcastWidget />
                 <CartoonsSection
                   content={homePosts.cartoons}
                   category={homePosts.tsdMeta.categories.cartoons}
