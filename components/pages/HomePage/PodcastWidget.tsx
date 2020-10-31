@@ -69,14 +69,14 @@ export const PodcastWidget: React.ElementType = ({ mobile = false }) => {
               style={{
                 fontFamily: "Open Sans, sans-serif",
                 fontWeight: 900,
-                fontSize: "30px",
+                fontSize: "20px",
                 lineHeight: "normal",
                 color: "#820000",
                 margin: 0,
                 textTransform: "none",
               }}
             >
-              The Daily Brew
+              Podcasts
             </h1>
           </a>
         </div>
@@ -88,23 +88,20 @@ export const PodcastWidget: React.ElementType = ({ mobile = false }) => {
           marginBottom: "5px",
           fontFamily: "Libre Baskerville, sans-serif",
           fontSize: "12px",
-          lineHeight: "2em",
+          lineHeight: "1.2em",
         }}
       >
         <iframe
           title="The Daily Brew"
-          src="https://open.spotify.com/embed-podcast/episode/4MOQCjvjPm0RTLonZECI6V"
+          src="https://open.spotify.com/embed-podcast/show/2ty8gvAnvYP31X8TUrFwoj"
           width="100%"
-          height="232"
+          height="155"
           frameBorder="0"
           allow="encrypted-media"
         />
-
-        <strong>
-          The Daily Brew is The Stanford Daily's first-ever podcast series.
-          Weekly (not daily) we warm up your Monday mornings with the voices of
-          our campus community!
-        </strong>
+        The Daily Brew is The Stanford Daily's first-ever podcast series. (not
+        daily) we warm up your Monday mornings with the voices of our our campus
+        community!
       </div>
     </section>
   );
