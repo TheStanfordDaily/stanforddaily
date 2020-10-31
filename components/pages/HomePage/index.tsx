@@ -280,11 +280,7 @@ export default class HomePage extends React.Component<IndexProps, IndexState> {
                   )}
                 </DesktopRow>
                 {/* <CovidDataWidget mobile={true} /> */}
-                <DesktopRow
-                  style={{
-                    ...getBorderValue("Bottom"),
-                  }}
-                >
+                <DesktopRow>
                   <ArtsAndLifeSection />
                   <MainSportsSection />
                 </DesktopRow>
@@ -320,6 +316,9 @@ export default class HomePage extends React.Component<IndexProps, IndexState> {
                 <CartoonsSection
                   content={homePosts.cartoons}
                   category={homePosts.tsdMeta.categories.cartoons}
+                  style={{
+                    ...getBorderValue("Top"),
+                  }}
                   rStyle={{
                     [MediaRule.MaxWidth]: {
                       [BREAKPOINTS.MAX_WIDTH.TABLET]: {
