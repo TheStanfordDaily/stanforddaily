@@ -1,59 +1,15 @@
-import React, { useEffect, useState } from "react";
-import { BREAKPOINTS } from "helpers/constants";
-import css from "@emotion/css";
+import React from "react";
+import RView from "emotion-native-media-query";
 
-// const SHEET_ID = "1darMs2BhXBjSRcuQYi33dKzIAgUSenZjYF9ZrRjqNiY";
-// const ACCESS_TOKEN = "AIzaSyAh_wwePZswl21zxnjGaiBM0Q-yQ8miOgE";
-
-export const CovidDataWidget: React.ElementType = ({ mobile = false }) => {
-  // const [stats, setStats] = useState(null);
-
-  // async function getSheetValues() {
-  //     const request = await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/B22:B23?key=${ACCESS_TOKEN}`,
-  //     {
-  //     headers: {
-  //         "Content-Type": "application/json",
-  //     }
-  //     });
-  //     const data = await request.json();
-  //     console.log(data);
-  //     console.log(data.values[0][0]);
-  //     setStats(data);
-  // }
-
-  // useEffect(() => {
-  //     // Update the document title using the browser API
-  //     getSheetValues(); // await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/B22:B23?key=${ACCESS_TOKEN}`,
-  //     // {
-  //     //   headers: {
-  //     //     "Content-Type": "application/json",
-  //     // }
-  //     // });
-
-  // }, []);
-
+export const CovidDataWidget: React.ElementType = ({
+  style,
+  mobile = false,
+}) => {
   return (
-    <section
-      className="css-cliv5m"
-      style={{ padding: "15px" }}
-      css={
-        mobile
-          ? css`
-              @media (min-width: ${BREAKPOINTS.TABLET}px) {
-                display: none;
-              }
-            `
-          : css`
-              @media (max-width: ${BREAKPOINTS.MAX_WIDTH.TABLET}px) {
-                display: none;
-              }
-            `
-      }
-    >
-      <div className="css-6jlpjt">
+    <RView style={style}>
+      <div>
         <div
           dir="auto"
-          className="css-901oao"
           style={{
             fontFamily: "IBM Plex Sans Condensed, sans-serif",
             lineHeight: "1em",
@@ -230,8 +186,10 @@ export const CovidDataWidget: React.ElementType = ({ mobile = false }) => {
           lineHeight: "normal",
         }}
       >
-        Cumulative positive test results. Arrows indicate whether the stated week’s new positives are greater or less than new positives the previous week.
+        Cumulative positive test results. Arrows indicate whether the stated
+        week’s new positives are greater or less than new positives the previous
+        week.
       </div>
-    </section>
+    </RView>
   );
 };
