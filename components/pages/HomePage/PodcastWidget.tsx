@@ -99,9 +99,8 @@ export const PodcastWidget: React.ElementType = ({ mobile = false }) => {
           frameBorder="0"
           allow="encrypted-media"
         />
-        The Daily Brew is The Stanford Daily's first-ever podcast series. (not
-        daily) we warm up your Monday mornings with the voices of our our campus
-        community!
+        Stanford students share how their relationship with their community and
+        surroundings has changed due to the pandemic.
       </div>
     </section>
   );
