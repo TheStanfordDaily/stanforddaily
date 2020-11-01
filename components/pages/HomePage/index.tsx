@@ -261,6 +261,13 @@ export default class HomePage extends React.Component<IndexProps, IndexState> {
                 style={{
                   flexGrow: 6,
                 }}
+                rStyle={{
+                  [MediaRule.MaxWidth]: {
+                    [BREAKPOINTS.MAX_WIDTH.TABLET]: {
+                      ...getBorderValue("Bottom"),
+                    },
+                  },
+                }}
               >
                 <DesktopRow
                   style={{
@@ -297,7 +304,12 @@ export default class HomePage extends React.Component<IndexProps, IndexState> {
                   },
                 }}
               >
-                <CovidDataWidget />
+                <CovidDataWidget
+                  style={{
+                    padding: "15px",
+                    ...getBorderValue("Bottom"),
+                  }}
+                />
                 <OpinionSection
                   content={homePosts.opinions}
                   category={homePosts.tsdMeta.categories.opinions}
@@ -309,7 +321,7 @@ export default class HomePage extends React.Component<IndexProps, IndexState> {
                   content={homePosts.cartoons}
                   category={homePosts.tsdMeta.categories.cartoons}
                   style={{
-                    ...getBorderValue("Top"),
+                    ...getBorderValue("Bottom"),
                   }}
                   rStyle={{
                     [MediaRule.MaxWidth]: {
@@ -326,7 +338,11 @@ export default class HomePage extends React.Component<IndexProps, IndexState> {
                     ...getBorderValue("Bottom"),
                   }}
                 />
-                <PodcastWidget />
+                <PodcastWidget
+                  style={{
+                    padding: "15px",
+                  }}
+                />
               </Column>
             </DesktopRow>
             {/* <MultimediaSection
