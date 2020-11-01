@@ -1,10 +1,6 @@
 import React from "react";
 import { Text, Platform } from "react-native";
-import {
-  MediaRule,
-  isWidthGreaterThanOrEqualTo,
-} from "emotion-native-media-query";
-import css from "@emotion/css";
+import { MediaRule } from "emotion-native-media-query";
 import { FONTS, BREAKPOINTS } from "helpers/constants";
 import { ArticleListPageData } from "helpers/wpapi";
 import LoadingView from "components/Loading";
@@ -16,7 +12,6 @@ import { DesktopRow } from "../HomePage/DesktopRow";
 import { Column } from "../HomePage/Column";
 import { SECTION_PADDING } from "components/Section";
 import { getBorderValue } from "../HomePage/getBorderValue";
-import { HeadlineArticle } from "../HomePage/HeadlineArticle";
 import { TwitterTimelineEmbed } from "react-twitter-embed";
 import { UsElections2020Map } from "./UsElections2020Map";
 
@@ -59,29 +54,14 @@ export default class ArticleListPage extends React.Component<
 
     const articlesView = (
       <>
-        {initData.tsdMeta.title === "US Elections 2020" && (
+        {initData.tsdMeta["title"] === "US Elections 2020" && (
           <>
+            {console.log(initData)}
             <DesktopRow
               style={{
                 ...getBorderValue("Bottom"),
               }}
             >
-              {console.log(initData)}
-              {/* <Column
-        style={{
-          flex: 1
-        }}
-        rStyle={{
-          [MediaRule.MinWidth]: {
-            [BREAKPOINTS.TABLET]: {
-              paddingRight: SECTION_PADDING / 2,
-            },
-          },
-        }}
-      >
-        {/* <TopThumbnailArticle post={initData.posts[1]} large={true} /> 
-        <HeadlineArticle post={initData.posts[1]} style={{ marginBottom: 20 }} />
-      </Column> */}
               <Column
                 style={{
                   flex: 1,
@@ -99,14 +79,14 @@ export default class ArticleListPage extends React.Component<
                 <TopThumbnailArticle
                   post={
                     initData.posts.filter(post =>
-                      post.postCategory.includes(70941),
+                      post["postCategory"].includes(70941),
                     )[0]
                   }
                 />
                 <TopThumbnailArticle
                   post={
                     initData.posts.filter(post =>
-                      post.postCategory.includes(70941),
+                      post["postCategory"].includes(70941),
                     )[1]
                   }
                 />
@@ -126,7 +106,7 @@ export default class ArticleListPage extends React.Component<
                   },
                   [MediaRule.MaxWidth]: {
                     [BREAKPOINTS.TABLET]: {
-                      height: 400,
+                      height: 300,
                     },
                   },
                 }}
@@ -145,6 +125,7 @@ export default class ArticleListPage extends React.Component<
                   we can update the map!
                 </Text>
                 <UsElections2020Map />
+                {console.log(initData.tsdMeta)}
                 {/* <TopThumbnailArticle post={initData.posts[2]} />
                 <TopThumbnailArticle post={initData.posts[2]} /> */}
               </Column>
@@ -158,6 +139,11 @@ export default class ArticleListPage extends React.Component<
                       paddingLeft: SECTION_PADDING / 2,
                       paddingRight: SECTION_PADDING / 2,
                       ...getBorderValue("Left"),
+                    },
+                  },
+                  [MediaRule.MaxWidth]: {
+                    [BREAKPOINTS.TABLET]: {
+                      height: 300,
                     },
                   },
                 }}
@@ -185,7 +171,7 @@ export default class ArticleListPage extends React.Component<
           displayCategory={displayCategory}
           displayExcerpt={displayExcerpt}
           initPosts={initData.posts.filter(
-            post => !post.postCategory.includes(70941),
+            post => !post["postCategory"].includes(70941),
           )}
           getExtraPosts={async pageNumber => {
             const extraData = await getExtraData(pageNumber);
@@ -208,3 +194,4 @@ export default class ArticleListPage extends React.Component<
     );
   }
 }
+

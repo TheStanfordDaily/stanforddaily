@@ -1,7 +1,5 @@
 import React from "react";
 import Map from "google-map-react";
-import { MediaRule } from "emotion-native-media-query";
-import { BREAKPOINTS } from "helpers/constants";
 
 function renderMarkers(map, maps) {
   var locations = [
