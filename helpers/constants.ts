@@ -122,6 +122,8 @@ export const LINKS = {
     "https://wp.stanforddaily.com/wp-content/uploads/2020/02/example_paper.png",
   SODP_LOGO:
     "https://wp.stanforddaily.com/wp-content/uploads/2020/03/logo.b1da2910.jpg",
+  US_ELECTIONS_2020_LOGO:
+    "https://wp.stanforddaily.com/wp-content/uploads/2020/11/us2020ElectionsIcon.png",
   ARCHIVES: "https://archives.stanforddaily.com/",
   SODP: "http://opendata.stanforddaily.com/",
   JOIN_US: "http://apply.stanforddaily.com",
