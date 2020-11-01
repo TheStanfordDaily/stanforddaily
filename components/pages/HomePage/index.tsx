@@ -305,14 +305,6 @@ export default class HomePage extends React.Component<IndexProps, IndexState> {
                     ...getBorderValue("Bottom"),
                   }}
                 />
-                <GrindSection
-                  content={homePosts.theGrind}
-                  category={homePosts.tsdMeta.categories.thegrind}
-                  style={{
-                    ...getBorderValue("Bottom"),
-                  }}
-                />
-                <PodcastWidget />
                 <CartoonsSection
                   content={homePosts.cartoons}
                   category={homePosts.tsdMeta.categories.cartoons}
@@ -327,6 +319,14 @@ export default class HomePage extends React.Component<IndexProps, IndexState> {
                     },
                   }}
                 />
+                <GrindSection
+                  content={homePosts.theGrind}
+                  category={homePosts.tsdMeta.categories.thegrind}
+                  style={{
+                    ...getBorderValue("Bottom"),
+                  }}
+                />
+                <PodcastWidget />
               </Column>
             </DesktopRow>
             {/* <MultimediaSection
