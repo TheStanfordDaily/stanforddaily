@@ -35,7 +35,7 @@ export const CartoonsSection: React.ElementType = ({
           />
         </SectionTitleWithLink>
         <LinkToArticle post={content[0]}>
-          <Image
+          {/* <Image
             source={{
               uri: content[0].thumbnailInfo.urls.full,
             }}
@@ -44,6 +44,10 @@ export const CartoonsSection: React.ElementType = ({
               width: "100%",
               height: 400,
             }}
+          /> */}
+          <img
+            src={content[0].thumbnailInfo.urls.full}
+            style={{ width: "100%" }}
           />
         </LinkToArticle>
       </RView>
