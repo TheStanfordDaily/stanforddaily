@@ -1,7 +1,6 @@
 import React from "react";
 import { Text, Platform } from "react-native";
 import { MediaRule } from "emotion-native-media-query";
-import css from "@emotion/css";
 import { FONTS, BREAKPOINTS } from "helpers/constants";
 import { ArticleListPageData } from "helpers/wpapi";
 import LoadingView from "components/Loading";
@@ -63,22 +62,6 @@ export default class ArticleListPage extends React.Component<
                 ...getBorderValue("Bottom"),
               }}
             >
-              {console.log(initData)}
-              {/* <Column
-        style={{
-          flex: 1
-        }}
-        rStyle={{
-          [MediaRule.MinWidth]: {
-            [BREAKPOINTS.TABLET]: {
-              paddingRight: SECTION_PADDING / 2,
-            },
-          },
-        }}
-      >
-        {/* <TopThumbnailArticle post={initData.posts[1]} large={true} /> 
-        <HeadlineArticle post={initData.posts[1]} style={{ marginBottom: 20 }} />
-      </Column> */}
               <Column
                 style={{
                   flex: 1,
@@ -211,3 +194,4 @@ export default class ArticleListPage extends React.Component<
     );
   }
 }
+

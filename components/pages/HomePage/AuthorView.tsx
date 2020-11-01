@@ -16,7 +16,12 @@ export const AuthorsTextWithLink: React.ElementType = ({
 }) => {
   const authorsTextWithLink = authors.map((author, index) => (
     <React.Fragment key={author.id}>
-      {index > 0 && (authors.length !== 2 ? ", " : " ")}
+      {index > 0 &&
+        (index === authors.length - 1
+          ? " "
+          : authors.length !== 2
+          ? ", "
+          : " ")}
       {index > 0 && index === authors.length - 1 && (
         <span style={{ textTransform: "none" }}>and </span>
       )}
@@ -61,6 +66,7 @@ export const AuthorView: React.ElementType = ({
       <View style={containerStyle}>
         <Text
           style={{
+            fontSize: 12.5,
             ...FONTS.AUXILIARY,
             ...style,
           }}

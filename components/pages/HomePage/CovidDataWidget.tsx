@@ -137,16 +137,16 @@ export const CovidDataWidget: React.ElementType = ({ mobile = false }) => {
             </div>
             <div>
               <strong style={{ fontSize: "3vh" }}>
-                42<strong></strong>
+                45<strong></strong>
               </strong>
             </div>
             <div style={{ fontSize: "1.75vh", lineHeight: "normal" }}>
               <span>
                 Last week
                 <br />
-                +9
+                +3
               </span>{" "}
-              <span style={{ color: "#585858" }}>▲</span>
+              <span style={{ color: "#585858" }}>▼</span>
             </div>
           </div>
           <div
@@ -181,8 +181,7 @@ export const CovidDataWidget: React.ElementType = ({ mobile = false }) => {
                 Last week
                 <br />
                 +0
-              </span>{" "}
-              <span style={{ color: "#585858" }}>▼</span>
+              </span>
             </div>
           </div>
           <div
@@ -208,13 +207,13 @@ export const CovidDataWidget: React.ElementType = ({ mobile = false }) => {
               Stanford Health Care workers
             </div>
             <div>
-              <strong style={{ fontSize: "3vh" }}>481</strong>
+              <strong style={{ fontSize: "3vh" }}>485</strong>
             </div>
             <div style={{ fontSize: "1.75vh", lineHeight: "normal" }}>
               <span>
                 Last week
                 <br />
-                +10
+                +11
               </span>{" "}
               <span style={{ color: "#585858" }}>▼</span>
             </div>
@@ -231,7 +230,7 @@ export const CovidDataWidget: React.ElementType = ({ mobile = false }) => {
           lineHeight: "normal",
         }}
       >
-        Cumulative positive test results. Arrows indicate whether last week’s new positives are greater or less than new positives the previous week.
+        Cumulative positive test results. Arrows indicate whether the stated week’s new positives are greater or less than new positives the previous week.
       </div>
     </section>
   );
