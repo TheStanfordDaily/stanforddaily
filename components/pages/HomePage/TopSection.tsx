@@ -34,6 +34,7 @@ export interface SmallSectionProps {
   //mobile_title?: string;
   newTab?: boolean;
   className?: string;
+  noRightMarginOnMobile?: boolean;
 }
 
 // Each of these consists of an image and link to some Daily material;
@@ -47,6 +48,7 @@ const SmallSection: React.ElementType<SmallSectionProps> = ({
   //mobile_title,
   newTab,
   className,
+  noRightMarginOnMobile,
 }) => {
   const additionalPropsForA: any = {};
   if (newTab) {
@@ -61,6 +63,14 @@ const SmallSection: React.ElementType<SmallSectionProps> = ({
           flexDirection: "row",
           alignItems: "center",
         }}
+        css={
+          noRightMarginOnMobile &&
+          css`
+            @media (max-width: ${BREAKPOINTS.MAX_WIDTH.TABLET}px) {
+              margin-right: 0px !important;
+            }
+          `
+        }
       >
         <img
           src={imageUrl}
@@ -238,6 +248,19 @@ export const TopSection: React.ElementType = ({ style }) => {
       >
         <ViewRow style={{ flex: 2 }}>
           <SmallSection
+            className="small-section small-section-newsletters"
+            url="/high-school-programs/"
+            imageUrl={LINKS.ADOPT_A_BUSINESS_LOGO}
+            header="Winter Workshop | APPLY NOW"
+            title="For high schoolers"
+            newTab
+            css={css`
+              @media (max-width: ${BREAKPOINTS.MAX_WIDTH.TABLET}px) {
+                display: none;
+              }
+            `}
+          />
+          {/* <SmallSection
             className="small-section small-section-issuu"
             url={LINKS.ISSUU}
             imageUrl={LINKS.ISSUU_LOGO}
@@ -249,7 +272,7 @@ export const TopSection: React.ElementType = ({ style }) => {
                 display: none;
               }
             `}
-          />
+          /> */}
           <SmallSection
             className="small-section small-section-sodp"
             url={LINKS.SODP}
@@ -265,11 +288,11 @@ export const TopSection: React.ElementType = ({ style }) => {
           />
           <SmallSection
             className="small-section small-section-join"
-            url={LINKS.JOIN_US}
+            url="/submitting-to-the-daily/"
             imageUrl={LINKS.NEWSLETTER_LOGO}
-            header="Join The Daily" //"Fall Workshops (all remote)"
+            header="Submit work" //"Fall Workshops (all remote)"
             // mobile_header="High Schoolers"
-            title="All Students Welcome" //"Programs for High Schoolers"
+            title="Or join us" //"Programs for High Schoolers"
             // mobile_title="Fall Workshops"
             newTab
           />
@@ -303,11 +326,12 @@ export const TopSection: React.ElementType = ({ style }) => {
             //mobile_title="Business"
           /> */}
           <SmallSection
-            className="small-section small-section-newsletters"
-            url="/high-school-programs/"
-            imageUrl={LINKS.ADOPT_A_BUSINESS_LOGO}
-            header="Winter Workshop | APPLY NOW"
-            title="For high schoolers"
+            className="small-section small-section-elections"
+            url="/category/us-elections-2020/"
+            imageUrl={LINKS.US_ELECTIONS_2020_LOGO}
+            header="US Elections 2020"
+            title="Our coverage"
+            noRightMarginOnMobile={true}
           />
         </ViewRow>
         <ViewRow>
