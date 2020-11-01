@@ -25,16 +25,6 @@ function renderMarkers(map, maps) {
     ],
     [
       new maps.Marker({
-        position: { lat: 41.7938, lng: -71.1449 },
-        map: map,
-        icon:
-          "https://wp.stanforddaily.com/wp-content/uploads/2020/11/DemocraticLogo-e1604241570153.png",
-      }),
-      "Joe Kennedy ’03",
-      "Incumbent — D-Mass. District 4",
-    ],
-    [
-      new maps.Marker({
         position: { lat: 37.6393, lng: -120.997 },
         map: map,
         icon:
