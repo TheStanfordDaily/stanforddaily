@@ -17,6 +17,7 @@ import SatireGlobal from "./SatireGlobal";
 import DataVizGlobal from "./DataVizGlobal";
 import FooterDonationBanner from "components/FooterDonationBanner";
 import css from "@emotion/css";
+import ShareIcons from "./ShareIcons";
 
 import ContentViewStyles, {
   centerOuterContentStyle,
@@ -133,6 +134,7 @@ const ContentView: React.ElementType<ContentViewProps> = ({
           )}
         </ArticleHeader>
         <Global styles={ContentViewStyles} />
+        <ShareIcons />
         <RView
           WebTag="main"
           id="main-article-content"

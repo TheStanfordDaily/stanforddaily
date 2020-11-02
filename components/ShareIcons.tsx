@@ -22,7 +22,7 @@ const phoneView: CSS.Properties = {
 const sharebox: CSS.Properties = {
   position: "fixed",
   textAlign: "left",
-  [`@media (min-width: ${BREAKPOINTS.TABLET}px)`]: {
+  [`@media (max-width: ${BREAKPOINTS.TABLET}px)`]: {
     display: phoneView,
   },
 };
