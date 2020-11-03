@@ -182,8 +182,8 @@ export const CovidDataWidget: React.ElementType = ({
           marginTop: "5px",
           marginBottom: "5px",
           fontFamily: "Libre Baskerville, sans-serif",
-          fontSize: "10px",
-          lineHeight: "normal",
+          fontSize: "12px",
+          lineHeight: "1.2em",
         }}
       >
         Cumulative positive test results. Arrows indicate whether the stated
