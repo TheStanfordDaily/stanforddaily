@@ -3,12 +3,12 @@
 import React from "react";
 
 // images of the share icons to use
-import facebook from "C:/Users/simon/my-app/src/facebook.jpg";
-import twitter from "C:/Users/simon/my-app/src/twitter-pic.png";
-import linkedin from "C:/Users/simon/my-app/src/Linkedin.png";
+import facebook from "../static/facebook.jpg";
+import twitter from "../static/twitter-pic.png";
+import linkedin from "../static/Linkedin.png";
 
 // reddit image wasn't free to use on google images
-import reddit from "C:/Users/simon/my-app/src/reddit.png";
+import reddit from "../static/reddit.png";
 import CSS from "csstype";
 import css from "@emotion/css";
 import { BREAKPOINTS } from "helpers/constants";
@@ -22,9 +22,6 @@ const phoneView: CSS.Properties = {
 const sharebox: CSS.Properties = {
   position: "fixed",
   textAlign: "left",
-  [`@media (max-width: ${BREAKPOINTS.TABLET}px)`]: {
-    display: phoneView,
-  },
 };
 
 const icons: CSS.Properties = {
@@ -72,9 +69,15 @@ function RShare() {
 // Social Share Icons Widget
 function ShareIcons() {
   return (
-    <div>
+    <div
+      css={css`
+        @media (max-width: ${BREAKPOINTS.MAX_WIDTH.DESKTOP}px) {
+          position: relative !important;
+        }
+      `}
+    >
       <div
-        class="snapchat-creative-kit-share"
+        className="snapchat-creative-kit-share"
         data-share-url="https://stanforddaily.com"
         data-text="false"
       ></div>
