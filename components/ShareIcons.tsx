@@ -3,9 +3,9 @@ import css from "@emotion/css";
 import { BREAKPOINTS } from "helpers/constants";
 
 // images of the share icons to use
-import facebook from "C:/Users/simon/my-app/src/facebook.jpg";
-import twitter from "C:/Users/simon/my-app/src/twitter-pic.png";
-import linkedin from "C:/Users/simon/my-app/src/Linkedin.png";
+import facebook from "../static/facebook.jpg";
+import twitter from "../static/twitter-pic.png";
+import linkedin from "../static/Linkedin.png";
 
 // reddit image wasn't free to use on google images
 import reddit from "C:/Users/simon/my-app/src/reddit.png";
