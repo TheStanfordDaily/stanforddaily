@@ -8,6 +8,7 @@ import LogoYoutube from "react-ionicons/lib/LogoYoutube";
 import { LINKS, FONTS, STANFORD_COLORS } from "helpers/constants";
 import Link from "components/Link";
 import css from "@emotion/css";
+import ShareIconsBottomBox from "./ShareIconsBottomBox";
 
 const LogoIconWithLink: React.ElementType = ({ url, LogoComponent }: any) => (
   <a
@@ -94,6 +95,7 @@ const FooterDonationBanner: React.ElementType = ({ currentPageUrl }) => {
       >
         While you're here...
       </h3>
+      <ShareIconsBottomBox />
       <p>
         We're a student-run organization committed to providing hands-on
         experience in journalism, digital media and business for the next
@@ -110,11 +112,13 @@ const FooterDonationBanner: React.ElementType = ({ currentPageUrl }) => {
         title="Get Our Emails"
         mobileTitle="Get Our Emails"
       />
+
       <div>
         <br></br>
         <LogoIconWithLink url={LINKS.FACEBOOK} LogoComponent={LogoFacebook} />
         <LogoIconWithLink url={LINKS.TWITTER} LogoComponent={LogoTwitter} />
         <LogoIconWithLink url={LINKS.INSTAGRAM} LogoComponent={LogoInstagram} />
+
         <LogoIconWithLink url={LINKS.YOUTUBE} LogoComponent={LogoYoutube} />
       </div>
     </div>

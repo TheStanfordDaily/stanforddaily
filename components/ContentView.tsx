@@ -18,6 +18,7 @@ import DataVizGlobal from "./DataVizGlobal";
 import FooterDonationBanner from "components/FooterDonationBanner";
 import css from "@emotion/css";
 import ShareIcons from "./ShareIcons";
+import ShareIconsTablet from "./ShareIconsTablet";
 
 import ContentViewStyles, {
   centerOuterContentStyle,
@@ -183,6 +184,7 @@ const ContentView: React.ElementType<ContentViewProps> = ({
               </span>
             </Byline>
           )}
+          <ShareIconsTablet />
           <div id="main-article-text" />
           {/* TODO: UNKNOWN WHY THIS IS NECESSARY FOR SOME POSTS TO SHOW UP: E.G. https://www.stanforddaily.com/2019/11/20/the-disappearance-of-financial-aid-how-stanford-consumes-outside-scholarships-when-need-based-aid-doesnt-fulfill-student-needs/ */}
           <div

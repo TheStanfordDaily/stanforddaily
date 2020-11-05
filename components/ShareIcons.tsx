@@ -1,6 +1,6 @@
-// check this website: https://codepen.io/lionelpaulus/pen/YGXwxrs
-
 import React from "react";
+import css from "@emotion/css";
+import { BREAKPOINTS } from "helpers/constants";
 
 // images of the share icons to use
 import facebook from "C:/Users/simon/my-app/src/facebook.jpg";
@@ -9,109 +9,108 @@ import linkedin from "C:/Users/simon/my-app/src/Linkedin.png";
 
 // reddit image wasn't free to use on google images
 import reddit from "C:/Users/simon/my-app/src/reddit.png";
-import CSS from "csstype";
-import css from "@emotion/css";
-import { BREAKPOINTS } from "helpers/constants";
 
-// Styles for the social share icons
-const phoneView: CSS.Properties = {
-  borderRadius: "50%",
-  width: "35px",
-};
-
-const sharebox: CSS.Properties = {
-  position: "fixed",
-  textAlign: "left",
-  [`@media (max-width: ${BREAKPOINTS.TABLET}px)`]: {
-    display: phoneView,
-  },
-};
-
-const icons: CSS.Properties = {
-  borderRadius: "50%",
-  width: "70px",
-  margin: "3px",
-  marginTop: "0px",
-};
-
-// The function that shares the article to the social platform
+// The function(S) that shares the article to the social platform
 function FShare() {
   var str = window.location.href;
   document
     .getElementById("Facebook")
     .setAttribute(
       "href",
-      "https://www.facebook.com/sharer.php?u=" + str + "%2F",
+      "https://www.facebook.com/sharer.php?u=" +
+        str +
+        "&text=Check out this Stanford Article",
     );
 }
 
 function TShare() {
   var str = window.location.href;
   document
-    .getElementById("Facebook")
-    .setAttribute("href", "https://twitter.com/share?url=" + str + "%2F");
+    .getElementById("Twitter")
+    .setAttribute(
+      "href",
+      "https://twitter.com/share?url=" +
+        str +
+        "&text=Check out this Stanford Article",
+    );
 }
 
 function LShare() {
   var str = window.location.href;
   document
-    .getElementById("Facebook")
+    .getElementById("LinkedIn")
     .setAttribute(
       "href",
-      "https://www.linkedin.com/shareArticle?url=" + str + "%2F",
+      "https://www.linkedin.com/shareArticle?url=" +
+        str +
+        "&title=Check out this Stanford Article",
     );
 }
 
 function RShare() {
   var str = window.location.href;
   document
-    .getElementById("Facebook")
-    .setAttribute("href", "https://reddit.com/submit?url=" + str + "%2F");
+    .getElementById("Reddit")
+    .setAttribute(
+      "href",
+      "https://reddit.com/submit?url=" +
+        str +
+        "&title=Check out this Stanford Article",
+    );
 }
 
 // Social Share Icons Widget
 function ShareIcons() {
   return (
-    <div>
-      <div
-        class="snapchat-creative-kit-share"
-        data-share-url="https://stanforddaily.com"
-        data-text="false"
-      ></div>
-      <div style={sharebox}>
+    <div
+      css={css`
+        img {
+          border-radius: 50%;
+          width: 70px;
+          margin: 3px;
+          margin-top: 0px;
+          display: block;
+        }
+
+        img:hover {
+          opacity: 0.7;
+        }
+
+        #sharebox {
+          position: absolute;
+          left: 145px;
+        }
+
+        @media (max-width: ${BREAKPOINTS.MAX_WIDTH.DESKTOP}px) {
+          img {
+            width: 35px;
+            display: inline;
+            margin-top: -20px;
+          }
+
+          #sharebox {
+            margin-top: -45px;
+            position: relative;
+            left: auto;
+            text-align: right;
+          }
+        }
+      `}
+    >
+      <div id="sharebox">
         <div>
-          <h1> Share this: </h1>
-          <a
-            id="Facebook"
-            onClick={FShare}
-            // href={"https://www.facebook.com/sharer.php?u=http%3A%2F%2F" +  "%2F"}
-            target="blank"
-          >
-            <img src={facebook} style={icons} />
+          <h1> Share</h1>
+          <a id="Facebook" onClick={FShare} target="blank">
+            <img src={facebook} />
           </a>
-          <a
-            id="Twitter"
-            onClick={TShare}
-            // href="https://twitter.com/share?url=https://stanforddaily.com/&text=Check out this article from%20@stanforddaily"
-            target="blank"
-          >
-            <img src={twitter} style={icons} />
+          <a className="icon" id="Twitter" onClick={TShare} target="blank">
+            <img src={twitter} />
           </a>
-          <a
-            id="Reddit"
-            onClick={RShare}
-            // href="https://reddit.com/submit?url=https://stanforddaily.com&title=Check out this article from the Stanford Daily!!"
-            target="blank"
-          >
-            <img src={reddit} style={icons} />
+          <a id="Reddit" onClick={RShare} target="blank">
+            <img src={reddit} />
           </a>
-          <a
-            id="LinkedIn"
-            onClick={LShare}
-            // href="https://www.linkedin.com/shareArticle?url=https://stanforddaily.com&title=Look at this cool article&summary=I need to figure out how to add a short summary&source=https://stanforddaily.com"
-            target="blank"
-          >
-            <img src={linkedin} style={icons} />
+          <a id="LinkedIn" onClick={LShare} target="blank">
+            <img src={linkedin} />
           </a>
         </div>
       </div>
