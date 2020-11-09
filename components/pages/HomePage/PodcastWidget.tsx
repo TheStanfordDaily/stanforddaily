@@ -53,8 +53,7 @@ export const PodcastWidget: React.ElementType = ({ style }) => {
           frameBorder="0"
           allow="encrypted-media"
         />
-        Stanford students share how their relationship with their community and
-        surroundings has changed due to the pandemic.
+        Richard Coca '22, one of The Daily's Grind editors, adresses how COVID-19 taught him the importance of physical space.
       </div>
     </RView>
   );
