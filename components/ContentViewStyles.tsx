@@ -1,6 +1,5 @@
 import { BREAKPOINTS, FONTS, STANFORD_COLORS } from "helpers/constants";
 import { SECTION_PADDING } from "components/Section";
-import quote from "../static/pullquote.gif";
 
 export const centerContentStyle = {
   margin: "0 auto",
@@ -86,7 +85,7 @@ export default {
         textAlign: "left",
         overflowWrap: "break-word",
         padding: "25px 25px 0 25px !important",
-        backgroundImage: `url(${quote})`,
+        backgroundImage: `url(${"../static/pullquote.gif"})`,
         backgroundSize: "20%",
         backgroundRepeat: "no-repeat !important",
         "&::first-letter": {
