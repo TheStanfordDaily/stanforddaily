@@ -16,6 +16,7 @@ import { DateWithAbbr } from "./DateView";
 import SatireGlobal from "./SatireGlobal";
 import DataVizGlobal from "./DataVizGlobal";
 import FooterDonationBanner from "components/FooterDonationBanner";
+import css from "@emotion/css";
 
 import ContentViewStyles, {
   centerOuterContentStyle,
@@ -132,9 +133,28 @@ const ContentView: React.ElementType<ContentViewProps> = ({
           )}
         </ArticleHeader>
         <Global styles={ContentViewStyles} />
-        <RView WebTag="main" id="main-article-content">
+        <RView
+          WebTag="main"
+          id="main-article-content"
+          css={css`
+            @media print {
+              a {
+                text-decoration: none !important;
+                border-bottom: none !important;
+                color: #2e2d29;
+              }
+            }
+          `}
+        >
           {thumbnailUrl ? (
-            <figure id="featured-image">
+            <figure
+              id="featured-image"
+              css={css`
+                @media print {
+                  display: none;
+                }
+              `}
+            >
               <img src={thumbnailUrl} alt={thumbnailAlt} />
               {thumbnailCaption ? (
                 <figcaption style={{ marginBottom: 0 }}>
@@ -183,7 +203,13 @@ const ContentView: React.ElementType<ContentViewProps> = ({
         )}
       </Article>
       {commentStatus === "open" && (
-        <React.Fragment>
+        <div
+          css={css`
+            @media print {
+              display: none;
+            }
+          `}
+        >
           <div css={{ ...centerContentStyle }}>
             {/* We have to embed disqus this way (and not through disqus-react) because disqus-react requires
             Next JS's javascript code to be running -- and we had to turn off the Next JS javascript code
@@ -219,7 +245,7 @@ const ContentView: React.ElementType<ContentViewProps> = ({
               }}
             />
           </div>
-        </React.Fragment>
+        </div>
       )}
       <WPFooter base={post} />
     </SectionStyle>

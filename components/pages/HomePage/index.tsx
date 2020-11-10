@@ -37,6 +37,7 @@ import { SectionTitleWithLink } from "./SectionTitle";
 import { TopThumbnailArticle } from "./TopThumbnailArticle";
 import { TitleOnlyArticle } from "./TitleOnlyArticle";
 import { HeadlineArticle } from "./HeadlineArticle";
+import { PodcastWidget } from "./PodcastWidget";
 
 interface IndexProps {
   homePosts?: Home;
@@ -260,6 +261,13 @@ export default class HomePage extends React.Component<IndexProps, IndexState> {
                 style={{
                   flexGrow: 6,
                 }}
+                rStyle={{
+                  [MediaRule.MaxWidth]: {
+                    [BREAKPOINTS.MAX_WIDTH.TABLET]: {
+                      ...getBorderValue("Bottom"),
+                    },
+                  },
+                }}
               >
                 <DesktopRow
                   style={{
@@ -279,11 +287,7 @@ export default class HomePage extends React.Component<IndexProps, IndexState> {
                   )}
                 </DesktopRow>
                 {/* <CovidDataWidget mobile={true} /> */}
-                <DesktopRow
-                  style={{
-                    ...getBorderValue("Bottom"),
-                  }}
-                >
+                <DesktopRow>
                   <ArtsAndLifeSection />
                   <MainSportsSection />
                 </DesktopRow>
@@ -300,12 +304,31 @@ export default class HomePage extends React.Component<IndexProps, IndexState> {
                   },
                 }}
               >
-                <CovidDataWidget />
+                <CovidDataWidget
+                  style={{
+                    padding: "15px",
+                    ...getBorderValue("Bottom"),
+                  }}
+                />
                 <OpinionSection
                   content={homePosts.opinions}
                   category={homePosts.tsdMeta.categories.opinions}
                   style={{
                     ...getBorderValue("Bottom"),
+                  }}
+                />
+                <CartoonsSection
+                  content={homePosts.cartoons}
+                  category={homePosts.tsdMeta.categories.cartoons}
+                  style={{
+                    ...getBorderValue("Bottom"),
+                  }}
+                  rStyle={{
+                    [MediaRule.MaxWidth]: {
+                      [BREAKPOINTS.MAX_WIDTH.TABLET]: {
+                        ...getBorderValue("Bottom"),
+                      },
+                    },
                   }}
                 />
                 <GrindSection
@@ -315,15 +338,9 @@ export default class HomePage extends React.Component<IndexProps, IndexState> {
                     ...getBorderValue("Bottom"),
                   }}
                 />
-                <CartoonsSection
-                  content={homePosts.cartoons}
-                  category={homePosts.tsdMeta.categories.cartoons}
-                  rStyle={{
-                    [MediaRule.MaxWidth]: {
-                      [BREAKPOINTS.MAX_WIDTH.TABLET]: {
-                        ...getBorderValue("Bottom"),
-                      },
-                    },
+                <PodcastWidget
+                  style={{
+                    padding: "15px",
                   }}
                 />
               </Column>

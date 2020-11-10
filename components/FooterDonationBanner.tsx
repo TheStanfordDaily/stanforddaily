@@ -7,6 +7,7 @@ import LogoInstagram from "react-ionicons/lib/LogoInstagram";
 import LogoYoutube from "react-ionicons/lib/LogoYoutube";
 import { LINKS, FONTS, STANFORD_COLORS } from "helpers/constants";
 import Link from "components/Link";
+import css from "@emotion/css";
 
 const LogoIconWithLink: React.ElementType = ({ url, LogoComponent }: any) => (
   <a
@@ -34,14 +35,25 @@ const TextButtonWithLink: React.ElementType = ({
       title={title}
       style={{
         ...FONTS.AUXILIARY,
-        color: STANFORD_COLORS.CARDINAL_RED,
-        border: `2px ${STANFORD_COLORS.CARDINAL_RED} solid`,
-        fontSize: 14,
-        letterSpacing: 1.5,
-        padding: 8,
-        textAlign: "center",
+        borderRadius: 0,
+        lineHeight: "30px",
+        color: STANFORD_COLORS.WHITE,
+        display: "inlineBlock",
+        cursor: "pointer",
+        fontSize: 15,
+        fontWeight: 700,
+        letterSpacing: 1,
+        outline: 0,
+        padding: 10,
+        textDecoration: "none",
         ...tbwlStyle,
       }}
+      css={css`
+        background-color: #8c1515;
+        &:hover {
+          background-color: #54100b !important;
+        }
+      `}
     >
       {!mobileTitle && title}
       {mobileTitle && (
@@ -68,6 +80,11 @@ const FooterDonationBanner: React.ElementType = ({ currentPageUrl }) => {
         marginTop: SECTION_PADDING,
         marginBottom: SECTION_PADDING,
       }}
+      css={css`
+        @media print {
+          display: none;
+        }
+      `}
     >
       <h3
         style={{
@@ -91,7 +108,7 @@ const FooterDonationBanner: React.ElementType = ({ currentPageUrl }) => {
       <TextButtonWithLink
         url="/email-digests/"
         title="Get Our Emails"
-        mobileTitle="Digest"
+        mobileTitle="Get Our Emails"
       />
       <div>
         <br></br>
