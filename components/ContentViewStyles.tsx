@@ -1,5 +1,6 @@
 import { BREAKPOINTS, FONTS, STANFORD_COLORS } from "helpers/constants";
 import { SECTION_PADDING } from "components/Section";
+import quote from "../assets/pullquote.gif";
 
 export const centerContentStyle = {
   margin: "0 auto",
@@ -75,6 +76,8 @@ export default {
       borderLeft: "3px solid #820000 !important",
       cite: {
         width: "350px !important",
+        padding: "5px 0 0 0 !important",
+        borderLeft: "3px solid #820000 !important",
         fontSize: "1.3em !important",
         textAlign: "center",
       },
@@ -93,6 +96,7 @@ export default {
           fontWeight: "bold !important",
         },
       },
+    },
       table: {
         width: "100%",
         borderCollapse: "collapse",
@@ -103,7 +107,6 @@ export default {
       td: {
         border: `1px solid ${STANFORD_COLORS.COOL_GREY}`,
         padding: "10px",
-      },
-    },
-  },
+    }
+  }
 };
