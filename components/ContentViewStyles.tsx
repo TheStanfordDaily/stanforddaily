@@ -1,6 +1,6 @@
 import { BREAKPOINTS, FONTS, STANFORD_COLORS } from "helpers/constants";
 import { SECTION_PADDING } from "components/Section";
-import quote from "../assets/pullquote.gif";
+import quote from "../static/pullquote.gif";
 
 export const centerContentStyle = {
   margin: "0 auto",
@@ -71,36 +71,28 @@ export default {
     },
     blockquote: {
       display: "block !important",
-      width: "200px !important",
-      padding: "5px 0 0 5px !important",
-      //right align
-      float: "right !important",
+      width: "350px !important",
+      padding: "5px 0 0 0px !important",
       borderLeft: "3px solid #820000 !important",
-
-      /*//left align
-      float: "left !important",
-      borderRight: "3px solid #820000 !important",*/
-
       cite: {
-        width: "200px !important",
+        width: "350px !important",
         fontSize: "1.3em !important",
         textAlign: "center",
       },
       p: {
-        width: "200px !important",
+        width: "350px !important",
         fontSize: "1.6em !important",
+        lineHeight: "normal",
         textAlign: "left",
         overflowWrap: "break-word",
-        padding: "20px 15px 0 25px !important",
+        padding: "25px 25px 0 25px !important",
         backgroundImage: `url(${quote})`,
-        backgroundSize: "25%",
+        backgroundSize: "20%",
         backgroundRepeat: "no-repeat !important",
-
-        //first letter code not working
-        /*'&::firstLetter': { // firstLetter: { also doesn't work
+        "&::first-letter": {
           fontSize: "2em !important",
-	        fontWeight: "bold !important",
-        },*/
+          fontWeight: "bold !important",
+        },
       },
     },
   },
