@@ -2,12 +2,12 @@ import { Platform } from "react-native";
 
 export const BREAKPOINTS = {
   // For `min-width`
-  TABLET: 700,
+  TABLET: 768,
   DESKTOP: 1100,
 
   MAX_WIDTH: {
     // For `max-width`
-    TABLET: 699,
+    TABLET: 767,
     DESKTOP: 1099,
   },
 };
@@ -58,7 +58,7 @@ export const FONTS: any = {
   AUXILIARY:
     Platform.OS === "web"
       ? {
-          fontFamily: "'IBM Plex Sans Condensed', sans-serif",
+          fontFamily: "Segoe UI, Roboto,Ubuntu, Helvetica Neue, sans-serif",
           textTransform: "uppercase",
           lineHeight: "1em",
         }
@@ -110,6 +110,8 @@ export const LINKS = {
   INSTAGRAM: "https://www.instagram.com/stanforddaily/",
   YOUTUBE: "https://www.youtube.com/channel/UCWg3QqUzqxXt6herm5sMjNw",
   ISSUU: "https://issuu.com/thestanforddaily",
+  THE_DAILY_BREW_SPOTIFY:
+    "https://open.spotify.com/show/2ty8gvAnvYP31X8TUrFwoj?si=cZWDWKp2SiOotNh4ZqG0xg",
   NEWSLETTER_LOGO:
     "https://wp.stanforddaily.com/wp-content/uploads/2020/02/weekend_roundup_logo-1.jpg",
   DAILY_BREW_LOGO:
@@ -122,6 +124,8 @@ export const LINKS = {
     "https://wp.stanforddaily.com/wp-content/uploads/2020/02/example_paper.png",
   SODP_LOGO:
     "https://wp.stanforddaily.com/wp-content/uploads/2020/03/logo.b1da2910.jpg",
+  US_ELECTIONS_2020_LOGO:
+    "https://wp.stanforddaily.com/wp-content/uploads/2020/11/us2020ElectionsIcon.png",
   ARCHIVES: "https://archives.stanforddaily.com/",
   SODP: "http://opendata.stanforddaily.com/",
   JOIN_US: "http://apply.stanforddaily.com",

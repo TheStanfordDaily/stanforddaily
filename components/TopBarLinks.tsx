@@ -5,6 +5,7 @@ import { Category } from "helpers/wpapi";
 import { SECTION_PADDING } from "./Section";
 import { CategoryLink } from "./CategoryLink";
 import SearchLink from "./SearchLink";
+import css from "@emotion/css";
 
 enum LinkType {
   LINK,
@@ -102,7 +103,7 @@ export const TopBarLinks: React.ElementType = ({ itemStyle }: any) => {
     {
       type: LinkType.LINK,
       name: "Podcasts",
-      url: "/category/podcasts/",
+      url: LINKS.THE_DAILY_BREW_SPOTIFY,
     } as LinkLink,
     {
       type: LinkType.LINK,
@@ -166,7 +167,7 @@ export const TopBarLinks: React.ElementType = ({ itemStyle }: any) => {
           marginRight: 25,
           paddingTop: SECTION_PADDING,
           paddingBottom: SECTION_PADDING,
-          ..._itemStyle,
+          fontSize: 12.5,
         };
         if (item.type === LinkType.SEARCH) {
           return <SearchLink />;
@@ -186,7 +187,15 @@ export const TopBarLinks: React.ElementType = ({ itemStyle }: any) => {
             return <></>;
           }
           return (
-            <Text style={actualStyle} key={link.url}>
+            <Text
+              style={actualStyle}
+              key={link.url}
+              css={css`
+                @media print {
+                  display: none;
+                }
+              `}
+            >
               <a href={link.url} style={{ color: "inherit" }}>
                 {link.name}
               </a>

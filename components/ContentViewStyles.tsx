@@ -93,6 +93,17 @@ export default {
           fontWeight: "bold !important",
         },
       },
+      table: {
+        width: "100%",
+        borderCollapse: "collapse",
+        textAlign: "center",
+        border: `1px solid ${STANFORD_COLORS.COOL_GREY}`,
+        fontSize: "1.3rem",
+      },
+      td: {
+        border: `1px solid ${STANFORD_COLORS.COOL_GREY}`,
+        padding: "10px",
+      },
     },
   },
 };

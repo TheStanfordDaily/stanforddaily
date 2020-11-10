@@ -34,6 +34,7 @@ export interface SmallSectionProps {
   //mobile_title?: string;
   newTab?: boolean;
   className?: string;
+  noRightMarginOnMobile?: boolean;
 }
 
 // Each of these consists of an image and link to some Daily material;
@@ -47,6 +48,7 @@ const SmallSection: React.ElementType<SmallSectionProps> = ({
   //mobile_title,
   newTab,
   className,
+  noRightMarginOnMobile,
 }) => {
   const additionalPropsForA: any = {};
   if (newTab) {
@@ -61,6 +63,14 @@ const SmallSection: React.ElementType<SmallSectionProps> = ({
           flexDirection: "row",
           alignItems: "center",
         }}
+        css={
+          noRightMarginOnMobile &&
+          css`
+            @media (max-width: ${BREAKPOINTS.MAX_WIDTH.TABLET}px) {
+              margin-right: 0px !important;
+            }
+          `
+        }
       >
         <img
           src={imageUrl}
@@ -166,14 +176,28 @@ const TextButtonWithLink: React.ElementType = ({
       title={title}
       style={{
         ...FONTS.AUXILIARY,
-        color: STANFORD_COLORS.CARDINAL_RED,
         border: `2px ${STANFORD_COLORS.CARDINAL_RED} solid`,
-        fontSize: 14,
-        letterSpacing: 1.5,
+        fontSize: 15,
+        letterSpacing: 1,
+        fontWeight: 700,
+        borderRadius: 0,
+        outline: 0,
         padding: 8,
+        cursor: "pointer",
         textAlign: "center",
+        textDecoration: "none",
         ...tbwlStyle,
       }}
+      css={css`
+        color: #8c1515;
+        &:hover {
+          color: white !important;
+          background-color: #8c1515 !important;
+        }
+        &:visited {
+          color: #8c1515;
+        }
+      `}
     >
       {!mobileTitle && title}
       {mobileTitle && (
@@ -203,7 +227,14 @@ const ViewRow: any = styled(View)({
 // and nav bar on every page of the website
 export const TopSection: React.ElementType = ({ style }) => {
   return (
-    <SectionStyle style={{ paddingTop: 10, paddingBottom: 10 }}>
+    <SectionStyle
+      style={{ paddingTop: 10, paddingBottom: 10 }}
+      css={css`
+        @media print {
+          display: none;
+        }
+      `}
+    >
       <View
         css={css`
           flex-direction: row;
@@ -217,6 +248,19 @@ export const TopSection: React.ElementType = ({ style }) => {
       >
         <ViewRow style={{ flex: 2 }}>
           <SmallSection
+            className="small-section small-section-newsletters"
+            url="/high-school-programs/"
+            imageUrl={LINKS.ADOPT_A_BUSINESS_LOGO}
+            header="Winter Workshop | APPLY NOW"
+            title="For high schoolers"
+            newTab
+            css={css`
+              @media (max-width: ${BREAKPOINTS.MAX_WIDTH.TABLET}px) {
+                display: none;
+              }
+            `}
+          />
+          {/* <SmallSection
             className="small-section small-section-issuu"
             url={LINKS.ISSUU}
             imageUrl={LINKS.ISSUU_LOGO}
@@ -228,7 +272,7 @@ export const TopSection: React.ElementType = ({ style }) => {
                 display: none;
               }
             `}
-          />
+          /> */}
           <SmallSection
             className="small-section small-section-sodp"
             url={LINKS.SODP}
@@ -244,11 +288,11 @@ export const TopSection: React.ElementType = ({ style }) => {
           />
           <SmallSection
             className="small-section small-section-join"
-            url={LINKS.JOIN_US}
+            url="/submitting-to-the-daily/"
             imageUrl={LINKS.NEWSLETTER_LOGO}
-            header="Join The Daily" //"Fall Workshops (all remote)"
+            header="Submit work" //"Fall Workshops (all remote)"
             // mobile_header="High Schoolers"
-            title="All Students Welcome" //"Programs for High Schoolers"
+            title="Or join us" //"Programs for High Schoolers"
             // mobile_title="Fall Workshops"
             newTab
           />
@@ -272,7 +316,7 @@ export const TopSection: React.ElementType = ({ style }) => {
               header="Podcasts"
               title="The Daily Brew & More"
             /> */}
-          { /* <SmallSection
+          {/* <SmallSection
             className="small-section small-section-adopt-a-small-business"
             url="/adopt-a-small-business-with-stanford-daily-advertising"
             imageUrl={LINKS.ADOPT_A_BUSINESS_LOGO}
@@ -282,11 +326,12 @@ export const TopSection: React.ElementType = ({ style }) => {
             //mobile_title="Business"
           /> */}
           <SmallSection
-            className="small-section small-section-newsletters"
-            url="/high-school-programs/"
-            imageUrl={LINKS.ADOPT_A_BUSINESS_LOGO}
-            header="Winter Workshop | APPLY NOW"
-            title="For high schoolers"
+            className="small-section small-section-elections"
+            url="/category/us-elections-2020/"
+            imageUrl={LINKS.US_ELECTIONS_2020_LOGO}
+            header="US Elections 2020"
+            title="Our coverage"
+            noRightMarginOnMobile={true}
           />
         </ViewRow>
         <ViewRow>
