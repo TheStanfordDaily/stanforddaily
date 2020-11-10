@@ -1,6 +1,5 @@
 import { BREAKPOINTS, FONTS, STANFORD_COLORS } from "helpers/constants";
 import { SECTION_PADDING } from "components/Section";
-import quote from "../assets/pullquote.gif";
 
 export const centerContentStyle = {
   margin: "0 auto",
