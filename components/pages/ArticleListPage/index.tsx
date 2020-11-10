@@ -194,4 +194,3 @@ export default class ArticleListPage extends React.Component<
     );
   }
 }
-
