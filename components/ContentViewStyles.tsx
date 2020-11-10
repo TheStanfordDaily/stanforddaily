@@ -75,6 +75,9 @@ export default {
       padding: "5px 0 0 0px !important",
       borderLeft: "3px solid #820000 !important",
       cite: {
+        width: "350px !important",
+        padding: "5px 0 0 0 !important",
+        borderLeft: "3px solid #820000 !important",
         fontSize: "1.3em !important",
         textAlign: "center",
       },
@@ -104,5 +107,16 @@ export default {
       border: `1px solid ${STANFORD_COLORS.COOL_GREY}`,
       padding: "10px",
     },
-  },
+      table: {
+        width: "100%",
+        borderCollapse: "collapse",
+        textAlign: "center",
+        border: `1px solid ${STANFORD_COLORS.COOL_GREY}`,
+        fontSize: "1.3rem",
+      },
+      td: {
+        border: `1px solid ${STANFORD_COLORS.COOL_GREY}`,
+        padding: "10px",
+    }
+  }
 };
