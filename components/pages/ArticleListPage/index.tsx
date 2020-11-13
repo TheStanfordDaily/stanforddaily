@@ -170,9 +170,13 @@ export default class ArticleListPage extends React.Component<
         <ArticlesView
           displayCategory={displayCategory}
           displayExcerpt={displayExcerpt}
-          initPosts={initData.posts.filter(
-            post => !post["postCategory"].includes(70941),
-          )}
+          initPosts={
+            initData.tsdMeta["title"] === "US Elections 2020"
+              ? initData.posts.filter(
+                  post => !post["postCategory"].includes(70941),
+                )
+              : initData.posts
+          }
           getExtraPosts={async pageNumber => {
             const extraData = await getExtraData(pageNumber);
             return extraData.posts;
