@@ -70,6 +70,7 @@ const HeaderLogo: React.ElementType = () => {
                 src="https://raw.githubusercontent.com/TheStanfordDaily/stanforddaily-graphic-assets/main/DailyLogo/DailyLogo.png"
                 alt="The Stanford Daily"
                 css={{
+                  imageRendering: "-webkit-optimize-contrast",
                   height: "auto",
                   width: "auto",
                   maxHeight: "100%",
