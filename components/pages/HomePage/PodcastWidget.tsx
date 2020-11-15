@@ -53,7 +53,7 @@ export const PodcastWidget: React.ElementType = ({ style }) => {
           frameBorder="0"
           allow="encrypted-media"
         />
-        Richard Coca '22, one of The Daily's Grind editors, adresses how COVID-19 taught him the importance of physical space.
+        Join Daily sports staffers in analyzing the state of the men’s basketball team ahead of the season opener on Nov. 25.
       </div>
     </RView>
   );
