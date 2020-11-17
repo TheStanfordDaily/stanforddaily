@@ -249,7 +249,7 @@ export const TopSection: React.ElementType = ({ style }) => {
         <ViewRow style={{ flex: 2 }}>
           <SmallSection
             className="small-section small-section-yearbook"
-            url="https://www.jostens.com/apps/store/productBrowse/1007644/Stanford-University/2021-Yearbook/2020110604245966376/CATALOG_SHOP/"
+            url="/yearbook/"
             imageUrl={LINKS.YEARBOOK_LOGO}
             header="STANFORD STUDENTS"
             title="Buy your 2020-21 yearbook"
