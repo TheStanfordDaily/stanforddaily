@@ -138,7 +138,7 @@ export const CovidDataWidget: React.ElementType = ({
                 <br />
                 +2
               </span>{" "}
-              <span style={{ color: "#585858" }}></span>
+              <span style={{ color: "#585858" }}>▲</span>
             </div>
           </div>
           <div
