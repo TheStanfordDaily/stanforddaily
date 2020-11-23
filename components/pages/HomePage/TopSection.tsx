@@ -327,10 +327,10 @@ export const TopSection: React.ElementType = ({ style }) => {
           /> */}
           <SmallSection
             className="small-section small-section-elections"
-            url="/category/us-elections-2020/"
-            imageUrl={LINKS.US_ELECTIONS_2020_LOGO}
-            header="US Elections 2020"
-            title="Our coverage"
+            url="/list-of-eligible-voters-for-the-stanford-dailys-january-2021-elections/"
+            imageUrl="https://wp.stanforddaily.com/wp-content/uploads/2020/11/cardinal-red-daily-s-logo.png"
+            header="Eligible voter list"
+            title="For Daily elections"
             noRightMarginOnMobile={true}
           />
         </ViewRow>
