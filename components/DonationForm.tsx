@@ -161,25 +161,21 @@ const DonationForm: React.ElementType = ({
       <div
         style={{
           backgroundColor: "#54100b",
-          backgroundImage:
-            "linear-gradient(to right, rgb(92, 154, 204), #54100b)",
           width: "100%",
           color: STANFORD_COLORS.WHITE,
           padding: "15px 0",
           textAlign: "center",
           fontSize: "200%",
-          paddingLeft: "5px",
-          paddingRight: "5px",
           ...FONTS.SECTION_TITLE,
         }}
       >
         <a
-          href="http://donateinkbowl.com/"
+          href="/donate/"
           style={{
             textDecoration: "none",
             border: "none",
             borderRadius: 0,
-            // backgroundColor: "#54100b",
+            backgroundColor: "#54100b",
             marginTop: 5,
             marginBottom: 10,
             cursor: "pointer",
@@ -189,11 +185,7 @@ const DonationForm: React.ElementType = ({
             ...FONTS.SECTION_TITLE,
           }}
         >
-          Donate today to help us beat Cal in our Ink Bowl fundraising
-          challenge. There’s one thing that we and The Daily Cal can agree on:
-          Supporting student journalism matters now more than ever. Check out
-          our joint website, and donate by Friday for it to count toward our
-          total.{" "}
+          The Daily is an independent nonprofit hit hard by COVID-19.{" "}
           <br
             css={css`
               display: none;
@@ -202,10 +194,26 @@ const DonationForm: React.ElementType = ({
               }
             `}
           />
-          {/* <span style={{ color: "#FF9999" }}>
+          <span style={{ color: "#FF9999" }}>
             Support our student journalism today.
-          </span> */}
-          {/* <span
+          </span>
+          <br
+            css={css`
+              display: none;
+              @media (max-width: ${BREAKPOINTS.TABLET}px) {
+                display: block;
+              }
+            `}
+          />
+          <br
+            css={css`
+              display: none;
+              @media (max-width: ${BREAKPOINTS.TABLET}px) {
+                display: block;
+              }
+            `}
+          />
+          <span
             css={css`
               @media (max-width: ${BREAKPOINTS.TABLET}px) {
                 display: none;
@@ -218,7 +226,7 @@ const DonationForm: React.ElementType = ({
               paddingLeft: 12.5,
               marginRight: 2.5,
             }}
-          ></span> */}
+          ></span>
         </a>
         {/* <select
               name="amount"
@@ -262,40 +270,39 @@ const DonationForm: React.ElementType = ({
               />
               Make a monthly donation. Awesome!
               </label>*/}
-        <div style={{ marginTop: "15px" }}>
-          <a
-            href="http://donateinkbowl.com/"
-            style={{
-              ...FONTS.AUXILIARY,
-              border: `2px solid ${STANFORD_COLORS.WHITE}`,
-              borderRadius: 0,
-              marginLeft: 10,
-              marginRight: 10,
-              lineHeight: "30px",
-              height: 80,
-              display: "inlineBlock",
-              cursor: "pointer",
-              fontSize: 15,
-              fontWeight: 700,
-              letterSpacing: 1,
-              outline: 0,
-              padding: 10,
-              textDecoration: "none",
-            }}
-            css={css`
+        <a
+          href="/donate/"
+          style={{
+            ...FONTS.AUXILIARY,
+            border: `2px solid ${STANFORD_COLORS.WHITE}`,
+            borderRadius: 0,
+            marginLeft: 10,
+            marginRight: 10,
+            lineHeight: "30px",
+            height: 80,
+            display: "inlineBlock",
+            cursor: "pointer",
+            fontSize: 15,
+            fontWeight: 700,
+            letterSpacing: 1,
+            outline: 0,
+            padding: 10,
+            textDecoration: "none",
+          }}
+          css={css`
+            background-color: #54100b;
+            color: white;
+            &:hover {
+              background-color: white;
+              color: black !important;
+            }
+            &:visited {
               color: white;
-              &:hover {
-                background-color: white;
-                color: black !important;
-              }
-              &:visited {
-                color: white;
-              }
-            `}
-          >
-            Donate
-          </a>
-        </div>
+            }
+          `}
+        >
+          Donate
+        </a>
       </div>
       {/*
           <img
@@ -329,7 +336,6 @@ const DonationForm: React.ElementType = ({
           Support The Daily
         </a> */}
       {/* </form>
-
       <form
         action="https://www.paypal.com/cgi-bin/webscr"
         method="post"
