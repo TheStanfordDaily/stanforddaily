@@ -88,7 +88,6 @@ const DonationForm: React.ElementType = ({
           <option value="500">$500</option>
           <option value="">Other</option>
         </select>
-
         <div
           style={{
             marginTop: 10,
@@ -109,7 +108,6 @@ const DonationForm: React.ElementType = ({
             Make a monthly donation. Awesome!
           </label>
         </div>
-
         <img
           alt=""
           width="1"
@@ -118,7 +116,6 @@ const DonationForm: React.ElementType = ({
           style={{ display: "none" }}
         />
       </form>
-
       <form
         action="https://www.paypal.com/cgi-bin/webscr"
         method="post"
