@@ -100,7 +100,7 @@ export const CovidDataWidget: React.ElementType = ({
               <span>
                 Last week
                 <br />
-                +3
+                +0
               </span>{" "}
               <span style={{ color: "#585858" }}>▼</span>
             </div>
@@ -129,16 +129,16 @@ export const CovidDataWidget: React.ElementType = ({
             </div>
             <div>
               <strong style={{ fontSize: "3vh" }}>
-                12<strong></strong>
+                16<strong></strong>
               </strong>
             </div>
             <div style={{ fontSize: "1.75vh", lineHeight: "normal" }}>
               <span>
                 Last week
                 <br />
-                +2
+                +4
               </span>{" "}
-              <span style={{ color: "#585858" }}></span>
+              <span style={{ color: "#585858" }}>▲</span>
             </div>
           </div>
           <div
@@ -168,7 +168,7 @@ export const CovidDataWidget: React.ElementType = ({
             </div>
             <div style={{ fontSize: "1.75vh", lineHeight: "normal" }}>
               <span>
-                Last week
+                Two weeks ago
                 <br />
                 +37
               </span>{" "}
