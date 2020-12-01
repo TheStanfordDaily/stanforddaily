@@ -185,7 +185,7 @@ const DonationForm: React.ElementType = ({
             ...FONTS.SECTION_TITLE,
           }}
         >
-          The Daily is an independent nonprofit hit hard by COVID-19.{" "}
+          On this Giving Tuesday, support The Daily's independent student journalism.{" "}
           <br
             css={css`
               display: none;
@@ -194,9 +194,6 @@ const DonationForm: React.ElementType = ({
               }
             `}
           />
-          <span style={{ color: "#FF9999" }}>
-            Support our student journalism today.
-          </span>
           <br
             css={css`
               display: none;
