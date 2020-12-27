@@ -16,10 +16,10 @@ const LogoIconWithLink: React.ElementType = ({ url, LogoComponent }: any) => (
     rel="noopener noreferrer"
     style={{
       display: "inline-flex",
-      marginRight: 20,
+      marginTop: 5,
     }}
   >
-    <LogoComponent className="headerLogoIcon" fontSize="25px" />
+    <LogoComponent className="headerLogoIcon" fontSize="40px" />
   </a>
 );
 
@@ -40,11 +40,11 @@ const TextButtonWithLink: React.ElementType = ({
         color: STANFORD_COLORS.WHITE,
         display: "inlineBlock",
         cursor: "pointer",
-        fontSize: 15,
+        fontSize: 12,
         fontWeight: 700,
         letterSpacing: 1,
         outline: 0,
-        padding: 10,
+        padding: 3,
         textDecoration: "none",
         ...tbwlStyle,
       }}
@@ -94,24 +94,42 @@ const FooterDonationBanner: React.ElementType = ({ currentPageUrl }) => {
       >
         While you're here...
       </h3>
-      <p>
-        We're a student-run organization committed to providing hands-on
-        experience in journalism, digital media and business for the next
-        generation of reporters. Your support makes a difference in helping give
-        staff members from all backgrounds the opportunity to develop important
-        professional skills and conduct meaningful reporting. All contributions
-        are tax-deductible.
-      </p>
 
-      <DonationForm currentPageUrl={currentPageUrl} bannerLocation="Footer" />
-      <br></br>
-      <TextButtonWithLink
-        url="/email-digests/"
-        title="Get Our Emails"
-        mobileTitle="Get Our Emails"
-      />
-      <div>
-        <br></br>
+      <div
+        style={{
+          display: "flex",
+          flexFlow: "row wrap",
+          alignContent: "space-evenly",
+          justifyContent: "space-evenly",
+        }}
+      >
+        <TextButtonWithLink
+          url="/donate/"
+          title="Donate"
+          mobileTitle="Donate"
+        />
+        <TextButtonWithLink
+          url="/join/"
+          title="Join Us"
+          mobileTitle="Join Us"
+        />
+        <TextButtonWithLink
+          href="/tips/"
+          title="Submit Your Ideas/Work"
+          mobileTitle="Submit Ideas/Work"
+        />
+        <TextButtonWithLink
+          url="/email-digests/"
+          title="Get Our Emails"
+          mobileTitle="Get Our Emails"
+        />
+
+        {/*       <TextButtonWithLink
+          href="/submitting-to-the-daily/"
+          title="Submit Work as a Non-Member"
+          mobileTitle="Submit Work as a Non-Member"
+        /> 
+*/}
         <LogoIconWithLink url={LINKS.FACEBOOK} LogoComponent={LogoFacebook} />
         <LogoIconWithLink url={LINKS.TWITTER} LogoComponent={LogoTwitter} />
         <LogoIconWithLink url={LINKS.INSTAGRAM} LogoComponent={LogoInstagram} />
