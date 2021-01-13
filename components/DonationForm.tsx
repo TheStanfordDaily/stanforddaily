@@ -170,7 +170,7 @@ const DonationForm: React.ElementType = ({
         }}
       >
         <a
-          href="/donate/"
+          href="https://alumni.stanforddaily.com/scholarships/the-opportunity-fellowship/"
           style={{
             textDecoration: "none",
             border: "none",
@@ -185,7 +185,7 @@ const DonationForm: React.ElementType = ({
             ...FONTS.SECTION_TITLE,
           }}
         >
-          The Daily is an independent nonprofit hit hard by COVID-19.{" "}
+          We need your help: All banner donations made today will support The Daily's new staff financial aid program.{" "}
           <br
             css={css`
               display: none;
@@ -195,7 +195,7 @@ const DonationForm: React.ElementType = ({
             `}
           />
           <span style={{ color: "#FF9999" }}>
-            Support our student journalism today.
+            Learn more and donate.
           </span>
           <br
             css={css`
@@ -271,7 +271,7 @@ const DonationForm: React.ElementType = ({
               Make a monthly donation. Awesome!
               </label>*/}
         <a
-          href="/donate/"
+          href="https://givebutter.com/h0CJIU"
           style={{
             ...FONTS.AUXILIARY,
             border: `2px solid ${STANFORD_COLORS.WHITE}`,
