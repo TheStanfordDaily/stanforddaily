@@ -296,14 +296,14 @@ export const TopSection: React.ElementType = ({ style }) => {
             // mobile_title="Fall Workshops"
             newTab
           />
-          {/* <SmallSection
+          <SmallSection
             className="small-section small-section-newsletters"
             url="/high-school-programs/"
             imageUrl={LINKS.NEWSLETTER_LOGO}
-            header="Summer Programs | APPLY NOW"
-            title="For high school students nationally"
+            header="Summer Program | APPLY NOW"
+            title="For high schoolers"
             newTab
-          /> */}
+          />
           {/* <SmallSection
               imageUrl="https://www.stanforddaily.com/wp-content/uploads/2018/10/Stanford_School_of_Medicine_Li_Ka_Shing_Center.jpg"
               header="Issue #"
@@ -325,14 +325,14 @@ export const TopSection: React.ElementType = ({ style }) => {
             title="Business" //"Adopt a Small Business"
             //mobile_title="Business"
           /> */}
-          <SmallSection
+          {/* <SmallSection
             className="small-section small-section-elections"
             url="/list-of-eligible-voters-for-the-stanford-dailys-january-2021-elections/"
             imageUrl="https://wp.stanforddaily.com/wp-content/uploads/2020/11/cardinal-red-daily-s-logo.png"
             header="Eligible voter list"
             title="For Daily elections"
             noRightMarginOnMobile={true}
-          />
+          /> */}
         </ViewRow>
         <ViewRow>
           <Global styles={globalStyles} />
