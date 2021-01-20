@@ -299,7 +299,7 @@ export const TopSection: React.ElementType = ({ style }) => {
           <SmallSection
             className="small-section small-section-newsletters"
             url="/high-school-programs/"
-            imageUrl={LINKS.NEWSLETTER_LOGO}
+            imageUrl="https://wp.stanforddaily.com/wp-content/uploads/2020/11/cardinal-red-daily-s-logo.png"
             header="Summer Program | APPLY NOW"
             title="For high schoolers"
             newTab
