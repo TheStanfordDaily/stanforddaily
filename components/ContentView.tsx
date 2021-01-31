@@ -13,7 +13,7 @@ import { AuthorsTextWithLink } from "./pages/HomePage/AuthorView";
 import AuthorBox from "./AuthorBox";
 import { CategoryLink } from "./CategoryLink";
 import { DateWithAbbr } from "./DateView";
-import SatireGlobal from "./SatireGlobal";
+import HumorGlobal from "./HumorGlobal";
 import DataVizGlobal from "./DataVizGlobal";
 import FooterDonationBanner from "components/FooterDonationBanner";
 import css from "@emotion/css";
@@ -100,8 +100,8 @@ const ContentView: React.ElementType<ContentViewProps> = ({
 
   const isPost = postType === "post";
 
-  const isSatire = // Need to know this so we can put "Satire by" in byline and do satire styling
-    tsdCategories && tsdCategories.find(category => category.slug === "satire");
+  const isHumor = // Need to know this so we can put "Humor by" in byline and do humor styling
+    tsdCategories && tsdCategories.find(category => category.slug === "humor");
 
   let isDataViz = false; // Also need to know whether to apply special styling for data coverage
   if (
@@ -114,7 +114,7 @@ const ContentView: React.ElementType<ContentViewProps> = ({
   return (
     <SectionStyle>
       <WPHead base={post} />
-      {isSatire && <SatireGlobal />}
+      {isHumor && <HumorGlobal />}
       {isDataViz && <DataVizGlobal />}
       <Article>
         <ArticleHeader>
@@ -177,7 +177,7 @@ const ContentView: React.ElementType<ContentViewProps> = ({
           )}
           {isPost && (
             <Byline>
-              <span>{isSatire ? "Satire by" : "By"}</span>{" "}
+              <span>{isHumor ? "Humor by" : "By"}</span>{" "}
               <AuthorsTextWithLink
                 authors={tsdAuthors}
                 aStyle={{

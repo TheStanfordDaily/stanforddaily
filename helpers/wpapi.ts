@@ -20,7 +20,7 @@ export type Home = Base & {
   theGrind: Post[];
   artsAndLife: Post[];
   cartoons: Post[];
-  satire: Post[];
+  humor: Post[];
   sponsored: Post[];
   moreFromTheDaily: Post[];
   tsdMeta: {
@@ -30,7 +30,7 @@ export type Home = Base & {
       sports: Category;
       opinions: Category;
       "arts-life": Category;
-      satire: Category;
+      humor: Category;
       thegrind: Category;
       cartoons: Category;
     };

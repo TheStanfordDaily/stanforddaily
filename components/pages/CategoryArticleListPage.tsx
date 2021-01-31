@@ -9,7 +9,7 @@ import {
 import { FONTS } from "helpers/constants";
 import Wrapper from "components/Wrapper";
 import { Section, SECTION_PADDING } from "components/Section";
-import SatireGlobal from "components/SatireGlobal";
+import HumorGlobal from "components/HumorGlobal";
 import LoadingView from "components/Loading";
 import ArticleListPage, {
   ArticleListPageType,
@@ -88,7 +88,7 @@ export default class CategoryArticleListPage extends React.Component<
             {initData.tsdMeta.title}
           </Text>
         </View>
-        {initData.tsdMeta.title === "Satire" && <SatireGlobal />}
+        {initData.tsdMeta.title === "Humor" && <HumorGlobal />}
         {_articleListPage}
       </Section>
     );

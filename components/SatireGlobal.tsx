@@ -2,8 +2,8 @@ import React from "react";
 import { Global } from "@emotion/core";
 import { STANFORD_COLORS } from "helpers/constants";
 
-// Implements styling and logo for Satire pages
-const SatireGlobal: React.ElementType = () => {
+// Implements styling and logo for Humor pages
+const HumorGlobal: React.ElementType = () => {
   return (
     <Global
       styles={{
@@ -31,4 +31,4 @@ const SatireGlobal: React.ElementType = () => {
   );
 };
 
-export default SatireGlobal;
+export default HumorGlobal;
