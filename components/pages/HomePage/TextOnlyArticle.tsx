@@ -11,7 +11,7 @@ import { ThumbnailImageWithLink } from "./ThumbnailImageWithLink";
 import { ArticleTitleWithLink } from "./ArticleTitleWithLink";
 
 // Component for articles that appear in ArticleView components,
-// such as in Satire, MoreFromTheDaily and ArticleList pages
+// such as in Humor, MoreFromTheDaily and ArticleList pages
 export const TextOnlyArticle: React.ElementType = ({
   post,
   style,
@@ -20,8 +20,8 @@ export const TextOnlyArticle: React.ElementType = ({
   displayDateAuthor = true,
   textColor = STANFORD_COLORS.BLACK,
   noDate = false,
-  isSatire = false,
-  isSatire2 = false,
+  isHumor = false,
+  isHumor2 = false,
 }: ArticleProps) => {
   const { tsdPrimaryCategory } = post;
   return (
@@ -39,10 +39,10 @@ export const TextOnlyArticle: React.ElementType = ({
           }}
         >
           <CategoryLink
-            category={isSatire ? null : tsdPrimaryCategory}
+            category={isHumor ? null : tsdPrimaryCategory}
             style={{ color: textColor }}
-            isSatire={isSatire}
-            isSatire2={isSatire2}
+            isHumor={isHumor}
+            isHumor2={isHumor2}
           />
         </View>
       )}

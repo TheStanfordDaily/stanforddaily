@@ -25,7 +25,7 @@ import { LeftSection } from "./LeftSection";
 import { GrindSection } from "./GrindSection";
 import { OpinionSection } from "./OpinionSection";
 import { CartoonsSection } from "./CartoonsSection";
-import { SatireSection } from "./SatireSection";
+import { HumorSection } from "./HumorSection";
 import { MoreFromTheDailySection } from "./MoreFromTheDailySection";
 import { DesktopRow } from "./DesktopRow";
 import { Column } from "./Column";
@@ -351,9 +351,9 @@ export default class HomePage extends React.Component<IndexProps, IndexState> {
                 ...getBorderValue("Bottom"),
               }}
             /> */}
-            <SatireSection
-              category={homePosts.tsdMeta.categories.satire}
-              content={homePosts.satire}
+            <HumorSection
+              category={homePosts.tsdMeta.categories.humor}
+              content={homePosts.humor}
             />
             <MoreFromTheDailySection
               category={null}
