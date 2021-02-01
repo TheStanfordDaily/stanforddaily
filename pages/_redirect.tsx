@@ -1,4 +1,3 @@
-import React from "react";
 import { STRINGS } from "../helpers/constants";
 
 const Page = () => {
