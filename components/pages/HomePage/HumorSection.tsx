@@ -5,7 +5,7 @@ import ArticlesView from "components/ArticlesView";
 import { SectionProps } from "./SectionProps";
 import { SectionTitleWithLink } from "./SectionTitle";
 
-export const SatireSection: React.ElementType<SectionProps> = ({
+export const HumorSection: React.ElementType<SectionProps> = ({
   category,
   content,
 }: SectionProps) => {
@@ -17,12 +17,12 @@ export const SatireSection: React.ElementType<SectionProps> = ({
         flexDirection: "column",
       }}
     >
-      <SectionTitleWithLink category={category} isSatire={true}>
+      <SectionTitleWithLink category={category} isHumor={true}>
         <Image
           source={{
             uri: "/static/soc-no-background.png",
           }}
-          accessibilityLabel="Satire"
+          accessibilityLabel="Humor"
           resizeMode="contain"
           style={{
             height: 75,
@@ -37,7 +37,7 @@ export const SatireSection: React.ElementType<SectionProps> = ({
         displayExcerpt={false}
         displayDateAuthor={true}
         noDates={true}
-        isSatire2={true}
+        isHumor2={true}
       />
     </Section>
   );

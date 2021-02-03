@@ -4,8 +4,8 @@ import Head from "next/head";
 import { Global } from "@emotion/core";
 import { COLORS } from "helpers/constants";
 
-// Mentions satire here cause it also has unique styling done similarly
-const SatireGlobal: React.ElementType = () => {
+// Mentions humor here cause it also has unique styling done similarly
+const HumorGlobal: React.ElementType = () => {
   return (
     <>
       <Head>
@@ -55,4 +55,4 @@ const SatireGlobal: React.ElementType = () => {
   );
 };
 
-export default SatireGlobal;
+export default HumorGlobal;

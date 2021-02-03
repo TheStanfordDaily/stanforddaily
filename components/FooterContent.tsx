@@ -306,11 +306,11 @@ export const FooterContent: React.ElementType = ({ style }: any) => {
         },
       },
     },
-    satire: {
+    humor: {
       id: 55796,
-      name: "Satire",
-      slug: "satire",
-      url: "/category/satire/",
+      name: "Humor",
+      slug: "humor",
+      url: "/category/humor/",
       children: {},
     },
     // magazine: {
