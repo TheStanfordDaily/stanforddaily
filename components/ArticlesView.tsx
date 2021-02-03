@@ -81,7 +81,6 @@ const ArticlesView: React.ElementType<ArticlesViewProps> = ({
   textColor = STANFORD_COLORS.BLACK,
   enlargeFirstArticle = false,
   noDates,
-  isHumor = false,
   isHumor2 = false,
 }: ArticlesViewProps) => {
   const [extraPosts, setExtraPosts]: [Post[], any] = React.useState([]);

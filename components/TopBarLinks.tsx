@@ -82,9 +82,9 @@ export const TopBarLinks: React.ElementType = ({ itemStyle }: any) => {
     {
       type: LinkType.CATEGORY,
       id: 55796,
-      name: "Satire",
-      slug: "satire",
-      url: "/category/satire/",
+      name: "Humor",
+      slug: "humor",
+      url: "/category/humor/",
     },
     // {
     //   type: LinkType.CATEGORY,
