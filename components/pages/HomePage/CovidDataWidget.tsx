@@ -93,16 +93,16 @@ export const CovidDataWidget: React.ElementType = ({
             </div>
             <div>
               <strong style={{ fontSize: "3vh" }}>
-                163<strong></strong>
+                179<strong></strong>
               </strong>
             </div>
             <div style={{ fontSize: "1.75vh", lineHeight: "normal" }}>
               <span>
                 Last week
                 <br />
-                +13
+                +9
               </span>{" "}
-              <span style={{ color: "#585858" }}></span>
+              <span style={{ color: "#585858" }}>▲</span>
             </div>
           </div>
           <div
@@ -129,16 +129,16 @@ export const CovidDataWidget: React.ElementType = ({
             </div>
             <div>
               <strong style={{ fontSize: "3vh" }}>
-                130<strong></strong>
+                147<strong></strong>
               </strong>
             </div>
             <div style={{ fontSize: "1.75vh", lineHeight: "normal" }}>
               <span>
                 Last week
                 <br />
-                +10
+                +9
               </span>{" "}
-              <span style={{ color: "#585858" }}>▼</span>
+              <span style={{ color: "#585858" }}></span>
             </div>
           </div>
           <div
@@ -164,15 +164,15 @@ export const CovidDataWidget: React.ElementType = ({
               Stanford Health Care workers
             </div>
             <div>
-              <strong style={{ fontSize: "3vh" }}>1321</strong>
+              <strong style={{ fontSize: "3vh" }}>1354</strong>
             </div>
             <div style={{ fontSize: "1.75vh", lineHeight: "normal" }}>
               <span>
                 Last week
                 <br />
-                +27
+                +33
               </span>{" "}
-              <span style={{ color: "#585858" }}>▼</span>
+              <span style={{ color: "#585858" }}>▲</span>
             </div>
           </div>
         </div>
