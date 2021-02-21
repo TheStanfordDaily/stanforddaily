@@ -195,7 +195,10 @@ const ContentView: React.ElementType<ContentViewProps> = ({
             id="main-article-text2"
             // eslint-disable-next-line react/no-danger
             dangerouslySetInnerHTML={{
-              __html: postContent,
+              __html: postContent.replace(
+                /^Contact.*'at' stanford.edu(.)*$/i,
+                "",
+              ),
             }}
           />
         </RView>
