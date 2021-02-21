@@ -196,11 +196,12 @@ const ContentView: React.ElementType<ContentViewProps> = ({
             // eslint-disable-next-line react/no-danger
             dangerouslySetInnerHTML={{
               __html: postContent.replace(
-                /Contact.*(')*(‘*)at(')*stanford.edu(.)*/i,
+                /Contact(.)*(')*(‘*)at(’)*(')*( )*stanford.edu(.)*/i,
                 "",
               ),
             }}
           />
+          {console.log(postContent)}
         </RView>
         {isPost && ( // For article/content posts, we want donation box and author box at bottom
           <footer css={centerOuterContentStyle} style={{ marginTop: 30 }}>
