@@ -196,7 +196,7 @@ const ContentView: React.ElementType<ContentViewProps> = ({
             // eslint-disable-next-line react/no-danger
             dangerouslySetInnerHTML={{
               __html: postContent.replace(
-                /^Contact.*'at' stanford.edu(.)*$/i,
+                /Contact.*(')*(‘*)at(')*stanford.edu(.)*/i,
                 "",
               ),
             }}
