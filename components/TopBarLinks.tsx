@@ -122,6 +122,12 @@ export const TopBarLinks: React.ElementType = ({ itemStyle }: any) => {
     } as LinkLink,
     {
       type: LinkType.LINK,
+      name: "Resources",
+      url:
+        "https://docs.google.com/document/d/1qnj5jUz4HOvkyPf2wy8nBbUHYtk11jXng4VE2FugLXU/edit",
+    } as LinkLink,
+    {
+      type: LinkType.LINK,
       name: "About Us",
       url: "/about/",
     } as LinkLink,
@@ -132,7 +138,7 @@ export const TopBarLinks: React.ElementType = ({ itemStyle }: any) => {
     } as LinkLink,
     {
       type: LinkType.LINK,
-      name: "Advertising",
+      name: "Ads",
       url: "/advertise/",
     } as LinkLink,
     {
