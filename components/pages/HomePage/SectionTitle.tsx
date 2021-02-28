@@ -35,7 +35,7 @@ type SectionTitleProps = {
   category?: Category;
   children?: ReactNode;
   style?: any;
-  isSatire?: Boolean;
+  isHumor?: Boolean;
 };
 
 // Used in MoreFromTheDailySection on homepage,
@@ -48,9 +48,11 @@ export const SectionTitle: React.ElementType<SectionTitleProps> = ({
   return <SectionTitleElement style={style}>{children}</SectionTitleElement>;
 };
 
-export const SectionTitleColorBackground: React.ElementType<
-  SectionTitleProps
-> = ({ category, style, children = category.name }: SectionTitleProps) => {
+export const SectionTitleColorBackground: React.ElementType<SectionTitleProps> = ({
+  category,
+  style,
+  children = category.name,
+}: SectionTitleProps) => {
   return (
     <SectionTitleElementColorBackground style={style}>
       {children}
@@ -64,16 +66,14 @@ type SectionTitleWithLinkProps = SectionTitleProps & {
 
 // What we end up seeing for each section on the homepage,
 // except in the MoreFromTheDaily section
-export const SectionTitleWithLink: React.ElementType<
-  SectionTitleWithLinkProps
-> = ({
+export const SectionTitleWithLink: React.ElementType<SectionTitleWithLinkProps> = ({
   category,
   style,
   children,
-  isSatire = false,
+  isHumor = false,
 }: SectionTitleWithLinkProps) => {
   return (
-    <CategoryLink category={category} isSatire={isSatire}>
+    <CategoryLink category={category} isHumor={isHumor}>
       <SectionTitle category={category} style={style}>
         {Platform.OS === "web"
           ? children

@@ -82,9 +82,9 @@ export const TopBarLinks: React.ElementType = ({ itemStyle }: any) => {
     {
       type: LinkType.CATEGORY,
       id: 55796,
-      name: "Satire",
-      slug: "satire",
-      url: "/category/satire/",
+      name: "Humor",
+      slug: "humor",
+      url: "/category/humor/",
     },
     // {
     //   type: LinkType.CATEGORY,
@@ -103,7 +103,7 @@ export const TopBarLinks: React.ElementType = ({ itemStyle }: any) => {
     {
       type: LinkType.LINK,
       name: "Podcasts",
-      url: "/category/podcasts/",
+      url: LINKS.THE_DAILY_BREW_SPOTIFY,
     } as LinkLink,
     {
       type: LinkType.LINK,
@@ -122,6 +122,12 @@ export const TopBarLinks: React.ElementType = ({ itemStyle }: any) => {
     } as LinkLink,
     {
       type: LinkType.LINK,
+      name: "Resources",
+      url:
+        "https://docs.google.com/document/d/1qnj5jUz4HOvkyPf2wy8nBbUHYtk11jXng4VE2FugLXU/edit",
+    } as LinkLink,
+    {
+      type: LinkType.LINK,
       name: "About Us",
       url: "/about/",
     } as LinkLink,
@@ -132,7 +138,7 @@ export const TopBarLinks: React.ElementType = ({ itemStyle }: any) => {
     } as LinkLink,
     {
       type: LinkType.LINK,
-      name: "Advertising",
+      name: "Ads",
       url: "/advertise/",
     } as LinkLink,
     {
@@ -167,6 +173,7 @@ export const TopBarLinks: React.ElementType = ({ itemStyle }: any) => {
           marginRight: 25,
           paddingTop: SECTION_PADDING,
           paddingBottom: SECTION_PADDING,
+          fontSize: 12.5,
         };
         if (item.type === LinkType.SEARCH) {
           return <SearchLink />;

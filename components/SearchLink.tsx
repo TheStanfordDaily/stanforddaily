@@ -21,7 +21,7 @@ const SearchInput = styled(
   styled.input({
     ...inputStyle,
     ...FONTS.AUXILIARY,
-    width: 60,
+    width: 65,
   }),
 )`
   ::placeholder {
@@ -56,6 +56,7 @@ export default () => (
         name="s"
         id="s"
         required
+        style={{ fontSize: 12.5 }}
       />
       <button
         type="submit"

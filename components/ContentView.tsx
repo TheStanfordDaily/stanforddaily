@@ -13,10 +13,11 @@ import { AuthorsTextWithLink } from "./pages/HomePage/AuthorView";
 import AuthorBox from "./AuthorBox";
 import { CategoryLink } from "./CategoryLink";
 import { DateWithAbbr } from "./DateView";
-import SatireGlobal from "./SatireGlobal";
+import HumorGlobal from "./HumorGlobal";
 import DataVizGlobal from "./DataVizGlobal";
 import FooterDonationBanner from "components/FooterDonationBanner";
 import css from "@emotion/css";
+import axios from "axios";
 
 import ContentViewStyles, {
   centerOuterContentStyle,
@@ -84,6 +85,13 @@ const ContentView: React.ElementType<ContentViewProps> = ({
     guid,
   } = post;
 
+  if (postId === 1150447) {
+    console.log(postId);
+    axios.get(
+      "https://stanforddaily.com/wp-json/wp/v2/posts/" + postId + "/views",
+    );
+  }
+
   const {
     urls: { full: thumbnailUrl = null } = {},
     caption: thumbnailCaption = null,
@@ -92,8 +100,8 @@ const ContentView: React.ElementType<ContentViewProps> = ({
 
   const isPost = postType === "post";
 
-  const isSatire = // Need to know this so we can put "Satire by" in byline and do satire styling
-    tsdCategories && tsdCategories.find(category => category.slug === "satire");
+  const isHumor = // Need to know this so we can put "Humor by" in byline and do humor styling
+    tsdCategories && tsdCategories.find(category => category.slug === "humor");
 
   let isDataViz = false; // Also need to know whether to apply special styling for data coverage
   if (
@@ -106,7 +114,7 @@ const ContentView: React.ElementType<ContentViewProps> = ({
   return (
     <SectionStyle>
       <WPHead base={post} />
-      {isSatire && <SatireGlobal />}
+      {isHumor && <HumorGlobal />}
       {isDataViz && <DataVizGlobal />}
       <Article>
         <ArticleHeader>
@@ -169,7 +177,7 @@ const ContentView: React.ElementType<ContentViewProps> = ({
           )}
           {isPost && (
             <Byline>
-              <span>{isSatire ? "Satire by" : "By"}</span>{" "}
+              <span>{isHumor ? "Humor by" : "By"}</span>{" "}
               <AuthorsTextWithLink
                 authors={tsdAuthors}
                 aStyle={{
@@ -187,9 +195,13 @@ const ContentView: React.ElementType<ContentViewProps> = ({
             id="main-article-text2"
             // eslint-disable-next-line react/no-danger
             dangerouslySetInnerHTML={{
-              __html: postContent,
+              __html: postContent.replace(
+                /Contact(.)*(')*(‘*)at(’)*(')*( )*stanford.edu(.)*/i,
+                "",
+              ),
             }}
           />
+          {console.log(postContent)}
         </RView>
         {isPost && ( // For article/content posts, we want donation box and author box at bottom
           <footer css={centerOuterContentStyle} style={{ marginTop: 30 }}>

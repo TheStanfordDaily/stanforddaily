@@ -15,14 +15,13 @@ const DonationForm: React.ElementType = ({
     boolean,
     (boolean) => void,
   ] = React.useState(false);
-  const [amount, setAmount]: [string, (string) => void] = React.useState("50");
 
-  const recurringForm = React.createRef<HTMLFormElement>();
+  // const recurringForm = React.createRef<HTMLFormElement>();
 
   const notes = `From ${bannerLocation} at ${currentPageUrl}`;
   return large ? (
-    <>
-      <form
+    <div>
+      {/* <form
         action="https://www.paypal.com/cgi-bin/webscr"
         method="post"
         onSubmit={event => {
@@ -36,31 +35,37 @@ const DonationForm: React.ElementType = ({
         <input type="hidden" name="cmd" value="_donations" />
         <input type="hidden" name="item_name" value="Stanford Daily Donation" />
         <input type="hidden" name="item_number" value={notes} />
-        <input type="hidden" name="currency_code" value="USD" />
-        <button
-          type="submit"
-          name="submit"
-          style={{
-            ...FONTS.AUXILIARY,
-            border: "none",
-            borderRadius: 0,
-            backgroundColor: STANFORD_COLORS.CARDINAL_RED,
-            color: STANFORD_COLORS.WHITE,
-            paddindLeft: 20,
-            paddindRight: 20,
-            lineHeight: "40px",
-            height: 40,
-            display: "inlineBlock",
-            cursor: "pointer",
-            fontSize: 15,
-            fontWeight: 700,
-            letterSpacing: 1,
-            outline: 0,
-          }}
-        >
-          Support The Daily
-        </button>
-        <select
+        <input type="hidden" name="currency_code" value="USD" /> */}
+      <a
+        href="/donate/"
+        style={{
+          ...FONTS.AUXILIARY,
+          borderRadius: 0,
+          lineHeight: "30px",
+          backgroundColor: STANFORD_COLORS.CARDINAL_RED,
+          display: "inlineBlock",
+          cursor: "pointer",
+          fontSize: 15,
+          fontWeight: 700,
+          letterSpacing: 1,
+          outline: 0,
+          padding: 10,
+          textDecoration: "none",
+        }}
+        css={css`
+          color: white;
+          &:hover {
+            background-color: #54100b !important;
+            color: white !important;
+          }
+          &:visited {
+            color: white;
+          }
+        `}
+      >
+        Donate
+      </a>
+      {/* <select
           name="amount"
           onChange={event => {
             setAmount(event.target.value);
@@ -75,7 +80,7 @@ const DonationForm: React.ElementType = ({
           }}
         >
           {" "}
-          {/* Options to appear in dropdown as ordered below, with none selected to start */}
+          {/* Options to appear in dropdown as ordered below, with none selected to start 
           <option value="">Select amount</option>
           <option value="50">$50</option>
           <option value="100">$100</option>
@@ -83,7 +88,6 @@ const DonationForm: React.ElementType = ({
           <option value="500">$500</option>
           <option value="">Other</option>
         </select>
-
         <div
           style={{
             marginTop: 10,
@@ -104,7 +108,6 @@ const DonationForm: React.ElementType = ({
             Make a monthly donation. Awesome!
           </label>
         </div>
-
         <img
           alt=""
           width="1"
@@ -113,7 +116,6 @@ const DonationForm: React.ElementType = ({
           style={{ display: "none" }}
         />
       </form>
-
       <form
         action="https://www.paypal.com/cgi-bin/webscr"
         method="post"
@@ -130,11 +132,11 @@ const DonationForm: React.ElementType = ({
         <input type="hidden" name="a3" value={amount} />
         <input type="hidden" name="p3" value="1" />
         <input type="hidden" name="t3" value="M" />
-      </form>
-    </>
+      </form> */}
+    </div>
   ) : (
     <>
-      <form
+      {/* <form
         action="https://www.paypal.com/cgi-bin/webscr"
         method="post"
         onSubmit={event => {
@@ -155,56 +157,77 @@ const DonationForm: React.ElementType = ({
               display: none;
             }
           `}
+          >*/}
+      <div
+        style={{
+          backgroundColor: "#54100b",
+          width: "100%",
+          color: STANFORD_COLORS.WHITE,
+          padding: "15px 0",
+          textAlign: "center",
+          fontSize: "200%",
+          ...FONTS.SECTION_TITLE,
+        }}
+      >
+        <a
+          href="https://alumni.stanforddaily.com/scholarships/the-opportunity-fellowship/"
+          style={{
+            textDecoration: "none",
+            border: "none",
+            borderRadius: 0,
+            backgroundColor: "#54100b",
+            marginTop: 5,
+            marginBottom: 10,
+            cursor: "pointer",
+            outline: 0,
+            color: STANFORD_COLORS.WHITE,
+            fontSize: "200%",
+            ...FONTS.SECTION_TITLE,
+          }}
         >
-          <div
+          We need your help: All banner donations made today will support The
+          Daily's new staff financial aid program.{" "}
+          <br
+            css={css`
+              display: none;
+              @media (max-width: ${BREAKPOINTS.TABLET}px) {
+                display: block;
+              }
+            `}
+          />
+          <span style={{ color: "#FF9999" }}>Learn more and donate.</span>
+          <br
+            css={css`
+              display: none;
+              @media (max-width: ${BREAKPOINTS.TABLET}px) {
+                display: block;
+              }
+            `}
+          />
+          <br
+            css={css`
+              display: none;
+              @media (max-width: ${BREAKPOINTS.TABLET}px) {
+                display: block;
+              }
+            `}
+          />
+          <span
+            css={css`
+              @media (max-width: ${BREAKPOINTS.TABLET}px) {
+                display: none;
+              }
+            `}
             style={{
-              backgroundColor: "#54100b",
-              width: "100%",
-              color: "white",
-              padding: "15px 0",
-              textAlign: "center",
-              fontSize: "200%",
-              ...FONTS.SECTION_TITLE,
+              borderRight: "2px solid #FF9999",
+              paddingTop: "0.8vw",
+              paddingBottom: "0.8vw",
+              paddingLeft: 12.5,
+              marginRight: 2.5,
             }}
-          >
-            <button
-              type="submit"
-              name="submit"
-              style={{
-                border: "none",
-                borderRadius: 0,
-                backgroundColor: "#54100b",
-                marginTop: 5,
-                marginBottom: 10,
-                cursor: "pointer",
-                outline: 0,
-                color: "white",
-                fontSize: "200%",
-                ...FONTS.SECTION_TITLE,
-              }}
-            >
-              The Daily is an independent nonprofit hit hard by COVID-19.{" "}
-              <span style={{ color: "#FF9999" }}>
-                Support our student journalism today.
-              </span>
-              <span
-                css={css`
-                  @media (max-width: ${BREAKPOINTS.MAX_WIDTH.TABLET}px) {
-                    display: none;
-                  }
-                `}
-                style={{
-                  borderRight: "2px solid #FF9999",
-                  paddingTop: "0.8vw",
-                  paddingBottom: "0.8vw",
-                  paddingLeft: 12.5,
-                  [`@media (max-width: ${BREAKPOINTS.MAX_WIDTH.TABLET}`]: {
-                    display: "none",
-                  },
-                }}
-              ></span>
-            </button>
-            <select
+          ></span>
+        </a>
+        {/* <select
               name="amount"
               onChange={event => {
                 setAmount(event.target.value);
@@ -245,32 +268,42 @@ const DonationForm: React.ElementType = ({
                 }}
               />
               Make a monthly donation. Awesome!
-            </label>
-            <button
-              type="submit"
-              name="submit"
-              style={{
-                ...FONTS.AUXILIARY,
-                border: `2px solid ${STANFORD_COLORS.CARDINAL_RED}`,
-                borderRadius: 0,
-                backgroundColor: "#FF9999",
-                color: "white",
-                marginLeft: 10,
-                marginRight: 10,
-                lineHeight: "30px",
-                height: 40,
-                display: "inlineBlock",
-                cursor: "pointer",
-                fontSize: 15,
-                fontWeight: 700,
-                letterSpacing: 1,
-                outline: 0,
-              }}
-            >
-              Donate
-            </button>
-          </div>
-
+              </label>*/}
+        <a
+          href="https://givebutter.com/h0CJIU"
+          style={{
+            ...FONTS.AUXILIARY,
+            border: `2px solid ${STANFORD_COLORS.WHITE}`,
+            borderRadius: 0,
+            marginLeft: 10,
+            marginRight: 10,
+            lineHeight: "30px",
+            height: 80,
+            display: "inlineBlock",
+            cursor: "pointer",
+            fontSize: 15,
+            fontWeight: 700,
+            letterSpacing: 1,
+            outline: 0,
+            padding: 10,
+            textDecoration: "none",
+          }}
+          css={css`
+            background-color: #54100b;
+            color: white;
+            &:hover {
+              background-color: white;
+              color: black !important;
+            }
+            &:visited {
+              color: white;
+            }
+          `}
+        >
+          Donate
+        </a>
+      </div>
+      {/*
           <img
             alt=""
             width="1"
@@ -278,9 +311,30 @@ const DonationForm: React.ElementType = ({
             src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif"
             style={{ display: "none" }}
           />
-        </div>
-      </form>
-
+        </div> */}
+      {/* <a
+          href="/donate/"
+          style={{
+            ...FONTS.AUXILIARY,
+            border: "none",
+            borderRadius: 0,
+            backgroundColor: STANFORD_COLORS.CARDINAL_RED,
+            color: STANFORD_COLORS.WHITE,
+            paddindLeft: 20,
+            paddindRight: 20,
+            lineHeight: "40px",
+            height: 40,
+            display: "inlineBlock",
+            cursor: "pointer",
+            fontSize: 15,
+            fontWeight: 700,
+            letterSpacing: 1,
+            outline: 0,
+          }}
+        >
+          Support The Daily
+        </a> */}
+      {/* </form>
       <form
         action="https://www.paypal.com/cgi-bin/webscr"
         method="post"
@@ -297,7 +351,7 @@ const DonationForm: React.ElementType = ({
         <input type="hidden" name="a3" value={amount} />
         <input type="hidden" name="p3" value="1" />
         <input type="hidden" name="t3" value="M" />
-      </form>
+      </form> */}
     </>
   );
 };

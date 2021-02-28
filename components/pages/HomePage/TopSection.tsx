@@ -34,6 +34,7 @@ export interface SmallSectionProps {
   //mobile_title?: string;
   newTab?: boolean;
   className?: string;
+  noRightMarginOnMobile?: boolean;
 }
 
 // Each of these consists of an image and link to some Daily material;
@@ -47,6 +48,7 @@ const SmallSection: React.ElementType<SmallSectionProps> = ({
   //mobile_title,
   newTab,
   className,
+  noRightMarginOnMobile,
 }) => {
   const additionalPropsForA: any = {};
   if (newTab) {
@@ -61,6 +63,14 @@ const SmallSection: React.ElementType<SmallSectionProps> = ({
           flexDirection: "row",
           alignItems: "center",
         }}
+        css={
+          noRightMarginOnMobile &&
+          css`
+            @media (max-width: ${BREAKPOINTS.MAX_WIDTH.TABLET}px) {
+              margin-right: 0px !important;
+            }
+          `
+        }
       >
         <img
           src={imageUrl}
@@ -166,14 +176,28 @@ const TextButtonWithLink: React.ElementType = ({
       title={title}
       style={{
         ...FONTS.AUXILIARY,
-        color: STANFORD_COLORS.CARDINAL_RED,
         border: `2px ${STANFORD_COLORS.CARDINAL_RED} solid`,
-        fontSize: 14,
-        letterSpacing: 1.5,
+        fontSize: 15,
+        letterSpacing: 1,
+        fontWeight: 700,
+        borderRadius: 0,
+        outline: 0,
         padding: 8,
+        cursor: "pointer",
         textAlign: "center",
+        textDecoration: "none",
         ...tbwlStyle,
       }}
+      css={css`
+        color: #8c1515;
+        &:hover {
+          color: white !important;
+          background-color: #8c1515 !important;
+        }
+        &:visited {
+          color: #8c1515;
+        }
+      `}
     >
       {!mobileTitle && title}
       {mobileTitle && (
@@ -224,6 +248,19 @@ export const TopSection: React.ElementType = ({ style }) => {
       >
         <ViewRow style={{ flex: 2 }}>
           <SmallSection
+            className="small-section small-section-yearbook"
+            url="/yearbook/"
+            imageUrl={LINKS.YEARBOOK_LOGO}
+            header="STANFORD STUDENTS"
+            title="Buy your 2020-21 yearbook"
+            newTab
+            css={css`
+              @media (max-width: ${BREAKPOINTS.MAX_WIDTH.TABLET}px) {
+                display: none;
+              }
+            `}
+          />
+          {/* <SmallSection
             className="small-section small-section-issuu"
             url={LINKS.ISSUU}
             imageUrl={LINKS.ISSUU_LOGO}
@@ -235,7 +272,7 @@ export const TopSection: React.ElementType = ({ style }) => {
                 display: none;
               }
             `}
-          />
+          /> */}
           <SmallSection
             className="small-section small-section-sodp"
             url={LINKS.SODP}
@@ -251,22 +288,22 @@ export const TopSection: React.ElementType = ({ style }) => {
           />
           <SmallSection
             className="small-section small-section-join"
-            url={LINKS.JOIN_US}
+            url="/submitting-to-the-daily/"
             imageUrl={LINKS.NEWSLETTER_LOGO}
-            header="Join The Daily" //"Fall Workshops (all remote)"
+            header="Submit work" //"Fall Workshops (all remote)"
             // mobile_header="High Schoolers"
-            title="All Students Welcome" //"Programs for High Schoolers"
+            title="Or join us" //"Programs for High Schoolers"
             // mobile_title="Fall Workshops"
             newTab
           />
-          {/* <SmallSection
+          <SmallSection
             className="small-section small-section-newsletters"
             url="/high-school-programs/"
-            imageUrl={LINKS.NEWSLETTER_LOGO}
-            header="Summer Programs | APPLY NOW"
-            title="For high school students nationally"
+            imageUrl="https://wp.stanforddaily.com/wp-content/uploads/2020/11/cardinal-red-daily-s-logo.png"
+            header="Summer Program | APPLY NOW"
+            title="For high schoolers"
             newTab
-          /> */}
+          />
           {/* <SmallSection
               imageUrl="https://www.stanforddaily.com/wp-content/uploads/2018/10/Stanford_School_of_Medicine_Li_Ka_Shing_Center.jpg"
               header="Issue #"
@@ -288,13 +325,14 @@ export const TopSection: React.ElementType = ({ style }) => {
             title="Business" //"Adopt a Small Business"
             //mobile_title="Business"
           /> */}
-          <SmallSection
-            className="small-section small-section-newsletters"
-            url="/high-school-programs/"
-            imageUrl={LINKS.ADOPT_A_BUSINESS_LOGO}
-            header="Winter Workshop | APPLY NOW"
-            title="For high schoolers"
-          />
+          {/* <SmallSection
+            className="small-section small-section-elections"
+            url="/list-of-eligible-voters-for-the-stanford-dailys-january-2021-elections/"
+            imageUrl="https://wp.stanforddaily.com/wp-content/uploads/2020/11/cardinal-red-daily-s-logo.png"
+            header="Eligible voter list"
+            title="For Daily elections"
+            noRightMarginOnMobile={true}
+          /> */}
         </ViewRow>
         <ViewRow>
           <Global styles={globalStyles} />

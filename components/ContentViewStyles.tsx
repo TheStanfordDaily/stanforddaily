@@ -69,7 +69,43 @@ export default {
       },
     },
     blockquote: {
-      // CSS styles go here!
+      display: "flex !important",
+      flexDirection: "column",
+      justifyContent: "center !important",
+      padding: "5px 0 0 0px !important",
+      borderLeft: "3px solid #820000 !important",
+      cite: {
+        width: "350px !important",
+        padding: "5px 0 0 0 !important",
+        borderLeft: "3px solid #820000 !important",
+        fontSize: "1.3em !important",
+        textAlign: "center",
+      },
+      p: {
+        fontSize: "1.6em !important",
+        lineHeight: "normal",
+        textAlign: "left",
+        overflowWrap: "break-word",
+        padding: "25px 25px 0 25px !important",
+        backgroundImage: `url(${"../assets/pullquote.gif"})`,
+        backgroundSize: "20%",
+        backgroundRepeat: "no-repeat !important",
+        "&::first-letter": {
+          fontSize: "2em !important",
+          fontWeight: "bold !important",
+        },
+      },
+    },
+    table: {
+      width: "100%",
+      borderCollapse: "collapse",
+      textAlign: "center",
+      border: `1px solid ${STANFORD_COLORS.COOL_GREY}`,
+      fontSize: "1.3rem",
+    },
+    td: {
+      border: `1px solid ${STANFORD_COLORS.COOL_GREY}`,
+      padding: "10px",
     },
   },
 };
