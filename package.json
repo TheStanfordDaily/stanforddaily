@@ -28,7 +28,7 @@
     "emotion-native-media-query": "^0.2.1",
     "expo": "^37.0.7",
     "expo-font": "~8.1.0",
-    "google-map-react": "^2.1.8",
+    "google-map-react": "^2.1.9",
     "moment": "^2.24.0",
     "moment-timezone": "^0.5.28",
     "next": "^9.4.4",

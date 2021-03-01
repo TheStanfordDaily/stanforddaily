@@ -15,6 +15,8 @@ import { getBorderValue } from "../HomePage/getBorderValue";
 import { TwitterTimelineEmbed } from "react-twitter-embed";
 import { UsElections2020Map } from "./UsElections2020Map";
 
+import { TitleOnlyArticle } from "../HomePage/TitleOnlyArticle";
+
 export enum ArticleListPageType {
   Time, // TODO
   Author,
@@ -54,6 +56,146 @@ export default class ArticleListPage extends React.Component<
 
     const articlesView = (
       <>
+        {initData.tsdMeta["title"] === "Columnists" && (
+          <>
+            {console.log(initData)}
+            <DesktopRow
+              style={{
+                ...getBorderValue("Bottom"),
+              }}
+            >
+              <Column
+                style={{
+                  flex: 1,
+                }}
+                rStyle={{
+                  [MediaRule.MinWidth]: {
+                    [BREAKPOINTS.TABLET]: {
+                      // paddingLeft: SECTION_PADDING / 2,
+                      paddingRight: SECTION_PADDING / 2,
+                      //       ...getBorderValue("Left"),
+                    },
+                  },
+                }}
+              >
+                <h1>Columnists</h1>
+                <TopThumbnailArticle post={initData.posts[0]} />
+              </Column>
+              <Column
+                style={{
+                  flex: 2,
+                }}
+                rStyle={{
+                  [MediaRule.MinWidth]: {
+                    [BREAKPOINTS.TABLET]: {
+                      // paddingLeft: SECTION_PADDING / 2,
+                      paddingRight: SECTION_PADDING / 2,
+                      //       ...getBorderValue("Left"),
+                    },
+                  },
+                }}
+              >
+                <h1>Our Columnists</h1>
+              </Column>
+            </DesktopRow>
+          </>
+        )}
+        {initData.tsdMeta["title"] === "Opinions" && (
+          <>
+            {console.log(initData)}
+            <DesktopRow
+              style={{
+                ...getBorderValue("Bottom"),
+              }}
+            >
+              <h1>
+                <a href="#columnists">Columnists </a>|
+                <a href="#oped"> Op-Ed and Contributing Writers </a>|
+                <a href="#editorial"> Editorial Board </a>|
+                <a href="#editorletters"> Letters to the Editor </a>|
+                <a href="#communityletters"> Letters to the Community</a>
+              </h1>
+            </DesktopRow>
+            <DesktopRow
+              style={{
+                ...getBorderValue("Bottom"),
+              }}
+            >
+              <Column
+                style={{
+                  flex: 1,
+                }}
+                rStyle={{
+                  [MediaRule.MinWidth]: {
+                    [BREAKPOINTS.TABLET]: {
+                      // paddingLeft: SECTION_PADDING / 2,
+                      paddingRight: SECTION_PADDING / 2,
+                      //       ...getBorderValue("Left"),
+                    },
+                  },
+                }}
+              >
+                <h1>Featured</h1>
+                <TopThumbnailArticle post={initData.posts[0]} />
+              </Column>
+              <Column
+                style={{
+                  flex: 1,
+                }}
+                rStyle={{
+                  [MediaRule.MinWidth]: {
+                    [BREAKPOINTS.TABLET]: {
+                      // paddingLeft: SECTION_PADDING / 2,
+                      paddingRight: SECTION_PADDING / 2,
+                      //       ...getBorderValue("Left"),
+                    },
+                  },
+                }}
+              >
+                <TitleOnlyArticle post={initData.posts[1]} />
+                <TitleOnlyArticle post={initData.posts[2]} />
+                <TitleOnlyArticle post={initData.posts[3]} />
+                <TitleOnlyArticle post={initData.posts[4]} />
+              </Column>
+            </DesktopRow>
+            <DesktopRow
+              style={{
+                ...getBorderValue("Bottom"),
+              }}
+            >
+              <h1 id="columnists">Columnists</h1>
+            </DesktopRow>
+            <DesktopRow
+              style={{
+                ...getBorderValue("Bottom"),
+              }}
+            >
+              <h1 id="oped">Op-Ed and Contributing Writers</h1>
+            </DesktopRow>
+            <DesktopRow
+              style={{
+                ...getBorderValue("Bottom"),
+              }}
+            >
+              <h1 id="editorial">Editorial Board</h1>
+            </DesktopRow>
+            <DesktopRow
+              style={{
+                ...getBorderValue("Bottom"),
+              }}
+            >
+              <h1 id="editorletters">Letters to the Editor</h1>
+            </DesktopRow>
+            <DesktopRow
+              style={{
+                ...getBorderValue("Bottom"),
+              }}
+            >
+              <h1 id="communityletters">Letters to the Community</h1>
+            </DesktopRow>
+            <h1>More Opinions Articles</h1>
+          </>
+        )}
         {initData.tsdMeta["title"] === "US Elections 2020" && (
           <>
             {console.log(initData)}
