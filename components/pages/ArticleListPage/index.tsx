@@ -16,6 +16,7 @@ import { TwitterTimelineEmbed } from "react-twitter-embed";
 import { UsElections2020Map } from "./UsElections2020Map";
 
 import { TitleOnlyArticle } from "../HomePage/TitleOnlyArticle";
+import { AuthorView } from "../HomePage/AuthorView";
 
 export enum ArticleListPageType {
   Time, // TODO
@@ -96,6 +97,30 @@ export default class ArticleListPage extends React.Component<
                 }}
               >
                 <h1>Our Columnists</h1>
+                <table>
+                  <tr>
+                    <td>Author 1</td>
+                    <td>Author 6</td>
+                  </tr>
+                  <tr>
+                    <td>Author 2</td>
+                    <td>Author 7</td>
+                  </tr>
+                  <tr>
+                    <td>Author 3</td>
+                    <td>Author 8</td>
+                  </tr>
+                  <tr>
+                    <td>Author 4</td>
+                    <td>Author 9</td>
+                  </tr>
+                  <tr>
+                    <td>Author 5</td>
+                    <td>Author 10</td>
+                  </tr>
+                </table>
+
+                {/*<AuthorView>authors={[0]}</AuthorView> - How do I add an author?*/}
               </Column>
             </DesktopRow>
           </>
@@ -109,11 +134,29 @@ export default class ArticleListPage extends React.Component<
               }}
             >
               <h1>
-                <a href="#columnists">Columnists </a>|
-                <a href="#oped"> Op-Ed and Contributing Writers </a>|
-                <a href="#editorial"> Editorial Board </a>|
-                <a href="#editorletters"> Letters to the Editor </a>|
-                <a href="#communityletters"> Letters to the Community</a>
+                <a href="#columnists" style={{ color: "black" }}>
+                  Columnists{" "}
+                </a>
+                |
+                <a href="#oped" style={{ color: "black" }}>
+                  {" "}
+                  Op-Ed and Contributing Writers{" "}
+                </a>
+                |
+                <a href="#editorial" style={{ color: "black" }}>
+                  {" "}
+                  Editorial Board{" "}
+                </a>
+                |
+                <a href="#editorletters" style={{ color: "black" }}>
+                  {" "}
+                  Letters to the Editor{" "}
+                </a>
+                |
+                <a href="#communityletters" style={{ color: "black" }}>
+                  {" "}
+                  Letters to the Community
+                </a>
               </h1>
             </DesktopRow>
             <DesktopRow
@@ -145,7 +188,7 @@ export default class ArticleListPage extends React.Component<
                 rStyle={{
                   [MediaRule.MinWidth]: {
                     [BREAKPOINTS.TABLET]: {
-                      // paddingLeft: SECTION_PADDING / 2,
+                      paddingLeft: SECTION_PADDING / 2,
                       paddingRight: SECTION_PADDING / 2,
                       //       ...getBorderValue("Left"),
                     },
@@ -158,40 +201,502 @@ export default class ArticleListPage extends React.Component<
                 <TitleOnlyArticle post={initData.posts[4]} />
               </Column>
             </DesktopRow>
+            <h1 id="columnists">Columnists</h1>
             <DesktopRow
               style={{
                 ...getBorderValue("Bottom"),
               }}
             >
-              <h1 id="columnists">Columnists</h1>
+              <Column
+                style={{
+                  flex: 1,
+                }}
+                rStyle={{
+                  [MediaRule.MinWidth]: {
+                    [BREAKPOINTS.TABLET]: {
+                      paddingLeft: SECTION_PADDING / 2,
+                      paddingRight: SECTION_PADDING / 2,
+                      //       ...getBorderValue("Left"),
+                    },
+                  },
+                }}
+              >
+                <TopThumbnailArticle post={initData.posts[1]} />
+              </Column>
+              <Column
+                style={{
+                  flex: 1,
+                }}
+                rStyle={{
+                  [MediaRule.MinWidth]: {
+                    [BREAKPOINTS.TABLET]: {
+                      paddingLeft: SECTION_PADDING / 2,
+                      paddingRight: SECTION_PADDING / 2,
+                      //       ...getBorderValue("Left"),
+                    },
+                  },
+                }}
+              >
+                <TopThumbnailArticle post={initData.posts[2]} />
+              </Column>
+              <Column
+                style={{
+                  flex: 1,
+                }}
+                rStyle={{
+                  [MediaRule.MinWidth]: {
+                    [BREAKPOINTS.TABLET]: {
+                      paddingLeft: SECTION_PADDING / 2,
+                      paddingRight: SECTION_PADDING / 2,
+                      //       ...getBorderValue("Left"),
+                    },
+                  },
+                }}
+              >
+                <TopThumbnailArticle post={initData.posts[3]} />
+              </Column>
+              <Column
+                style={{
+                  flex: 1,
+                }}
+                rStyle={{
+                  [MediaRule.MinWidth]: {
+                    [BREAKPOINTS.TABLET]: {
+                      paddingLeft: SECTION_PADDING / 2,
+                      paddingRight: SECTION_PADDING / 2,
+                      //       ...getBorderValue("Left"),
+                    },
+                  },
+                }}
+              >
+                <TopThumbnailArticle post={initData.posts[4]} />
+              </Column>
             </DesktopRow>
+            <h1 id="oped">Op-Ed and Contributing Writers</h1>
             <DesktopRow
               style={{
                 ...getBorderValue("Bottom"),
               }}
             >
-              <h1 id="oped">Op-Ed and Contributing Writers</h1>
+              <Column
+                style={{
+                  flex: 1,
+                }}
+                rStyle={{
+                  [MediaRule.MinWidth]: {
+                    [BREAKPOINTS.TABLET]: {
+                      paddingLeft: SECTION_PADDING / 2,
+                      paddingRight: SECTION_PADDING / 2,
+                      //       ...getBorderValue("Left"),
+                    },
+                  },
+                }}
+              >
+                <TopThumbnailArticle post={initData.posts[1]} />
+              </Column>
+              <Column
+                style={{
+                  flex: 1,
+                }}
+                rStyle={{
+                  [MediaRule.MinWidth]: {
+                    [BREAKPOINTS.TABLET]: {
+                      paddingLeft: SECTION_PADDING / 2,
+                      paddingRight: SECTION_PADDING / 2,
+                      //       ...getBorderValue("Left"),
+                    },
+                  },
+                }}
+              >
+                <TopThumbnailArticle post={initData.posts[2]} />
+              </Column>
+              <Column
+                style={{
+                  flex: 1,
+                }}
+                rStyle={{
+                  [MediaRule.MinWidth]: {
+                    [BREAKPOINTS.TABLET]: {
+                      paddingLeft: SECTION_PADDING / 2,
+                      paddingRight: SECTION_PADDING / 2,
+                      //       ...getBorderValue("Left"),
+                    },
+                  },
+                }}
+              >
+                <TopThumbnailArticle post={initData.posts[3]} />
+              </Column>
+              <Column
+                style={{
+                  flex: 1,
+                }}
+                rStyle={{
+                  [MediaRule.MinWidth]: {
+                    [BREAKPOINTS.TABLET]: {
+                      paddingLeft: SECTION_PADDING / 2,
+                      paddingRight: SECTION_PADDING / 2,
+                      //       ...getBorderValue("Left"),
+                    },
+                  },
+                }}
+              >
+                <TopThumbnailArticle post={initData.posts[4]} />
+              </Column>
             </DesktopRow>
+            <h1 id="editorial">Editorial Board</h1>
             <DesktopRow
               style={{
                 ...getBorderValue("Bottom"),
               }}
             >
-              <h1 id="editorial">Editorial Board</h1>
+              <Column
+                style={{
+                  flex: 1,
+                }}
+                rStyle={{
+                  [MediaRule.MinWidth]: {
+                    [BREAKPOINTS.TABLET]: {
+                      paddingLeft: SECTION_PADDING / 2,
+                      paddingRight: SECTION_PADDING / 2,
+                      //       ...getBorderValue("Left"),
+                    },
+                  },
+                }}
+              >
+                <TopThumbnailArticle post={initData.posts[1]} />
+              </Column>
+              <Column
+                style={{
+                  flex: 1,
+                }}
+                rStyle={{
+                  [MediaRule.MinWidth]: {
+                    [BREAKPOINTS.TABLET]: {
+                      paddingLeft: SECTION_PADDING / 2,
+                      paddingRight: SECTION_PADDING / 2,
+                      //       ...getBorderValue("Left"),
+                    },
+                  },
+                }}
+              >
+                <TopThumbnailArticle post={initData.posts[2]} />
+              </Column>
+              <Column
+                style={{
+                  flex: 1,
+                }}
+                rStyle={{
+                  [MediaRule.MinWidth]: {
+                    [BREAKPOINTS.TABLET]: {
+                      paddingLeft: SECTION_PADDING / 2,
+                      paddingRight: SECTION_PADDING / 2,
+                      //       ...getBorderValue("Left"),
+                    },
+                  },
+                }}
+              >
+                <TopThumbnailArticle post={initData.posts[3]} />
+              </Column>
+              <Column
+                style={{
+                  flex: 1,
+                }}
+                rStyle={{
+                  [MediaRule.MinWidth]: {
+                    [BREAKPOINTS.TABLET]: {
+                      paddingLeft: SECTION_PADDING / 2,
+                      paddingRight: SECTION_PADDING / 2,
+                      //       ...getBorderValue("Left"),
+                    },
+                  },
+                }}
+              >
+                <TopThumbnailArticle post={initData.posts[4]} />
+              </Column>
             </DesktopRow>
+            <h1 id="editorletters">Letters to the Editor</h1>
             <DesktopRow
               style={{
                 ...getBorderValue("Bottom"),
               }}
             >
-              <h1 id="editorletters">Letters to the Editor</h1>
+              <Column
+                style={{
+                  flex: 1,
+                }}
+                rStyle={{
+                  [MediaRule.MinWidth]: {
+                    [BREAKPOINTS.TABLET]: {
+                      paddingLeft: SECTION_PADDING / 2,
+                      paddingRight: SECTION_PADDING / 2,
+                      //       ...getBorderValue("Left"),
+                    },
+                  },
+                }}
+              >
+                <TopThumbnailArticle post={initData.posts[1]} />
+              </Column>
+              <Column
+                style={{
+                  flex: 1,
+                }}
+                rStyle={{
+                  [MediaRule.MinWidth]: {
+                    [BREAKPOINTS.TABLET]: {
+                      paddingLeft: SECTION_PADDING / 2,
+                      paddingRight: SECTION_PADDING / 2,
+                      //       ...getBorderValue("Left"),
+                    },
+                  },
+                }}
+              >
+                <TopThumbnailArticle post={initData.posts[2]} />
+              </Column>
+              <Column
+                style={{
+                  flex: 1,
+                }}
+                rStyle={{
+                  [MediaRule.MinWidth]: {
+                    [BREAKPOINTS.TABLET]: {
+                      paddingLeft: SECTION_PADDING / 2,
+                      paddingRight: SECTION_PADDING / 2,
+                      //       ...getBorderValue("Left"),
+                    },
+                  },
+                }}
+              >
+                <TopThumbnailArticle post={initData.posts[3]} />
+              </Column>
+              <Column
+                style={{
+                  flex: 1,
+                }}
+                rStyle={{
+                  [MediaRule.MinWidth]: {
+                    [BREAKPOINTS.TABLET]: {
+                      paddingLeft: SECTION_PADDING / 2,
+                      paddingRight: SECTION_PADDING / 2,
+                      //       ...getBorderValue("Left"),
+                    },
+                  },
+                }}
+              >
+                <TopThumbnailArticle post={initData.posts[4]} />
+              </Column>
             </DesktopRow>
+            <h1 id="editorial">Editorial Board</h1>
             <DesktopRow
               style={{
                 ...getBorderValue("Bottom"),
               }}
             >
-              <h1 id="communityletters">Letters to the Community</h1>
+              <Column
+                style={{
+                  flex: 1,
+                }}
+                rStyle={{
+                  [MediaRule.MinWidth]: {
+                    [BREAKPOINTS.TABLET]: {
+                      paddingLeft: SECTION_PADDING / 2,
+                      paddingRight: SECTION_PADDING / 2,
+                      //       ...getBorderValue("Left"),
+                    },
+                  },
+                }}
+              >
+                <TopThumbnailArticle post={initData.posts[1]} />
+              </Column>
+              <Column
+                style={{
+                  flex: 1,
+                }}
+                rStyle={{
+                  [MediaRule.MinWidth]: {
+                    [BREAKPOINTS.TABLET]: {
+                      paddingLeft: SECTION_PADDING / 2,
+                      paddingRight: SECTION_PADDING / 2,
+                      //       ...getBorderValue("Left"),
+                    },
+                  },
+                }}
+              >
+                <TopThumbnailArticle post={initData.posts[2]} />
+              </Column>
+              <Column
+                style={{
+                  flex: 1,
+                }}
+                rStyle={{
+                  [MediaRule.MinWidth]: {
+                    [BREAKPOINTS.TABLET]: {
+                      paddingLeft: SECTION_PADDING / 2,
+                      paddingRight: SECTION_PADDING / 2,
+                      //       ...getBorderValue("Left"),
+                    },
+                  },
+                }}
+              >
+                <TopThumbnailArticle post={initData.posts[3]} />
+              </Column>
+              <Column
+                style={{
+                  flex: 1,
+                }}
+                rStyle={{
+                  [MediaRule.MinWidth]: {
+                    [BREAKPOINTS.TABLET]: {
+                      paddingLeft: SECTION_PADDING / 2,
+                      paddingRight: SECTION_PADDING / 2,
+                      //       ...getBorderValue("Left"),
+                    },
+                  },
+                }}
+              >
+                <TopThumbnailArticle post={initData.posts[4]} />
+              </Column>
+            </DesktopRow>
+            <h1 id="communityletters">Letters to the Community</h1>
+            <DesktopRow
+              style={{
+                ...getBorderValue("Bottom"),
+              }}
+            >
+              <Column
+                style={{
+                  flex: 1,
+                }}
+                rStyle={{
+                  [MediaRule.MinWidth]: {
+                    [BREAKPOINTS.TABLET]: {
+                      paddingLeft: SECTION_PADDING / 2,
+                      paddingRight: SECTION_PADDING / 2,
+                      //       ...getBorderValue("Left"),
+                    },
+                  },
+                }}
+              >
+                <TopThumbnailArticle post={initData.posts[1]} />
+              </Column>
+              <Column
+                style={{
+                  flex: 1,
+                }}
+                rStyle={{
+                  [MediaRule.MinWidth]: {
+                    [BREAKPOINTS.TABLET]: {
+                      paddingLeft: SECTION_PADDING / 2,
+                      paddingRight: SECTION_PADDING / 2,
+                      //       ...getBorderValue("Left"),
+                    },
+                  },
+                }}
+              >
+                <TopThumbnailArticle post={initData.posts[2]} />
+              </Column>
+              <Column
+                style={{
+                  flex: 1,
+                }}
+                rStyle={{
+                  [MediaRule.MinWidth]: {
+                    [BREAKPOINTS.TABLET]: {
+                      paddingLeft: SECTION_PADDING / 2,
+                      paddingRight: SECTION_PADDING / 2,
+                      //       ...getBorderValue("Left"),
+                    },
+                  },
+                }}
+              >
+                <TopThumbnailArticle post={initData.posts[3]} />
+              </Column>
+              <Column
+                style={{
+                  flex: 1,
+                }}
+                rStyle={{
+                  [MediaRule.MinWidth]: {
+                    [BREAKPOINTS.TABLET]: {
+                      paddingLeft: SECTION_PADDING / 2,
+                      paddingRight: SECTION_PADDING / 2,
+                      //       ...getBorderValue("Left"),
+                    },
+                  },
+                }}
+              >
+                <TopThumbnailArticle post={initData.posts[4]} />
+              </Column>
+            </DesktopRow>
+            <h1 id="editorial">Editorial Board</h1>
+            <DesktopRow
+              style={{
+                ...getBorderValue("Bottom"),
+              }}
+            >
+              <Column
+                style={{
+                  flex: 1,
+                }}
+                rStyle={{
+                  [MediaRule.MinWidth]: {
+                    [BREAKPOINTS.TABLET]: {
+                      paddingLeft: SECTION_PADDING / 2,
+                      paddingRight: SECTION_PADDING / 2,
+                      //       ...getBorderValue("Left"),
+                    },
+                  },
+                }}
+              >
+                <TopThumbnailArticle post={initData.posts[1]} />
+              </Column>
+              <Column
+                style={{
+                  flex: 1,
+                }}
+                rStyle={{
+                  [MediaRule.MinWidth]: {
+                    [BREAKPOINTS.TABLET]: {
+                      paddingLeft: SECTION_PADDING / 2,
+                      paddingRight: SECTION_PADDING / 2,
+                      //       ...getBorderValue("Left"),
+                    },
+                  },
+                }}
+              >
+                <TopThumbnailArticle post={initData.posts[2]} />
+              </Column>
+              <Column
+                style={{
+                  flex: 1,
+                }}
+                rStyle={{
+                  [MediaRule.MinWidth]: {
+                    [BREAKPOINTS.TABLET]: {
+                      paddingLeft: SECTION_PADDING / 2,
+                      paddingRight: SECTION_PADDING / 2,
+                      //       ...getBorderValue("Left"),
+                    },
+                  },
+                }}
+              >
+                <TopThumbnailArticle post={initData.posts[3]} />
+              </Column>
+              <Column
+                style={{
+                  flex: 1,
+                }}
+                rStyle={{
+                  [MediaRule.MinWidth]: {
+                    [BREAKPOINTS.TABLET]: {
+                      paddingLeft: SECTION_PADDING / 2,
+                      paddingRight: SECTION_PADDING / 2,
+                      //       ...getBorderValue("Left"),
+                    },
+                  },
+                }}
+              >
+                <TopThumbnailArticle post={initData.posts[4]} />
+              </Column>
             </DesktopRow>
             <h1>More Opinions Articles</h1>
           </>
