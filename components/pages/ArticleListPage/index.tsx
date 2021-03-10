@@ -1,7 +1,7 @@
 import React from "react";
 import { Text, Platform } from "react-native";
 import { MediaRule } from "emotion-native-media-query";
-import { FONTS, BREAKPOINTS } from "helpers/constants";
+import { FONTS, BREAKPOINTS, STANFORD_COLORS } from "helpers/constants";
 import { ArticleListPageData } from "helpers/wpapi";
 import LoadingView from "components/Loading";
 import ArticlesView from "components/ArticlesView";
@@ -16,7 +16,7 @@ import { TwitterTimelineEmbed } from "react-twitter-embed";
 import { UsElections2020Map } from "./UsElections2020Map";
 
 import { TitleOnlyArticle } from "../HomePage/TitleOnlyArticle";
-import { AuthorView } from "../HomePage/AuthorView";
+import { AuthorsTextWithLink } from "../HomePage/AuthorView";
 
 export enum ArticleListPageType {
   Time, // TODO
@@ -72,55 +72,522 @@ export default class ArticleListPage extends React.Component<
                 rStyle={{
                   [MediaRule.MinWidth]: {
                     [BREAKPOINTS.TABLET]: {
-                      // paddingLeft: SECTION_PADDING / 2,
                       paddingRight: SECTION_PADDING / 2,
-                      //       ...getBorderValue("Left"),
                     },
                   },
                 }}
               >
-                <h1>Columnists</h1>
-                <TopThumbnailArticle post={initData.posts[0]} />
+                <div style={{ paddingTop: 50 }}>
+                  <TopThumbnailArticle post={initData.posts[0]} />
+                </div>
               </Column>
               <Column
                 style={{
-                  flex: 2,
+                  flex: 1,
                 }}
                 rStyle={{
                   [MediaRule.MinWidth]: {
                     [BREAKPOINTS.TABLET]: {
-                      // paddingLeft: SECTION_PADDING / 2,
                       paddingRight: SECTION_PADDING / 2,
-                      //       ...getBorderValue("Left"),
                     },
                   },
                 }}
               >
-                <h1>Our Columnists</h1>
-                <table>
+                <div>
+                  <h1
+                    style={{
+                      color: STANFORD_COLORS.CARDINAL_RED,
+                      ...FONTS.SECTION_TITLE,
+                      fontWeight: "bold",
+                      fontSize: 22,
+                      display: "inline",
+                    }}
+                  >
+                    Our Columnists
+                  </h1>
+
+                  <a
+                    href=""
+                    style={{
+                      color: STANFORD_COLORS.CARDINAL_RED,
+                      ...FONTS.SECTION_TITLE,
+                      fontWeight: "bold",
+                      fontSize: 15,
+                      float: "right",
+                      paddingLeft: 10,
+                    }}
+                  >
+                    LEARN MORE
+                  </a>
+                </div>
+                <table
+                  style={{
+                    borderSpacing: 0,
+                    borderCollapse: "collapse",
+                    cellSpacing: 0,
+                  }}
+                >
                   <tr>
-                    <td>Author 1</td>
-                    <td>Author 6</td>
+                    <td>
+                      <div>
+                        <p style={{ float: "left", display: "inline" }}>
+                          <img
+                            src="/static/cardinal-red-daily-s-logo.png"
+                            style={{ maxHeight: 40, height: "auto" }}
+                          />{" "}
+                        </p>
+                        <AuthorsTextWithLink
+                          style={{
+                            color: "black",
+                            ...FONTS.SECTION_TITLE,
+                            fontWeight: "bold",
+                            fontSize: 15,
+                          }}
+                          authors={[
+                            {
+                              id: 1002777,
+                              displayName: "Mikayla Tillery",
+                              userNicename: "mtillery",
+                              url: "/author/mtillery/",
+                              avatarUrl:
+                                "https://www.stanforddaily.com/wp-content/themes/thestanforddaily/img/placeholder-avatar.png",
+                              description:
+                                "Opinions Mother, Public Editor, and other.",
+                            },
+                          ]}
+                          aStyle={{
+                            textDecoration: "",
+                          }}
+                        />
+                        <p
+                          style={{
+                            color: "black",
+                            ...FONTS.SECTION_TITLE,
+                            fontWeight: "normal",
+                            fontSize: 15,
+                            marginTop: -5,
+                            padding: 0,
+                          }}
+                        >
+                          Opinions Mother, Public Editor, and other.
+                        </p>
+                      </div>
+                    </td>
+                    <td>
+                      <div>
+                        <p style={{ float: "left", display: "inline" }}>
+                          <img
+                            src="/static/cardinal-red-daily-s-logo.png"
+                            style={{ maxHeight: 40, height: "auto" }}
+                          />{" "}
+                        </p>
+                        <AuthorsTextWithLink
+                          style={{
+                            color: "black",
+                            ...FONTS.SECTION_TITLE,
+                            fontWeight: "bold",
+                            fontSize: 15,
+                          }}
+                          authors={[
+                            {
+                              id: 1002777,
+                              displayName: "Mikayla Tillery",
+                              userNicename: "mtillery",
+                              url: "/author/mtillery/",
+                              avatarUrl:
+                                "https://www.stanforddaily.com/wp-content/themes/thestanforddaily/img/placeholder-avatar.png",
+                              description:
+                                "Opinions Mother, Public Editor, and other.",
+                            },
+                          ]}
+                          aStyle={{
+                            textDecoration: "",
+                          }}
+                        />
+                        <p
+                          style={{
+                            color: "black",
+                            ...FONTS.SECTION_TITLE,
+                            fontWeight: "normal",
+                            fontSize: 15,
+                            marginTop: -5,
+                            padding: 0,
+                          }}
+                        >
+                          Opinions Mother, Public Editor, and other.
+                        </p>
+                      </div>
+                    </td>
                   </tr>
                   <tr>
-                    <td>Author 2</td>
-                    <td>Author 7</td>
+                    <td>
+                      <div style={{ marginTop: -10 }}>
+                        <p style={{ float: "left", display: "inline" }}>
+                          <img
+                            src="/static/cardinal-red-daily-s-logo.png"
+                            style={{ maxHeight: 40, height: "auto" }}
+                          />{" "}
+                        </p>
+                        <AuthorsTextWithLink
+                          style={{
+                            color: "black",
+                            ...FONTS.SECTION_TITLE,
+                            fontWeight: "bold",
+                            fontSize: 15,
+                          }}
+                          authors={[
+                            {
+                              id: 1002777,
+                              displayName: "Mikayla Tillery",
+                              userNicename: "mtillery",
+                              url: "/author/mtillery/",
+                              avatarUrl:
+                                "https://www.stanforddaily.com/wp-content/themes/thestanforddaily/img/placeholder-avatar.png",
+                              description:
+                                "Opinions Mother, Public Editor, and other.",
+                            },
+                          ]}
+                          aStyle={{
+                            textDecoration: "",
+                          }}
+                        />
+                        <p
+                          style={{
+                            color: "black",
+                            ...FONTS.SECTION_TITLE,
+                            fontWeight: "normal",
+                            fontSize: 15,
+                            marginTop: -5,
+                            padding: 0,
+                          }}
+                        >
+                          Opinions Mother, Public Editor, and other.
+                        </p>
+                      </div>
+                    </td>
+                    <td>
+                      <div>
+                        <p style={{ float: "left", display: "inline" }}>
+                          <img
+                            src="/static/cardinal-red-daily-s-logo.png"
+                            style={{ maxHeight: 40, height: "auto" }}
+                          />{" "}
+                        </p>
+                        <AuthorsTextWithLink
+                          style={{
+                            color: "black",
+                            ...FONTS.SECTION_TITLE,
+                            fontWeight: "bold",
+                            fontSize: 15,
+                          }}
+                          authors={[
+                            {
+                              id: 1002777,
+                              displayName: "Mikayla Tillery",
+                              userNicename: "mtillery",
+                              url: "/author/mtillery/",
+                              avatarUrl:
+                                "https://www.stanforddaily.com/wp-content/themes/thestanforddaily/img/placeholder-avatar.png",
+                              description:
+                                "Opinions Mother, Public Editor, and other.",
+                            },
+                          ]}
+                          aStyle={{
+                            textDecoration: "",
+                          }}
+                        />
+                        <p
+                          style={{
+                            color: "black",
+                            ...FONTS.SECTION_TITLE,
+                            fontWeight: "normal",
+                            fontSize: 15,
+                            marginTop: -5,
+                            padding: 0,
+                          }}
+                        >
+                          Opinions Mother, Public Editor, and other.
+                        </p>
+                      </div>
+                    </td>
                   </tr>
                   <tr>
-                    <td>Author 3</td>
-                    <td>Author 8</td>
+                    <td>
+                      <div>
+                        <p style={{ float: "left", display: "inline" }}>
+                          <img
+                            src="/static/cardinal-red-daily-s-logo.png"
+                            style={{ maxHeight: 40, height: "auto" }}
+                          />{" "}
+                        </p>
+                        <AuthorsTextWithLink
+                          style={{
+                            color: "black",
+                            ...FONTS.SECTION_TITLE,
+                            fontWeight: "bold",
+                            fontSize: 15,
+                          }}
+                          authors={[
+                            {
+                              id: 1002777,
+                              displayName: "Mikayla Tillery",
+                              userNicename: "mtillery",
+                              url: "/author/mtillery/",
+                              avatarUrl:
+                                "https://www.stanforddaily.com/wp-content/themes/thestanforddaily/img/placeholder-avatar.png",
+                              description:
+                                "Opinions Mother, Public Editor, and other.",
+                            },
+                          ]}
+                          aStyle={{
+                            textDecoration: "",
+                          }}
+                        />
+                        <p
+                          style={{
+                            color: "black",
+                            ...FONTS.SECTION_TITLE,
+                            fontWeight: "normal",
+                            fontSize: 15,
+                            marginTop: -5,
+                            padding: 0,
+                          }}
+                        >
+                          Opinions Mother, Public Editor, and other.
+                        </p>
+                      </div>
+                    </td>
+                    <td>
+                      <div>
+                        <p style={{ float: "left", display: "inline" }}>
+                          <img
+                            src="/static/cardinal-red-daily-s-logo.png"
+                            style={{ maxHeight: 40, height: "auto" }}
+                          />{" "}
+                        </p>
+                        <AuthorsTextWithLink
+                          style={{
+                            color: "black",
+                            ...FONTS.SECTION_TITLE,
+                            fontWeight: "bold",
+                            fontSize: 15,
+                          }}
+                          authors={[
+                            {
+                              id: 1002777,
+                              displayName: "Mikayla Tillery",
+                              userNicename: "mtillery",
+                              url: "/author/mtillery/",
+                              avatarUrl:
+                                "https://www.stanforddaily.com/wp-content/themes/thestanforddaily/img/placeholder-avatar.png",
+                              description:
+                                "Opinions Mother, Public Editor, and other.",
+                            },
+                          ]}
+                          aStyle={{
+                            textDecoration: "",
+                          }}
+                        />
+                        <p
+                          style={{
+                            color: "black",
+                            ...FONTS.SECTION_TITLE,
+                            fontWeight: "normal",
+                            fontSize: 15,
+                            marginTop: -5,
+                            padding: 0,
+                          }}
+                        >
+                          Opinions Mother, Public Editor, and other.
+                        </p>
+                      </div>
+                    </td>
                   </tr>
                   <tr>
-                    <td>Author 4</td>
-                    <td>Author 9</td>
+                    <td>
+                      <div>
+                        <p style={{ float: "left", display: "inline" }}>
+                          <img
+                            src="/static/cardinal-red-daily-s-logo.png"
+                            style={{ maxHeight: 40, height: "auto" }}
+                          />{" "}
+                        </p>
+                        <AuthorsTextWithLink
+                          style={{
+                            color: "black",
+                            ...FONTS.SECTION_TITLE,
+                            fontWeight: "bold",
+                            fontSize: 15,
+                          }}
+                          authors={[
+                            {
+                              id: 1002777,
+                              displayName: "Mikayla Tillery",
+                              userNicename: "mtillery",
+                              url: "/author/mtillery/",
+                              avatarUrl:
+                                "https://www.stanforddaily.com/wp-content/themes/thestanforddaily/img/placeholder-avatar.png",
+                              description:
+                                "Opinions Mother, Public Editor, and other.",
+                            },
+                          ]}
+                          aStyle={{
+                            textDecoration: "",
+                          }}
+                        />
+                        <p
+                          style={{
+                            color: "black",
+                            ...FONTS.SECTION_TITLE,
+                            fontWeight: "normal",
+                            fontSize: 15,
+                            marginTop: -5,
+                            padding: 0,
+                          }}
+                        >
+                          Opinions Mother, Public Editor, and other.
+                        </p>
+                      </div>
+                    </td>
+                    <td>
+                      <div>
+                        <p style={{ float: "left", display: "inline" }}>
+                          <img
+                            src="/static/cardinal-red-daily-s-logo.png"
+                            style={{ maxHeight: 40, height: "auto" }}
+                          />{" "}
+                        </p>
+                        <AuthorsTextWithLink
+                          style={{
+                            color: "black",
+                            ...FONTS.SECTION_TITLE,
+                            fontWeight: "bold",
+                            fontSize: 15,
+                          }}
+                          authors={[
+                            {
+                              id: 1002777,
+                              displayName: "Mikayla Tillery",
+                              userNicename: "mtillery",
+                              url: "/author/mtillery/",
+                              avatarUrl:
+                                "https://www.stanforddaily.com/wp-content/themes/thestanforddaily/img/placeholder-avatar.png",
+                              description:
+                                "Opinions Mother, Public Editor, and other.",
+                            },
+                          ]}
+                          aStyle={{
+                            textDecoration: "",
+                          }}
+                        />
+                        <p
+                          style={{
+                            color: "black",
+                            ...FONTS.SECTION_TITLE,
+                            fontWeight: "normal",
+                            fontSize: 15,
+                            marginTop: -5,
+                            padding: 0,
+                          }}
+                        >
+                          Opinions Mother, Public Editor, and other.
+                        </p>
+                      </div>
+                    </td>
                   </tr>
                   <tr>
-                    <td>Author 5</td>
-                    <td>Author 10</td>
+                    <td>
+                      <div>
+                        <p style={{ float: "left", display: "inline" }}>
+                          <img
+                            src="/static/cardinal-red-daily-s-logo.png"
+                            style={{ maxHeight: 40, height: "auto" }}
+                          />{" "}
+                        </p>
+                        <AuthorsTextWithLink
+                          style={{
+                            color: "black",
+                            ...FONTS.SECTION_TITLE,
+                            fontWeight: "bold",
+                            fontSize: 15,
+                          }}
+                          authors={[
+                            {
+                              id: 1002777,
+                              displayName: "Mikayla Tillery",
+                              userNicename: "mtillery",
+                              url: "/author/mtillery/",
+                              avatarUrl:
+                                "https://www.stanforddaily.com/wp-content/themes/thestanforddaily/img/placeholder-avatar.png",
+                              description:
+                                "Opinions Mother, Public Editor, and other.",
+                            },
+                          ]}
+                          aStyle={{
+                            textDecoration: "",
+                          }}
+                        />
+                        <p
+                          style={{
+                            color: "black",
+                            ...FONTS.SECTION_TITLE,
+                            fontWeight: "normal",
+                            fontSize: 15,
+                            marginTop: -5,
+                            padding: 0,
+                          }}
+                        >
+                          Opinions Mother, Public Editor, and other.
+                        </p>
+                      </div>
+                    </td>
+                    <td>
+                      <div>
+                        <p style={{ float: "left", display: "inline" }}>
+                          <img
+                            src="/static/cardinal-red-daily-s-logo.png"
+                            style={{ maxHeight: 40, height: "auto" }}
+                          />{" "}
+                        </p>
+                        <AuthorsTextWithLink
+                          style={{
+                            color: "black",
+                            ...FONTS.SECTION_TITLE,
+                            fontWeight: "bold",
+                            fontSize: 15,
+                          }}
+                          authors={[
+                            {
+                              id: 1002777,
+                              displayName: "Mikayla Tillery",
+                              userNicename: "mtillery",
+                              url: "/author/mtillery/",
+                              avatarUrl:
+                                "https://www.stanforddaily.com/wp-content/themes/thestanforddaily/img/placeholder-avatar.png",
+                              description:
+                                "Opinions Mother, Public Editor, and other.",
+                            },
+                          ]}
+                          aStyle={{
+                            textDecoration: "",
+                          }}
+                        />
+                        <p
+                          style={{
+                            color: "black",
+                            ...FONTS.SECTION_TITLE,
+                            fontWeight: "normal",
+                            fontSize: 15,
+                            marginTop: -5,
+                            padding: 0,
+                          }}
+                        >
+                          Opinions Mother, Public Editor, and other.
+                        </p>
+                      </div>
+                    </td>
                   </tr>
                 </table>
-
-                {/*<AuthorView>authors={[0]}</AuthorView> - How do I add an author?*/}
               </Column>
             </DesktopRow>
           </>
@@ -134,26 +601,66 @@ export default class ArticleListPage extends React.Component<
               }}
             >
               <h1>
-                <a href="#columnists" style={{ color: "black" }}>
+                <a
+                  href="#columnists"
+                  style={{
+                    color: "black",
+                    ...FONTS.SECTION_TITLE,
+                    fontWeight: "bold",
+                    fontSize: 20,
+                  }}
+                >
                   Columnists{" "}
                 </a>
                 |
-                <a href="#oped" style={{ color: "black" }}>
+                <a
+                  href="#oped"
+                  style={{
+                    color: "black",
+                    ...FONTS.SECTION_TITLE,
+                    fontWeight: "bold",
+                    fontSize: 20,
+                  }}
+                >
                   {" "}
                   Op-Ed and Contributing Writers{" "}
                 </a>
                 |
-                <a href="#editorial" style={{ color: "black" }}>
+                <a
+                  href="#editorial"
+                  style={{
+                    color: "black",
+                    ...FONTS.SECTION_TITLE,
+                    fontWeight: "bold",
+                    fontSize: 20,
+                  }}
+                >
                   {" "}
                   Editorial Board{" "}
                 </a>
                 |
-                <a href="#editorletters" style={{ color: "black" }}>
+                <a
+                  href="#editorletters"
+                  style={{
+                    color: "black",
+                    ...FONTS.SECTION_TITLE,
+                    fontWeight: "bold",
+                    fontSize: 20,
+                  }}
+                >
                   {" "}
                   Letters to the Editor{" "}
                 </a>
                 |
-                <a href="#communityletters" style={{ color: "black" }}>
+                <a
+                  href="#communityletters"
+                  style={{
+                    color: "black",
+                    ...FONTS.SECTION_TITLE,
+                    fontWeight: "bold",
+                    fontSize: 20,
+                  }}
+                >
                   {" "}
                   Letters to the Community
                 </a>
@@ -171,14 +678,21 @@ export default class ArticleListPage extends React.Component<
                 rStyle={{
                   [MediaRule.MinWidth]: {
                     [BREAKPOINTS.TABLET]: {
-                      // paddingLeft: SECTION_PADDING / 2,
                       paddingRight: SECTION_PADDING / 2,
-                      //       ...getBorderValue("Left"),
                     },
                   },
                 }}
               >
-                <h1>Featured</h1>
+                <h1
+                  style={{
+                    color: STANFORD_COLORS.CARDINAL_BRIGHT_RED,
+                    ...FONTS.SECTION_TITLE,
+                    fontWeight: "bold",
+                    fontSize: 22,
+                  }}
+                >
+                  Featured
+                </h1>
                 <TopThumbnailArticle post={initData.posts[0]} />
               </Column>
               <Column
@@ -190,514 +704,115 @@ export default class ArticleListPage extends React.Component<
                     [BREAKPOINTS.TABLET]: {
                       paddingLeft: SECTION_PADDING / 2,
                       paddingRight: SECTION_PADDING / 2,
-                      //       ...getBorderValue("Left"),
                     },
                   },
                 }}
               >
-                <TitleOnlyArticle post={initData.posts[1]} />
-                <TitleOnlyArticle post={initData.posts[2]} />
-                <TitleOnlyArticle post={initData.posts[3]} />
-                <TitleOnlyArticle post={initData.posts[4]} />
+                {" "}
+                <div style={{ paddingTop: 50 }}>
+                  <TitleOnlyArticle post={initData.posts[1]} />
+                </div>
+                <div style={{ paddingTop: 10 }}>
+                  <TitleOnlyArticle post={initData.posts[2]} />
+                </div>
+                <div style={{ paddingTop: 10 }}>
+                  <TitleOnlyArticle post={initData.posts[3]} />
+                </div>
+                <div style={{ paddingTop: 10, paddingBottom: 50 }}>
+                  <TitleOnlyArticle post={initData.posts[4]} />
+                </div>
               </Column>
             </DesktopRow>
-            <h1 id="columnists">Columnists</h1>
-            <DesktopRow
+            <h1
+              id="columnists"
               style={{
-                ...getBorderValue("Bottom"),
+                color: STANFORD_COLORS.CARDINAL_BRIGHT_RED,
+                ...FONTS.SECTION_TITLE,
+                fontWeight: "bold",
+                fontSize: 22,
               }}
             >
-              <Column
-                style={{
-                  flex: 1,
-                }}
-                rStyle={{
-                  [MediaRule.MinWidth]: {
-                    [BREAKPOINTS.TABLET]: {
-                      paddingLeft: SECTION_PADDING / 2,
-                      paddingRight: SECTION_PADDING / 2,
-                      //       ...getBorderValue("Left"),
-                    },
-                  },
-                }}
-              >
-                <TopThumbnailArticle post={initData.posts[1]} />
-              </Column>
-              <Column
-                style={{
-                  flex: 1,
-                }}
-                rStyle={{
-                  [MediaRule.MinWidth]: {
-                    [BREAKPOINTS.TABLET]: {
-                      paddingLeft: SECTION_PADDING / 2,
-                      paddingRight: SECTION_PADDING / 2,
-                      //       ...getBorderValue("Left"),
-                    },
-                  },
-                }}
-              >
-                <TopThumbnailArticle post={initData.posts[2]} />
-              </Column>
-              <Column
-                style={{
-                  flex: 1,
-                }}
-                rStyle={{
-                  [MediaRule.MinWidth]: {
-                    [BREAKPOINTS.TABLET]: {
-                      paddingLeft: SECTION_PADDING / 2,
-                      paddingRight: SECTION_PADDING / 2,
-                      //       ...getBorderValue("Left"),
-                    },
-                  },
-                }}
-              >
-                <TopThumbnailArticle post={initData.posts[3]} />
-              </Column>
-              <Column
-                style={{
-                  flex: 1,
-                }}
-                rStyle={{
-                  [MediaRule.MinWidth]: {
-                    [BREAKPOINTS.TABLET]: {
-                      paddingLeft: SECTION_PADDING / 2,
-                      paddingRight: SECTION_PADDING / 2,
-                      //       ...getBorderValue("Left"),
-                    },
-                  },
-                }}
-              >
-                <TopThumbnailArticle post={initData.posts[4]} />
-              </Column>
-            </DesktopRow>
-            <h1 id="oped">Op-Ed and Contributing Writers</h1>
-            <DesktopRow
+              Columnists
+            </h1>
+            <ArticlesView
+              displayCategory={false}
+              displayExcerpt={false}
+              initPosts={initData.posts
+                .filter(post => post["postCategory"].includes(13181))
+                .slice(0, 4)}
+            />
+            <h1
+              id="oped"
               style={{
-                ...getBorderValue("Bottom"),
+                color: STANFORD_COLORS.CARDINAL_BRIGHT_RED,
+                ...FONTS.SECTION_TITLE,
+                fontWeight: "bold",
+                fontSize: 22,
               }}
             >
-              <Column
-                style={{
-                  flex: 1,
-                }}
-                rStyle={{
-                  [MediaRule.MinWidth]: {
-                    [BREAKPOINTS.TABLET]: {
-                      paddingLeft: SECTION_PADDING / 2,
-                      paddingRight: SECTION_PADDING / 2,
-                      //       ...getBorderValue("Left"),
-                    },
-                  },
-                }}
-              >
-                <TopThumbnailArticle post={initData.posts[1]} />
-              </Column>
-              <Column
-                style={{
-                  flex: 1,
-                }}
-                rStyle={{
-                  [MediaRule.MinWidth]: {
-                    [BREAKPOINTS.TABLET]: {
-                      paddingLeft: SECTION_PADDING / 2,
-                      paddingRight: SECTION_PADDING / 2,
-                      //       ...getBorderValue("Left"),
-                    },
-                  },
-                }}
-              >
-                <TopThumbnailArticle post={initData.posts[2]} />
-              </Column>
-              <Column
-                style={{
-                  flex: 1,
-                }}
-                rStyle={{
-                  [MediaRule.MinWidth]: {
-                    [BREAKPOINTS.TABLET]: {
-                      paddingLeft: SECTION_PADDING / 2,
-                      paddingRight: SECTION_PADDING / 2,
-                      //       ...getBorderValue("Left"),
-                    },
-                  },
-                }}
-              >
-                <TopThumbnailArticle post={initData.posts[3]} />
-              </Column>
-              <Column
-                style={{
-                  flex: 1,
-                }}
-                rStyle={{
-                  [MediaRule.MinWidth]: {
-                    [BREAKPOINTS.TABLET]: {
-                      paddingLeft: SECTION_PADDING / 2,
-                      paddingRight: SECTION_PADDING / 2,
-                      //       ...getBorderValue("Left"),
-                    },
-                  },
-                }}
-              >
-                <TopThumbnailArticle post={initData.posts[4]} />
-              </Column>
-            </DesktopRow>
-            <h1 id="editorial">Editorial Board</h1>
-            <DesktopRow
+              Op-Ed and Contributing Writers
+            </h1>
+            <ArticlesView
+              displayCategory={false}
+              displayExcerpt={false}
+              initPosts={initData.posts
+                .filter(post => post["postCategory"].includes(27142))
+                .slice(0, 4)}
+            />
+            <h1
+              id="editorial"
               style={{
-                ...getBorderValue("Bottom"),
+                color: STANFORD_COLORS.CARDINAL_BRIGHT_RED,
+                ...FONTS.SECTION_TITLE,
+                fontWeight: "bold",
+                fontSize: 22,
               }}
             >
-              <Column
-                style={{
-                  flex: 1,
-                }}
-                rStyle={{
-                  [MediaRule.MinWidth]: {
-                    [BREAKPOINTS.TABLET]: {
-                      paddingLeft: SECTION_PADDING / 2,
-                      paddingRight: SECTION_PADDING / 2,
-                      //       ...getBorderValue("Left"),
-                    },
-                  },
-                }}
-              >
-                <TopThumbnailArticle post={initData.posts[1]} />
-              </Column>
-              <Column
-                style={{
-                  flex: 1,
-                }}
-                rStyle={{
-                  [MediaRule.MinWidth]: {
-                    [BREAKPOINTS.TABLET]: {
-                      paddingLeft: SECTION_PADDING / 2,
-                      paddingRight: SECTION_PADDING / 2,
-                      //       ...getBorderValue("Left"),
-                    },
-                  },
-                }}
-              >
-                <TopThumbnailArticle post={initData.posts[2]} />
-              </Column>
-              <Column
-                style={{
-                  flex: 1,
-                }}
-                rStyle={{
-                  [MediaRule.MinWidth]: {
-                    [BREAKPOINTS.TABLET]: {
-                      paddingLeft: SECTION_PADDING / 2,
-                      paddingRight: SECTION_PADDING / 2,
-                      //       ...getBorderValue("Left"),
-                    },
-                  },
-                }}
-              >
-                <TopThumbnailArticle post={initData.posts[3]} />
-              </Column>
-              <Column
-                style={{
-                  flex: 1,
-                }}
-                rStyle={{
-                  [MediaRule.MinWidth]: {
-                    [BREAKPOINTS.TABLET]: {
-                      paddingLeft: SECTION_PADDING / 2,
-                      paddingRight: SECTION_PADDING / 2,
-                      //       ...getBorderValue("Left"),
-                    },
-                  },
-                }}
-              >
-                <TopThumbnailArticle post={initData.posts[4]} />
-              </Column>
-            </DesktopRow>
-            <h1 id="editorletters">Letters to the Editor</h1>
-            <DesktopRow
+              Editorial Board
+            </h1>
+            <ArticlesView
+              displayCategory={false}
+              displayExcerpt={false}
+              initPosts={initData.posts
+                .filter(post => post["postCategory"].includes(9986))
+                .slice(0, 4)}
+            />
+            <h1
+              id="editorletters"
               style={{
-                ...getBorderValue("Bottom"),
+                color: STANFORD_COLORS.CARDINAL_BRIGHT_RED,
+                ...FONTS.SECTION_TITLE,
+                fontWeight: "bold",
+                fontSize: 22,
               }}
             >
-              <Column
-                style={{
-                  flex: 1,
-                }}
-                rStyle={{
-                  [MediaRule.MinWidth]: {
-                    [BREAKPOINTS.TABLET]: {
-                      paddingLeft: SECTION_PADDING / 2,
-                      paddingRight: SECTION_PADDING / 2,
-                      //       ...getBorderValue("Left"),
-                    },
-                  },
-                }}
-              >
-                <TopThumbnailArticle post={initData.posts[1]} />
-              </Column>
-              <Column
-                style={{
-                  flex: 1,
-                }}
-                rStyle={{
-                  [MediaRule.MinWidth]: {
-                    [BREAKPOINTS.TABLET]: {
-                      paddingLeft: SECTION_PADDING / 2,
-                      paddingRight: SECTION_PADDING / 2,
-                      //       ...getBorderValue("Left"),
-                    },
-                  },
-                }}
-              >
-                <TopThumbnailArticle post={initData.posts[2]} />
-              </Column>
-              <Column
-                style={{
-                  flex: 1,
-                }}
-                rStyle={{
-                  [MediaRule.MinWidth]: {
-                    [BREAKPOINTS.TABLET]: {
-                      paddingLeft: SECTION_PADDING / 2,
-                      paddingRight: SECTION_PADDING / 2,
-                      //       ...getBorderValue("Left"),
-                    },
-                  },
-                }}
-              >
-                <TopThumbnailArticle post={initData.posts[3]} />
-              </Column>
-              <Column
-                style={{
-                  flex: 1,
-                }}
-                rStyle={{
-                  [MediaRule.MinWidth]: {
-                    [BREAKPOINTS.TABLET]: {
-                      paddingLeft: SECTION_PADDING / 2,
-                      paddingRight: SECTION_PADDING / 2,
-                      //       ...getBorderValue("Left"),
-                    },
-                  },
-                }}
-              >
-                <TopThumbnailArticle post={initData.posts[4]} />
-              </Column>
-            </DesktopRow>
-            <h1 id="editorial">Editorial Board</h1>
-            <DesktopRow
+              Letters to the Editor
+            </h1>
+            <ArticlesView
+              displayCategory={false}
+              displayExcerpt={false}
+              initPosts={initData.posts
+                .filter(post => post["postCategory"].includes(13182))
+                .slice(0, 4)}
+            />
+            <h1
+              id="communityletters"
               style={{
-                ...getBorderValue("Bottom"),
+                color: STANFORD_COLORS.CARDINAL_BRIGHT_RED,
+                ...FONTS.SECTION_TITLE,
+                fontWeight: "bold",
+                fontSize: 22,
               }}
             >
-              <Column
-                style={{
-                  flex: 1,
-                }}
-                rStyle={{
-                  [MediaRule.MinWidth]: {
-                    [BREAKPOINTS.TABLET]: {
-                      paddingLeft: SECTION_PADDING / 2,
-                      paddingRight: SECTION_PADDING / 2,
-                      //       ...getBorderValue("Left"),
-                    },
-                  },
-                }}
-              >
-                <TopThumbnailArticle post={initData.posts[1]} />
-              </Column>
-              <Column
-                style={{
-                  flex: 1,
-                }}
-                rStyle={{
-                  [MediaRule.MinWidth]: {
-                    [BREAKPOINTS.TABLET]: {
-                      paddingLeft: SECTION_PADDING / 2,
-                      paddingRight: SECTION_PADDING / 2,
-                      //       ...getBorderValue("Left"),
-                    },
-                  },
-                }}
-              >
-                <TopThumbnailArticle post={initData.posts[2]} />
-              </Column>
-              <Column
-                style={{
-                  flex: 1,
-                }}
-                rStyle={{
-                  [MediaRule.MinWidth]: {
-                    [BREAKPOINTS.TABLET]: {
-                      paddingLeft: SECTION_PADDING / 2,
-                      paddingRight: SECTION_PADDING / 2,
-                      //       ...getBorderValue("Left"),
-                    },
-                  },
-                }}
-              >
-                <TopThumbnailArticle post={initData.posts[3]} />
-              </Column>
-              <Column
-                style={{
-                  flex: 1,
-                }}
-                rStyle={{
-                  [MediaRule.MinWidth]: {
-                    [BREAKPOINTS.TABLET]: {
-                      paddingLeft: SECTION_PADDING / 2,
-                      paddingRight: SECTION_PADDING / 2,
-                      //       ...getBorderValue("Left"),
-                    },
-                  },
-                }}
-              >
-                <TopThumbnailArticle post={initData.posts[4]} />
-              </Column>
-            </DesktopRow>
-            <h1 id="communityletters">Letters to the Community</h1>
-            <DesktopRow
-              style={{
-                ...getBorderValue("Bottom"),
-              }}
-            >
-              <Column
-                style={{
-                  flex: 1,
-                }}
-                rStyle={{
-                  [MediaRule.MinWidth]: {
-                    [BREAKPOINTS.TABLET]: {
-                      paddingLeft: SECTION_PADDING / 2,
-                      paddingRight: SECTION_PADDING / 2,
-                      //       ...getBorderValue("Left"),
-                    },
-                  },
-                }}
-              >
-                <TopThumbnailArticle post={initData.posts[1]} />
-              </Column>
-              <Column
-                style={{
-                  flex: 1,
-                }}
-                rStyle={{
-                  [MediaRule.MinWidth]: {
-                    [BREAKPOINTS.TABLET]: {
-                      paddingLeft: SECTION_PADDING / 2,
-                      paddingRight: SECTION_PADDING / 2,
-                      //       ...getBorderValue("Left"),
-                    },
-                  },
-                }}
-              >
-                <TopThumbnailArticle post={initData.posts[2]} />
-              </Column>
-              <Column
-                style={{
-                  flex: 1,
-                }}
-                rStyle={{
-                  [MediaRule.MinWidth]: {
-                    [BREAKPOINTS.TABLET]: {
-                      paddingLeft: SECTION_PADDING / 2,
-                      paddingRight: SECTION_PADDING / 2,
-                      //       ...getBorderValue("Left"),
-                    },
-                  },
-                }}
-              >
-                <TopThumbnailArticle post={initData.posts[3]} />
-              </Column>
-              <Column
-                style={{
-                  flex: 1,
-                }}
-                rStyle={{
-                  [MediaRule.MinWidth]: {
-                    [BREAKPOINTS.TABLET]: {
-                      paddingLeft: SECTION_PADDING / 2,
-                      paddingRight: SECTION_PADDING / 2,
-                      //       ...getBorderValue("Left"),
-                    },
-                  },
-                }}
-              >
-                <TopThumbnailArticle post={initData.posts[4]} />
-              </Column>
-            </DesktopRow>
-            <h1 id="editorial">Editorial Board</h1>
-            <DesktopRow
-              style={{
-                ...getBorderValue("Bottom"),
-              }}
-            >
-              <Column
-                style={{
-                  flex: 1,
-                }}
-                rStyle={{
-                  [MediaRule.MinWidth]: {
-                    [BREAKPOINTS.TABLET]: {
-                      paddingLeft: SECTION_PADDING / 2,
-                      paddingRight: SECTION_PADDING / 2,
-                      //       ...getBorderValue("Left"),
-                    },
-                  },
-                }}
-              >
-                <TopThumbnailArticle post={initData.posts[1]} />
-              </Column>
-              <Column
-                style={{
-                  flex: 1,
-                }}
-                rStyle={{
-                  [MediaRule.MinWidth]: {
-                    [BREAKPOINTS.TABLET]: {
-                      paddingLeft: SECTION_PADDING / 2,
-                      paddingRight: SECTION_PADDING / 2,
-                      //       ...getBorderValue("Left"),
-                    },
-                  },
-                }}
-              >
-                <TopThumbnailArticle post={initData.posts[2]} />
-              </Column>
-              <Column
-                style={{
-                  flex: 1,
-                }}
-                rStyle={{
-                  [MediaRule.MinWidth]: {
-                    [BREAKPOINTS.TABLET]: {
-                      paddingLeft: SECTION_PADDING / 2,
-                      paddingRight: SECTION_PADDING / 2,
-                      //       ...getBorderValue("Left"),
-                    },
-                  },
-                }}
-              >
-                <TopThumbnailArticle post={initData.posts[3]} />
-              </Column>
-              <Column
-                style={{
-                  flex: 1,
-                }}
-                rStyle={{
-                  [MediaRule.MinWidth]: {
-                    [BREAKPOINTS.TABLET]: {
-                      paddingLeft: SECTION_PADDING / 2,
-                      paddingRight: SECTION_PADDING / 2,
-                      //       ...getBorderValue("Left"),
-                    },
-                  },
-                }}
-              >
-                <TopThumbnailArticle post={initData.posts[4]} />
-              </Column>
-            </DesktopRow>
+              Letters to the Community
+            </h1>
+            <ArticlesView
+              displayCategory={false}
+              displayExcerpt={false}
+              initPosts={initData.posts
+                .filter(post => post["postCategory"].includes(38657))
+                .slice(0, 4)}
+            />
             <h1>More Opinions Articles</h1>
           </>
         )}

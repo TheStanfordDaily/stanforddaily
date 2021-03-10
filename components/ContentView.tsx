@@ -175,6 +175,7 @@ const ContentView: React.ElementType<ContentViewProps> = ({
           ) : (
             undefined
           )}
+          {console.log(tsdAuthors)}
           {isPost && (
             <Byline>
               <span>{isHumor ? "Humor by" : "By"}</span>{" "}
