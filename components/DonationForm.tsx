@@ -170,7 +170,7 @@ const DonationForm: React.ElementType = ({
         }}
       >
         <a
-          href="https://alumni.stanforddaily.com/scholarships/the-opportunity-fellowship/"
+          href="http://collegemediamadness.com/"
           style={{
             textDecoration: "none",
             border: "none",
@@ -185,7 +185,7 @@ const DonationForm: React.ElementType = ({
             ...FONTS.SECTION_TITLE,
           }}
         >
-          We need your help: All banner donations made today will support The Daily's new staff financial aid program.{" "}
+          It’s College Media Madness season! Help The Daily finish No. 1 against student-run newsrooms across the country.{" "}
           <br
             css={css`
               display: none;
