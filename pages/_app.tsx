@@ -333,7 +333,8 @@ export default class MyApp extends App {
           `,
             }}
           />
-          <!-- Flytedesk Digital --> <script type="text/javascript"> (function (w, d, s, p) { let f = d.getElementsByTagName(s)[0], j = d.createElement(s); j.id = 'flytedigital'; j.async = true; j.src = 'https://digital.flytedesk.com/js/head.js#' + p; f.parentNode.insertBefore(j, f); })(window, document, 'script', '8b8311a6-73a1-4434-a650-866bea833079'); </script> <!-- End Flytedesk Digital --> 
+          {/* Flytedesk Digital script */}
+          <script type="text/javascript"> (function (w, d, s, p) { let f = d.getElementsByTagName(s)[0], j = d.createElement(s); j.id = 'flytedigital'; j.async = true; j.src = 'https://digital.flytedesk.com/js/head.js#' + p; f.parentNode.insertBefore(j, f); })(window, document, 'script', '8b8311a6-73a1-4434-a650-866bea833079'); </script>
 
           {/* Content that appears on site pages */}
         </Head>
