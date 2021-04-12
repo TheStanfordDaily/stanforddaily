@@ -170,7 +170,7 @@ const DonationForm: React.ElementType = ({
         }}
       >
         <a
-          href="http://collegemediamadness.com/"
+          href="https://givebutter.com/h0CJIU/"
           style={{
             textDecoration: "none",
             border: "none",
@@ -185,7 +185,7 @@ const DonationForm: React.ElementType = ({
             ...FONTS.SECTION_TITLE,
           }}
         >
-          It’s College Media Madness season! Help The Daily finish No. 1 against student-run newsrooms across the country.{" "}
+          We need your help: All banner donations made today will support The Daily's new staff financial aid program.{" "}
           <br
             css={css`
               display: none;
