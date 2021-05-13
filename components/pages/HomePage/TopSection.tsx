@@ -298,10 +298,10 @@ export const TopSection: React.ElementType = ({ style }) => {
           />
           <SmallSection
             className="small-section small-section-newsletters"
-            url="/list-of-eligible-voters-for-the-stanford-dailys-may-2021-election/"
+            url="/high-school-programs/"
             imageUrl="https://wp.stanforddaily.com/wp-content/uploads/2020/11/cardinal-red-daily-s-logo.png"
-            header="Eligible voter list"
-            title="For Daily elections"
+            header="Summer Program | APPLY NOW"
+            title="For high schoolers"
             newTab
           />
           {/* <SmallSection
