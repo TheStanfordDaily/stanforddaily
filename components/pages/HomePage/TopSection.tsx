@@ -148,9 +148,14 @@ const SmallSection: React.ElementType<SmallSectionProps> = ({
 };
 
 // For the social media accounts on the right side of the top section (below nav bar)
-const LogoIconWithLink: React.ElementType = ({ url, LogoComponent }: any) => (
+const LogoIconWithLink: React.ElementType = ({
+  url,
+  aria,
+  LogoComponent,
+}: any) => (
   <a
     href={url}
+    aria-label={aria}
     target="_blank"
     rel="noopener noreferrer"
     style={{
@@ -336,13 +341,26 @@ export const TopSection: React.ElementType = ({ style }) => {
         </ViewRow>
         <ViewRow>
           <Global styles={globalStyles} />
-          <LogoIconWithLink url={LINKS.FACEBOOK} LogoComponent={LogoFacebook} />
-          <LogoIconWithLink url={LINKS.TWITTER} LogoComponent={LogoTwitter} />
+          <LogoIconWithLink
+            url={LINKS.FACEBOOK}
+            aria="Facebook"
+            LogoComponent={LogoFacebook}
+          />
+          <LogoIconWithLink
+            url={LINKS.TWITTER}
+            aria="Twitter"
+            LogoComponent={LogoTwitter}
+          />
           <LogoIconWithLink
             url={LINKS.INSTAGRAM}
+            aria="Instagram"
             LogoComponent={LogoInstagram}
           />
-          <LogoIconWithLink url={LINKS.YOUTUBE} LogoComponent={LogoYoutube} />
+          <LogoIconWithLink
+            url={LINKS.YOUTUBE}
+            aria="Youtube"
+            LogoComponent={LogoYoutube}
+          />
           <TextButtonWithLink
             url="/tips/"
             title="Send Tips"
