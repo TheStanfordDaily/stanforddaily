@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import App from "next/app";
 import Head from "next/head";
 import { Global, css } from "@emotion/core";
@@ -156,6 +156,26 @@ const SiteHeader: React.ElementType = (props: any) => {
               }}
             />
           </a> */}
+          <a
+            css={css`
+              background: white;
+              color: red;
+              font-size: 24px;
+              height: 30px;
+              left: 40%;
+              padding: 8px;
+              position: absolute;
+              transform: translateY(-100%);
+              transition: transform 0.3s;
+              &:focus {
+                transform: translateY(0%);
+              }
+            `}
+            className="skip-to-content-link"
+            href="#main-content"
+          >
+            Skip to main content
+          </a>
           <DonationForm
             currentPageUrl={STRINGS.WEBSITE_URL}
             bannerLocation={"Banner"}
@@ -334,7 +354,8 @@ export default class MyApp extends App {
             }}
           />
           {/* Flytedesk Digital script */}
-          <script type="text/javascript"
+          <script
+            type="text/javascript"
             dangerouslySetInnerHTML={{
               __html: `
             (function (w, d, s, p) { let f = d.getElementsByTagName(s)[0], j = d.createElement(s); j.id = 'flytedigital'; j.async = true; j.src = 'https://digital.flytedesk.com/js/head.js#' + p; f.parentNode.insertBefore(j, f); })(window, document, 'script', '8b8311a6-73a1-4434-a650-866bea833079');
@@ -369,7 +390,7 @@ export default class MyApp extends App {
           <SiteHeader id="site-header" router={router} />
         )}
         <Layout>
-          <main id="site-main">
+          <main id="main-content">
             <Component {...pageProps} />
           </main>
         </Layout>
