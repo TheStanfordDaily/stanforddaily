@@ -137,39 +137,6 @@ const SiteHeader: React.ElementType = (props: any) => {
             ...containerRStyle,
           }}
         >
-          {/* Apply banner */}
-          {/* <a href="http://apply.stanforddaily.com">
-            <img
-              src="https://wp.stanforddaily.com/wp-content/uploads/2020/04/apply_for_the_daily.jpg"
-              style={{
-                maxHeight: 100,
-                objectFit: "contain",
-                width: "100%",
-                display: "block",
-                margin: "auto",
-                marginBottom: 20,
-              }}
-            />
-            </a>*/}
-          {/* Readers survey */}
-          {/* <a
-            target="_blank"
-            href="https://docs.google.com/forms/d/e/1FAIpQLScPzcqoZYTfUx5hPIe56Ils1gKn0ibO27ugWmiJVMKADdgdpA/viewform"
-          >
-            <img
-              src="https://wp.stanforddaily.com/wp-content/uploads/2020/05/reader-survey-5-12-20.jpg"
-              style={{
-                maxHeight: 100,
-                objectFit: "contain",
-                width: "100%",
-                display: "block",
-                margin: "auto",
-                marginBottom: 0,
-                marginTop: 0,
-                // backgroundColor: "#8C1515"
-              }}
-            />
-          </a> */}
           <a
             css={css`
               background: white;
@@ -207,13 +174,6 @@ const SiteHeader: React.ElementType = (props: any) => {
           [MediaRule.MinWidth]: {
             [BREAKPOINTS.TABLET]: {
               ...getBorderValue("Bottom"),
-            },
-          },
-          [MediaRule.MaxWidth]: {
-            [BREAKPOINTS.MAX_WIDTH.TABLET]: {
-              // position: "sticky",
-              // top: 0,
-              // zIndex: 999,
             },
           },
         }}

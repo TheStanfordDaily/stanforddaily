@@ -17,7 +17,6 @@ import HumorGlobal from "./HumorGlobal";
 import DataVizGlobal from "./DataVizGlobal";
 import FooterDonationBanner from "components/FooterDonationBanner";
 import css from "@emotion/css";
-import axios from "axios";
 
 import ContentViewStyles, {
   centerOuterContentStyle,
@@ -84,13 +83,6 @@ const ContentView: React.ElementType<ContentViewProps> = ({
     commentStatus, // determines whether Disqus appears below article
     guid,
   } = post;
-
-  if (postId === 1150447) {
-    console.log(postId);
-    axios.get(
-      "https://stanforddaily.com/wp-json/wp/v2/posts/" + postId + "/views",
-    );
-  }
 
   const {
     urls: { full: thumbnailUrl = null } = {},
@@ -201,7 +193,6 @@ const ContentView: React.ElementType<ContentViewProps> = ({
               ),
             }}
           />
-          {console.log(postContent)}
         </RView>
         {isPost && ( // For article/content posts, we want donation box and author box at bottom
           <footer css={centerOuterContentStyle} style={{ marginTop: 30 }}>

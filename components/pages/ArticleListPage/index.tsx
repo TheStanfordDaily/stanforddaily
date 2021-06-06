@@ -56,7 +56,6 @@ export default class ArticleListPage extends React.Component<
       <>
         {initData.tsdMeta["title"] === "US Elections 2020" && (
           <>
-            {console.log(initData)}
             <DesktopRow
               style={{
                 ...getBorderValue("Bottom"),
@@ -69,9 +68,7 @@ export default class ArticleListPage extends React.Component<
                 rStyle={{
                   [MediaRule.MinWidth]: {
                     [BREAKPOINTS.TABLET]: {
-                      // paddingLeft: SECTION_PADDING / 2,
                       paddingRight: SECTION_PADDING / 2,
-                      //       ...getBorderValue("Left"),
                     },
                   },
                 }}
@@ -125,9 +122,6 @@ export default class ArticleListPage extends React.Component<
                   we can update the map!
                 </Text>
                 <UsElections2020Map />
-                {console.log(initData.tsdMeta)}
-                {/* <TopThumbnailArticle post={initData.posts[2]} />
-                <TopThumbnailArticle post={initData.posts[2]} /> */}
               </Column>
               <Column
                 style={{
@@ -158,7 +152,6 @@ export default class ArticleListPage extends React.Component<
                       id={"1322794375890436099"}
                       slug={null}
                       autoHeight={true}
-                      //options={{ height: 400 }}
                     />
                   </div>
                 </div>

@@ -22,11 +22,6 @@ const HumorGlobal: React.ElementType = () => {
           ".tsd-article h2, .tsd-article a, .tsd-article time, #main-article-content": {
             fontFamily: "'Roboto', sans-serif !important",
           },
-          ".tsd-article": {
-            // backgroundColor: "#fee",
-            // borderRadius: "10px",
-            // padding: "24px",
-          },
           ".small-section": {
             display: "none",
           },

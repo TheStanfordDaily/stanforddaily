@@ -35,16 +35,6 @@ export const CartoonsSection: React.ElementType = ({
           />
         </SectionTitleWithLink>
         <LinkToArticle post={content[0]}>
-          {/* <Image
-            source={{
-              uri: content[0].thumbnailInfo.urls.full,
-            }}
-            resizeMode="contain"
-            style={{
-              width: "100%",
-              height: 400,
-            }}
-          /> */}
           <img
             src={content[0].thumbnailInfo.urls.full}
             alt={content[0].thumbnailInfo.alt}

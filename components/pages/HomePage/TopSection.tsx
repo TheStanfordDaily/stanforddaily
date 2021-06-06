@@ -30,9 +30,7 @@ export interface SmallSectionProps {
   imageUrl: string;
   imageAlt: string;
   header: string;
-  //mobile_header?: string;
   title: string;
-  //mobile_title?: string;
   newTab?: boolean;
   className?: string;
   noRightMarginOnMobile?: boolean;
@@ -45,9 +43,7 @@ const SmallSection: React.ElementType<SmallSectionProps> = ({
   imageUrl,
   imageAlt,
   header,
-  //mobile_header,
   title,
-  //mobile_title,
   newTab,
   className,
   noRightMarginOnMobile,
@@ -95,29 +91,9 @@ const SmallSection: React.ElementType<SmallSectionProps> = ({
                 color: STANFORD_COLORS.CARDINAL_DARK_RED,
                 fontSize: 12,
               }}
-              // css={css`
-              //   @media (max-width: ${BREAKPOINTS.MAX_WIDTH.TABLET}px) {
-              //     font-weight: bold;
-              //   }
-              // `}
             >
               {header}
             </Text>
-            {/* <Text
-              style={{
-                ...FONTS.AUXILIARY,
-                color: STANFORD_COLORS.CARDINAL_DARK_RED,
-                fontSize: 12,
-              }}
-              css={css`
-                @media (max-width: ${!BREAKPOINTS.MAX_WIDTH.TABLET}px) {
-                  display: none;
-                  font-weight: bold;
-                }
-              `}
-            >
-              {mobile_header}
-            </Text> */}
           </View>
           <View>
             <Text
@@ -130,20 +106,7 @@ const SmallSection: React.ElementType<SmallSectionProps> = ({
             >
               {title}
             </Text>
-            {/* <Text
-              css={css`
-                font-weight: bold;
-                @media (max-width: ${!BREAKPOINTS.MAX_WIDTH.TABLET}px) {
-                  display: none;
-                }
-              `}
-            >
-              {mobile_title}
-            </Text> */}
           </View>
-          {/* <View>
-          <Text>Subtitle here lorem</Text>
-        </View> */}
         </View>
       </View>
     </a>
@@ -280,19 +243,6 @@ export const TopSection: React.ElementType = ({ style }) => {
               }
             `}
           />
-          {/* <SmallSection
-            className="small-section small-section-issuu"
-            url={LINKS.ISSUU}
-            imageUrl={LINKS.ISSUU_LOGO}
-            header="Newspaper & Magazine"
-            title="Read Our Print Issues"
-            newTab
-            css={css`
-              @media (max-width: ${BREAKPOINTS.MAX_WIDTH.TABLET}px) {
-                display: none;
-              }
-            `}
-          /> */}
           <SmallSection
             className="small-section small-section-sodp"
             url={LINKS.SODP}
@@ -343,35 +293,6 @@ export const TopSection: React.ElementType = ({ style }) => {
               }
             `}
           />
-          {/* <SmallSection
-              imageUrl="https://www.stanforddaily.com/wp-content/uploads/2018/10/Stanford_School_of_Medicine_Li_Ka_Shing_Center.jpg"
-              header="Issue #"
-              title="The Daily Magazine"
-            /> */}
-          {/* <SmallSection
-              className="small-section small-section-podcasts"
-              url="/category/podcasts/"
-              imageUrl={LINKS.DAILY_BREW_LOGO}
-              header="Podcasts"
-              title="The Daily Brew & More"
-            /> */}
-          {/* <SmallSection
-            className="small-section small-section-adopt-a-small-business"
-            url="/adopt-a-small-business-with-stanford-daily-advertising"
-            imageUrl={LINKS.ADOPT_A_BUSINESS_LOGO}
-            header="Adopt a" //"Stanford Daily Advertising"
-            //mobile_header="Adopt a"
-            title="Business" //"Adopt a Small Business"
-            //mobile_title="Business"
-          /> */}
-          {/* <SmallSection
-            className="small-section small-section-elections"
-            url="/list-of-eligible-voters-for-the-stanford-dailys-january-2021-elections/"
-            imageUrl="https://wp.stanforddaily.com/wp-content/uploads/2020/11/cardinal-red-daily-s-logo.png"
-            header="Eligible voter list"
-            title="For Daily elections"
-            noRightMarginOnMobile={true}
-          /> */}
         </ViewRow>
         <ViewRow>
           <Global styles={globalStyles} />
