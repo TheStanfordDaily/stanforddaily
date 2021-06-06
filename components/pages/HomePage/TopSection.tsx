@@ -28,6 +28,7 @@ const globalStyles = {
 export interface SmallSectionProps {
   url: string;
   imageUrl: string;
+  imageAlt: string;
   header: string;
   //mobile_header?: string;
   title: string;
@@ -42,6 +43,7 @@ export interface SmallSectionProps {
 const SmallSection: React.ElementType<SmallSectionProps> = ({
   url,
   imageUrl,
+  imageAlt,
   header,
   //mobile_header,
   title,
@@ -74,6 +76,7 @@ const SmallSection: React.ElementType<SmallSectionProps> = ({
       >
         <img
           src={imageUrl}
+          alt={imageAlt}
           style={{
             width: 50,
             height: 50,
@@ -263,6 +266,7 @@ export const TopSection: React.ElementType = ({ style }) => {
             className="small-section small-section-yearbook"
             url="/yearbook/"
             imageUrl={LINKS.YEARBOOK_LOGO}
+            imageAlt="The cover of a former Quad yearbook"
             header="STANFORD STUDENTS"
             title="Buy your 2020-21 yearbook"
             newTab
@@ -293,6 +297,7 @@ export const TopSection: React.ElementType = ({ style }) => {
             className="small-section small-section-sodp"
             url={LINKS.SODP}
             imageUrl={LINKS.SODP_LOGO}
+            imageAlt="The Stanford Daily logo, a red S over a white background in Canterbury font"
             header="Stanford Open Data Portal"
             title="Explore Open Data"
             newTab
@@ -310,6 +315,7 @@ export const TopSection: React.ElementType = ({ style }) => {
             className="small-section small-section-join"
             url="/submitting-to-the-daily/"
             imageUrl={LINKS.NEWSLETTER_LOGO}
+            imageAlt="The Stanford Daily logo, a white S over a red background in Canterbury font"
             header="Submit work" //"Fall Workshops (all remote)"
             // mobile_header="High Schoolers"
             title="Or join us" //"Programs for High Schoolers"
@@ -326,6 +332,7 @@ export const TopSection: React.ElementType = ({ style }) => {
             className="small-section small-section-newsletters"
             url="/high-school-programs/"
             imageUrl="https://wp.stanforddaily.com/wp-content/uploads/2020/11/cardinal-red-daily-s-logo.png"
+            imageAlt="The Stanford Daily logo, a red S in Canterbury font"
             header="Summer Program | APPLY NOW"
             title="For high schoolers"
             newTab

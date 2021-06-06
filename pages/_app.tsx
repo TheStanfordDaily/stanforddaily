@@ -75,7 +75,7 @@ const HeaderLogo: React.ElementType = () => {
             >
               <img
                 src="https://raw.githubusercontent.com/TheStanfordDaily/stanforddaily-graphic-assets/main/DailyLogo/DailyLogo.png"
-                alt="The Stanford Daily"
+                alt="The words 'The Stanford Daily' in Canterbury font"
                 css={{
                   imageRendering: "-webkit-optimize-contrast",
                   height: "auto",
@@ -104,7 +104,7 @@ const HeaderLogo: React.ElementType = () => {
             >
               <img
                 src="/static/94305-logo.png"
-                alt="The Stanford Daily"
+                alt="The Stanford Daily 94305 data team logo"
                 css={{
                   height: "auto",
                   width: "120%",

@@ -44,6 +44,7 @@ const AuthorBox: React.ElementType<AuthorBoxProps> = ({
               ? "/static/cardinal-red-daily-s-logo.png"
               : avatarUrl
           }
+          alt="The author's profile picture"
           style={{
             width: 100,
             height: 100,

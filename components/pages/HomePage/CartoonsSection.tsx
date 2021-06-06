@@ -47,6 +47,7 @@ export const CartoonsSection: React.ElementType = ({
           /> */}
           <img
             src={content[0].thumbnailInfo.urls.full}
+            alt={content[0].thumbnailInfo.alt}
             style={{ width: "100%" }}
           />
         </LinkToArticle>
