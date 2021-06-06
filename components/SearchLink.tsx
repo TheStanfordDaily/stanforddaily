@@ -29,6 +29,13 @@ const SearchInput = styled(
   }
 `;
 
+const SearchButton = styled.button`
+  &:focus {
+    padding: 3px !important;
+    border: 2px solid yellow !important;
+  }
+`;
+
 export default () => (
   <RView
     style={{
@@ -57,8 +64,14 @@ export default () => (
         id="s"
         required
         style={{ fontSize: 12.5 }}
+        css={css`
+          &:focus {
+            padding: 3px;
+            outline: 2px solid yellow;
+          }
+        `}
       />
-      <button
+      <SearchButton
         type="submit"
         style={{
           ...inputStyle,
@@ -67,7 +80,7 @@ export default () => (
         }}
       >
         <IosSearch color="#f5f5f5" />
-      </button>
+      </SearchButton>
     </form>
   </RView>
 );

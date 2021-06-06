@@ -61,6 +61,10 @@ const DonationForm: React.ElementType = ({
           &:visited {
             color: white;
           }
+          &:focus {
+            padding: 3px;
+            outline: 2px solid yellow !important;
+          }
         `}
       >
         Donate
@@ -184,8 +188,15 @@ const DonationForm: React.ElementType = ({
             fontSize: "200%",
             ...FONTS.SECTION_TITLE,
           }}
+          css={css`
+            &:focus {
+              padding: 3px;
+              outline: 2px solid yellow !important;
+            }
+          `}
         >
-          We need your help: All banner donations made today will support The Daily's new staff financial aid program.{" "}
+          We need your help: All banner donations made today will support The
+          Daily's new staff financial aid program.{" "}
           <br
             css={css`
               display: none;
@@ -194,9 +205,7 @@ const DonationForm: React.ElementType = ({
               }
             `}
           />
-          <span style={{ color: "#FF9999" }}>
-            Learn more and donate.
-          </span>
+          <span style={{ color: "#FF9999" }}>Learn more and donate.</span>
           <br
             css={css`
               display: none;
@@ -298,6 +307,10 @@ const DonationForm: React.ElementType = ({
             }
             &:visited {
               color: white;
+            }
+            &:focus {
+              padding: 3px;
+              outline: 2px solid yellow !important;
             }
           `}
         >

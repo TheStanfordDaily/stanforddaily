@@ -65,6 +65,13 @@ const HeaderLogo: React.ElementType = () => {
                 height: "100%",
               }}
               title="The Stanford Daily"
+              aria-label="Go to homepage"
+              css={css`
+                &:focus {
+                  padding: 3px;
+                  outline: 2px solid black;
+                }
+              `}
             >
               <img
                 src="https://raw.githubusercontent.com/TheStanfordDaily/stanforddaily-graphic-assets/main/DailyLogo/DailyLogo.png"
@@ -87,6 +94,13 @@ const HeaderLogo: React.ElementType = () => {
                 alignItems: "center",
                 height: "100%",
               }}
+              aria-label="Go to homepage"
+              css={css`
+                &:focus {
+                  padding: 3px;
+                  outline: 2px solid black;
+                }
+              `}
             >
               <img
                 src="/static/94305-logo.png"
@@ -163,12 +177,13 @@ const SiteHeader: React.ElementType = (props: any) => {
               font-size: 24px;
               height: 30px;
               left: 40%;
-              padding: 8px;
+              padding: 6px;
               position: absolute;
               transform: translateY(-100%);
               transition: transform 0.3s;
               &:focus {
                 transform: translateY(0%);
+                outline: 4px solid yellow;
               }
             `}
             className="skip-to-content-link"

@@ -162,6 +162,12 @@ const LogoIconWithLink: React.ElementType = ({
       display: "inline-flex",
       marginRight: 20,
     }}
+    css={css`
+      &:focus {
+        padding: 3px;
+        outline: 2px solid black !important;
+      }
+    `}
   >
     <LogoComponent className="headerLogoIcon" fontSize="25px" />
   </a>
@@ -195,7 +201,8 @@ const TextButtonWithLink: React.ElementType = ({
       }}
       css={css`
         color: #8c1515;
-        &:hover {
+        &:hover,
+        &:focus {
           color: white !important;
           background-color: #8c1515 !important;
         }
@@ -263,6 +270,10 @@ export const TopSection: React.ElementType = ({ style }) => {
               @media (max-width: ${BREAKPOINTS.MAX_WIDTH.TABLET}px) {
                 display: none;
               }
+              &:focus {
+                padding: 3px;
+                outline: 2px solid black !important;
+              }
             `}
           />
           {/* <SmallSection
@@ -289,6 +300,10 @@ export const TopSection: React.ElementType = ({ style }) => {
               @media (max-width: ${BREAKPOINTS.MAX_WIDTH.TABLET}px) {
                 display: none;
               }
+              &:focus {
+                padding: 3px;
+                outline: 2px solid black !important;
+              }
             `}
           />
           <SmallSection
@@ -300,6 +315,12 @@ export const TopSection: React.ElementType = ({ style }) => {
             title="Or join us" //"Programs for High Schoolers"
             // mobile_title="Fall Workshops"
             newTab
+            css={css`
+              &:focus {
+                padding: 3px;
+                outline: 2px solid black !important;
+              }
+            `}
           />
           <SmallSection
             className="small-section small-section-newsletters"
@@ -308,6 +329,12 @@ export const TopSection: React.ElementType = ({ style }) => {
             header="Summer Program | APPLY NOW"
             title="For high schoolers"
             newTab
+            css={css`
+              &:focus {
+                padding: 3px;
+                outline: 2px solid black !important;
+              }
+            `}
           />
           {/* <SmallSection
               imageUrl="https://www.stanforddaily.com/wp-content/uploads/2018/10/Stanford_School_of_Medicine_Li_Ka_Shing_Center.jpg"

@@ -129,6 +129,7 @@ export default class HomePage extends React.Component<IndexProps, IndexState> {
           <SectionStyle>
             <SectionTitleWithLink
               category={homePosts.tsdMeta.categories["arts-life"]}
+              homePageSpecial={true}
             >
               <Image
                 source={{
@@ -190,6 +191,7 @@ export default class HomePage extends React.Component<IndexProps, IndexState> {
           <Section>
             <SectionTitleWithLink
               category={homePosts.tsdMeta.categories.sports}
+              homePageSpecial={true}
             >
               <Image
                 source={{

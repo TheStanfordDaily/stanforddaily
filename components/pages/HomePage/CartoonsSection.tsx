@@ -21,7 +21,7 @@ export const CartoonsSection: React.ElementType = ({
   ) {
     return (
       <RView WebTag={Section} NativeTag={Section} {...props}>
-        <SectionTitleWithLink category={category}>
+        <SectionTitleWithLink category={category} homePageSpecial={true}>
           <Image
             source={{
               uri: "/static/sectionHeaders/cartoons.png",

@@ -3,6 +3,7 @@ import { Text, View, Platform } from "react-native";
 import { FONTS } from "helpers/constants";
 import { Author } from "helpers/wpapi";
 import Link from "../../Link";
+import css from "@emotion/css";
 
 // Used for byine within a post, NOT on homepage, ArticleList pages, etc.
 export const AuthorsTextWithLink: React.ElementType = ({
@@ -36,6 +37,12 @@ export const AuthorsTextWithLink: React.ElementType = ({
               display: "inline-block",
               ...aStyle,
             }}
+            css={css`
+              &:focus {
+                padding: 3px;
+                outline: 2px solid black !important;
+              }
+            `}
             {...props}
           >
             {author.displayName}

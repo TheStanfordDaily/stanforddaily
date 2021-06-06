@@ -9,7 +9,7 @@ export const ThumbnailImageWithLink: React.ElementType = (props: {
 }) => {
   const { post } = props;
   return (
-    <LinkToArticle post={post}>
+    <LinkToArticle post={post} linkTabIndex={-1}>
       <ThumbnailImage {...props} />
     </LinkToArticle>
   );

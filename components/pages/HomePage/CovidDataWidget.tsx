@@ -1,5 +1,6 @@
 import React from "react";
 import RView from "emotion-native-media-query";
+import css from "@emotion/css";
 
 export const CovidDataWidget: React.ElementType = ({
   style,
@@ -55,6 +56,12 @@ export const CovidDataWidget: React.ElementType = ({
               title="Tracking COVID-19 at Stanford"
               style={{ color: "inherit" }}
               href="https://www.stanforddaily.com/2020/10/11/tracking-covid-19-at-stanford/"
+              css={css`
+                &:focus {
+                  padding: 3px;
+                  outline: 2px solid black !important;
+                }
+              `}
             >
               Tracking COVID-19 at Stanford
             </a>
@@ -166,8 +173,7 @@ export const CovidDataWidget: React.ElementType = ({
             <div>
               <strong style={{ fontSize: "3vh" }}>No data</strong>
             </div>
-            <div style={{ fontSize: "1.75vh", lineHeight: "normal" }}>
-            </div>
+            <div style={{ fontSize: "1.75vh", lineHeight: "normal" }}></div>
           </div>
         </div>
       </div>

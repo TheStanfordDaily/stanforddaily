@@ -43,6 +43,7 @@ export const TextOnlyArticle: React.ElementType = ({
             style={{ color: textColor }}
             isHumor={isHumor}
             isHumor2={isHumor2}
+            hasCustomOutline={true}
           />
         </View>
       )}

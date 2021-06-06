@@ -451,6 +451,8 @@ export const FooterContent: React.ElementType = ({ style }: any) => {
                   fontSize: 16,
                   fontWeight: "bold",
                 }}
+                hasCustomOutline={true}
+                isInNav={true}
               />
               {Object.values(category.children).map(subCategory => {
                 return (
@@ -461,6 +463,8 @@ export const FooterContent: React.ElementType = ({ style }: any) => {
                       color: STANFORD_COLORS.WHITE,
                       textTransform: "none",
                     }}
+                    hasCustomOutline={true}
+                    isInNav={true}
                   />
                 );
               })}
@@ -475,7 +479,16 @@ export const FooterContent: React.ElementType = ({ style }: any) => {
           </BottomText>
           <BottomText style={{ fontWeight: "bold" }}>
             <Link href="/[year]/" as="/privacy-policy/">
-              <a style={bottomLinkStyle} title="Privacy Policy">
+              <a
+                style={bottomLinkStyle}
+                title="Privacy Policy"
+                css={css`
+                  &:focus {
+                    padding: 3px;
+                    outline: 2px solid yellow;
+                  }
+                `}
+              >
                 Privacy Policy
               </a>
             </Link>{" "}
@@ -484,6 +497,12 @@ export const FooterContent: React.ElementType = ({ style }: any) => {
               style={bottomLinkStyle}
               href="https://apps.apple.com/us/app/stanford-daily/id1341270063" // add to constants
               title="iOS App"
+              css={css`
+                &:focus {
+                  padding: 3px;
+                  outline: 2px solid yellow;
+                }
+              `}
             >
               iOS App
             </a>{" "}
@@ -492,6 +511,12 @@ export const FooterContent: React.ElementType = ({ style }: any) => {
               style={bottomLinkStyle}
               href="https://play.google.com/store/apps/details?id=com.Stanford.Daily.App&hl=en_US"
               title="Google Play App"
+              css={css`
+                &:focus {
+                  padding: 3px;
+                  outline: 2px solid yellow;
+                }
+              `}
             >
               Google Play App
             </a>
@@ -504,11 +529,27 @@ export const FooterContent: React.ElementType = ({ style }: any) => {
               style={bottomLinkStyle}
               href="https://wordpress.org/"
               title="WordPress"
+              css={css`
+                &:focus {
+                  padding: 3px;
+                  outline: 2px solid yellow;
+                }
+              `}
             >
               WordPress
             </a>{" "}
             and{" "}
-            <a style={bottomLinkStyle} href="https://expo.io/" title="Expo">
+            <a
+              style={bottomLinkStyle}
+              href="https://expo.io/"
+              title="Expo"
+              css={css`
+                &:focus {
+                  padding: 3px;
+                  outline: 2px solid yellow;
+                }
+              `}
+            >
               Expo
             </a>{" "}
             | Theme by{" "}
@@ -516,12 +557,28 @@ export const FooterContent: React.ElementType = ({ style }: any) => {
               style={bottomLinkStyle}
               href="https://github.com/TheStanfordDaily/"
               title="The Stanford Daily Tech Team"
+              css={css`
+                &:focus {
+                  padding: 3px;
+                  outline: 2px solid yellow;
+                }
+              `}
             >
               TSD Tech Team
             </a>
           </BottomText>
           <BottomText style={{ textTransform: "none" }}>
-            <a style={bottomLinkStyle} href="/donate/" title="Donate">
+            <a
+              style={bottomLinkStyle}
+              href="/donate/"
+              title="Donate"
+              css={css`
+                &:focus {
+                  padding: 3px;
+                  outline: 2px solid yellow;
+                }
+              `}
+            >
               Donate
             </a>{" "}
             and support The Daily when you shop on{" "}
@@ -529,6 +586,12 @@ export const FooterContent: React.ElementType = ({ style }: any) => {
               style={bottomLinkStyle}
               href="https://smile.amazon.com/"
               title="Amazon Smile"
+              css={css`
+                &:focus {
+                  padding: 3px;
+                  outline: 2px solid yellow;
+                }
+              `}
             >
               Amazon
             </a>

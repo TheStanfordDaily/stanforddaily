@@ -184,6 +184,8 @@ export const TopBarLinks: React.ElementType = ({ itemStyle }: any) => {
               key={category.id}
               category={category}
               style={actualStyle}
+              hasCustomOutline={true}
+              isInNav={true}
             />
           );
         } else {
@@ -202,7 +204,16 @@ export const TopBarLinks: React.ElementType = ({ itemStyle }: any) => {
                 }
               `}
             >
-              <a href={link.url} style={{ color: "inherit" }}>
+              <a
+                href={link.url}
+                style={{ color: "inherit" }}
+                css={css`
+                  &:focus {
+                    padding: 3px;
+                    outline: 2px solid yellow;
+                  }
+                `}
+              >
                 {link.name}
               </a>
             </Text>

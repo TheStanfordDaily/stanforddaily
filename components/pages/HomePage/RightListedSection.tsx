@@ -21,6 +21,7 @@ export const RightListedSection: React.ElementType<SectionProps> = ({
 }: SectionProps) => {
   return (
     <RView WebTag={SectionTag} NativeTag={SectionTag} {...remainingProps}>
+      {console.log(category.name)}
       <RView style={innerStyle} rStyle={innerRStyle}>
         {sectionTitle && (
           <SectionTitleWithLink
@@ -28,6 +29,7 @@ export const RightListedSection: React.ElementType<SectionProps> = ({
               ...sectionTitleStyle,
             }}
             category={category}
+            homePageSpecial={category.name === "The Grind" ? true : false}
           >
             {sectionTitle}
           </SectionTitleWithLink>
