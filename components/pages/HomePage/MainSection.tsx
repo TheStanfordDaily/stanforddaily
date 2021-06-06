@@ -2,7 +2,7 @@ import React from "react";
 import { MediaRule, mergeRStyle } from "emotion-native-media-query";
 import { BREAKPOINTS } from "helpers/constants";
 import { Section, SECTION_PADDING } from "components/Section";
-import { HeadlineArticle } from "./HeadlineArticle";
+import { HeadlineArticle } from "../../article-links-and-thumbnails/HeadlineArticle";
 import { TopThumbnailArticle } from "./TopThumbnailArticle";
 import { Column } from "./Column";
 import { DesktopRow } from "./DesktopRow";

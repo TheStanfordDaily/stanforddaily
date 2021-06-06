@@ -4,7 +4,7 @@ import RView from "emotion-native-media-query";
 import { Section } from "components/Section";
 import { SectionTitleWithLink } from "./SectionTitle";
 import { SectionProps } from "./SectionProps";
-import { LinkToArticle } from "./LinkToArticle";
+import { LinkToArticle } from "../../article-links-and-thumbnails/LinkToArticle";
 
 // Appears on right-hand side of homepage
 export const CartoonsSection: React.ElementType = ({

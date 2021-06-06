@@ -4,44 +4,8 @@ import css from "@emotion/css";
 
 // Donation form with 'large=true' appears on homepage, and
 // 'large=false" variety appears at the end of individual posts
-const DonationForm: React.ElementType = ({ large = true }) => {
+const DonationForm: React.ElementType = ({ large = false }) => {
   return large ? (
-    <div>
-      <a
-        href="/donate/"
-        style={{
-          ...FONTS.AUXILIARY,
-          borderRadius: 0,
-          lineHeight: "30px",
-          backgroundColor: STANFORD_COLORS.CARDINAL_RED,
-          display: "inlineBlock",
-          cursor: "pointer",
-          fontSize: 15,
-          fontWeight: 700,
-          letterSpacing: 1,
-          outline: 0,
-          padding: 10,
-          textDecoration: "none",
-        }}
-        css={css`
-          color: white;
-          &:hover {
-            background-color: #54100b !important;
-            color: white !important;
-          }
-          &:visited {
-            color: white;
-          }
-          &:focus {
-            padding: 3px;
-            outline: 2px solid yellow !important;
-          }
-        `}
-      >
-        Donate
-      </a>
-    </div>
-  ) : (
     <>
       <div
         style={{
@@ -157,6 +121,42 @@ const DonationForm: React.ElementType = ({ large = true }) => {
         </a>
       </div>
     </>
+  ) : (
+    <div>
+      <a
+        href="/donate/"
+        style={{
+          ...FONTS.AUXILIARY,
+          borderRadius: 0,
+          lineHeight: "30px",
+          backgroundColor: STANFORD_COLORS.CARDINAL_RED,
+          display: "inlineBlock",
+          cursor: "pointer",
+          fontSize: 15,
+          fontWeight: 700,
+          letterSpacing: 1,
+          outline: 0,
+          padding: 10,
+          textDecoration: "none",
+        }}
+        css={css`
+          color: white;
+          &:hover {
+            background-color: #54100b !important;
+            color: white !important;
+          }
+          &:visited {
+            color: white;
+          }
+          &:focus {
+            padding: 3px;
+            outline: 2px solid yellow !important;
+          }
+        `}
+      >
+        Donate
+      </a>
+    </div>
   );
 };
 

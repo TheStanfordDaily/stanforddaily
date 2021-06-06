@@ -1,10 +1,10 @@
 import React from "react";
 import { View } from "react-native";
 import { Article, ArticleHeader } from "components/Article";
-import AuthorAndDateView from "components/AuthorAndDateView";
+import AuthorAndDateView from "components/article-links-and-thumbnails/AuthorAndDateView";
 import { ArticleProps } from "./ArticleProps";
-import { ThumbnailImageWithLink } from "./ThumbnailImageWithLink";
-import { ArticleTitleWithLink } from "./ArticleTitleWithLink";
+import { ThumbnailImageWithLink } from "../../article-links-and-thumbnails/ThumbnailImageWithLink";
+import { ArticleTitleWithLink } from "../../article-links-and-thumbnails/ArticleTitleWithLink";
 
 // Currently used only for ArtsAndLifeSection on homepage
 export const SideThumbnailArticle: React.ElementType = ({

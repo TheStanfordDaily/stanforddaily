@@ -9,13 +9,13 @@ import LoadingView from "components/Loading";
 import WPHead from "components/webHelpers/WPHead";
 import WPFooter from "components/webHelpers/WPFooter";
 import styled from "@emotion/styled";
-import { AuthorsTextWithLink } from "./pages/HomePage/AuthorView";
+import { AuthorsTextWithLink } from "./AuthorView";
 import AuthorBox from "./AuthorBox";
 import { CategoryLink } from "./CategoryLink";
 import { DateWithAbbr } from "./DateView";
 import HumorGlobal from "./HumorGlobal";
 import DataVizGlobal from "./DataVizGlobal";
-import FooterDonationBanner from "components/FooterDonationBanner";
+import FooterDonationBanner from "components/PostFooterBox";
 import css from "@emotion/css";
 
 import ContentViewStyles, {

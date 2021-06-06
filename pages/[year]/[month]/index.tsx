@@ -1,3 +1,3 @@
-import TimeArticleListPage from "components/pages/TimeArticleListPage";
+import TimeArticleListPage from "components/pages/ArticleListPage/TimeArticleListPage";
 
 export default TimeArticleListPage;

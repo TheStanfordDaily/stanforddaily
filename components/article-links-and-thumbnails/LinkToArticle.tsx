@@ -1,7 +1,7 @@
 import React from "react";
 import { Platform } from "react-native";
 import { getPostPath, Post } from "helpers/wpapi";
-import Link from "../../Link";
+import Link from "../Link";
 import css from "@emotion/css";
 
 // Used in ArticleTitleWithLink and ThumbnailImageWithLink components,

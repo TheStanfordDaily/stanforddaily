@@ -2,8 +2,8 @@ import React from "react";
 import { Text, ScrollView, Platform } from "react-native";
 import { STANFORD_COLORS, FONTS, LINKS } from "helpers/constants";
 import { Category } from "helpers/wpapi";
-import { SECTION_PADDING } from "./Section";
-import { CategoryLink } from "./CategoryLink";
+import { SECTION_PADDING } from "../Section";
+import { CategoryLink } from "../CategoryLink";
 import SearchLink from "./SearchLink";
 import css from "@emotion/css";
 

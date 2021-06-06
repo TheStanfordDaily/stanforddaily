@@ -13,8 +13,8 @@ import {
 } from "helpers/constants";
 import { SectionStyle } from "components/Section";
 import { getBorderValue } from "components/pages/HomePage/getBorderValue";
-import { TopSection } from "components/pages/HomePage/TopSection";
-import { TopBarLinks } from "components/TopBarLinks";
+import { TopSection } from "components/site-header/TopSection";
+import { TopBarLinks } from "components/site-header/TopBarLinks";
 import { FooterContent } from "components/FooterContent";
 import DonationForm from "components/DonationForm";
 import Link from "../components/Link";
@@ -158,11 +158,7 @@ const SiteHeader: React.ElementType = (props: any) => {
           >
             Skip to main content
           </a>
-          <DonationForm
-            currentPageUrl={STRINGS.WEBSITE_URL}
-            bannerLocation={"Banner"}
-            large={false}
-          />
+          <DonationForm large={true} />
         </RView>
       </RView>
       <RView

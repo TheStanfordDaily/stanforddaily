@@ -66,8 +66,8 @@ const TextButtonWithLink: React.ElementType = ({
   </Link>
 );
 
-// Used in donation box at bottom of posts
-const FooterDonationBanner: React.ElementType = ({ currentPageUrl }) => {
+// Box at bottom of posts, right above AuthorBox
+const PostFooterBox: React.ElementType = () => {
   return (
     <div
       style={{
@@ -103,7 +103,7 @@ const FooterDonationBanner: React.ElementType = ({ currentPageUrl }) => {
         are tax-deductible.
       </p>
 
-      <DonationForm currentPageUrl={currentPageUrl} bannerLocation="Footer" />
+      <DonationForm />
       <br></br>
       <TextButtonWithLink
         url="/email-digests/"
@@ -137,4 +137,4 @@ const FooterDonationBanner: React.ElementType = ({ currentPageUrl }) => {
   );
 };
 
-export default FooterDonationBanner;
+export default PostFooterBox;

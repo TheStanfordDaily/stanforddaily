@@ -15,7 +15,7 @@ import {
 import { BREAKPOINTS } from "helpers/constants";
 import { getHomeAsync, Home } from "helpers/wpapi";
 import Wrapper from "components/Wrapper";
-import { TopBarLinks } from "components/TopBarLinks";
+import { TopBarLinks } from "components/site-header/TopBarLinks";
 import LoadingView from "components/Loading";
 import WPHead from "components/webHelpers/WPHead";
 import WPFooter from "components/webHelpers/WPFooter";
@@ -36,7 +36,7 @@ import { SectionStyle, Section, SECTION_PADDING } from "components/Section";
 import { SectionTitleWithLink } from "./SectionTitle";
 import { TopThumbnailArticle } from "./TopThumbnailArticle";
 import { TitleOnlyArticle } from "./TitleOnlyArticle";
-import { HeadlineArticle } from "./HeadlineArticle";
+import { HeadlineArticle } from "../../article-links-and-thumbnails/HeadlineArticle";
 import { PodcastWidget } from "./PodcastWidget";
 
 interface IndexProps {

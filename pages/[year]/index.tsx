@@ -1,5 +1,5 @@
 import React from "react";
-import PagePage from "components/pages/PagePage";
+import PagePage from "components/pages/WordPress Page";
 
 export default class FirstLevelPage extends React.Component<any, any> {
   static async getInitialProps(param): Promise<any> {

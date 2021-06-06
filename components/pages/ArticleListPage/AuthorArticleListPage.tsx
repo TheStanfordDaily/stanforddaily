@@ -6,7 +6,7 @@ import AuthorBox from "components/AuthorBox";
 import ArticleListPage, {
   ArticleListPageType,
   ArticleListPageState,
-} from "./ArticleListPage";
+} from "./index";
 
 async function _getAuthorData(
   slug: string,

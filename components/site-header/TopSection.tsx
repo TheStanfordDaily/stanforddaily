@@ -9,7 +9,7 @@ import LogoYoutube from "react-ionicons/lib/LogoYoutube";
 import { BREAKPOINTS, STANFORD_COLORS, FONTS, LINKS } from "helpers/constants";
 import { SectionStyle } from "components/Section";
 import styled from "@emotion/styled";
-import Link from "../../Link";
+import Link from "../Link";
 
 const globalStyles = {
   ".headerLogoIcon": {

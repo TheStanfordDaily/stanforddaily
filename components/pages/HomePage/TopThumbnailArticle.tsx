@@ -1,11 +1,11 @@
 import React from "react";
 import { Article, ArticleHeader } from "components/Article";
-import AuthorAndDateView from "components/AuthorAndDateView";
+import AuthorAndDateView from "components/article-links-and-thumbnails/AuthorAndDateView";
 import { BREAKPOINTS } from "helpers/constants";
 import css from "@emotion/css";
 import { ArticleProps } from "./ArticleProps";
-import { ArticleTitleWithLink } from "./ArticleTitleWithLink";
-import { ThumbnailImageWithLink } from "./ThumbnailImageWithLink";
+import { ArticleTitleWithLink } from "../../article-links-and-thumbnails/ArticleTitleWithLink";
+import { ThumbnailImageWithLink } from "../../article-links-and-thumbnails/ThumbnailImageWithLink";
 
 // For the top two articles on the leftmost side of the
 // News and Sports sections on the homepage

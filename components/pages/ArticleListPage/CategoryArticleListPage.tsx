@@ -14,7 +14,7 @@ import LoadingView from "components/Loading";
 import ArticleListPage, {
   ArticleListPageType,
   ArticleListPageState,
-} from "./ArticleListPage";
+} from "./index";
 
 async function _getCategoryData(
   slugs: string[],

@@ -1,3 +1,3 @@
-import CategoryArticleListPage from "components/pages/CategoryArticleListPage";
+import CategoryArticleListPage from "components/pages/ArticleListPage/CategoryArticleListPage";
 
 export default CategoryArticleListPage;

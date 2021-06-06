@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text } from "react-native";
 import { Author } from "helpers/wpapi";
 import { FONTS, COLORS, STANFORD_COLORS } from "helpers/constants";
-import { AuthorView } from "./pages/HomePage/AuthorView";
+import { AuthorView } from "./AuthorView";
 import css from "@emotion/css";
 
 // Describes requirement of having author property that is
