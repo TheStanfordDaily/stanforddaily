@@ -38,16 +38,16 @@ export default {
       fontSize: "3rem",
     },
     h2: {
-      fontSize: "2.6rem",
+      fontSize: "2.4rem",
     },
     h3: {
-      fontSize: "2.2rem",
-    },
-    h4: {
       fontSize: "1.9rem",
     },
-    h5: {
+    h4: {
       fontSize: "1.6rem",
+    },
+    h5: {
+      fontSize: "1.4rem",
     },
     h6: {
       fontSize: "1.3rem",

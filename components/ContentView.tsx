@@ -37,7 +37,7 @@ const PostSubtitle = styled.h2({
   ...centerContentStyle,
   ...FONTS.ARTICLE_TITLE,
   textAlign: "center",
-  fontSize: "2.6rem",
+  fontSize: "2.4rem",
   lineHeight: "normal",
   color: "gray",
 });
