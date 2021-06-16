@@ -51,13 +51,6 @@ export const TopBarLinks: React.ElementType = ({ itemStyle }: any) => {
       slug: "sports",
       url: "/category/sports/",
     },
-    // {
-    //   type: LinkType.CATEGORY,
-    //   id: 55043,
-    //   name: "SPONSORED",
-    //   slug: "sponsored",
-    //   url: "/category/sponsored/",
-    // },
     {
       type: LinkType.CATEGORY,
       id: 24,
@@ -86,13 +79,6 @@ export const TopBarLinks: React.ElementType = ({ itemStyle }: any) => {
       slug: "humor",
       url: "/category/humor/",
     },
-    // {
-    //   type: LinkType.CATEGORY,
-    //   id: 53462,
-    //   name: "Magazine",
-    //   slug: "magazine",
-    //   url: "/category/magazine/",
-    // },
     {
       type: LinkType.CATEGORY,
       id: 58277,
@@ -110,11 +96,6 @@ export const TopBarLinks: React.ElementType = ({ itemStyle }: any) => {
       name: "Video",
       url: LINKS.YOUTUBE,
     } as LinkLink,
-    // {
-    //   type: LinkType.LINK,
-    //   name: "Yearbook",
-    //   url: "/yearbook/",
-    // } as LinkLink,
     {
       type: LinkType.LINK,
       name: "Cartoons",
@@ -123,8 +104,7 @@ export const TopBarLinks: React.ElementType = ({ itemStyle }: any) => {
     {
       type: LinkType.LINK,
       name: "Resources",
-      url:
-        "https://docs.google.com/document/d/1qnj5jUz4HOvkyPf2wy8nBbUHYtk11jXng4VE2FugLXU/edit",
+      url: "/resources/",
     } as LinkLink,
     {
       type: LinkType.LINK,
