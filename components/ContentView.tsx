@@ -28,11 +28,8 @@ const PostTitle = styled.h1({
   ...centerContentStyle,
   ...FONTS.ARTICLE_TITLE,
   textAlign: "center",
-  fontSize: "2rem",
-  lineHeight: "1.5em",
-  [`@media (max-width: ${BREAKPOINTS.TABLET}px)`]: {
-    fontSize: "1.4rem",
-  },
+  fontSize: "3rem",
+  lineHeight: "normal",
 });
 
 // PostSubtitle is subheadline if post is an article
@@ -40,12 +37,9 @@ const PostSubtitle = styled.h2({
   ...centerContentStyle,
   ...FONTS.ARTICLE_TITLE,
   textAlign: "center",
-  fontSize: "1.1rem",
-  lineHeight: "1.4em",
+  fontSize: "2.6rem",
+  lineHeight: "normal",
   color: "gray",
-  [`@media (max-width: ${BREAKPOINTS.TABLET}px)`]: {
-    fontSize: "1rem",
-  },
 });
 
 // e.g. "By Firstname Lastname on July 25, 2020"
