@@ -104,7 +104,7 @@ export const TopBarLinks: React.ElementType = ({ itemStyle }: any) => {
     {
       type: LinkType.LINK,
       name: "Resources",
-      url: "/resources/",
+      url: "/campus-resources/",
     } as LinkLink,
     {
       type: LinkType.LINK,
