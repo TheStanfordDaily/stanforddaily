@@ -30,7 +30,6 @@ import { MoreFromTheDailySection } from "./MoreFromTheDailySection";
 import { DesktopRow } from "./DesktopRow";
 import { Column } from "./Column";
 import { getBorderValue } from "./getBorderValue";
-import { CovidDataWidget } from "./CovidDataWidget";
 import { SectionProps } from "./SectionProps";
 import { SectionStyle, Section, SECTION_PADDING } from "components/Section";
 import { SectionTitleWithLink } from "./SectionTitle";
@@ -288,7 +287,6 @@ export default class HomePage extends React.Component<IndexProps, IndexState> {
                     </>
                   )}
                 </DesktopRow>
-                {/* <CovidDataWidget mobile={true} /> */}
                 <DesktopRow>
                   <ArtsAndLifeSection />
                   <MainSportsSection />
@@ -306,12 +304,6 @@ export default class HomePage extends React.Component<IndexProps, IndexState> {
                   },
                 }}
               >
-                <CovidDataWidget
-                  style={{
-                    padding: "15px",
-                    ...getBorderValue("Bottom"),
-                  }}
-                />
                 <OpinionSection
                   content={homePosts.opinions}
                   category={homePosts.tsdMeta.categories.opinions}
@@ -347,12 +339,6 @@ export default class HomePage extends React.Component<IndexProps, IndexState> {
                 />
               </Column>
             </DesktopRow>
-            {/* <MultimediaSection
-              content={[]}
-              style={{
-                ...getBorderValue("Bottom"),
-              }}
-            /> */}
             <HumorSection
               category={homePosts.tsdMeta.categories.humor}
               content={homePosts.humor}

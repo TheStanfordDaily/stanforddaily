@@ -53,7 +53,6 @@ export const PodcastWidget: React.ElementType = ({ style }) => {
           frameBorder="0"
           allow="encrypted-media"
         />
-        Join Daily sports staffers in analyzing the state of the men’s basketball team ahead of the season opener on Nov. 25.
       </div>
     </RView>
   );
