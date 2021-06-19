@@ -481,9 +481,20 @@ export const FooterContent: React.ElementType = ({ style }: any) => {
       <View>
         <BottomLine>
           <BottomText style={{ fontWeight: "bold" }}>
-            © 2020 The Stanford Daily Publishing Corporation
+            © 2021 The Stanford Daily Publishing Corporation
           </BottomText>
           <BottomText style={{ fontWeight: "bold" }}>
+            <a
+              style={bottomLinkStyle}
+              href={LINKS.ACCESSIBILITY_STATEMENT}
+              title="Accessibility"
+              css={css`
+                ${FOCUS_STATES.YELLOW_OUTLINE}
+              `}
+            >
+              Accessibility
+            </a>{" "}
+            |{" "}
             <Link href="/[year]/" as="/privacy-policy/">
               <a
                 style={bottomLinkStyle}

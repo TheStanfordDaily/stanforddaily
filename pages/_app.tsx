@@ -11,6 +11,8 @@ import {
   STANFORD_COLORS,
   FONTS,
   FOCUS_STATES,
+  LINKS,
+  srAndTabOnlyDropdown,
 } from "helpers/constants";
 import { SectionStyle } from "components/Section";
 import { getBorderValue } from "components/pages/HomePage/getBorderValue";
@@ -134,19 +136,15 @@ const SiteHeader: React.ElementType = (props: any) => {
         >
           <a
             css={css`
-              background: white;
-              color: red;
-              font-size: 24px;
-              height: 30px;
-              left: 40%;
-              padding: 6px;
-              position: absolute;
-              transform: translateY(-100%);
-              transition: transform 0.3s;
-              &:focus {
-                transform: translateY(0%);
-                outline: 4px solid yellow;
-              }
+              ${srAndTabOnlyDropdown}
+            `}
+            href={LINKS.ACCESSIBILITY_STATEMENT}
+          >
+            Accessibility statement
+          </a>
+          <a
+            css={css`
+              ${srAndTabOnlyDropdown}
             `}
             className="skip-to-content-link"
             href="#main-content"
