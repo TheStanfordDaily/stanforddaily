@@ -1,6 +1,6 @@
 import React from "react";
 import { Text, ScrollView, Platform } from "react-native";
-import { STANFORD_COLORS, FONTS, LINKS } from "helpers/constants";
+import { STANFORD_COLORS, FONTS, LINKS, FOCUS_STATES } from "helpers/constants";
 import { Category } from "helpers/wpapi";
 import { SECTION_PADDING } from "../Section";
 import { CategoryLink } from "../CategoryLink";
@@ -188,10 +188,7 @@ export const TopBarLinks: React.ElementType = ({ itemStyle }: any) => {
                 href={link.url}
                 style={{ color: "inherit" }}
                 css={css`
-                  &:focus {
-                    padding: 3px;
-                    outline: 2px solid yellow;
-                  }
+                  ${FOCUS_STATES.YELLOW_OUTLINE}
                 `}
               >
                 {link.name}

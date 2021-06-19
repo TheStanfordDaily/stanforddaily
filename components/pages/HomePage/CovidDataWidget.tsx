@@ -1,11 +1,9 @@
 import React from "react";
+import { FOCUS_STATES } from "helpers/constants";
 import RView from "emotion-native-media-query";
 import css from "@emotion/css";
 
-export const CovidDataWidget: React.ElementType = ({
-  style,
-  mobile = false,
-}) => {
+export const CovidDataWidget: React.ElementType = ({ style }) => {
   return (
     <RView style={style}>
       <div>
@@ -57,10 +55,7 @@ export const CovidDataWidget: React.ElementType = ({
               style={{ color: "inherit" }}
               href="https://www.stanforddaily.com/2020/10/11/tracking-covid-19-at-stanford/"
               css={css`
-                &:focus {
-                  padding: 3px;
-                  outline: 2px solid black !important;
-                }
+                ${FOCUS_STATES.BLACK_OUTLINE}
               `}
             >
               Tracking COVID-19 at Stanford

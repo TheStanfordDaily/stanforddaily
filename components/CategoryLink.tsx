@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react";
 import { Text, TextStyle, Platform, TouchableOpacity } from "react-native";
-import { FONTS } from "helpers/constants";
+import { FONTS, FOCUS_STATES } from "helpers/constants";
 import { Category, getNextJsCategoryPath } from "helpers/wpapi";
 import { withNavigation } from "helpers/trivial/react-navigation";
 import Link from "./Link";
@@ -90,16 +90,10 @@ const _CategoryLink: React.ElementType<CategoryLinkProps> = ({
               hasCustomOutline &&
               (isInNav
                 ? css`
-                    &:focus {
-                      padding: 3px;
-                      outline: 2px solid yellow;
-                    }
+                    ${FOCUS_STATES.YELLOW_OUTLINE}
                   `
                 : css`
-                    &:focus {
-                      padding: 3px;
-                      outline: 2px solid black;
-                    }
+                    ${FOCUS_STATES.BLACK_OUTLINE}
                   `)
             }
           >

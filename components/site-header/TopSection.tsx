@@ -6,7 +6,13 @@ import LogoFacebook from "react-ionicons/lib/LogoFacebook";
 import LogoTwitter from "react-ionicons/lib/LogoTwitter";
 import LogoInstagram from "react-ionicons/lib/LogoInstagram";
 import LogoYoutube from "react-ionicons/lib/LogoYoutube";
-import { BREAKPOINTS, STANFORD_COLORS, FONTS, LINKS } from "helpers/constants";
+import {
+  BREAKPOINTS,
+  STANFORD_COLORS,
+  FONTS,
+  LINKS,
+  FOCUS_STATES,
+} from "helpers/constants";
 import { SectionStyle } from "components/Section";
 import styled from "@emotion/styled";
 import Link from "../Link";
@@ -129,10 +135,7 @@ const LogoIconWithLink: React.ElementType = ({
       marginRight: 20,
     }}
     css={css`
-      &:focus {
-        padding: 3px;
-        outline: 2px solid black !important;
-      }
+      ${FOCUS_STATES.BLACK_OUTLINE}
     `}
   >
     <LogoComponent className="headerLogoIcon" fontSize="25px" />
@@ -168,7 +171,7 @@ const TextButtonWithLink: React.ElementType = ({
       css={css`
         color: #8c1515;
         &:hover,
-        &:focus {
+        &:focus-visible {
           color: white !important;
           background-color: #8c1515 !important;
         }
@@ -237,10 +240,7 @@ export const TopSection: React.ElementType = ({ style }) => {
               @media (max-width: ${BREAKPOINTS.MAX_WIDTH.TABLET}px) {
                 display: none;
               }
-              &:focus {
-                padding: 3px;
-                outline: 2px solid black !important;
-              }
+              ${FOCUS_STATES.BLACK_OUTLINE}
             `}
           />
           <SmallSection
@@ -255,10 +255,7 @@ export const TopSection: React.ElementType = ({ style }) => {
               @media (max-width: ${BREAKPOINTS.MAX_WIDTH.TABLET}px) {
                 display: none;
               }
-              &:focus {
-                padding: 3px;
-                outline: 2px solid black !important;
-              }
+              ${FOCUS_STATES.BLACK_OUTLINE}
             `}
           />
           <SmallSection
@@ -272,10 +269,7 @@ export const TopSection: React.ElementType = ({ style }) => {
             // mobile_title="Fall Workshops"
             newTab
             css={css`
-              &:focus {
-                padding: 3px;
-                outline: 2px solid black !important;
-              }
+              ${FOCUS_STATES.BLACK_OUTLINE}
             `}
           />
           <SmallSection
@@ -287,10 +281,7 @@ export const TopSection: React.ElementType = ({ style }) => {
             title="For high schoolers"
             newTab
             css={css`
-              &:focus {
-                padding: 3px;
-                outline: 2px solid black !important;
-              }
+              ${FOCUS_STATES.BLACK_OUTLINE}
             `}
           />
         </ViewRow>

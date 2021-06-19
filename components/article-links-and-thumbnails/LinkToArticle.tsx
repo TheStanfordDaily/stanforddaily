@@ -1,6 +1,7 @@
 import React from "react";
 import { Platform } from "react-native";
 import { getPostPath, Post } from "helpers/wpapi";
+import { FOCUS_STATES } from "helpers/constants";
 import Link from "../Link";
 import css from "@emotion/css";
 
@@ -23,12 +24,13 @@ export const LinkToArticle: React.ElementType = ({
           title={post.postTitle}
           style={{ color: "inherit", ...style }}
           {...props}
-          css={css`
-            &:focus {
-              padding: 3px;
-              outline: 2px solid black !important;
-            }
-          `}
+          css={
+            linkTabIndex === 0
+              ? css`
+                  ${FOCUS_STATES.BLACK_OUTLINE}
+                `
+              : ""
+          }
           tabIndex={linkTabIndex}
         >
           {children}

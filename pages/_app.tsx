@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 import App from "next/app";
 import Head from "next/head";
 import { Global, css } from "@emotion/core";
@@ -10,6 +10,7 @@ import {
   COLORS,
   STANFORD_COLORS,
   FONTS,
+  FOCUS_STATES,
 } from "helpers/constants";
 import { SectionStyle } from "components/Section";
 import { getBorderValue } from "components/pages/HomePage/getBorderValue";
@@ -67,10 +68,7 @@ const HeaderLogo: React.ElementType = () => {
               title="The Stanford Daily"
               aria-label="Go to homepage"
               css={css`
-                &:focus {
-                  padding: 3px;
-                  outline: 2px solid black;
-                }
+                ${FOCUS_STATES.BLACK_OUTLINE}
               `}
             >
               <img
@@ -96,10 +94,7 @@ const HeaderLogo: React.ElementType = () => {
               }}
               aria-label="Go to homepage"
               css={css`
-                &:focus {
-                  padding: 3px;
-                  outline: 2px solid black;
-                }
+                ${FOCUS_STATES.BLACK_OUTLINE}
               `}
             >
               <img

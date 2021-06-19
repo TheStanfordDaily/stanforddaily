@@ -1,5 +1,10 @@
 import React from "react";
-import { FONTS, STANFORD_COLORS, BREAKPOINTS } from "helpers/constants";
+import {
+  FONTS,
+  STANFORD_COLORS,
+  BREAKPOINTS,
+  FOCUS_STATES,
+} from "helpers/constants";
 import css from "@emotion/css";
 
 // Donation form with 'large=true' appears on homepage, and
@@ -34,10 +39,7 @@ const DonationForm: React.ElementType = ({ large = false }) => {
             ...FONTS.SECTION_TITLE,
           }}
           css={css`
-            &:focus {
-              padding: 3px;
-              outline: 2px solid yellow !important;
-            }
+            ${FOCUS_STATES.YELLOW_OUTLINE}
           `}
         >
           We need your help: All banner donations made today will support The
@@ -111,10 +113,7 @@ const DonationForm: React.ElementType = ({ large = false }) => {
             &:visited {
               color: white;
             }
-            &:focus {
-              padding: 3px;
-              outline: 2px solid yellow !important;
-            }
+            ${FOCUS_STATES.YELLOW_OUTLINE}
           `}
         >
           Donate
@@ -148,10 +147,7 @@ const DonationForm: React.ElementType = ({ large = false }) => {
           &:visited {
             color: white;
           }
-          &:focus {
-            padding: 3px;
-            outline: 2px solid yellow !important;
-          }
+          ${FOCUS_STATES.YELLOW_OUTLINE}
         `}
       >
         Donate

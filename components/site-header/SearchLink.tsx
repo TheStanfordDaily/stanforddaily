@@ -1,5 +1,5 @@
 import RView from "emotion-native-media-query";
-import { FONTS } from "helpers/constants";
+import { FONTS, FOCUS_STATES } from "helpers/constants";
 import React from "react";
 import css from "@emotion/css";
 
@@ -30,10 +30,7 @@ const SearchInput = styled(
 `;
 
 const SearchButton = styled.button`
-  &:focus {
-    padding: 3px !important;
-    border: 2px solid yellow !important;
-  }
+  ${FOCUS_STATES.YELLOW_OUTLINE}
 `;
 
 export default () => (
@@ -65,10 +62,7 @@ export default () => (
         required
         style={{ fontSize: 12.5 }}
         css={css`
-          &:focus {
-            padding: 3px;
-            outline: 2px solid yellow;
-          }
+          ${FOCUS_STATES.YELLOW_OUTLINE}
         `}
       />
       <SearchButton

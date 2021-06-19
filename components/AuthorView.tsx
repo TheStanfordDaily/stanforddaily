@@ -1,6 +1,6 @@
 import React from "react";
 import { Text, View, Platform } from "react-native";
-import { FONTS } from "helpers/constants";
+import { FONTS, FOCUS_STATES } from "helpers/constants";
 import { Author } from "helpers/wpapi";
 import Link from "./Link";
 import css from "@emotion/css";
@@ -38,10 +38,7 @@ export const AuthorsTextWithLink: React.ElementType = ({
               ...aStyle,
             }}
             css={css`
-              &:focus {
-                padding: 3px;
-                outline: 2px solid black !important;
-              }
+              ${FOCUS_STATES.BLACK_OUTLINE}
             `}
             {...props}
           >

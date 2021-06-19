@@ -101,6 +101,18 @@ export const COLORS = {
   },
 };
 
+// For tab-accessibility of clickable elements
+export const FOCUS_STATES = {
+  YELLOW_OUTLINE: `&:focus-visible {
+    padding: 3px !important;
+    outline: 2px solid yellow !important;
+  }`,
+  BLACK_OUTLINE: `&:focus-visible {
+    padding: 3px !important;
+    outline: 2px solid black !important;
+  }`,
+};
+
 // 24 is from `MORE_FROM_DAILY_POST_PER_PAGE` in tsd-json plugin on the server.
 export const MORE_FROM_DAILY_POST_PER_PAGE = 24;
 

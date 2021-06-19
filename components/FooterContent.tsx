@@ -2,7 +2,13 @@ import React from "react";
 import { View } from "react-native";
 import styled from "@emotion/native";
 import RView, { MediaRule } from "emotion-native-media-query";
-import { STANFORD_COLORS, BREAKPOINTS, FONTS, LINKS } from "helpers/constants";
+import {
+  STANFORD_COLORS,
+  FOCUS_STATES,
+  BREAKPOINTS,
+  FONTS,
+  LINKS,
+} from "helpers/constants";
 import { Category } from "helpers/wpapi";
 import Link from "./Link";
 import { SECTION_PADDING } from "./Section";
@@ -483,10 +489,7 @@ export const FooterContent: React.ElementType = ({ style }: any) => {
                 style={bottomLinkStyle}
                 title="Privacy Policy"
                 css={css`
-                  &:focus {
-                    padding: 3px;
-                    outline: 2px solid yellow;
-                  }
+                  ${FOCUS_STATES.YELLOW_OUTLINE}
                 `}
               >
                 Privacy Policy
@@ -498,10 +501,7 @@ export const FooterContent: React.ElementType = ({ style }: any) => {
               href="https://apps.apple.com/us/app/stanford-daily/id1341270063" // add to constants
               title="iOS App"
               css={css`
-                &:focus {
-                  padding: 3px;
-                  outline: 2px solid yellow;
-                }
+                ${FOCUS_STATES.YELLOW_OUTLINE}
               `}
             >
               iOS App
@@ -512,10 +512,7 @@ export const FooterContent: React.ElementType = ({ style }: any) => {
               href="https://play.google.com/store/apps/details?id=com.Stanford.Daily.App&hl=en_US"
               title="Google Play App"
               css={css`
-                &:focus {
-                  padding: 3px;
-                  outline: 2px solid yellow;
-                }
+                ${FOCUS_STATES.YELLOW_OUTLINE}
               `}
             >
               Google Play App
@@ -530,10 +527,7 @@ export const FooterContent: React.ElementType = ({ style }: any) => {
               href="https://wordpress.org/"
               title="WordPress"
               css={css`
-                &:focus {
-                  padding: 3px;
-                  outline: 2px solid yellow;
-                }
+                ${FOCUS_STATES.YELLOW_OUTLINE}
               `}
             >
               WordPress
@@ -544,10 +538,7 @@ export const FooterContent: React.ElementType = ({ style }: any) => {
               href="https://expo.io/"
               title="Expo"
               css={css`
-                &:focus {
-                  padding: 3px;
-                  outline: 2px solid yellow;
-                }
+                ${FOCUS_STATES.YELLOW_OUTLINE}
               `}
             >
               Expo
@@ -558,10 +549,7 @@ export const FooterContent: React.ElementType = ({ style }: any) => {
               href="https://github.com/TheStanfordDaily/"
               title="The Stanford Daily Tech Team"
               css={css`
-                &:focus {
-                  padding: 3px;
-                  outline: 2px solid yellow;
-                }
+                ${FOCUS_STATES.YELLOW_OUTLINE}
               `}
             >
               TSD Tech Team
@@ -573,10 +561,7 @@ export const FooterContent: React.ElementType = ({ style }: any) => {
               href="/donate/"
               title="Donate"
               css={css`
-                &:focus {
-                  padding: 3px;
-                  outline: 2px solid yellow;
-                }
+                ${FOCUS_STATES.YELLOW_OUTLINE}
               `}
             >
               Donate
@@ -587,10 +572,7 @@ export const FooterContent: React.ElementType = ({ style }: any) => {
               href="https://smile.amazon.com/"
               title="Amazon Smile"
               css={css`
-                &:focus {
-                  padding: 3px;
-                  outline: 2px solid yellow;
-                }
+                ${FOCUS_STATES.YELLOW_OUTLINE}
               `}
             >
               Amazon
