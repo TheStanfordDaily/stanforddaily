@@ -78,16 +78,18 @@ export default class CategoryArticleListPage extends React.Component<
           flexDirection: "column",
         }}
       >
-        <View style={{ paddingBottom: 15 }}>
-          <Text
-            style={{
-              ...FONTS.SECTION_TITLE,
-              fontSize: 25,
-            }}
-          >
-            {initData.tsdMeta.title}
-          </Text>
-        </View>
+        {initData.tsdMeta.title !== "DEI" && (
+          <View style={{ paddingBottom: 15 }}>
+            <h1
+              style={{
+                ...FONTS.SECTION_TITLE,
+                fontSize: 25,
+              }}
+            >
+              {initData.tsdMeta.title}
+            </h1>
+          </View>
+        )}
         {initData.tsdMeta.title === "Humor" && <HumorGlobal />}
         {_articleListPage}
       </Section>
