@@ -8,6 +8,7 @@ import LogoYoutube from "react-ionicons/lib/LogoYoutube";
 import { LINKS, FONTS, STANFORD_COLORS } from "helpers/constants";
 import Link from "components/Link";
 import css from "@emotion/css";
+import { emitNotification } from "expo/build/Notifications/Notifications";
 
 const LogoIconWithLink: React.ElementType = ({ url, LogoComponent }: any) => (
   <a
@@ -73,9 +74,9 @@ const FooterDonationBanner: React.ElementType = ({ currentPageUrl }) => {
       style={{
         background: "#eee",
         padding: SECTION_PADDING,
-        borderTopWidth: 1,
-        borderTopStyle: "solid",
-        borderTopColor: "#aa0000",
+        // borderTopWidth: 1,
+        // borderTopStyle: "solid",
+        // borderTopColor: "#aa0000",
         fontFamily: '"PT Serif", serif',
         marginTop: SECTION_PADDING,
         marginBottom: SECTION_PADDING,
@@ -94,7 +95,11 @@ const FooterDonationBanner: React.ElementType = ({ currentPageUrl }) => {
       >
         While you're here...
       </h3>
-      <p>
+      <p
+        style={{
+          lineHeight: 1.75,
+        }}
+      >
         We're a student-run organization committed to providing hands-on
         experience in journalism, digital media and business for the next
         generation of reporters. Your support makes a difference in helping give
@@ -102,14 +107,25 @@ const FooterDonationBanner: React.ElementType = ({ currentPageUrl }) => {
         professional skills and conduct meaningful reporting. All contributions
         are tax-deductible.
       </p>
-
-      <DonationForm currentPageUrl={currentPageUrl} bannerLocation="Footer" />
-      <br></br>
-      <TextButtonWithLink
-        url="/email-digests/"
-        title="Get Our Emails"
-        mobileTitle="Get Our Emails"
-      />
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "left",
+        }}
+      >
+        {/* <DonationForm currentPageUrl={currentPageUrl} bannerLocation="Footer" />
+        <br></br> */}
+        <TextButtonWithLink
+          url="/donate/"
+          title="Donate"
+          mobileTitle="Donate"
+        />
+        <TextButtonWithLink
+          url="/email-digests/"
+          title="Get Our Emails"
+          mobileTitle="Get Our Emails"
+        />
+      </div>
       <div>
         <br></br>
         <LogoIconWithLink url={LINKS.FACEBOOK} LogoComponent={LogoFacebook} />
