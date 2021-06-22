@@ -28,8 +28,8 @@ const PostTitle = styled.h1({
   ...centerContentStyle,
   ...FONTS.ARTICLE_TITLE,
   textAlign: "center",
-  fontSize: "3rem",
-  lineHeight: "normal",
+  fontSize: "2.3rem",
+  lineHeight: "1.4",
 });
 
 // PostSubtitle is subheadline if post is an article
@@ -37,8 +37,8 @@ const PostSubtitle = styled.h2({
   ...centerContentStyle,
   ...FONTS.ARTICLE_TITLE,
   textAlign: "center",
-  fontSize: "1.9rem",
-  lineHeight: "normal",
+  fontSize: "1.2rem",
+  lineHeight: "1.6",
   color: "gray",
 });
 
