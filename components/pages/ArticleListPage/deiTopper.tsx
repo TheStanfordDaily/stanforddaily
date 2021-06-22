@@ -3,6 +3,7 @@ import css from "@emotion/css";
 import { DesktopRow } from "../HomePage/DesktopRow";
 import { getBorderValue } from "../HomePage/getBorderValue";
 import { FOCUS_STATES } from "helpers/constants";
+import { TextButtonWithLink } from "../../TextButtonWithLink";
 
 export function deiTopper() {
   return (
@@ -88,6 +89,55 @@ export function deiTopper() {
           <div
             style={{
               width: "50%",
+              display: "flex",
+              justifyContent: "space-around",
+              margin: "auto",
+              marginTop: "20px",
+              marginBottom: "20px",
+            }}
+          >
+            <TextButtonWithLink
+              url="/opportunity-fellowship/"
+              title="Opportunity Fellowship (need-based financial aid for Daily staffers)"
+              tbwlStyle={{
+                width: "256px",
+                borderColor: "black",
+                lineHeight: "normal",
+                textTransform: "none",
+              }}
+              cssContent={`
+                background-color: #8c1515 !important;
+                color: white !important;
+                &:hover,
+                &:focus-visible {
+                  color: #8c1515 !important;
+                  background-color: white !important;
+                }
+                `}
+            />
+            <TextButtonWithLink
+              url="https://docs.google.com/forms/d/e/1FAIpQLSd3xjyx_rexJp_RT0wqe6dIvmquQgUJF27AsemnnwYJehhnkA/viewform"
+              title="Reimbursements for staffers' professional journalism affinity org fees"
+              tbwlStyle={{
+                width: "256px",
+                borderColor: "black",
+                lineHeight: "normal",
+                textTransform: "none",
+              }}
+              cssContent={`
+                background-color: #8c1515 !important;
+                color: white !important;
+                &:hover,
+                &:focus-visible {
+                  color: #8c1515 !important;
+                  background-color: white !important;
+                }
+                `}
+            />
+          </div>
+          <div
+            style={{
+              width: "50%",
               padding: "5px",
               backgroundColor: "white",
               borderRadius: "30px",
@@ -149,7 +199,9 @@ export function deiTopper() {
           </div>
         </div>
       </DesktopRow>
-      <h2 style={{ fontSize: 25 }}>DEI-focused posts</h2>
+      <h2 style={{ fontSize: 25 }}>
+        DEI updates and work from the Equity Project
+      </h2>
     </>
   );
 }

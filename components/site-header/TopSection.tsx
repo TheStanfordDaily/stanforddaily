@@ -15,7 +15,7 @@ import {
 } from "helpers/constants";
 import { SectionStyle } from "components/Section";
 import styled from "@emotion/styled";
-import Link from "../Link";
+import { TextButtonWithLink } from "../TextButtonWithLink";
 
 const globalStyles = {
   ".headerLogoIcon": {
@@ -140,55 +140,6 @@ const LogoIconWithLink: React.ElementType = ({
   >
     <LogoComponent className="headerLogoIcon" fontSize="25px" />
   </a>
-);
-
-// For the "SEND TIPS" and "GET OUR EMAILS" buttons
-// on the rightmost side of the top section (below nav bar)
-const TextButtonWithLink: React.ElementType = ({
-  url,
-  urlFile = "/[year]/",
-  title,
-  mobileTitle,
-  tbwlStyle,
-}: any) => (
-  <Link href={urlFile} as={url}>
-    <a
-      title={title}
-      style={{
-        ...FONTS.AUXILIARY,
-        border: `2px ${STANFORD_COLORS.CARDINAL_RED} solid`,
-        fontSize: 15,
-        letterSpacing: 1,
-        fontWeight: 700,
-        borderRadius: 0,
-        outline: 0,
-        padding: 8,
-        cursor: "pointer",
-        textAlign: "center",
-        textDecoration: "none",
-        ...tbwlStyle,
-      }}
-      css={css`
-        color: #8c1515;
-        &:hover,
-        &:focus-visible {
-          color: white !important;
-          background-color: #8c1515 !important;
-        }
-        &:visited {
-          color: #8c1515;
-        }
-      `}
-    >
-      {!mobileTitle && title}
-      {mobileTitle && (
-        <>
-          <span className="hidden-mobile">{title}</span>
-          <span className="visible-mobile">{mobileTitle}</span>
-        </>
-      )}
-    </a>
-  </Link>
 );
 
 const ViewRow: any = styled(View)({
