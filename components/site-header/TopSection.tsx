@@ -225,11 +225,11 @@ export const TopSection: React.ElementType = ({ style }) => {
           />
           <SmallSection
             className="small-section small-section-newsletters"
-            url="/high-school-programs/"
-            imageUrl="https://wp.stanforddaily.com/wp-content/uploads/2020/11/cardinal-red-daily-s-logo.png"
-            imageAlt="The Stanford Daily logo, a red S in Canterbury font"
-            header="Summer Program | APPLY NOW"
-            title="For high schoolers"
+            url="/category/dei/"
+            imageUrl="https://wp.stanforddaily.com/wp-content/uploads/2021/06/Screen-Shot-2021-06-23-at-8.06.59-PM-e1624504420323.png"
+            imageAlt="A circle containing the text, 'DEI at The Daily,' against a warmly colored background"
+            header="DIVERSITY, EQUITY & INCLUSION"
+            title="Daily programs & resources"
             newTab
             css={css`
               ${FOCUS_STATES.BLACK_OUTLINE}

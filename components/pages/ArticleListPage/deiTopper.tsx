@@ -199,9 +199,15 @@ export function deiTopper() {
           </div>
         </div>
       </DesktopRow>
-      <h2 style={{ fontSize: 25 }}>
+      <h2 style={{ fontSize: 25, marginBottom: 0 }}>
         DEI updates and work from the Equity Project
       </h2>
+      <p style={{ fontSize: 16, marginTop: 2 }}>
+        Not familiar with the Equity Project?{" "}
+        <a href="https://www.stanforddaily.com/equity-project-section-guide/">
+          Learn more!
+        </a>
+      </p>
     </>
   );
 }

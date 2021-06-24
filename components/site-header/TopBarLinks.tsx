@@ -68,7 +68,7 @@ export const TopBarLinks: React.ElementType = ({ itemStyle }: any) => {
     {
       type: LinkType.CATEGORY,
       id: 32278,
-      name: "The Grind",
+      name: "Grind",
       slug: "thegrind",
       url: "/category/thegrind/",
     },
@@ -108,12 +108,17 @@ export const TopBarLinks: React.ElementType = ({ itemStyle }: any) => {
     } as LinkLink,
     {
       type: LinkType.LINK,
+      name: "DEI",
+      url: "/category/dei/",
+    } as LinkLink,
+    {
+      type: LinkType.LINK,
       name: "About Us",
       url: "/about/",
     } as LinkLink,
     {
       type: LinkType.LINK,
-      name: "Alumni",
+      name: "Alums",
       url: "https://alumni.stanforddaily.com/",
     } as LinkLink,
     {
@@ -123,7 +128,7 @@ export const TopBarLinks: React.ElementType = ({ itemStyle }: any) => {
     } as LinkLink,
     {
       type: LinkType.LINK,
-      name: "Archives",
+      name: "Archive",
       url: LINKS.ARCHIVES,
     } as LinkLink,
   ];

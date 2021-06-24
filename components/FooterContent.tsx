@@ -355,6 +355,20 @@ export const FooterContent: React.ElementType = ({ style }: any) => {
       url: "/category/cartoons/",
       children: {},
     },
+    dei: {
+      id: 74524,
+      name: "DEI",
+      slug: "dei",
+      url: "/category/dei/",
+      children: {},
+    },
+    resources: {
+      id: null,
+      name: "Resources",
+      slug: "resources",
+      url: "/campus-resources/",
+      children: {},
+    },
     aboutUs: {
       id: null,
       name: "About us",
