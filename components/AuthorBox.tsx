@@ -32,11 +32,6 @@ interface AuthorBoxProps {
   linkToAuthor?: boolean;
 }
 
-// THESE ARE TEMPORARY -- REMOVE AFTER LINKING IN FROM WORDPRESS
-const emailURL = "mailto:scatania@stanforddaily.com";
-const twitterURL = "https://www.twitter.com/sbcatania";
-const pronouns = "he / him";
-const position = "COVID-19 on Campus Beat Reporter";
 
 // Box containing author name, profile picture and bio at bottom of
 // a post; author name links to their ArticleListPage
@@ -54,6 +49,12 @@ const AuthorBox: React.ElementType<AuthorBoxProps> = ({
     .then(response => {
       setAdditionalAuthorInfo(response.data);
     });
+
+  // set object returns to local variables
+  const emailURL = "mailto:" + additionalAuthorInfo?.email;
+  const twitterURL = "https://www.twitter.com/" + additionalAuthorInfo?.twitter;
+  const pronouns = additionalAuthorInfo?.pronouns;
+  const position = additionalAuthorInfo?.title;
 
   return (
     <View
