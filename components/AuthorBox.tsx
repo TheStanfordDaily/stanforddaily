@@ -47,6 +47,7 @@ const AuthorBox: React.ElementType<AuthorBoxProps> = ({
   axios
     .get("https://wp.stanforddaily.com/wp-json/tsd/v1/authors/" + id + "/")
     .then(response => {
+      console.log(response);
       setAdditionalAuthorInfo(response.data);
     });
 
@@ -95,7 +96,8 @@ const AuthorBox: React.ElementType<AuthorBoxProps> = ({
             marginLeft: 12.5,
           }}
         >
-          {emailURL || twitterURL ? (
+          {(additionalAuthorInfo?.email && !additionalAuthorInfo.email.includes("@stanford.edu")) || 
+            additionalAuthorInfo?.twitter ? (
             <div style={{ display: "flex", justifyContent: "center" }}>
               {twitterURL ? (
                 <LogoIconWithLink
