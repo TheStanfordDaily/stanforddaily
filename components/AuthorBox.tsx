@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, Text } from "react-native";
 import { Author } from "helpers/wpapi";
 import { FONTS, COLORS, STANFORD_COLORS } from "helpers/constants";
 import { AuthorView } from "./AuthorView";
 import css from "@emotion/css";
+import axios from "axios";
 
 // Describes requirement of having author property that is
 // an Author and linkToAuthor property that is a boolean
@@ -19,7 +20,17 @@ const AuthorBox: React.ElementType<AuthorBoxProps> = ({
   author,
   linkToAuthor = true,
 }: AuthorBoxProps) => {
-  const { description, avatarUrl } = author;
+  const { description, avatarUrl, id } = author;
+
+  // contains the following custom fields: email, twitter, pronouns, title
+  const [additionalAuthorInfo, setAdditionalAuthorInfo] = useState(null);
+
+  axios
+    .get("https://wp.stanforddaily.com/wp-json/tsd/v1/authors/" + id + "/")
+    .then(response => {
+      setAdditionalAuthorInfo(response.data);
+    });
+
   return (
     <View
       style={{
