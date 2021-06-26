@@ -15,7 +15,7 @@ import {
 import { BREAKPOINTS } from "helpers/constants";
 import { getHomeAsync, Home } from "helpers/wpapi";
 import Wrapper from "components/Wrapper";
-import { TopBarLinks } from "components/TopBarLinks";
+import { TopBarLinks } from "components/site-header/TopBarLinks";
 import LoadingView from "components/Loading";
 import WPHead from "components/webHelpers/WPHead";
 import WPFooter from "components/webHelpers/WPFooter";
@@ -30,13 +30,12 @@ import { MoreFromTheDailySection } from "./MoreFromTheDailySection";
 import { DesktopRow } from "./DesktopRow";
 import { Column } from "./Column";
 import { getBorderValue } from "./getBorderValue";
-import { CovidDataWidget } from "./CovidDataWidget";
 import { SectionProps } from "./SectionProps";
 import { SectionStyle, Section, SECTION_PADDING } from "components/Section";
 import { SectionTitleWithLink } from "./SectionTitle";
 import { TopThumbnailArticle } from "./TopThumbnailArticle";
 import { TitleOnlyArticle } from "./TitleOnlyArticle";
-import { HeadlineArticle } from "./HeadlineArticle";
+import { HeadlineArticle } from "../../article-links-and-thumbnails/HeadlineArticle";
 import { PodcastWidget } from "./PodcastWidget";
 
 interface IndexProps {
@@ -129,6 +128,7 @@ export default class HomePage extends React.Component<IndexProps, IndexState> {
           <SectionStyle>
             <SectionTitleWithLink
               category={homePosts.tsdMeta.categories["arts-life"]}
+              homePageSpecial={true}
             >
               <Image
                 source={{
@@ -190,6 +190,7 @@ export default class HomePage extends React.Component<IndexProps, IndexState> {
           <Section>
             <SectionTitleWithLink
               category={homePosts.tsdMeta.categories.sports}
+              homePageSpecial={true}
             >
               <Image
                 source={{
@@ -286,7 +287,6 @@ export default class HomePage extends React.Component<IndexProps, IndexState> {
                     </>
                   )}
                 </DesktopRow>
-                {/* <CovidDataWidget mobile={true} /> */}
                 <DesktopRow>
                   <ArtsAndLifeSection />
                   <MainSportsSection />
@@ -304,12 +304,6 @@ export default class HomePage extends React.Component<IndexProps, IndexState> {
                   },
                 }}
               >
-                <CovidDataWidget
-                  style={{
-                    padding: "15px",
-                    ...getBorderValue("Bottom"),
-                  }}
-                />
                 <OpinionSection
                   content={homePosts.opinions}
                   category={homePosts.tsdMeta.categories.opinions}
@@ -345,12 +339,6 @@ export default class HomePage extends React.Component<IndexProps, IndexState> {
                 />
               </Column>
             </DesktopRow>
-            {/* <MultimediaSection
-              content={[]}
-              style={{
-                ...getBorderValue("Bottom"),
-              }}
-            /> */}
             <HumorSection
               category={homePosts.tsdMeta.categories.humor}
               content={homePosts.humor}

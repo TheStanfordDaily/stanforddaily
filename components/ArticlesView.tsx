@@ -10,8 +10,8 @@ import {
 } from "helpers/constants";
 import { Post } from "helpers/wpapi";
 import { SECTION_PADDING } from "components/Section";
-import { TextOnlyArticle } from "components/pages/HomePage/TextOnlyArticle";
-import { HeadlineArticle } from "./pages/HomePage/HeadlineArticle";
+import { TextOnlyArticle } from "components/article-links-and-thumbnails/TextOnlyArticle";
+import { HeadlineArticle } from "./article-links-and-thumbnails/HeadlineArticle";
 
 // View for each post in article list; see below for usage
 const EachArticleView: React.ElementType = ({

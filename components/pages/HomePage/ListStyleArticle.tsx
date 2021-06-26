@@ -1,8 +1,8 @@
 import React from "react";
 import { Article, ArticleHeader } from "components/Article";
-import AuthorAndDateView from "components/AuthorAndDateView";
+import AuthorAndDateView from "components/article-links-and-thumbnails/AuthorAndDateView";
 import { ArticleProps } from "./ArticleProps";
-import { ArticleTitleWithLink } from "./ArticleTitleWithLink";
+import { ArticleTitleWithLink } from "../../article-links-and-thumbnails/ArticleTitleWithLink";
 
 // Component used for articles in Grind and Opinions sections
 // on homepage, not used for A&L (which has its own component)

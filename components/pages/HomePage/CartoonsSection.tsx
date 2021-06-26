@@ -4,7 +4,7 @@ import RView from "emotion-native-media-query";
 import { Section } from "components/Section";
 import { SectionTitleWithLink } from "./SectionTitle";
 import { SectionProps } from "./SectionProps";
-import { LinkToArticle } from "./LinkToArticle";
+import { LinkToArticle } from "../../article-links-and-thumbnails/LinkToArticle";
 
 // Appears on right-hand side of homepage
 export const CartoonsSection: React.ElementType = ({
@@ -21,7 +21,7 @@ export const CartoonsSection: React.ElementType = ({
   ) {
     return (
       <RView WebTag={Section} NativeTag={Section} {...props}>
-        <SectionTitleWithLink category={category}>
+        <SectionTitleWithLink category={category} homePageSpecial={true}>
           <Image
             source={{
               uri: "/static/sectionHeaders/cartoons.png",
@@ -35,18 +35,9 @@ export const CartoonsSection: React.ElementType = ({
           />
         </SectionTitleWithLink>
         <LinkToArticle post={content[0]}>
-          {/* <Image
-            source={{
-              uri: content[0].thumbnailInfo.urls.full,
-            }}
-            resizeMode="contain"
-            style={{
-              width: "100%",
-              height: 400,
-            }}
-          /> */}
           <img
             src={content[0].thumbnailInfo.urls.full}
+            alt={content[0].thumbnailInfo.alt}
             style={{ width: "100%" }}
           />
         </LinkToArticle>

@@ -1,5 +1,5 @@
 import RView from "emotion-native-media-query";
-import { FONTS } from "helpers/constants";
+import { FONTS, FOCUS_STATES } from "helpers/constants";
 import React from "react";
 import css from "@emotion/css";
 
@@ -27,6 +27,10 @@ const SearchInput = styled(
   ::placeholder {
     color: #f5f5f5;
   }
+`;
+
+const SearchButton = styled.button`
+  ${FOCUS_STATES.YELLOW_OUTLINE}
 `;
 
 export default () => (
@@ -57,8 +61,11 @@ export default () => (
         id="s"
         required
         style={{ fontSize: 12.5 }}
+        css={css`
+          ${FOCUS_STATES.YELLOW_OUTLINE}
+        `}
       />
-      <button
+      <SearchButton
         type="submit"
         style={{
           ...inputStyle,
@@ -67,7 +74,7 @@ export default () => (
         }}
       >
         <IosSearch color="#f5f5f5" />
-      </button>
+      </SearchButton>
     </form>
   </RView>
 );

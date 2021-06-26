@@ -1,12 +1,12 @@
 import React from "react";
 import { View } from "react-native";
 import { Article, ArticleHeader } from "components/Article";
-import AuthorAndDateView from "components/AuthorAndDateView";
+import AuthorAndDateView from "components/article-links-and-thumbnails/AuthorAndDateView";
 import { BREAKPOINTS } from "helpers/constants";
 import css from "@emotion/css";
-import { PostExcerpt } from "./PostExcerpt";
-import { ArticleSubtitle } from "./ArticleSubtitle";
-import { ArticleProps } from "./ArticleProps";
+import { PostExcerpt } from "../pages/HomePage/PostExcerpt";
+import { ArticleSubtitle } from "../pages/HomePage/ArticleSubtitle";
+import { ArticleProps } from "../pages/HomePage/ArticleProps";
 import { ArticleTitleWithLink } from "./ArticleTitleWithLink";
 import { ThumbnailImageWithLink } from "./ThumbnailImageWithLink";
 

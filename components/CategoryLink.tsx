@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react";
 import { Text, TextStyle, Platform, TouchableOpacity } from "react-native";
-import { FONTS } from "helpers/constants";
+import { FONTS, FOCUS_STATES } from "helpers/constants";
 import { Category, getNextJsCategoryPath } from "helpers/wpapi";
 import { withNavigation } from "helpers/trivial/react-navigation";
 import Link from "./Link";
@@ -14,7 +14,9 @@ interface CategoryLinkProps {
   style?: TextStyle;
   isHumor?: Boolean;
   isHumor2?: Boolean;
-
+  hasCustomOutline?: Boolean;
+  isInNav?: Boolean;
+  homePageSpecial?: Boolean;
   // See "helpers/trivial/react-navigation"
   navigation?: any;
 }
@@ -29,6 +31,9 @@ const _CategoryLink: React.ElementType<CategoryLinkProps> = ({
   navigation,
   isHumor = false,
   isHumor2 = false,
+  hasCustomOutline = false,
+  isInNav = false,
+  homePageSpecial = false,
 }: CategoryLinkProps) => {
   if (Platform.OS !== "web") {
     return (
@@ -59,6 +64,14 @@ const _CategoryLink: React.ElementType<CategoryLinkProps> = ({
         @media print {
           display: none;
         }
+        ${homePageSpecial
+          ? `
+        &:focus-within {
+          padding: 3px;
+          outline: 2px solid black;
+        }
+      `
+          : ""}
       `}
     >
       {category || isHumor || isHumor2 ? (
@@ -73,6 +86,16 @@ const _CategoryLink: React.ElementType<CategoryLinkProps> = ({
           <a
             title={isHumor || isHumor2 ? "Humor" : category.name}
             style={{ color: "inherit" }}
+            css={
+              hasCustomOutline &&
+              (isInNav
+                ? css`
+                    ${FOCUS_STATES.YELLOW_OUTLINE}
+                  `
+                : css`
+                    ${FOCUS_STATES.BLACK_OUTLINE}
+                  `)
+            }
           >
             {isHumor2 ? "Humor" : children}
           </a>

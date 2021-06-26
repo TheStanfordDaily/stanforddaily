@@ -8,7 +8,6 @@ import LogoYoutube from "react-ionicons/lib/LogoYoutube";
 import { LINKS, FONTS, STANFORD_COLORS } from "helpers/constants";
 import Link from "components/Link";
 import css from "@emotion/css";
-import { emitNotification } from "expo/build/Notifications/Notifications";
 
 const LogoIconWithLink: React.ElementType = ({ url, LogoComponent }: any) => (
   <a
@@ -67,8 +66,8 @@ const TextButtonWithLink: React.ElementType = ({
   </Link>
 );
 
-// Used in donation box at bottom of posts
-const FooterDonationBanner: React.ElementType = ({ currentPageUrl }) => {
+// Box at bottom of posts, right above AuthorBox
+const PostFooterBox: React.ElementType = () => {
   return (
     <div
       style={{
@@ -107,34 +106,38 @@ const FooterDonationBanner: React.ElementType = ({ currentPageUrl }) => {
         professional skills and conduct meaningful reporting. All contributions
         are tax-deductible.
       </p>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "left",
-        }}
-      >
-        {/* <DonationForm currentPageUrl={currentPageUrl} bannerLocation="Footer" />
-        <br></br> */}
-        <TextButtonWithLink
-          url="/donate/"
-          title="Donate"
-          mobileTitle="Donate"
-        />
-        <TextButtonWithLink
-          url="/email-digests/"
-          title="Get Our Emails"
-          mobileTitle="Get Our Emails"
-        />
-      </div>
+      <DonationForm />
+      <br></br>
+      <TextButtonWithLink
+        url="/email-digests/"
+        title="Get Our Emails"
+        mobileTitle="Get Our Emails"
+      />
       <div>
         <br></br>
-        <LogoIconWithLink url={LINKS.FACEBOOK} LogoComponent={LogoFacebook} />
-        <LogoIconWithLink url={LINKS.TWITTER} LogoComponent={LogoTwitter} />
-        <LogoIconWithLink url={LINKS.INSTAGRAM} LogoComponent={LogoInstagram} />
-        <LogoIconWithLink url={LINKS.YOUTUBE} LogoComponent={LogoYoutube} />
+        <LogoIconWithLink
+          url={LINKS.FACEBOOK}
+          aria="Facebook"
+          LogoComponent={LogoFacebook}
+        />
+        <LogoIconWithLink
+          url={LINKS.TWITTER}
+          aria="Twitter"
+          LogoComponent={LogoTwitter}
+        />
+        <LogoIconWithLink
+          url={LINKS.INSTAGRAM}
+          aria="Instagram"
+          LogoComponent={LogoInstagram}
+        />
+        <LogoIconWithLink
+          url={LINKS.YOUTUBE}
+          aria="Youtube"
+          LogoComponent={LogoYoutube}
+        />
       </div>
     </div>
   );
 };
 
-export default FooterDonationBanner;
+export default PostFooterBox;

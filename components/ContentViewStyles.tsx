@@ -27,23 +27,30 @@ export default {
     a: {
       textDecoration: "underline",
     },
-    "p, h1, h3, h4, h5, h6, figcaption": {
+    "p, h1, h2, h3, h4, h5, h6, li, figcaption": {
       ...centerContentStyle,
       marginBottom: "1em",
       fontSize: "1.3rem",
       color: STANFORD_COLORS.BLACK,
+      lineHeight: "normal",
+    },
+    h1: {
+      fontSize: "3rem",
     },
     h2: {
-      ...centerContentStyle,
-      marginBottom: "1em",
-      fontSize: "1.6rem",
-      color: STANFORD_COLORS.BLACK,
+      fontSize: "2.4rem",
     },
-    li: {
-      ...centerContentStyle,
-      marginBottom: "1em",
+    h3: {
+      fontSize: "1.9rem",
+    },
+    h4: {
+      fontSize: "1.6rem",
+    },
+    h5: {
+      fontSize: "1.4rem",
+    },
+    h6: {
       fontSize: "1.3rem",
-      color: STANFORD_COLORS.BLACK,
     },
     figcaption: {
       ...FONTS.AUXILIARY,
@@ -96,16 +103,16 @@ export default {
         },
       },
     },
-      table: {
-        width: "100%",
-        borderCollapse: "collapse",
-        textAlign: "center",
-        border: `1px solid ${STANFORD_COLORS.COOL_GREY}`,
-        fontSize: "1.3rem",
-      },
-      td: {
-        border: `1px solid ${STANFORD_COLORS.COOL_GREY}`,
-        padding: "10px",
-    }
-  }
+    table: {
+      width: "100%",
+      borderCollapse: "collapse",
+      textAlign: "center",
+      border: `1px solid ${STANFORD_COLORS.COOL_GREY}`,
+      fontSize: "1.3rem",
+    },
+    td: {
+      border: `1px solid ${STANFORD_COLORS.COOL_GREY}`,
+      padding: "10px",
+    },
+  },
 };

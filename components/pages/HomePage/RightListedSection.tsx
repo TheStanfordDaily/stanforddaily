@@ -28,6 +28,7 @@ export const RightListedSection: React.ElementType<SectionProps> = ({
               ...sectionTitleStyle,
             }}
             category={category}
+            homePageSpecial={category.name === "The Grind" ? true : false}
           >
             {sectionTitle}
           </SectionTitleWithLink>

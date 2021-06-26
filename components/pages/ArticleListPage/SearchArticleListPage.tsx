@@ -7,7 +7,7 @@ import { Section } from "components/Section";
 import ArticleListPage, {
   ArticleListPageType,
   ArticleListPageState,
-} from "./ArticleListPage";
+} from "./index";
 
 async function _getSearchData(
   keyword: string,

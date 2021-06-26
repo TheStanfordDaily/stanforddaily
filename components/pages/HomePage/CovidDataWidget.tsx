@@ -1,10 +1,9 @@
 import React from "react";
+import { FOCUS_STATES } from "helpers/constants";
 import RView from "emotion-native-media-query";
+import css from "@emotion/css";
 
-export const CovidDataWidget: React.ElementType = ({
-  style,
-  mobile = false,
-}) => {
+export const CovidDataWidget: React.ElementType = ({ style }) => {
   return (
     <RView style={style}>
       <div>
@@ -55,6 +54,9 @@ export const CovidDataWidget: React.ElementType = ({
               title="Tracking COVID-19 at Stanford"
               style={{ color: "inherit" }}
               href="https://www.stanforddaily.com/2020/10/11/tracking-covid-19-at-stanford/"
+              css={css`
+                ${FOCUS_STATES.BLACK_OUTLINE}
+              `}
             >
               Tracking COVID-19 at Stanford
             </a>
@@ -93,14 +95,14 @@ export const CovidDataWidget: React.ElementType = ({
             </div>
             <div>
               <strong style={{ fontSize: "3vh" }}>
-                195<strong></strong>
+                224<strong></strong>
               </strong>
             </div>
             <div style={{ fontSize: "1.75vh", lineHeight: "normal" }}>
               <span>
                 Last week
                 <br />
-                +2
+                +0
               </span>{" "}
               <span style={{ color: "#585858" }}>▼</span>
             </div>
@@ -129,16 +131,16 @@ export const CovidDataWidget: React.ElementType = ({
             </div>
             <div>
               <strong style={{ fontSize: "3vh" }}>
-                177<strong></strong>
+                183<strong></strong>
               </strong>
             </div>
             <div style={{ fontSize: "1.75vh", lineHeight: "normal" }}>
               <span>
                 Last week
                 <br />
-                +4
+                +0
               </span>{" "}
-              <span style={{ color: "#585858" }}></span>
+              <span style={{ color: "#585858" }}>▼</span>
             </div>
           </div>
           <div
@@ -164,16 +166,9 @@ export const CovidDataWidget: React.ElementType = ({
               Stanford Health Care workers
             </div>
             <div>
-              <strong style={{ fontSize: "3vh" }}>1402</strong>
+              <strong style={{ fontSize: "3vh" }}>No data</strong>
             </div>
-            <div style={{ fontSize: "1.75vh", lineHeight: "normal" }}>
-              <span>
-                Last month
-                <br />
-                +6
-              </span>{" "}
-              <span style={{ color: "#585858" }}>▼</span>
-            </div>
+            <div style={{ fontSize: "1.75vh", lineHeight: "normal" }}></div>
           </div>
         </div>
       </div>

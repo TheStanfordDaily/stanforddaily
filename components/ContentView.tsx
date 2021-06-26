@@ -9,15 +9,14 @@ import LoadingView from "components/Loading";
 import WPHead from "components/webHelpers/WPHead";
 import WPFooter from "components/webHelpers/WPFooter";
 import styled from "@emotion/styled";
-import { AuthorsTextWithLink } from "./pages/HomePage/AuthorView";
+import { AuthorsTextWithLink } from "./AuthorView";
 import AuthorBox from "./AuthorBox";
 import { CategoryLink } from "./CategoryLink";
 import { DateWithAbbr } from "./DateView";
 import HumorGlobal from "./HumorGlobal";
 import DataVizGlobal from "./DataVizGlobal";
-import FooterDonationBanner from "components/FooterDonationBanner";
+import FooterDonationBanner from "components/PostFooterBox";
 import css from "@emotion/css";
-import axios from "axios";
 
 import ContentViewStyles, {
   centerOuterContentStyle,
@@ -29,11 +28,8 @@ const PostTitle = styled.h1({
   ...centerContentStyle,
   ...FONTS.ARTICLE_TITLE,
   textAlign: "center",
-  fontSize: "2rem",
-  lineHeight: "1.5em",
-  [`@media (max-width: ${BREAKPOINTS.TABLET}px)`]: {
-    fontSize: "1.4rem",
-  },
+  fontSize: "2.3rem",
+  lineHeight: "1.4",
 });
 
 // PostSubtitle is subheadline if post is an article
@@ -41,12 +37,9 @@ const PostSubtitle = styled.h2({
   ...centerContentStyle,
   ...FONTS.ARTICLE_TITLE,
   textAlign: "center",
-  fontSize: "1.1rem",
-  lineHeight: "1.4em",
+  fontSize: "1.2rem",
+  lineHeight: "1.6",
   color: "gray",
-  [`@media (max-width: ${BREAKPOINTS.TABLET}px)`]: {
-    fontSize: "1rem",
-  },
 });
 
 // e.g. "By Firstname Lastname on July 25, 2020"
@@ -84,13 +77,6 @@ const ContentView: React.ElementType<ContentViewProps> = ({
     commentStatus, // determines whether Disqus appears below article
     guid,
   } = post;
-
-  if (postId === 1150447) {
-    console.log(postId);
-    axios.get(
-      "https://stanforddaily.com/wp-json/wp/v2/posts/" + postId + "/views",
-    );
-  }
 
   const {
     urls: { full: thumbnailUrl = null } = {},
@@ -201,7 +187,6 @@ const ContentView: React.ElementType<ContentViewProps> = ({
               ),
             }}
           />
-          {console.log(postContent)}
         </RView>
         {isPost && ( // For article/content posts, we want donation box and author box at bottom
           <footer css={centerOuterContentStyle} style={{ marginTop: 30 }}>
