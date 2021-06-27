@@ -52,7 +52,7 @@ const AuthorBox: React.ElementType<AuthorBoxProps> = ({
     });
 
   // set object returns to local variables
-  const emailURL = "mailto:" + additionalAuthorInfo?.email;
+  const emailURL = "mailto:" + encodeURIComponent(additionalAuthorInfo?.email);
   const twitterURL = "https://www.twitter.com/" + encodeURIComponent(additionalAuthorInfo?.twitter);
   const pronouns = additionalAuthorInfo?.pronouns;
   const position = additionalAuthorInfo?.title;
