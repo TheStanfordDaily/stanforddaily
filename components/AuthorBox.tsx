@@ -96,7 +96,7 @@ const AuthorBox: React.ElementType<AuthorBoxProps> = ({
             marginLeft: 12.5,
           }}
         >
-          {(additionalAuthorInfo?.email && !additionalAuthorInfo.email.includes("@stanford.edu")) || 
+          {(additionalAuthorInfo?.email && !additionalAuthorInfo.email.endsWith("@stanford.edu")) || 
             additionalAuthorInfo?.twitter ? (
             <div style={{ display: "flex", justifyContent: "center" }}>
               {twitterURL ? (
