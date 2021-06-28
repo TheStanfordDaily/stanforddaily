@@ -2,7 +2,7 @@
 node_modules/**/*
 .serverless_nextjs
 .env
-*.DSStore
+*.DS_Store
 
 # @generated: @expo/next-adapter@2.0.33
 /.expo/*
