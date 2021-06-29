@@ -91,6 +91,13 @@ export const FooterContent: React.ElementType = ({ style }: any) => {
         },
       },
     },
+    magazine: {
+      id: 53462,
+      name: "Magazine",
+      slug: "magazine",
+      url: "/category/magazine/",
+      children: {},
+    },
     sports: {
       id: 23,
       name: "SPORTS",
