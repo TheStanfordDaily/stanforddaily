@@ -66,8 +66,8 @@ const TextButtonWithLink: React.ElementType = ({
   </Link>
 );
 
-// Used in donation box at bottom of posts
-const FooterDonationBanner: React.ElementType = ({ currentPageUrl }) => {
+// Box at bottom of posts, right above AuthorBox
+const PostFooterBox: React.ElementType = () => {
   return (
     <div
       style={{
@@ -103,7 +103,7 @@ const FooterDonationBanner: React.ElementType = ({ currentPageUrl }) => {
         are tax-deductible.
       </p>
 
-      <DonationForm currentPageUrl={currentPageUrl} bannerLocation="Footer" />
+      <DonationForm />
       <br></br>
       <TextButtonWithLink
         url="/email-digests/"
@@ -112,13 +112,29 @@ const FooterDonationBanner: React.ElementType = ({ currentPageUrl }) => {
       />
       <div>
         <br></br>
-        <LogoIconWithLink url={LINKS.FACEBOOK} LogoComponent={LogoFacebook} />
-        <LogoIconWithLink url={LINKS.TWITTER} LogoComponent={LogoTwitter} />
-        <LogoIconWithLink url={LINKS.INSTAGRAM} LogoComponent={LogoInstagram} />
-        <LogoIconWithLink url={LINKS.YOUTUBE} LogoComponent={LogoYoutube} />
+        <LogoIconWithLink
+          url={LINKS.FACEBOOK}
+          aria="Facebook"
+          LogoComponent={LogoFacebook}
+        />
+        <LogoIconWithLink
+          url={LINKS.TWITTER}
+          aria="Twitter"
+          LogoComponent={LogoTwitter}
+        />
+        <LogoIconWithLink
+          url={LINKS.INSTAGRAM}
+          aria="Instagram"
+          LogoComponent={LogoInstagram}
+        />
+        <LogoIconWithLink
+          url={LINKS.YOUTUBE}
+          aria="Youtube"
+          LogoComponent={LogoYoutube}
+        />
       </div>
     </div>
   );
 };
 
-export default FooterDonationBanner;
+export default PostFooterBox;

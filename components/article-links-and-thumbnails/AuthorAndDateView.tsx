@@ -1,8 +1,8 @@
 import React from "react";
 import { Text, TextStyle, Platform } from "react-native";
 import { Post } from "helpers/wpapi";
-import { AuthorView } from "./pages/HomePage/AuthorView";
-import DateView from "./DateView";
+import { AuthorView } from "../AuthorView";
+import DateView from "../DateView";
 
 // Describes requirement of various properties of specific types
 // https://www.typescriptlang.org/docs/handbook/interfaces.html

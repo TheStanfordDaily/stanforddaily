@@ -4,9 +4,9 @@ import * as Font from "expo-font";
 import { createStackNavigator, createAppContainer } from "react-navigation";
 import { STANFORD_COLORS, FONTS } from "helpers/constants";
 import { HomePageWrapper } from "components/pages/HomePage";
-import { ArticlePageWrapper } from "components/pages/ArticlePage";
-import { CategoryArticleListPageWrapper } from "components/pages/CategoryArticleListPage";
-import { TimeArticleListPageWrapper } from "components/pages/TimeArticleListPage";
+import { ArticlePageWrapper } from "components/pages/WordPress Post";
+import { CategoryArticleListPageWrapper } from "components/pages/ArticleListPage/CategoryArticleListPage";
+import { TimeArticleListPageWrapper } from "components/pages/ArticleListPage/TimeArticleListPage";
 import LoadingView from "components/Loading";
 
 const AppNavigator = createStackNavigator(

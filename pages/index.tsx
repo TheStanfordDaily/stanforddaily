@@ -1,7 +1,7 @@
 import React from "react";
 import Router from "next/router";
 import HomePage from "components/pages/HomePage";
-import SearchArticleListPage from "components/pages/SearchArticleListPage";
+import SearchArticleListPage from "components/pages/ArticleListPage/SearchArticleListPage";
 import { getPostByIdAsync, getPostPath } from "helpers/wpapi";
 
 enum PageType {

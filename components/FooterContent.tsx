@@ -2,7 +2,13 @@ import React from "react";
 import { View } from "react-native";
 import styled from "@emotion/native";
 import RView, { MediaRule } from "emotion-native-media-query";
-import { STANFORD_COLORS, BREAKPOINTS, FONTS, LINKS } from "helpers/constants";
+import {
+  STANFORD_COLORS,
+  FOCUS_STATES,
+  BREAKPOINTS,
+  FONTS,
+  LINKS,
+} from "helpers/constants";
 import { Category } from "helpers/wpapi";
 import Link from "./Link";
 import { SECTION_PADDING } from "./Section";
@@ -84,6 +90,13 @@ export const FooterContent: React.ElementType = ({ style }: any) => {
           children: {},
         },
       },
+    },
+    magazine: {
+      id: 53462,
+      name: "Magazine",
+      slug: "magazine",
+      url: "/category/magazine/",
+      children: {},
     },
     sports: {
       id: 23,
@@ -349,6 +362,20 @@ export const FooterContent: React.ElementType = ({ style }: any) => {
       url: "/category/cartoons/",
       children: {},
     },
+    dei: {
+      id: 74524,
+      name: "DEI",
+      slug: "dei",
+      url: "/category/dei/",
+      children: {},
+    },
+    resources: {
+      id: null,
+      name: "Resources",
+      slug: "resources",
+      url: "/campus-resources/",
+      children: {},
+    },
     aboutUs: {
       id: null,
       name: "About us",
@@ -451,6 +478,8 @@ export const FooterContent: React.ElementType = ({ style }: any) => {
                   fontSize: 16,
                   fontWeight: "bold",
                 }}
+                hasCustomOutline={true}
+                isInNav={true}
               />
               {Object.values(category.children).map(subCategory => {
                 return (
@@ -461,6 +490,8 @@ export const FooterContent: React.ElementType = ({ style }: any) => {
                       color: STANFORD_COLORS.WHITE,
                       textTransform: "none",
                     }}
+                    hasCustomOutline={true}
+                    isInNav={true}
                   />
                 );
               })}
@@ -471,11 +502,28 @@ export const FooterContent: React.ElementType = ({ style }: any) => {
       <View>
         <BottomLine>
           <BottomText style={{ fontWeight: "bold" }}>
-            © 2020 The Stanford Daily Publishing Corporation
+            © 2021 The Stanford Daily Publishing Corporation
           </BottomText>
           <BottomText style={{ fontWeight: "bold" }}>
+            <a
+              style={bottomLinkStyle}
+              href={LINKS.ACCESSIBILITY_STATEMENT}
+              title="Accessibility"
+              css={css`
+                ${FOCUS_STATES.YELLOW_OUTLINE}
+              `}
+            >
+              Accessibility
+            </a>{" "}
+            |{" "}
             <Link href="/[year]/" as="/privacy-policy/">
-              <a style={bottomLinkStyle} title="Privacy Policy">
+              <a
+                style={bottomLinkStyle}
+                title="Privacy Policy"
+                css={css`
+                  ${FOCUS_STATES.YELLOW_OUTLINE}
+                `}
+              >
                 Privacy Policy
               </a>
             </Link>{" "}
@@ -484,6 +532,9 @@ export const FooterContent: React.ElementType = ({ style }: any) => {
               style={bottomLinkStyle}
               href="https://apps.apple.com/us/app/stanford-daily/id1341270063" // add to constants
               title="iOS App"
+              css={css`
+                ${FOCUS_STATES.YELLOW_OUTLINE}
+              `}
             >
               iOS App
             </a>{" "}
@@ -492,6 +543,9 @@ export const FooterContent: React.ElementType = ({ style }: any) => {
               style={bottomLinkStyle}
               href="https://play.google.com/store/apps/details?id=com.Stanford.Daily.App&hl=en_US"
               title="Google Play App"
+              css={css`
+                ${FOCUS_STATES.YELLOW_OUTLINE}
+              `}
             >
               Google Play App
             </a>
@@ -504,11 +558,21 @@ export const FooterContent: React.ElementType = ({ style }: any) => {
               style={bottomLinkStyle}
               href="https://wordpress.org/"
               title="WordPress"
+              css={css`
+                ${FOCUS_STATES.YELLOW_OUTLINE}
+              `}
             >
               WordPress
             </a>{" "}
             and{" "}
-            <a style={bottomLinkStyle} href="https://expo.io/" title="Expo">
+            <a
+              style={bottomLinkStyle}
+              href="https://expo.io/"
+              title="Expo"
+              css={css`
+                ${FOCUS_STATES.YELLOW_OUTLINE}
+              `}
+            >
               Expo
             </a>{" "}
             | Theme by{" "}
@@ -516,12 +580,22 @@ export const FooterContent: React.ElementType = ({ style }: any) => {
               style={bottomLinkStyle}
               href="https://github.com/TheStanfordDaily/"
               title="The Stanford Daily Tech Team"
+              css={css`
+                ${FOCUS_STATES.YELLOW_OUTLINE}
+              `}
             >
               TSD Tech Team
             </a>
           </BottomText>
           <BottomText style={{ textTransform: "none" }}>
-            <a style={bottomLinkStyle} href="/donate/" title="Donate">
+            <a
+              style={bottomLinkStyle}
+              href="/donate/"
+              title="Donate"
+              css={css`
+                ${FOCUS_STATES.YELLOW_OUTLINE}
+              `}
+            >
               Donate
             </a>{" "}
             and support The Daily when you shop on{" "}
@@ -529,6 +603,9 @@ export const FooterContent: React.ElementType = ({ style }: any) => {
               style={bottomLinkStyle}
               href="https://smile.amazon.com/"
               title="Amazon Smile"
+              css={css`
+                ${FOCUS_STATES.YELLOW_OUTLINE}
+              `}
             >
               Amazon
             </a>

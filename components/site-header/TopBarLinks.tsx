@@ -1,9 +1,9 @@
 import React from "react";
 import { Text, ScrollView, Platform } from "react-native";
-import { STANFORD_COLORS, FONTS, LINKS } from "helpers/constants";
+import { STANFORD_COLORS, FONTS, LINKS, FOCUS_STATES } from "helpers/constants";
 import { Category } from "helpers/wpapi";
-import { SECTION_PADDING } from "./Section";
-import { CategoryLink } from "./CategoryLink";
+import { SECTION_PADDING } from "../Section";
+import { CategoryLink } from "../CategoryLink";
 import SearchLink from "./SearchLink";
 import css from "@emotion/css";
 
@@ -51,13 +51,6 @@ export const TopBarLinks: React.ElementType = ({ itemStyle }: any) => {
       slug: "sports",
       url: "/category/sports/",
     },
-    // {
-    //   type: LinkType.CATEGORY,
-    //   id: 55043,
-    //   name: "SPONSORED",
-    //   slug: "sponsored",
-    //   url: "/category/sponsored/",
-    // },
     {
       type: LinkType.CATEGORY,
       id: 24,
@@ -75,7 +68,7 @@ export const TopBarLinks: React.ElementType = ({ itemStyle }: any) => {
     {
       type: LinkType.CATEGORY,
       id: 32278,
-      name: "The Grind",
+      name: "Grind",
       slug: "thegrind",
       url: "/category/thegrind/",
     },
@@ -86,13 +79,6 @@ export const TopBarLinks: React.ElementType = ({ itemStyle }: any) => {
       slug: "humor",
       url: "/category/humor/",
     },
-    // {
-    //   type: LinkType.CATEGORY,
-    //   id: 53462,
-    //   name: "Magazine",
-    //   slug: "magazine",
-    //   url: "/category/magazine/",
-    // },
     {
       type: LinkType.CATEGORY,
       id: 58277,
@@ -110,15 +96,20 @@ export const TopBarLinks: React.ElementType = ({ itemStyle }: any) => {
       name: "Video",
       url: LINKS.YOUTUBE,
     } as LinkLink,
-    // {
-    //   type: LinkType.LINK,
-    //   name: "Yearbook",
-    //   url: "/yearbook/",
-    // } as LinkLink,
     {
       type: LinkType.LINK,
       name: "Cartoons",
       url: "/category/cartoons/",
+    } as LinkLink,
+    {
+      type: LinkType.LINK,
+      name: "Resources",
+      url: "/campus-resources/",
+    } as LinkLink,
+    {
+      type: LinkType.LINK,
+      name: "DEI",
+      url: "/category/dei/",
     } as LinkLink,
     {
       type: LinkType.LINK,
@@ -127,18 +118,23 @@ export const TopBarLinks: React.ElementType = ({ itemStyle }: any) => {
     } as LinkLink,
     {
       type: LinkType.LINK,
-      name: "Alumni",
+      name: "Alums",
       url: "https://alumni.stanforddaily.com/",
     } as LinkLink,
     {
       type: LinkType.LINK,
-      name: "Advertising",
+      name: "Ads",
       url: "/advertise/",
     } as LinkLink,
     {
       type: LinkType.LINK,
-      name: "Archives",
+      name: "Archive",
       url: LINKS.ARCHIVES,
+    } as LinkLink,
+    {
+      type: LinkType.LINK,
+      name: "Magazine",
+      url: "/category/magazine/",
     } as LinkLink,
   ];
 
@@ -178,6 +174,8 @@ export const TopBarLinks: React.ElementType = ({ itemStyle }: any) => {
               key={category.id}
               category={category}
               style={actualStyle}
+              hasCustomOutline={true}
+              isInNav={true}
             />
           );
         } else {
@@ -196,7 +194,13 @@ export const TopBarLinks: React.ElementType = ({ itemStyle }: any) => {
                 }
               `}
             >
-              <a href={link.url} style={{ color: "inherit" }}>
+              <a
+                href={link.url}
+                style={{ color: "inherit" }}
+                css={css`
+                  ${FOCUS_STATES.YELLOW_OUTLINE}
+                `}
+              >
                 {link.name}
               </a>
             </Text>

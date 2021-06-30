@@ -101,10 +101,23 @@ export const COLORS = {
   },
 };
 
+// For tab-accessibility of clickable elements
+export const FOCUS_STATES = {
+  YELLOW_OUTLINE: `&:focus-visible {
+    padding: 3px !important;
+    outline: 2px solid yellow !important;
+  }`,
+  BLACK_OUTLINE: `&:focus-visible {
+    padding: 3px !important;
+    outline: 2px solid black !important;
+  }`,
+};
+
 // 24 is from `MORE_FROM_DAILY_POST_PER_PAGE` in tsd-json plugin on the server.
 export const MORE_FROM_DAILY_POST_PER_PAGE = 24;
 
 export const LINKS = {
+  ACCESSIBILITY_STATEMENT: "/accessibility/",
   FACEBOOK: "https://www.facebook.com/stanforddaily/",
   TWITTER: "https://twitter.com/StanfordDaily",
   INSTAGRAM: "https://www.instagram.com/stanforddaily/",
@@ -132,3 +145,19 @@ export const LINKS = {
   SODP: "http://opendata.stanforddaily.com/",
   JOIN_US: "http://apply.stanforddaily.com",
 };
+
+export const srAndTabOnlyDropdown = `
+background: white;
+color: red;
+font-size: 24px;
+height: 30px;
+left: 40%;
+padding: 6px;
+position: absolute;
+transform: translateY(-100%);
+transition: transform 0.3s;
+&:focus {
+  transform: translateY(0%);
+  outline: 4px solid yellow;
+}
+`;

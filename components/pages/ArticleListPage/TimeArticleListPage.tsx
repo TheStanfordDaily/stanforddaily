@@ -4,7 +4,7 @@ import ArticleListPage, {
   ArticleListPageType,
   ArticleListPageProps,
   ArticleListPageState,
-} from "./ArticleListPage";
+} from "./index";
 
 export default class TimeArticleListPage extends React.Component<
   ArticleListPageProps,

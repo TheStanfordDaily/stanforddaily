@@ -4,9 +4,9 @@ import { STANFORD_COLORS } from "helpers/constants";
 import { SECTION_PADDING } from "components/Section";
 import { Article, ArticleHeader } from "components/Article";
 import { CategoryLink } from "components/CategoryLink";
-import AuthorAndDateView from "components/AuthorAndDateView";
-import { PostExcerpt } from "./PostExcerpt";
-import { ArticleProps } from "./ArticleProps";
+import AuthorAndDateView from "components/article-links-and-thumbnails/AuthorAndDateView";
+import { PostExcerpt } from "../pages/HomePage/PostExcerpt";
+import { ArticleProps } from "../pages/HomePage/ArticleProps";
 import { ThumbnailImageWithLink } from "./ThumbnailImageWithLink";
 import { ArticleTitleWithLink } from "./ArticleTitleWithLink";
 
@@ -43,6 +43,7 @@ export const TextOnlyArticle: React.ElementType = ({
             style={{ color: textColor }}
             isHumor={isHumor}
             isHumor2={isHumor2}
+            hasCustomOutline={true}
           />
         </View>
       )}

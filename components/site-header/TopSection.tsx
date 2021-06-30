@@ -6,10 +6,16 @@ import LogoFacebook from "react-ionicons/lib/LogoFacebook";
 import LogoTwitter from "react-ionicons/lib/LogoTwitter";
 import LogoInstagram from "react-ionicons/lib/LogoInstagram";
 import LogoYoutube from "react-ionicons/lib/LogoYoutube";
-import { BREAKPOINTS, STANFORD_COLORS, FONTS, LINKS } from "helpers/constants";
+import {
+  BREAKPOINTS,
+  STANFORD_COLORS,
+  FONTS,
+  LINKS,
+  FOCUS_STATES,
+} from "helpers/constants";
 import { SectionStyle } from "components/Section";
 import styled from "@emotion/styled";
-import Link from "../../Link";
+import { TextButtonWithLink } from "../TextButtonWithLink";
 
 const globalStyles = {
   ".headerLogoIcon": {
@@ -28,10 +34,9 @@ const globalStyles = {
 export interface SmallSectionProps {
   url: string;
   imageUrl: string;
+  imageAlt: string;
   header: string;
-  //mobile_header?: string;
   title: string;
-  //mobile_title?: string;
   newTab?: boolean;
   className?: string;
   noRightMarginOnMobile?: boolean;
@@ -42,10 +47,9 @@ export interface SmallSectionProps {
 const SmallSection: React.ElementType<SmallSectionProps> = ({
   url,
   imageUrl,
+  imageAlt,
   header,
-  //mobile_header,
   title,
-  //mobile_title,
   newTab,
   className,
   noRightMarginOnMobile,
@@ -74,6 +78,7 @@ const SmallSection: React.ElementType<SmallSectionProps> = ({
       >
         <img
           src={imageUrl}
+          alt={imageAlt}
           style={{
             width: 50,
             height: 50,
@@ -92,29 +97,9 @@ const SmallSection: React.ElementType<SmallSectionProps> = ({
                 color: STANFORD_COLORS.CARDINAL_DARK_RED,
                 fontSize: 12,
               }}
-              // css={css`
-              //   @media (max-width: ${BREAKPOINTS.MAX_WIDTH.TABLET}px) {
-              //     font-weight: bold;
-              //   }
-              // `}
             >
               {header}
             </Text>
-            {/* <Text
-              style={{
-                ...FONTS.AUXILIARY,
-                color: STANFORD_COLORS.CARDINAL_DARK_RED,
-                fontSize: 12,
-              }}
-              css={css`
-                @media (max-width: ${!BREAKPOINTS.MAX_WIDTH.TABLET}px) {
-                  display: none;
-                  font-weight: bold;
-                }
-              `}
-            >
-              {mobile_header}
-            </Text> */}
           </View>
           <View>
             <Text
@@ -127,20 +112,7 @@ const SmallSection: React.ElementType<SmallSectionProps> = ({
             >
               {title}
             </Text>
-            {/* <Text
-              css={css`
-                font-weight: bold;
-                @media (max-width: ${!BREAKPOINTS.MAX_WIDTH.TABLET}px) {
-                  display: none;
-                }
-              `}
-            >
-              {mobile_title}
-            </Text> */}
           </View>
-          {/* <View>
-          <Text>Subtitle here lorem</Text>
-        </View> */}
         </View>
       </View>
     </a>
@@ -148,66 +120,26 @@ const SmallSection: React.ElementType<SmallSectionProps> = ({
 };
 
 // For the social media accounts on the right side of the top section (below nav bar)
-const LogoIconWithLink: React.ElementType = ({ url, LogoComponent }: any) => (
+const LogoIconWithLink: React.ElementType = ({
+  url,
+  aria,
+  LogoComponent,
+}: any) => (
   <a
     href={url}
+    aria-label={aria}
     target="_blank"
     rel="noopener noreferrer"
     style={{
       display: "inline-flex",
       marginRight: 20,
     }}
+    css={css`
+      ${FOCUS_STATES.BLACK_OUTLINE}
+    `}
   >
     <LogoComponent className="headerLogoIcon" fontSize="25px" />
   </a>
-);
-
-// For the "SEND TIPS" and "GET OUR EMAILS" buttons
-// on the rightmost side of the top section (below nav bar)
-const TextButtonWithLink: React.ElementType = ({
-  url,
-  urlFile = "/[year]/",
-  title,
-  mobileTitle,
-  tbwlStyle,
-}: any) => (
-  <Link href={urlFile} as={url}>
-    <a
-      title={title}
-      style={{
-        ...FONTS.AUXILIARY,
-        border: `2px ${STANFORD_COLORS.CARDINAL_RED} solid`,
-        fontSize: 15,
-        letterSpacing: 1,
-        fontWeight: 700,
-        borderRadius: 0,
-        outline: 0,
-        padding: 8,
-        cursor: "pointer",
-        textAlign: "center",
-        textDecoration: "none",
-        ...tbwlStyle,
-      }}
-      css={css`
-        color: #8c1515;
-        &:hover {
-          color: white !important;
-          background-color: #8c1515 !important;
-        }
-        &:visited {
-          color: #8c1515;
-        }
-      `}
-    >
-      {!mobileTitle && title}
-      {mobileTitle && (
-        <>
-          <span className="hidden-mobile">{title}</span>
-          <span className="visible-mobile">{mobileTitle}</span>
-        </>
-      )}
-    </a>
-  </Link>
 );
 
 const ViewRow: any = styled(View)({
@@ -251,6 +183,7 @@ export const TopSection: React.ElementType = ({ style }) => {
             className="small-section small-section-yearbook"
             url="/yearbook/"
             imageUrl={LINKS.YEARBOOK_LOGO}
+            imageAlt="The cover of a former Quad yearbook"
             header="STANFORD STUDENTS"
             title="Buy your 2020-21 yearbook"
             newTab
@@ -258,25 +191,14 @@ export const TopSection: React.ElementType = ({ style }) => {
               @media (max-width: ${BREAKPOINTS.MAX_WIDTH.TABLET}px) {
                 display: none;
               }
+              ${FOCUS_STATES.BLACK_OUTLINE}
             `}
           />
-          {/* <SmallSection
-            className="small-section small-section-issuu"
-            url={LINKS.ISSUU}
-            imageUrl={LINKS.ISSUU_LOGO}
-            header="Newspaper & Magazine"
-            title="Read Our Print Issues"
-            newTab
-            css={css`
-              @media (max-width: ${BREAKPOINTS.MAX_WIDTH.TABLET}px) {
-                display: none;
-              }
-            `}
-          /> */}
           <SmallSection
             className="small-section small-section-sodp"
             url={LINKS.SODP}
             imageUrl={LINKS.SODP_LOGO}
+            imageAlt="The Stanford Daily logo, a red S over a white background in Canterbury font"
             header="Stanford Open Data Portal"
             title="Explore Open Data"
             newTab
@@ -284,65 +206,58 @@ export const TopSection: React.ElementType = ({ style }) => {
               @media (max-width: ${BREAKPOINTS.MAX_WIDTH.TABLET}px) {
                 display: none;
               }
+              ${FOCUS_STATES.BLACK_OUTLINE}
             `}
           />
           <SmallSection
             className="small-section small-section-join"
             url="/submitting-to-the-daily/"
             imageUrl={LINKS.NEWSLETTER_LOGO}
+            imageAlt="The Stanford Daily logo, a white S over a red background in Canterbury font"
             header="Submit work" //"Fall Workshops (all remote)"
             // mobile_header="High Schoolers"
             title="Or join us" //"Programs for High Schoolers"
             // mobile_title="Fall Workshops"
             newTab
+            css={css`
+              ${FOCUS_STATES.BLACK_OUTLINE}
+            `}
           />
           <SmallSection
             className="small-section small-section-newsletters"
-            url="/high-school-programs/"
-            imageUrl="https://wp.stanforddaily.com/wp-content/uploads/2020/11/cardinal-red-daily-s-logo.png"
-            header="Summer Program | APPLY NOW"
-            title="For high schoolers"
+            url="/category/dei/"
+            imageUrl="https://wp.stanforddaily.com/wp-content/uploads/2021/06/Screen-Shot-2021-06-23-at-8.06.59-PM-e1624504420323.png"
+            imageAlt="A circle containing the text, 'DEI at The Daily,' against a warmly colored background"
+            header="DIVERSITY, EQUITY & INCLUSION"
+            title="Daily programs & resources"
             newTab
+            css={css`
+              ${FOCUS_STATES.BLACK_OUTLINE}
+            `}
           />
-          {/* <SmallSection
-              imageUrl="https://www.stanforddaily.com/wp-content/uploads/2018/10/Stanford_School_of_Medicine_Li_Ka_Shing_Center.jpg"
-              header="Issue #"
-              title="The Daily Magazine"
-            /> */}
-          {/* <SmallSection
-              className="small-section small-section-podcasts"
-              url="/category/podcasts/"
-              imageUrl={LINKS.DAILY_BREW_LOGO}
-              header="Podcasts"
-              title="The Daily Brew & More"
-            /> */}
-          {/* <SmallSection
-            className="small-section small-section-adopt-a-small-business"
-            url="/adopt-a-small-business-with-stanford-daily-advertising"
-            imageUrl={LINKS.ADOPT_A_BUSINESS_LOGO}
-            header="Adopt a" //"Stanford Daily Advertising"
-            //mobile_header="Adopt a"
-            title="Business" //"Adopt a Small Business"
-            //mobile_title="Business"
-          /> */}
-          {/* <SmallSection
-            className="small-section small-section-elections"
-            url="/list-of-eligible-voters-for-the-stanford-dailys-january-2021-elections/"
-            imageUrl="https://wp.stanforddaily.com/wp-content/uploads/2020/11/cardinal-red-daily-s-logo.png"
-            header="Eligible voter list"
-            title="For Daily elections"
-            noRightMarginOnMobile={true}
-          /> */}
         </ViewRow>
         <ViewRow>
           <Global styles={globalStyles} />
-          <LogoIconWithLink url={LINKS.FACEBOOK} LogoComponent={LogoFacebook} />
-          <LogoIconWithLink url={LINKS.TWITTER} LogoComponent={LogoTwitter} />
+          <LogoIconWithLink
+            url={LINKS.FACEBOOK}
+            aria="Facebook"
+            LogoComponent={LogoFacebook}
+          />
+          <LogoIconWithLink
+            url={LINKS.TWITTER}
+            aria="Twitter"
+            LogoComponent={LogoTwitter}
+          />
           <LogoIconWithLink
             url={LINKS.INSTAGRAM}
+            aria="Instagram"
             LogoComponent={LogoInstagram}
           />
-          <LogoIconWithLink url={LINKS.YOUTUBE} LogoComponent={LogoYoutube} />
+          <LogoIconWithLink
+            url={LINKS.YOUTUBE}
+            aria="Youtube"
+            LogoComponent={LogoYoutube}
+          />
           <TextButtonWithLink
             url="/tips/"
             title="Send Tips"

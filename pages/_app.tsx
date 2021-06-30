@@ -10,11 +10,14 @@ import {
   COLORS,
   STANFORD_COLORS,
   FONTS,
+  FOCUS_STATES,
+  LINKS,
+  srAndTabOnlyDropdown,
 } from "helpers/constants";
 import { SectionStyle } from "components/Section";
 import { getBorderValue } from "components/pages/HomePage/getBorderValue";
-import { TopSection } from "components/pages/HomePage/TopSection";
-import { TopBarLinks } from "components/TopBarLinks";
+import { TopSection } from "components/site-header/TopSection";
+import { TopBarLinks } from "components/site-header/TopBarLinks";
 import { FooterContent } from "components/FooterContent";
 import DonationForm from "components/DonationForm";
 import Link from "../components/Link";
@@ -65,10 +68,14 @@ const HeaderLogo: React.ElementType = () => {
                 height: "100%",
               }}
               title="The Stanford Daily"
+              aria-label="Go to homepage"
+              css={css`
+                ${FOCUS_STATES.BLACK_OUTLINE}
+              `}
             >
               <img
                 src="https://raw.githubusercontent.com/TheStanfordDaily/stanforddaily-graphic-assets/main/DailyLogo/DailyLogo.png"
-                alt="The Stanford Daily"
+                alt="The words 'The Stanford Daily' in Canterbury font"
                 css={{
                   imageRendering: "-webkit-optimize-contrast",
                   height: "auto",
@@ -87,10 +94,14 @@ const HeaderLogo: React.ElementType = () => {
                 alignItems: "center",
                 height: "100%",
               }}
+              aria-label="Go to homepage"
+              css={css`
+                ${FOCUS_STATES.BLACK_OUTLINE}
+              `}
             >
               <img
                 src="/static/94305-logo.png"
-                alt="The Stanford Daily"
+                alt="The Stanford Daily 94305 data team logo"
                 css={{
                   height: "auto",
                   width: "120%",
@@ -123,44 +134,24 @@ const SiteHeader: React.ElementType = (props: any) => {
             ...containerRStyle,
           }}
         >
-          {/* Apply banner */}
-          {/* <a href="http://apply.stanforddaily.com">
-            <img
-              src="https://wp.stanforddaily.com/wp-content/uploads/2020/04/apply_for_the_daily.jpg"
-              style={{
-                maxHeight: 100,
-                objectFit: "contain",
-                width: "100%",
-                display: "block",
-                margin: "auto",
-                marginBottom: 20,
-              }}
-            />
-            </a>*/}
-          {/* Readers survey */}
-          {/* <a
-            target="_blank"
-            href="https://docs.google.com/forms/d/e/1FAIpQLScPzcqoZYTfUx5hPIe56Ils1gKn0ibO27ugWmiJVMKADdgdpA/viewform"
+          <a
+            css={css`
+              ${srAndTabOnlyDropdown}
+            `}
+            href={LINKS.ACCESSIBILITY_STATEMENT}
           >
-            <img
-              src="https://wp.stanforddaily.com/wp-content/uploads/2020/05/reader-survey-5-12-20.jpg"
-              style={{
-                maxHeight: 100,
-                objectFit: "contain",
-                width: "100%",
-                display: "block",
-                margin: "auto",
-                marginBottom: 0,
-                marginTop: 0,
-                // backgroundColor: "#8C1515"
-              }}
-            />
-          </a> */}
-          <DonationForm
-            currentPageUrl={STRINGS.WEBSITE_URL}
-            bannerLocation={"Banner"}
-            large={false}
-          />
+            Accessibility statement
+          </a>
+          <a
+            css={css`
+              ${srAndTabOnlyDropdown}
+            `}
+            className="skip-to-content-link"
+            href="#main-content"
+          >
+            Skip to main content
+          </a>
+          <DonationForm large={true} />
         </RView>
       </RView>
       <RView
@@ -172,13 +163,6 @@ const SiteHeader: React.ElementType = (props: any) => {
           [MediaRule.MinWidth]: {
             [BREAKPOINTS.TABLET]: {
               ...getBorderValue("Bottom"),
-            },
-          },
-          [MediaRule.MaxWidth]: {
-            [BREAKPOINTS.MAX_WIDTH.TABLET]: {
-              // position: "sticky",
-              // top: 0,
-              // zIndex: 999,
             },
           },
         }}
@@ -333,6 +317,15 @@ export default class MyApp extends App {
           `,
             }}
           />
+          {/* Flytedesk Digital script */}
+          <script
+            type="text/javascript"
+            dangerouslySetInnerHTML={{
+              __html: `
+            (function (w, d, s, p) { let f = d.getElementsByTagName(s)[0], j = d.createElement(s); j.id = 'flytedigital'; j.async = true; j.src = 'https://digital.flytedesk.com/js/head.js#' + p; f.parentNode.insertBefore(j, f); })(window, document, 'script', '8b8311a6-73a1-4434-a650-866bea833079');
+          `,
+            }}
+          />
 
           {/* Content that appears on site pages */}
         </Head>
@@ -361,7 +354,7 @@ export default class MyApp extends App {
           <SiteHeader id="site-header" router={router} />
         )}
         <Layout>
-          <main id="site-main">
+          <main id="main-content">
             <Component {...pageProps} />
           </main>
         </Layout>
