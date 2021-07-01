@@ -19,6 +19,7 @@ export const MainSection: React.ElementType<SectionProps> = ({
   style,
   rStyle,
 }: SectionProps) => {
+  console.log(category);
   return (
     <Column
       style={{

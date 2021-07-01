@@ -11,7 +11,7 @@ const ArticleTitleStyle = styled.Text({
   // lineHeight: "1.4em",
 });
 
-const ArticleTitle =
+export const ArticleTitle =
   Platform.OS === "web"
     ? ArticleTitleStyle.withComponent("h2")
     : ArticleTitleStyle;

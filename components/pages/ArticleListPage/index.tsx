@@ -6,6 +6,7 @@ import ArticlesView from "components/ArticlesView";
 import WPHead from "components/webHelpers/WPHead";
 import WPFooter from "components/webHelpers/WPFooter";
 import { deiTopper } from "./deiTopper";
+import { humorTopper } from "./humorTopper";
 import { usElections2020Topper } from "./UsElections2020Topper";
 
 export enum ArticleListPageType {
@@ -49,6 +50,7 @@ export default class ArticleListPage extends React.Component<
       <>
         {/* Apply only one custom section topper, if any */}
         {initData.tsdMeta["title"] === "DEI" && deiTopper()}
+        {initData.tsdMeta["title"] === "Humor" && humorTopper(initData)}
         {initData.tsdMeta["title"] === "US Elections 2020" &&
           usElections2020Topper(initData)}
 
