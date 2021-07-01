@@ -32,7 +32,6 @@ interface AuthorBoxProps {
   linkToAuthor?: boolean;
 }
 
-
 // Box containing author name, profile picture and bio at bottom of
 // a post; author name links to their ArticleListPage
 const AuthorBox: React.ElementType<AuthorBoxProps> = ({
@@ -51,10 +50,18 @@ const AuthorBox: React.ElementType<AuthorBoxProps> = ({
     });
 
   // set object returns to local variables
-  const emailURL = "mailto:" + encodeURIComponent(additionalAuthorInfo?.dailyEmail);
-  const twitterURL = "https://www.twitter.com/" + encodeURIComponent(additionalAuthorInfo?.twitter);
-  const pronouns = additionalAuthorInfo?.pronouns;
-  const position = additionalAuthorInfo?.title;
+  const emailURL =
+    "mailto:" +
+    encodeURIComponent(
+      additionalAuthorInfo ? additionalAuthorInfo.dailyEmail : "",
+    );
+  const twitterURL =
+    "https://www.twitter.com/" +
+    encodeURIComponent(
+      additionalAuthorInfo ? additionalAuthorInfo.twitter : "",
+    );
+  const pronouns = additionalAuthorInfo ? additionalAuthorInfo.pronouns : "";
+  const position = additionalAuthorInfo ? additionalAuthorInfo.title : "";
 
   return (
     <View
@@ -95,8 +102,8 @@ const AuthorBox: React.ElementType<AuthorBoxProps> = ({
             marginLeft: 12.5,
           }}
         >
-          {(additionalAuthorInfo?.dailyEmail) || 
-            additionalAuthorInfo?.twitter ? (
+          {(additionalAuthorInfo && additionalAuthorInfo.dailyEmail) ||
+          (additionalAuthorInfo && additionalAuthorInfo.twitter) ? (
             <div style={{ display: "flex", justifyContent: "center" }}>
               {twitterURL ? (
                 <LogoIconWithLink
