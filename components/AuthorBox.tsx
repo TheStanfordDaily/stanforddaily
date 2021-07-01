@@ -105,13 +105,13 @@ const AuthorBox: React.ElementType<AuthorBoxProps> = ({
           {(additionalAuthorInfo && additionalAuthorInfo.dailyEmail) ||
           (additionalAuthorInfo && additionalAuthorInfo.twitter) ? (
             <div style={{ display: "flex", justifyContent: "center" }}>
-              {twitterURL ? (
+              {additionalAuthorInfo && additionalAuthorInfo.twitter ? (
                 <LogoIconWithLink
                   url={twitterURL}
                   LogoComponent={LogoTwitter}
                 />
               ) : null}
-              {emailURL ? (
+              {additionalAuthorInfo && additionalAuthorInfo.dailyEmail ? (
                 <LogoIconWithLink url={emailURL} LogoComponent={Email} />
               ) : null}
             </div>
