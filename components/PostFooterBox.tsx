@@ -73,9 +73,9 @@ const PostFooterBox: React.ElementType = () => {
       style={{
         background: "#eee",
         padding: SECTION_PADDING,
-        borderTopWidth: 1,
-        borderTopStyle: "solid",
-        borderTopColor: "#aa0000",
+        // borderTopWidth: 1,
+        // borderTopStyle: "solid",
+        // borderTopColor: "#aa0000",
         fontFamily: '"PT Serif", serif',
         marginTop: SECTION_PADDING,
         marginBottom: SECTION_PADDING,
@@ -94,7 +94,11 @@ const PostFooterBox: React.ElementType = () => {
       >
         While you're here...
       </h3>
-      <p>
+      <p
+        style={{
+          lineHeight: 1.75,
+        }}
+      >
         We're a student-run organization committed to providing hands-on
         experience in journalism, digital media and business for the next
         generation of reporters. Your support makes a difference in helping give
@@ -102,7 +106,6 @@ const PostFooterBox: React.ElementType = () => {
         professional skills and conduct meaningful reporting. All contributions
         are tax-deductible.
       </p>
-
       <DonationForm />
       <br></br>
       <TextButtonWithLink
