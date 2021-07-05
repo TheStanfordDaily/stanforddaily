@@ -150,7 +150,7 @@ export const srAndTabOnlyDropdown = `
 background: white;
 color: red;
 font-size: 24px;
-height: 30px;
+height: 40px;
 left: 40%;
 padding: 6px;
 position: absolute;

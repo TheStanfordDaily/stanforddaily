@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { Global } from "@emotion/core";
+import { Image } from "react-native";
 import RView from "emotion-native-media-query";
 import { Post } from "helpers/wpapi";
 import { BREAKPOINTS, FONTS } from "helpers/constants";
@@ -18,10 +19,12 @@ import DataVizGlobal from "./DataVizGlobal";
 import FooterDonationBanner from "components/PostFooterBox";
 import css from "@emotion/css";
 
-import ContentViewStyles, {
+import Size1ContentViewStyles, {
   centerOuterContentStyle,
   centerContentStyle,
-} from "./ContentViewStyles";
+} from "./Size1ContentViewStyles";
+import Size2ContentViewStyles from "./Size2ContentViewStyles";
+import Size3ContentViewStyles from "./Size3ContentViewStyles";
 
 // PostTitle is headline if post is an article
 const PostTitle = styled.h1({
@@ -97,6 +100,16 @@ const ContentView: React.ElementType<ContentViewProps> = ({
     isDataViz = true;
   }
 
+  const [fontSize, setFontSize] = useState(1);
+
+  function setFont(fontSize) {
+    if (fontSize === 3) {
+      setFontSize(1);
+    } else {
+      setFontSize(fontSize + 1);
+    }
+  }
+
   return (
     <SectionStyle>
       <WPHead base={post} />
@@ -126,7 +139,15 @@ const ContentView: React.ElementType<ContentViewProps> = ({
             undefined
           )}
         </ArticleHeader>
-        <Global styles={ContentViewStyles} />
+        <Global
+          styles={
+            fontSize === 1
+              ? Size1ContentViewStyles
+              : fontSize === 2
+              ? Size2ContentViewStyles
+              : Size3ContentViewStyles
+          }
+        />
         <RView
           WebTag="main"
           id="main-article-content"
@@ -177,6 +198,24 @@ const ContentView: React.ElementType<ContentViewProps> = ({
           )}
           <div id="main-article-text" />
           {/* TODO: UNKNOWN WHY THIS IS NECESSARY FOR SOME POSTS TO SHOW UP: E.G. https://www.stanforddaily.com/2019/11/20/the-disappearance-of-financial-aid-how-stanford-consumes-outside-scholarships-when-need-based-aid-doesnt-fulfill-student-needs/ */}
+          <div style={{ display: "inline" }} aria-hidden={true}>
+            <button
+              onClick={() => setFont(fontSize)}
+              onKeyPress={() => setFont(fontSize)}
+            >
+              <Image
+                source={{
+                  uri: "/static/fontSizeIcon.png",
+                }}
+                accessibilityLabel="Change font size"
+                resizeMode="contain"
+                style={{
+                  width: 30,
+                  height: 30,
+                }}
+              />
+            </button>
+          </div>
           <div
             id="main-article-text2"
             // eslint-disable-next-line react/no-danger
