@@ -326,7 +326,12 @@ export default class MyApp extends App {
           `,
             }}
           />
-
+          <script
+            type="text/javascript"
+            dangerouslySetInnerHTML={{
+              __html: `(function(){var s = document.createElement("script");s.setAttribute("data-account","zxHqmqpxgf");s.setAttribute("src","https://cdn.userway.org/widget.js");document.body.appendChild(s);})();`,
+            }}
+          />
           {/* Content that appears on site pages */}
         </Head>
         {/* `body` `overflow: initial` is added in order for `position: "sticky"` below to work. */}
