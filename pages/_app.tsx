@@ -326,10 +326,43 @@ export default class MyApp extends App {
           `,
             }}
           />
+          {/* Accessibility button on all site pages */}
           <script
             type="text/javascript"
             dangerouslySetInnerHTML={{
-              __html: `(function(){var s = document.createElement("script");s.setAttribute("data-account","zxHqmqpxgf");s.setAttribute("src","https://cdn.userway.org/widget.js");document.body.appendChild(s);})();`,
+              __html: `
+                      (function(d){
+                        var s = d.createElement("script");
+                        
+                        /* uncomment the following line to override default position*/
+                        s.setAttribute("data-position", 3);
+                        
+                        /* uncomment the following line to override default size (values: small, large)*/
+                        /* s.setAttribute("data-size", "small");*/
+                        
+                        /* uncomment the following line to override default language (e.g., fr, de, es, he, nl, etc.)*/
+                        /* s.setAttribute("data-language", "language");*/
+                        
+                        /* uncomment the following line to override color set via widget (e.g., #053f67)*/
+                        s.setAttribute("data-color", "#8C1516");
+                        
+                        /* uncomment the following line to override type set via widget (1=person, 2=chair, 3=eye, 4=text)*/
+                        /* s.setAttribute("data-type", "1");*/
+                        s.setAttribute("data-statement_text:", "Accessibility Statement");
+                        s.setAttribute("data-statement_url", "https://stanforddaily.com/accessibility/");
+                        
+                        /* uncomment the following line to override support on mobile devices*/
+                        /* s.setAttribute("data-mobile", true);*/
+                        
+                        /* uncomment the following line to set custom trigger action for accessibility menu*/
+                        /* s.setAttribute("data-trigger", "triggerId")*/
+                        s.setAttribute("data-account", "r1mV0mjVt0");
+                        s.setAttribute("src", "https://cdn.userway.org/widget.js");
+                        
+                        (d.body || d.head).appendChild(s);
+                      })
+                      (document)
+                      `,
             }}
           />
           {/* Content that appears on site pages */}
