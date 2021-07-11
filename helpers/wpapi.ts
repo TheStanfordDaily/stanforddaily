@@ -51,6 +51,12 @@ export type Author = {
   url: string;
   avatarUrl: string;
   description?: string;
+
+  // Custom author fields
+  pronouns?: string;
+  title?: string;
+  dailyEmail?: string;
+  twitter?: string;
 };
 
 export type Category = {

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { View, Text } from "react-native";
 import { Author } from "helpers/wpapi";
 import { FONTS, COLORS, STANFORD_COLORS } from "helpers/constants";
@@ -6,7 +6,6 @@ import { AuthorView } from "./AuthorView";
 import css from "@emotion/css";
 import LogoTwitter from "react-ionicons/lib/LogoTwitter";
 import Email from "react-ionicons/lib/MdMail";
-import axios from "axios";
 
 // Define logo icon type
 const LogoIconWithLink: React.ElementType = ({ url, LogoComponent }: any) => (
@@ -38,27 +37,18 @@ const AuthorBox: React.ElementType<AuthorBoxProps> = ({
   author,
   linkToAuthor = true,
 }: AuthorBoxProps) => {
-  const { description, avatarUrl, id } = author;
-
-  // contains the following custom fields: email, twitter, pronouns, title
-  const [additionalAuthorInfo, setAdditionalAuthorInfo] = useState(null);
-
-  axios
-    .get("https://wp.stanforddaily.com/wp-json/tsd/v1/authors/" + id + "/")
-    .then(response => {
-      setAdditionalAuthorInfo(response.data);
-    });
+  const {
+    description,
+    avatarUrl,
+    pronouns,
+    title,
+    dailyEmail,
+    twitter,
+  } = author;
 
   // set object returns to local variables
-  const emailURL =
-    "mailto:" + (additionalAuthorInfo ? additionalAuthorInfo.dailyEmail : "");
-  const twitterURL =
-    "https://www.twitter.com/" +
-    encodeURIComponent(
-      additionalAuthorInfo ? additionalAuthorInfo.twitter : "",
-    );
-  const pronouns = additionalAuthorInfo ? additionalAuthorInfo.pronouns : "";
-  const position = additionalAuthorInfo ? additionalAuthorInfo.title : "";
+  const emailURL = "mailto:" + dailyEmail;
+  const twitterURL = "https://www.twitter.com/" + encodeURIComponent(twitter);
 
   return (
     <View
@@ -99,16 +89,15 @@ const AuthorBox: React.ElementType<AuthorBoxProps> = ({
             marginLeft: 12.5,
           }}
         >
-          {(additionalAuthorInfo && additionalAuthorInfo.dailyEmail) ||
-          (additionalAuthorInfo && additionalAuthorInfo.twitter) ? (
+          {dailyEmail || twitter ? (
             <div style={{ display: "flex", justifyContent: "center" }}>
-              {additionalAuthorInfo && additionalAuthorInfo.twitter ? (
+              {twitter ? (
                 <LogoIconWithLink
                   url={twitterURL}
                   LogoComponent={LogoTwitter}
                 />
               ) : null}
-              {additionalAuthorInfo && additionalAuthorInfo.dailyEmail ? (
+              {dailyEmail ? (
                 <LogoIconWithLink url={emailURL} LogoComponent={Email} />
               ) : null}
             </div>
@@ -152,19 +141,21 @@ const AuthorBox: React.ElementType<AuthorBoxProps> = ({
           }}
           linkToAuthor={linkToAuthor}
         />
-        <View>
-          <Text
-            style={{
-              ...FONTS.CONTENT,
-              marginTop: 8,
-              fontSize: 16,
-              lineHeight: "1.5em",
-              fontWeight: "bold",
-            }}
-          >
-            {position}
-          </Text>
-        </View>
+        {title ? (
+          <View>
+            <Text
+              style={{
+                ...FONTS.CONTENT,
+                marginTop: 8,
+                fontSize: 16,
+                lineHeight: "1.5em",
+                fontWeight: "bold",
+              }}
+            >
+              {title}
+            </Text>
+          </View>
+        ) : null}
         {description ? (
           <Text
             style={{
@@ -176,9 +167,7 @@ const AuthorBox: React.ElementType<AuthorBoxProps> = ({
           >
             {description}
           </Text>
-        ) : (
-          undefined
-        )}
+        ) : null}
       </View>
     </View>
   );
