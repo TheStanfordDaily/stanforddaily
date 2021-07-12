@@ -149,19 +149,23 @@ export function deiTopper() {
             }}
           >
             <a
-              href="https://stanforddaily.com/vol-258-demographic-survey/"
+              href="https://stanforddaily.com/daily-staffer-demographics-by-volume/"
               style={{ textDecoration: "none" }}
               css={css`
                 ${FOCUS_STATES.BLACK_OUTLINE}
               `}
             >
               <h2 style={{ textAlign: "center" }}>
-                Vol. 258 demographics survey (click for more!)
+                Vol. 259 staff demographics survey results
               </h2>
+              <h3 style={{ textAlign: "center" }}>
+                Click for results from other questions
+              </h3>
             </a>
             <iframe
-              src="https://flo.uri.sh/visualisation/5094689/embed"
+              src="https://flo.uri.sh/visualisation/6644830/embed"
               title="Interactive or visual content"
+              className="flourish-embed-iframe"
               frameBorder="0"
               scrolling="no"
               style={{ width: "100%", height: "600px" }}
@@ -179,7 +183,7 @@ export function deiTopper() {
                   ${FOCUS_STATES.BLACK_OUTLINE}
                 `}
                 className="flourish-credit"
-                href="https://public.flourish.studio/visualisation/5094689/?utm_source=embed&amp;utm_campaign=visualisation/5094689"
+                href="https://public.flourish.studio/visualisation/6644830/?utm_source=embed&utm_campaign=visualisation/6644830"
                 target="_top"
                 style={{ textDecoration: "none!important" }}
                 rel="noopener noreferrer"
@@ -204,7 +208,12 @@ export function deiTopper() {
       </h2>
       <p style={{ fontSize: 16, marginTop: 2 }}>
         Not familiar with the Equity Project?{" "}
-        <a href="https://www.stanforddaily.com/equity-project-section-guide/">
+        <a
+          css={css`
+            ${FOCUS_STATES.BLACK_OUTLINE}
+          `}
+          href="https://www.stanforddaily.com/equity-project-section-guide/"
+        >
           Learn more!
         </a>
       </p>
