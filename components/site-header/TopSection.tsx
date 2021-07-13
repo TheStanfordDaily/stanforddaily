@@ -225,11 +225,11 @@ export const TopSection: React.ElementType = ({ style }) => {
           />
           <SmallSection
             className="small-section small-section-newsletters"
-            url="/category/dei/"
-            imageUrl="https://wp.stanforddaily.com/wp-content/uploads/2021/06/Screen-Shot-2021-06-23-at-8.06.59-PM-e1624504420323.png"
-            imageAlt="A circle containing the text, 'DEI at The Daily,' against a warmly colored background"
-            header="DIVERSITY, EQUITY & INCLUSION"
-            title="Daily programs & resources"
+            url="/2021/07/12/letter-from-the-editors-introducing-100-people-in-100-days/"
+            imageUrl="https://wp.stanforddaily.com/wp-content/uploads/2021/07/100people100days.jpg"
+            imageAlt="A graphic that reads 100 people in 100 days over The Daily's logo."
+            header="100 PEOPLE IN 100 DAYS"
+            title="Our summer listening tour"
             newTab
             css={css`
               ${FOCUS_STATES.BLACK_OUTLINE}

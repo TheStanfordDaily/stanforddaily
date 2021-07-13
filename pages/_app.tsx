@@ -348,7 +348,7 @@ export default class MyApp extends App {
                         
                         /* uncomment the following line to override type set via widget (1=person, 2=chair, 3=eye, 4=text)*/
                         /* s.setAttribute("data-type", "1");*/
-                        s.setAttribute("data-statement_text:", "Accessibility Statement");
+                        s.setAttribute("data-statement_text:", "Our Accessibility Statement");
                         s.setAttribute("data-statement_url", "https://stanforddaily.com/accessibility/");
                         
                         /* uncomment the following line to override support on mobile devices*/
