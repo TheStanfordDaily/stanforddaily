@@ -116,7 +116,7 @@ export function deiTopper() {
                 `}
             />
             <TextButtonWithLink
-              url="https://docs.google.com/forms/d/e/1FAIpQLSd3xjyx_rexJp_RT0wqe6dIvmquQgUJF27AsemnnwYJehhnkA/viewform"
+              url="https://forms.gle/weKJNM8YkjnBJdnm8"
               title="Reimbursements for staffers' professional journalism affinity org fees"
               tbwlStyle={{
                 width: "256px",
