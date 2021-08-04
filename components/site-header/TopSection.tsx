@@ -181,11 +181,13 @@ export const TopSection: React.ElementType = ({ style }) => {
         <ViewRow style={{ flex: 2 }}>
           <SmallSection
             className="small-section small-section-yearbook"
-            url="/yearbook/"
-            imageUrl={LINKS.YEARBOOK_LOGO}
-            imageAlt="The cover of a former Quad yearbook"
-            header="STANFORD STUDENTS"
-            title="Buy your 2020-21 yearbook"
+            url="https://docs.google.com/forms/d/e/1FAIpQLSeglz7-DT4ePvErTwwI3ScVuZxiWgZersWZY1uiaY2rste-Mg/viewform?usp=sf_link"
+            imageUrl={
+              "https://wp.stanforddaily.com/wp-content/uploads/2021/08/Beige-and-Green-World-History-Junior-High-Canvas-Button.png"
+            }
+            imageAlt="Graphic with a calendar reading 'Summer Journalism Institute'"
+            header="APPLY NOW"
+            title="Summer journalism institute"
             newTab
             css={css`
               @media (max-width: ${BREAKPOINTS.MAX_WIDTH.TABLET}px) {
