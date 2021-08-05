@@ -183,9 +183,9 @@ export const TopSection: React.ElementType = ({ style }) => {
             className="small-section small-section-yearbook"
             url="https://docs.google.com/forms/d/e/1FAIpQLSeglz7-DT4ePvErTwwI3ScVuZxiWgZersWZY1uiaY2rste-Mg/viewform?usp=sf_link"
             imageUrl={
-              "https://wp.stanforddaily.com/wp-content/uploads/2021/08/Beige-and-Green-World-History-Junior-High-Canvas-Button.png"
+              "https://wp.stanforddaily.com/wp-content/uploads/2021/08/website-icon.png"
             }
-            imageAlt="Graphic with a calendar reading 'Summer Journalism Institute'"
+            imageAlt="Graphic reading 'Apply: 2021 Summer Internship Program'"
             header="APPLY NOW"
             title="Summer journalism institute"
             newTab
