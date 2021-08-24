@@ -181,13 +181,13 @@ export const TopSection: React.ElementType = ({ style }) => {
         <ViewRow style={{ flex: 2 }}>
           <SmallSection
             className="small-section small-section-yearbook"
-            url="https://docs.google.com/forms/d/e/1FAIpQLSeglz7-DT4ePvErTwwI3ScVuZxiWgZersWZY1uiaY2rste-Mg/viewform?usp=sf_link"
+            url="https://stanforddaily.com/high-school-programs"
             imageUrl={
-              "https://wp.stanforddaily.com/wp-content/uploads/2021/08/website-icon.png"
+              "https://wp.stanforddaily.com/wp-content/uploads/2020/03/logo.b1da2910.jpg"
             }
-            imageAlt="Graphic reading 'Apply: 2021 Summer Internship Program'"
-            header="APPLY NOW"
-            title="Summer journalism institute"
+            imageAlt="Stanford Daily logo"
+            header="FALL PROGRAM | APPLY NOW"
+            title="For high schoolers"
             newTab
             css={css`
               @media (max-width: ${BREAKPOINTS.MAX_WIDTH.TABLET}px) {
