@@ -10,9 +10,7 @@ module.exports = {
     "plugin:@typescript-eslint/recommended",
     "plugin:react/recommended",
     "plugin:prettier/recommended",
-    "prettier/@typescript-eslint",
-    "prettier/babel",
-    "prettier/react",
+    "prettier"
   ],
   plugins: ["@typescript-eslint", "babel", "prettier", "react", "emotion"],
   globals: {
