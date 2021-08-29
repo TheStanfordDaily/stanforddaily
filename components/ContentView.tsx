@@ -68,11 +68,14 @@ const ContentView: React.ElementType<ContentViewProps> = ({
     id: postId,
     postTitle,
     postSubtitle,
+    tagsInput,
     thumbnailInfo,
     tsdAuthors,
     tsdCategories, // e.g. News
     tsdPrimaryCategory, // for articles with more than one, selected in WordPress
+    tsdUrlParameters,
     postContent,
+    postDateGmt,
     postType,
     commentStatus, // determines whether Disqus appears below article
     guid,
@@ -239,6 +242,26 @@ const ContentView: React.ElementType<ContentViewProps> = ({
             })();
           </script>
           `,
+              }}
+            />
+            <div
+              dangerouslySetInnerHTML={{
+                __html: `<script type="application/ld+json">${JSON.stringify({
+                  "@context": "http://schema.org",
+                  "@type": "NewsArticle",
+                  headline: postTitle,
+                  url: isPost
+                    ? `www.stanforddaily.com/${tsdUrlParameters.year}/${tsdUrlParameters.month}/${tsdUrlParameters.day}/${tsdUrlParameters.slug}`
+                    : `www.stanforddaily.com/${tsdUrlParameters.slug}`,
+                  thumbnailUrl:
+                    thumbnailInfo &&
+                    thumbnailInfo.urls &&
+                    thumbnailInfo.urls.full,
+                  datePublished: postDateGmt,
+                  articleSection: tsdPrimaryCategory && tsdPrimaryCategory.name,
+                  creator: tsdAuthors.map(author => author.displayName),
+                  keywords: tagsInput,
+                })}</script>`,
               }}
             />
           </div>
