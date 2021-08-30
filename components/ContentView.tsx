@@ -248,7 +248,7 @@ const ContentView: React.ElementType<ContentViewProps> = ({
               dangerouslySetInnerHTML={{
                 __html: `<script type="application/ld+json">${JSON.stringify({
                   "@context": "http://schema.org",
-                  "@type": "NewsArticle",
+                  "@type": isPost ? "NewsArticle" : "WebPage",
                   headline: postTitle,
                   url: isPost
                     ? `www.stanforddaily.com/${tsdUrlParameters.year}/${tsdUrlParameters.month}/${tsdUrlParameters.day}/${tsdUrlParameters.slug}`
@@ -260,7 +260,13 @@ const ContentView: React.ElementType<ContentViewProps> = ({
                   datePublished: postDateGmt,
                   articleSection: tsdPrimaryCategory && tsdPrimaryCategory.name,
                   creator: tsdAuthors.map(author => author.displayName),
-                  keywords: tagsInput,
+                  keywords: tagsInput.concat(
+                    tsdCategories
+                      .filter(
+                        category => category.name !== tsdPrimaryCategory.name,
+                      )
+                      .map(category => category.name),
+                  ),
                 })}</script>`,
               }}
             />
