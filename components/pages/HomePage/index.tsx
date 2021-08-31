@@ -349,6 +349,15 @@ export default class HomePage extends React.Component<IndexProps, IndexState> {
             />
           </ScrollView>
           <WPFooter base={homePosts} />
+          <div
+            dangerouslySetInnerHTML={{
+              __html: `<script type="application/ld+json">${JSON.stringify({
+                "@context": "http://schema.org",
+                "@type": "WebPage",
+                url: "www.stanforddaily.com",
+              })}</script>`,
+            }}
+          />
         </SafeAreaView>
       </>
     );

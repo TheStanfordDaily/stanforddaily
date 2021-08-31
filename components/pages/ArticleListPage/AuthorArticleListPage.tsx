@@ -50,6 +50,15 @@ export default class AuthorArticleListPage extends React.Component<
           }}
           {...this.props}
         />
+        <div
+          dangerouslySetInnerHTML={{
+            __html: `<script type="application/ld+json">${JSON.stringify({
+              "@context": "http://schema.org",
+              "@type": "WebPage",
+              url: `www.stanforddaily.com/author/${slug}`,
+            })}</script>`,
+          }}
+        />
       </Section>
     );
   }

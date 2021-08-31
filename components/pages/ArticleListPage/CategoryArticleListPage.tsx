@@ -64,10 +64,25 @@ export default class CategoryArticleListPage extends React.Component<
       />
     );
 
+    const metaData = (
+      <div
+        dangerouslySetInnerHTML={{
+          __html: `<script type="application/ld+json">${JSON.stringify({
+            "@context": "http://schema.org",
+            "@type": "WebPage",
+            url: `www.stanforddaily.com/category/${slugs[slugs.length - 1]}`,
+          })}</script>`,
+        }}
+      />
+    );
+
     if (Platform.OS !== "web") {
       // We do not need header on mobile
       return (
-        <SafeAreaView style={{ flex: 1 }}>{_articleListPage}</SafeAreaView>
+        <SafeAreaView style={{ flex: 1 }}>
+          {_articleListPage}
+          {metaData}
+        </SafeAreaView>
       );
     }
 
@@ -92,6 +107,7 @@ export default class CategoryArticleListPage extends React.Component<
         )}
         {initData.tsdMeta.title === "Humor" && <HumorGlobal />}
         {_articleListPage}
+        {metaData}
       </Section>
     );
   }
