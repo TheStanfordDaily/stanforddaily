@@ -303,18 +303,10 @@ export default class MyApp extends App {
             on article pages in order to fix some integration issues with Ezoic.
           */}
           {/* Parse.ly analytics tracking */}
-          {/* <script
-            id="parsely-cfg"
-            src="//cdn.parsely.com/keys/sandbox.stanforddaily.com/p.js"
-          ></script> */}
           <script
-            dangerouslySetInnerHTML={{
-              __html: `
             id="parsely-cfg"
             src="//cdn.parsely.com/keys/sandbox.stanforddaily.com/p.js"
-          `,
-            }}
-          />
+          ></script>
           <script
             async
             src="https://www.googletagmanager.com/gtag/js?id=UA-5773957-1"
