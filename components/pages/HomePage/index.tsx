@@ -354,7 +354,7 @@ export default class HomePage extends React.Component<IndexProps, IndexState> {
               __html: `<script type="application/ld+json">${JSON.stringify({
                 "@context": "http://schema.org",
                 "@type": "WebPage",
-                url: "www.stanforddaily.com",
+                url: "https://www.stanforddaily.com",
               })}</script>`,
             }}
           />

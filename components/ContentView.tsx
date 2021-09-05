@@ -251,8 +251,8 @@ const ContentView: React.ElementType<ContentViewProps> = ({
                   "@type": isPost ? "NewsArticle" : "WebPage",
                   headline: postTitle,
                   url: isPost
-                    ? `www.stanforddaily.com/${tsdUrlParameters.year}/${tsdUrlParameters.month}/${tsdUrlParameters.day}/${tsdUrlParameters.slug}`
-                    : `www.stanforddaily.com/${tsdUrlParameters.slug}`,
+                    ? `https://www.stanforddaily.com/${tsdUrlParameters.year}/${tsdUrlParameters.month}/${tsdUrlParameters.day}/${tsdUrlParameters.slug}`
+                    : `https://www.stanforddaily.com/${tsdUrlParameters.slug}`,
                   thumbnailUrl:
                     thumbnailInfo &&
                     thumbnailInfo.urls &&
