@@ -358,6 +358,11 @@ export default class HomePage extends React.Component<IndexProps, IndexState> {
               })}</script>`,
             }}
           />
+          {/* Parse.ly analytics tracking */}
+          <script
+            id="parsely-cfg"
+            src="//cdn.parsely.com/keys/sandbox.stanforddaily.com/p.js"
+          />
         </SafeAreaView>
       </>
     );

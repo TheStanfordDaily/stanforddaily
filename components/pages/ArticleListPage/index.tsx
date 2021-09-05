@@ -79,6 +79,11 @@ export default class ArticleListPage extends React.Component<
         <WPHead base={initData} />
         {articlesView}
         <WPFooter base={initData} />
+        {/* Parse.ly analytics tracking */}
+        <script
+          id="parsely-cfg"
+          src="//cdn.parsely.com/keys/sandbox.stanforddaily.com/p.js"
+        />
       </>
     );
   }
