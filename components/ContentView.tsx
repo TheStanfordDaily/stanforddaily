@@ -270,9 +270,19 @@ const ContentView: React.ElementType<ContentViewProps> = ({
                 })}</script>`,
               }}
             />
+            {/* Parse.ly analytics tracking */}
+            <script
+              id="parsely-cfg"
+              src="//cdn.parsely.com/keys/sandbox.stanforddaily.com/p.js"
+            />
           </div>
         </div>
       )}
+      {/* Parse.ly analytics tracking */}
+      <script
+        id="parsely-cfg"
+        src="//cdn.parsely.com/keys/sandbox.stanforddaily.com/p.js"
+      />
       <WPFooter base={post} />
     </SectionStyle>
   );
