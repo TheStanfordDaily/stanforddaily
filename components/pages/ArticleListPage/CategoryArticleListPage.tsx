@@ -73,6 +73,7 @@ export default class CategoryArticleListPage extends React.Component<
             url: `https://stanforddaily.com/category/${
               slugs[slugs.length - 1]
             }`,
+            thumbnailUrl: `https://stanforddaily.com/static/cardinal-red-daily-s-logo.png`,
           })}</script>`,
         }}
       />

@@ -56,6 +56,7 @@ export default class AuthorArticleListPage extends React.Component<
               "@context": "http://schema.org",
               "@type": "WebPage",
               url: `https://stanforddaily.com/author/${slug}`,
+              thumbnailUrl: `https://stanforddaily.com/static/cardinal-red-daily-s-logo.png`,
             })}</script>`,
           }}
         />
