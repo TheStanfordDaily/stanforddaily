@@ -70,7 +70,9 @@ export default class CategoryArticleListPage extends React.Component<
           __html: `<script type="application/ld+json">${JSON.stringify({
             "@context": "http://schema.org",
             "@type": "WebPage",
-            url: `www.stanforddaily.com/category/${slugs[slugs.length - 1]}`,
+            url: `https://stanforddaily.com/category/${
+              slugs[slugs.length - 1]
+            }`,
           })}</script>`,
         }}
       />
