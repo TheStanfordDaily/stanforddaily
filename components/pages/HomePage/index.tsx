@@ -355,7 +355,8 @@ export default class HomePage extends React.Component<IndexProps, IndexState> {
                 "@context": "http://schema.org",
                 "@type": "WebPage",
                 url: "https://stanforddaily.com",
-                thumbnailUrl: `https://stanforddaily.com/static/cardinal-red-daily-s-logo.png`,
+                thumbnailUrl:
+                  "https://stanforddaily.com/static/cardinal-red-daily-s-logo.png",
               })}</script>`,
             }}
           />

@@ -274,9 +274,10 @@ const ContentView: React.ElementType<ContentViewProps> = ({
                     ? `https://stanforddaily.com/${tsdUrlParameters.year}/${tsdUrlParameters.month}/${tsdUrlParameters.day}/${tsdUrlParameters.slug}`
                     : `https://stanforddaily.com/${tsdUrlParameters.slug}`,
                   thumbnailUrl:
-                    thumbnailInfo &&
-                    thumbnailInfo.urls &&
-                    thumbnailInfo.urls.full,
+                    (thumbnailInfo &&
+                      thumbnailInfo.urls &&
+                      thumbnailInfo.urls.full) ||
+                    "https://stanforddaily.com/static/cardinal-red-daily-s-logo.png",
                   datePublished: postDateGmt,
                   articleSection: mainCategory,
                   creator: tsdAuthors.map(author => author.displayName),
