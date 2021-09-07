@@ -297,7 +297,7 @@ const ContentView: React.ElementType<ContentViewProps> = ({
       {/* Parse.ly analytics tracking */}
       <script
         id="parsely-cfg"
-        src="//cdn.parsely.com/keys/sandbox.stanforddaily.com/p.js"
+        src="//cdn.parsely.com/keys/stanforddaily.com/p.js"
       />
       <WPFooter base={post} />
     </SectionStyle>
