@@ -100,6 +100,26 @@ const ContentView: React.ElementType<ContentViewProps> = ({
     isDataViz = true;
   }
 
+  let mainCategory = tsdPrimaryCategory && tsdPrimaryCategory.name;
+  for (let i = 0; i < tsdCategories.length; i++) {
+    if (
+      tsdCategories[i].name === "News" ||
+      tsdCategories[i].name === "Sports" ||
+      tsdCategories[i].name === "Opinions" ||
+      tsdCategories[i].name === "Arts & Life" ||
+      tsdCategories[i].name === "The Grind" ||
+      tsdCategories[i].name === "Humor" ||
+      tsdCategories[i].name === "Cartoons" ||
+      tsdCategories[i].name === "Equity Project" ||
+      tsdCategories[i].name === "Data" ||
+      tsdCategories[i].name === "Podcasts" ||
+      tsdCategories[i].name === "Video"
+    ) {
+      mainCategory = tsdCategories[i].name;
+      break;
+    }
+  }
+
   return (
     <SectionStyle>
       <WPHead base={post} />
@@ -258,7 +278,7 @@ const ContentView: React.ElementType<ContentViewProps> = ({
                     thumbnailInfo.urls &&
                     thumbnailInfo.urls.full,
                   datePublished: postDateGmt,
-                  articleSection: tsdPrimaryCategory && tsdPrimaryCategory.name,
+                  articleSection: mainCategory,
                   creator: tsdAuthors.map(author => author.displayName),
                   keywords: tagsInput.concat(
                     tsdCategories
