@@ -71,7 +71,7 @@ const ContentView: React.ElementType<ContentViewProps> = ({
     tagsInput,
     thumbnailInfo,
     tsdAuthors,
-    tsdCategories, // e.g. News
+    tsdCategories = [], // e.g. News
     tsdPrimaryCategory, // for articles with more than one, selected in WordPress
     tsdUrlParameters,
     postContent,
