@@ -198,6 +198,12 @@ const ContentView: React.ElementType<ContentViewProps> = ({
               </span>
             </Byline>
           )}
+          <div
+            id="ad-auris-tracker"
+            dangerouslySetInnerHTML={{
+              __html: `<iframe style="width: 100%; height: 175px; border: none; display: none" data-org=2f0700ad80cb3d0ced1b7fdb6b0eb9e2.5163f1 allowfullscreen="false" allowtransparency frameborder="0" id="ad-auris-iframe" scrolling="no"></iframe>`,
+            }}
+          />
           <div id="main-article-text" />
           {/* TODO: UNKNOWN WHY THIS IS NECESSARY FOR SOME POSTS TO SHOW UP: E.G. https://www.stanforddaily.com/2019/11/20/the-disappearance-of-financial-aid-how-stanford-consumes-outside-scholarships-when-need-based-aid-doesnt-fulfill-student-needs/ */}
           <div
@@ -299,6 +305,8 @@ const ContentView: React.ElementType<ContentViewProps> = ({
         id="parsely-cfg"
         src="//cdn.parsely.com/keys/stanforddaily.com/p.js"
       />
+      {/* Ad Auris Tracker */}
+      <script src="https://cdn.jsdelivr.net/npm/ad-auris-iframe-distribution@latest/script.js" />
       <WPFooter base={post} />
     </SectionStyle>
   );
