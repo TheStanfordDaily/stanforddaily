@@ -213,7 +213,7 @@ export const TopSection: React.ElementType = ({ style }) => {
           />
           <SmallSection
             className="small-section small-section-join"
-            url="/submitting-to-the-daily/"
+            url="/join/"
             imageUrl={LINKS.NEWSLETTER_LOGO}
             imageAlt="The Stanford Daily logo, a white S over a red background in Canterbury font"
             header="Submit work" //"Fall Workshops (all remote)"
