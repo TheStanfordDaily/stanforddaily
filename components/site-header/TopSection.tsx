@@ -186,7 +186,7 @@ export const TopSection: React.ElementType = ({ style }) => {
               "https://wp.stanforddaily.com/wp-content/uploads/2020/03/logo.b1da2910.jpg"
             }
             imageAlt="Stanford Daily logo"
-            header="FALL PROGRAM | APPLY NOW"
+            header="WINTER PROGRAM | APPLY NOW"
             title="For high schoolers"
             newTab
             css={css`
