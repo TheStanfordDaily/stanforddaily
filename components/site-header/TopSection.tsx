@@ -227,11 +227,11 @@ export const TopSection: React.ElementType = ({ style }) => {
           />
           <SmallSection
             className="small-section small-section-newsletters"
-            url="/2021/07/12/letter-from-the-editors-introducing-100-people-in-100-days/"
-            imageUrl="https://wp.stanforddaily.com/wp-content/uploads/2021/07/100people100days.jpg"
-            imageAlt="A graphic that reads 100 people in 100 days over The Daily's logo."
-            header="100 PEOPLE IN 100 DAYS"
-            title="Our summer listening tour"
+            url="/list-of-eligible-voters-for-the-stanford-dailys-january-2022-elections/"
+            imageUrl="https://wp.stanforddaily.com/wp-content/uploads/2020/11/cardinal-red-daily-s-logo.png"
+            imageAlt="The Stanford Daily's 'S' logo"
+            header="ELIGIBLE VOTER LIST"
+            title="For Daily elections"
             newTab
             css={css`
               ${FOCUS_STATES.BLACK_OUTLINE}
