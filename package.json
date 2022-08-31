@@ -30,7 +30,7 @@
     "expo-font": "~8.1.0",
     "google-map-react": "^2.1.8",
     "moment": "^2.24.0",
-    "moment-timezone": "^0.5.28",
+    "moment-timezone": "^0.5.35",
     "next": "^9.4.4",
     "next-compose-plugins": "^2.2.0",
     "next-fonts": "^1.0.3",
