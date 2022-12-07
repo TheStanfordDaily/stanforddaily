@@ -49,7 +49,7 @@
     "react-native-webview": "11.0.0",
     "react-navigation": "^3.11.1",
     "react-twitter-embed": "^3.0.3",
-    "serverless": "^1.61.1",
+    "serverless": "^3.25.1",
     "serverless-next.js": "^1.10.0",
     "wpapi": "^1.2.1"
   },
